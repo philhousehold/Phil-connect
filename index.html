@@ -6,13 +6,9 @@
 
 <title>Phil Connect</title>
 
-<meta name="description"
-content="Phil Connect connects customers with trusted service providers across Nigeria.">
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-
 *{
   box-sizing:border-box;
   margin:0;
@@ -44,7 +40,7 @@ header{
 }
 
 button{
-  border:none;
+  border:0;
   cursor:pointer;
   font-weight:700;
 }
@@ -59,7 +55,7 @@ button{
 .hero{
   background:white;
   text-align:center;
-  padding:70px 6%;
+  padding:75px 6%;
 }
 
 .hero h1{
@@ -72,7 +68,7 @@ button{
 }
 
 .hero p{
-  max-width:650px;
+  max-width:680px;
   margin:auto;
   color:#6b7280;
   font-size:18px;
@@ -80,12 +76,12 @@ button{
 }
 
 .main-btn{
-  margin-top:30px;
+  margin-top:25px;
   background:#22c55e;
   color:white;
-  padding:15px 25px;
-  border-radius:10px;
-  font-size:16px;
+  padding:14px 23px;
+  border-radius:9px;
+  font-size:15px;
 }
 
 section{
@@ -121,9 +117,11 @@ section{
   text-align:center;
   border:1px solid #e5e7eb;
   cursor:pointer;
+  transition:.2s;
 }
 
 .service:hover{
+  transform:translateY(-3px);
   border-color:#22c55e;
 }
 
@@ -132,7 +130,7 @@ section{
   margin-bottom:10px;
 }
 
-/* MODALS */
+/* MODAL */
 
 .modal{
   display:none;
@@ -152,20 +150,20 @@ section{
 
 .modal-box{
   width:100%;
-  max-width:500px;
+  max-width:520px;
   background:white;
   border-radius:18px;
   padding:28px;
   position:relative;
-  max-height:90vh;
+  max-height:92vh;
   overflow-y:auto;
 }
 
 .close{
   position:absolute;
   right:18px;
-  top:15px;
-  font-size:25px;
+  top:12px;
+  font-size:28px;
   cursor:pointer;
 }
 
@@ -206,8 +204,8 @@ select{
   border:1px solid #d1d5db;
   border-radius:9px;
   outline:none;
-  font-family:Arial,sans-serif;
   font-size:15px;
+  font-family:Arial,sans-serif;
 }
 
 textarea{
@@ -227,8 +225,17 @@ select:focus{
   background:#22c55e;
   color:white;
   border-radius:9px;
-  margin-top:5px;
-  font-size:16px;
+  font-size:15px;
+}
+
+.message{
+  margin-bottom:12px;
+  font-size:14px;
+  color:#16a34a;
+}
+
+.error{
+  color:#dc2626;
 }
 
 .switch{
@@ -243,52 +250,75 @@ select:focus{
   cursor:pointer;
 }
 
-.message{
-  margin-bottom:12px;
-  font-size:14px;
-  color:#16a34a;
-}
-
-.error{
-  color:#dc2626;
-}
-
-/* DASHBOARD */
+/* DASHBOARDS */
 
 .dashboard{
   display:none;
-  padding:60px 6%;
-  text-align:center;
+  min-height:75vh;
+  padding:45px 6%;
 }
 
 .dashboard.active{
   display:block;
 }
 
-.dashboard-card{
-  max-width:800px;
-  margin:30px auto;
+.dashboard-header{
+  max-width:1100px;
+  margin:auto;
+  margin-bottom:25px;
+}
+
+.dashboard-header h1{
+  font-size:32px;
+}
+
+.dashboard-header p{
+  color:#6b7280;
+  margin-top:8px;
+}
+
+.dashboard-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:18px;
+}
+
+.card{
   background:white;
-  padding:35px;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:24px;
+}
+
+.card h3{
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#6b7280;
+  line-height:1.5;
+}
+
+.stat{
+  font-size:32px;
+  font-weight:800;
+  margin-bottom:5px;
+}
+
+.customer-main,
+.provider-main{
+  max-width:1100px;
+  margin:auto;
+}
+
+.large-card{
+  background:white;
   border-radius:18px;
-  box-shadow:0 10px 30px rgba(0,0,0,.06);
-}
-
-.logout{
-  background:#ef4444;
-  color:white;
-  padding:12px 20px;
-  border-radius:8px;
+  padding:28px;
   margin-top:20px;
-}
-
-.request-list{
-  margin-top:35px;
-  text-align:left;
-}
-
-.request-list h2{
-  margin-bottom:15px;
+  border:1px solid #e5e7eb;
 }
 
 .request-card{
@@ -296,11 +326,11 @@ select:focus{
   border:1px solid #e5e7eb;
   border-radius:14px;
   padding:20px;
-  margin-bottom:15px;
+  margin-top:15px;
 }
 
 .request-card h3{
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
 
 .request-card p{
@@ -315,16 +345,74 @@ select:focus{
   border-radius:20px;
   background:#fef3c7;
   color:#92400e;
-  font-size:13px;
+  font-size:12px;
   font-weight:bold;
 }
 
-.online{
+.status.accepted{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.status.completed{
+  background:#dbeafe;
+  color:#1e40af;
+}
+
+.status.rejected{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.online-btn{
   background:#22c55e;
   color:white;
   padding:13px 22px;
   border-radius:9px;
-  margin-top:20px;
+  margin-top:15px;
+}
+
+.offline-btn{
+  background:#ef4444;
+  color:white;
+  padding:13px 22px;
+  border-radius:9px;
+  margin-top:15px;
+}
+
+.action-btn{
+  padding:10px 16px;
+  border-radius:8px;
+  margin-top:12px;
+  margin-right:6px;
+}
+
+.accept-btn{
+  background:#22c55e;
+  color:white;
+}
+
+.reject-btn{
+  background:#ef4444;
+  color:white;
+}
+
+.complete-btn{
+  background:#2563eb;
+  color:white;
+}
+
+.logout{
+  background:#111827;
+  color:white;
+  padding:12px 22px;
+  border-radius:8px;
+  margin-top:30px;
+}
+
+.empty{
+  color:#6b7280;
+  padding:20px 0;
 }
 
 footer{
@@ -334,8 +422,6 @@ footer{
   padding:25px;
 }
 
-/* RESPONSIVE */
-
 @media(max-width:600px){
 
   .hero{
@@ -343,15 +429,17 @@ footer{
   }
 
   section{
-    padding:45px 5%;
+    padding:40px 5%;
   }
 
-  .dashboard-card{
-    padding:25px 18px;
+  .dashboard-header h1{
+    font-size:26px;
   }
 
+  .role-buttons{
+    flex-direction:column;
+  }
 }
-
 </style>
 </head>
 
@@ -372,7 +460,7 @@ footer{
 </header>
 
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
 
 <main id="home">
 
@@ -461,7 +549,7 @@ footer{
 </main>
 
 
-<!-- AUTH MODAL -->
+<!-- ================= AUTH ================= -->
 
 <div class="modal" id="authModal">
 
@@ -469,7 +557,7 @@ footer{
 
   <div class="close" onclick="closeAuth()">×</div>
 
-  <h2 id="authTitle">
+  <h2>
     Welcome to Phil Connect
   </h2>
 
@@ -496,10 +584,15 @@ footer{
   </div>
 
 
-  <div id="message" class="message"></div>
+  <div
+    id="message"
+    class="message">
+  </div>
 
 
-  <div id="nameField" style="display:none;">
+  <div
+    id="nameField"
+    style="display:none;">
 
     <input
       type="text"
@@ -534,8 +627,8 @@ footer{
     Don't have an account?
 
     <span
-      onclick="toggleMode()"
-      id="switchText">
+      id="switchText"
+      onclick="toggleMode()">
       Sign up
     </span>
 
@@ -546,24 +639,21 @@ footer{
 </div>
 
 
-<!-- REQUEST SERVICE MODAL -->
+<!-- ================= REQUEST MODAL ================= -->
 
 <div class="modal" id="requestModal">
 
 <div class="modal-box">
 
-  <div class="close" onclick="closeRequest()">
-    ×
-  </div>
+  <div class="close" onclick="closeRequest()">×</div>
 
   <h2>
     Request a Service
   </h2>
 
   <p class="subtitle">
-    Tell us what you need and we'll help you find a professional.
+    Tell us what you need.
   </p>
-
 
   <div
     id="requestMessage"
@@ -571,14 +661,10 @@ footer{
   </div>
 
 
-  <label>
-    Service
-  </label>
-
   <select id="serviceType">
 
     <option value="">
-      Select a service
+      Select service
     </option>
 
     <option value="Plumbing">
@@ -616,70 +702,46 @@ footer{
   </select>
 
 
-  <label>
-    Describe the job
-  </label>
-
   <textarea
     id="description"
-    placeholder="Tell us what you need done...">
+    placeholder="Describe the job you need done">
   </textarea>
 
-
-  <label>
-    Location
-  </label>
 
   <input
     type="text"
     id="location"
-    placeholder="e.g. Ikeja, Lagos">
+    placeholder="Location">
 
-
-  <label>
-    Phone number
-  </label>
 
   <input
     type="tel"
     id="phone"
-    placeholder="e.g. 08012345678">
+    placeholder="Phone number">
 
-
-  <label>
-    Preferred date
-  </label>
 
   <input
     type="date"
     id="preferredDate">
 
 
-  <label>
-    Preferred time
-  </label>
-
   <input
     type="text"
     id="preferredTime"
-    placeholder="e.g. 10:00 AM">
+    placeholder="Preferred time e.g. 10:00 AM">
 
-
-  <label>
-    Estimated budget (₦)
-  </label>
 
   <input
     type="number"
     id="budget"
-    placeholder="e.g. 50000">
+    placeholder="Estimated budget ₦">
 
 
   <button
     class="submit"
     onclick="submitRequest()">
 
-    Submit Service Request
+    Submit Request
 
   </button>
 
@@ -688,44 +750,119 @@ footer{
 </div>
 
 
+<!-- ================================================= -->
 <!-- CUSTOMER DASHBOARD -->
+<!-- ================================================= -->
 
 <section
   id="customerDashboard"
   class="dashboard">
 
-<div class="dashboard-card">
+<div class="customer-main">
 
-  <h1>
-    Welcome,
-    <span id="customerName"></span>
-    👋
-  </h1>
+  <div class="dashboard-header">
 
-  <p style="margin-top:12px;color:#6b7280;">
-    Welcome to your Phil Connect customer dashboard.
-  </p>
+    <h1>
+      Customer Dashboard 👤
+    </h1>
 
+    <p>
+      Welcome back,
+      <strong id="customerName"></strong>.
+    </p>
 
-  <button
-    class="main-btn"
-    onclick="openRequest()">
-
-    Request a Service
-
-  </button>
+  </div>
 
 
-  <div class="request-list">
+  <div class="dashboard-grid">
+
+    <div class="card">
+
+      <div class="stat"
+           id="totalRequests">
+        0
+      </div>
+
+      <h3>
+        My Requests
+      </h3>
+
+      <p>
+        Total service requests you've submitted.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="stat"
+           id="pendingRequests">
+        0
+      </div>
+
+      <h3>
+        Pending
+      </h3>
+
+      <p>
+        Requests waiting for a provider.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="stat"
+           id="acceptedRequests">
+        0
+      </div>
+
+      <h3>
+        Accepted
+      </h3>
+
+      <p>
+        Requests accepted by providers.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="large-card">
+
+    <h2>
+      Request a Service
+    </h2>
+
+    <p style="margin-top:8px;color:#6b7280;">
+      Need help? Send a request to available providers.
+    </p>
+
+    <button
+      class="main-btn"
+      onclick="openRequest()">
+
+      + Request a Service
+
+    </button>
+
+  </div>
+
+
+  <div class="large-card">
 
     <h2>
       My Service Requests
     </h2>
 
-    <div id="requestsContainer">
+    <div id="customerRequests">
 
-      <p style="color:#6b7280;">
-        Loading your requests...
+      <p class="empty">
+        Loading requests...
       </p>
 
     </div>
@@ -746,40 +883,152 @@ footer{
 </section>
 
 
+<!-- ================================================= -->
 <!-- PROVIDER DASHBOARD -->
+<!-- ================================================= -->
 
 <section
   id="providerDashboard"
   class="dashboard">
 
-<div class="dashboard-card">
+<div class="provider-main">
 
-  <h1>
-    Provider Dashboard 🧑‍🔧
-  </h1>
+  <div class="dashboard-header">
 
-  <p style="margin-top:12px;color:#6b7280;">
-    Manage your availability and service requests.
-  </p>
+    <h1>
+      Provider Dashboard 🧑‍🔧
+    </h1>
 
+    <p>
+      Manage your business and find service jobs.
+    </p>
 
-  <button
-    class="online"
-    id="onlineButton"
-    onclick="toggleOnline()">
-
-    Go Online
-
-  </button>
+  </div>
 
 
-  <p
-    id="onlineStatus"
-    style="margin-top:15px;">
+  <div class="dashboard-grid">
 
-    You are currently offline.
+    <div class="card">
 
-  </p>
+      <div class="stat"
+           id="providerStatus">
+        OFF
+      </div>
+
+      <h3>
+        Availability
+      </h3>
+
+      <p>
+        Customers can find you when you are online.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="stat"
+           id="availableJobs">
+        0
+      </div>
+
+      <h3>
+        Available Jobs
+      </h3>
+
+      <p>
+        Service requests available in the marketplace.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="stat"
+           id="acceptedJobs">
+        0
+      </div>
+
+      <h3>
+        My Jobs
+      </h3>
+
+      <p>
+        Jobs you have accepted.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="large-card">
+
+    <h2>
+      Your Availability
+    </h2>
+
+    <p
+      id="providerOnlineText"
+      style="margin-top:8px;color:#6b7280;">
+
+      You are currently offline.
+
+    </p>
+
+
+    <button
+      id="onlineButton"
+      class="online-btn"
+      onclick="toggleOnline()">
+
+      Go Online
+
+    </button>
+
+  </div>
+
+
+  <div class="large-card">
+
+    <h2>
+      Available Service Requests
+    </h2>
+
+    <p style="margin-top:8px;color:#6b7280;">
+      Customers looking for professionals.
+    </p>
+
+
+    <div id="providerRequests">
+
+      <p class="empty">
+        Loading available jobs...
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="large-card">
+
+    <h2>
+      My Accepted Jobs
+    </h2>
+
+
+    <div id="myProviderJobs">
+
+      <p class="empty">
+        No accepted jobs yet.
+      </p>
+
+    </div>
+
+  </div>
 
 
   <button
@@ -796,17 +1045,15 @@ footer{
 
 
 <footer>
-
   © 2026 Phil Connect. All rights reserved.
-
 </footer>
 
 
 <script>
 
-/* =========================
+/* =====================================================
    SUPABASE
-========================= */
+===================================================== */
 
 const SUPABASE_URL =
 "https://zkebonwbbumhdmmppozq.supabase.co";
@@ -821,18 +1068,13 @@ window.supabase.createClient(
 );
 
 
-/* =========================
-   VARIABLES
-========================= */
-
 let selectedRole = "customer";
-
 let signupMode = false;
 
 
-/* =========================
+/* =====================================================
    AUTH MODAL
-========================= */
+===================================================== */
 
 function openAuth(){
 
@@ -873,9 +1115,9 @@ function selectRole(role){
 }
 
 
-/* =========================
-   LOGIN / SIGNUP MODE
-========================= */
+/* =====================================================
+   SIGNUP / LOGIN MODE
+===================================================== */
 
 function toggleMode(){
 
@@ -888,7 +1130,6 @@ function toggleMode(){
       ? "block"
       : "none";
 
-
   document
     .getElementById("submitButton")
     .innerText =
@@ -896,14 +1137,12 @@ function toggleMode(){
       ? "Create Account"
       : "Login";
 
-
   document
     .getElementById("authSubtitle")
     .innerText =
       signupMode
       ? "Create your Phil Connect account."
       : "Login to continue.";
-
 
   document
     .getElementById("switchText")
@@ -915,9 +1154,9 @@ function toggleMode(){
 }
 
 
-/* =========================
-   AUTHENTICATION
-========================= */
+/* =====================================================
+   LOGIN / SIGNUP
+===================================================== */
 
 async function submitAuth(){
 
@@ -942,10 +1181,7 @@ async function submitAuth(){
     document
       .getElementById("message");
 
-
-  message.className =
-    "message";
-
+  message.className = "message";
   message.innerText = "";
 
 
@@ -954,15 +1190,16 @@ async function submitAuth(){
     message.classList.add("error");
 
     message.innerText =
-      "Please enter your email and password.";
+      "Enter your email and password.";
 
     return;
+
   }
 
 
   try{
 
-    /* SIGN UP */
+    /* ================= SIGN UP ================= */
 
     if(signupMode){
 
@@ -971,9 +1208,10 @@ async function submitAuth(){
         message.classList.add("error");
 
         message.innerText =
-          "Please enter your full name.";
+          "Enter your full name.";
 
         return;
+
       }
 
 
@@ -999,6 +1237,7 @@ async function submitAuth(){
 
       if(error) throw error;
 
+
       if(!data.user){
 
         throw new Error(
@@ -1008,7 +1247,9 @@ async function submitAuth(){
       }
 
 
-      /* CREATE PROFILE */
+      /*
+       * Create profile
+       */
 
       const {
         error:profileError
@@ -1031,14 +1272,16 @@ async function submitAuth(){
       if(profileError){
 
         console.log(
-          "Profile error:",
+          "Profile:",
           profileError
         );
 
       }
 
 
-      /* PROVIDER PROFILE */
+      /*
+       * Provider record
+       */
 
       if(selectedRole === "provider"){
 
@@ -1056,7 +1299,8 @@ async function submitAuth(){
             description:
               "Phil Connect service provider",
 
-            verification_status:"pending",
+            verification_status:
+              "pending",
 
             is_online:false,
 
@@ -1068,7 +1312,7 @@ async function submitAuth(){
         if(providerError){
 
           console.log(
-            "Provider error:",
+            "Provider:",
             providerError
           );
 
@@ -1078,7 +1322,7 @@ async function submitAuth(){
 
 
       message.innerText =
-        "Account created successfully. You can now log in.";
+        "Account created. You can now login.";
 
       signupMode = false;
 
@@ -1094,25 +1338,26 @@ async function submitAuth(){
         .getElementById("switchText")
         .innerText = "Sign up";
 
-
       return;
 
     }
 
 
-    /* LOGIN */
+    /* ================= LOGIN ================= */
 
     const {
       data,
       error
     } =
-    await supabaseClient.auth.signInWithPassword({
+    await supabaseClient
+      .auth
+      .signInWithPassword({
 
-      email:email,
+        email:email,
 
-      password:password
+        password:password
 
-    });
+      });
 
 
     if(error) throw error;
@@ -1141,16 +1386,18 @@ async function submitAuth(){
 
     message.innerText =
       error.message ||
-      "Something went wrong.";
+      "Login failed.";
+
+    console.error(error);
 
   }
 
 }
 
 
-/* =========================
-   DASHBOARD
-========================= */
+/* =====================================================
+   LOAD USER DASHBOARD
+===================================================== */
 
 async function loadUserDashboard(userId){
 
@@ -1167,35 +1414,51 @@ async function loadUserDashboard(userId){
 
   if(error){
 
-    console.log(error);
+    alert(
+      "Login succeeded but the profile could not be loaded.\n\n" +
+      error.message
+    );
+
+    console.error(error);
 
     return;
 
   }
 
 
+  if(!profile){
+
+    alert(
+      "No Phil Connect profile was found for this account."
+    );
+
+    return;
+
+  }
+
+
+  /*
+   * Hide everything first.
+   */
+
   document
     .getElementById("home")
     .style.display = "none";
 
-
   document
     .getElementById("customerDashboard")
     .classList.remove("active");
-
 
   document
     .getElementById("providerDashboard")
     .classList.remove("active");
 
 
-  if(profile.role === "provider"){
+  /*
+   * CUSTOMER
+   */
 
-    document
-      .getElementById("providerDashboard")
-      .classList.add("active");
-
-  }else{
+  if(profile.role === "customer"){
 
     document
       .getElementById("customerName")
@@ -1209,16 +1472,46 @@ async function loadUserDashboard(userId){
       .classList.add("active");
 
 
-    loadRequests();
+    await loadCustomerRequests();
+
+  }
+
+
+  /*
+   * PROVIDER
+   */
+
+  else if(profile.role === "provider"){
+
+    document
+      .getElementById("providerDashboard")
+      .classList.add("active");
+
+
+    await loadProviderDashboard();
+
+  }
+
+
+  else{
+
+    alert(
+      "Your account has an invalid role: " +
+      profile.role
+    );
+
+    document
+      .getElementById("home")
+      .style.display = "block";
 
   }
 
 }
 
 
-/* =========================
-   REQUEST MODAL
-========================= */
+/* =====================================================
+   CUSTOMER REQUEST MODAL
+===================================================== */
 
 function openRequest(){
 
@@ -1242,12 +1535,8 @@ function openRequestFromHome(service){
 
   openAuth();
 
-  /*
-   * If user is already logged in,
-   * open the request form directly.
-   */
-
-  supabaseClient.auth.getSession()
+  supabaseClient.auth
+    .getSession()
     .then(({data}) => {
 
       if(data.session){
@@ -1267,9 +1556,9 @@ function openRequestFromHome(service){
 }
 
 
-/* =========================
-   SUBMIT SERVICE REQUEST
-========================= */
+/* =====================================================
+   SUBMIT CUSTOMER REQUEST
+===================================================== */
 
 async function submitRequest(){
 
@@ -1277,10 +1566,7 @@ async function submitRequest(){
     document
       .getElementById("requestMessage");
 
-
-  message.className =
-    "message";
-
+  message.className = "message";
   message.innerText = "";
 
 
@@ -1289,13 +1575,11 @@ async function submitRequest(){
       .getElementById("serviceType")
       .value;
 
-
   const description =
     document
       .getElementById("description")
       .value
       .trim();
-
 
   const location =
     document
@@ -1303,19 +1587,16 @@ async function submitRequest(){
       .value
       .trim();
 
-
   const phone =
     document
       .getElementById("phone")
       .value
       .trim();
 
-
   const preferredDate =
     document
       .getElementById("preferredDate")
       .value;
-
 
   const preferredTime =
     document
@@ -1323,55 +1604,21 @@ async function submitRequest(){
       .value
       .trim();
 
-
-  const budgetValue =
+  const budget =
     document
       .getElementById("budget")
       .value;
 
 
-  if(!serviceType){
+  if(!serviceType ||
+     !description ||
+     !location ||
+     !phone){
 
     message.classList.add("error");
 
     message.innerText =
-      "Please select a service.";
-
-    return;
-
-  }
-
-
-  if(!description){
-
-    message.classList.add("error");
-
-    message.innerText =
-      "Please describe the job.";
-
-    return;
-
-  }
-
-
-  if(!location){
-
-    message.classList.add("error");
-
-    message.innerText =
-      "Please enter your location.";
-
-    return;
-
-  }
-
-
-  if(!phone){
-
-    message.classList.add("error");
-
-    message.innerText =
-      "Please enter your phone number.";
+      "Please complete all required fields.";
 
     return;
 
@@ -1381,19 +1628,20 @@ async function submitRequest(){
   try{
 
     const {
-      data:sessionData
+      data
     } =
-    await supabaseClient.auth.getSession();
+    await supabaseClient
+      .auth
+      .getSession();
 
 
     const user =
-      sessionData.session?.user;
+      data.session?.user;
 
 
     if(!user){
 
       closeRequest();
-
       openAuth();
 
       return;
@@ -1425,8 +1673,8 @@ async function submitRequest(){
           preferredTime || null,
 
         budget:
-          budgetValue
-          ? Number(budgetValue)
+          budget
+          ? Number(budget)
           : null,
 
         status:"pending"
@@ -1438,12 +1686,8 @@ async function submitRequest(){
 
 
     message.innerText =
-      "✅ Service request submitted successfully!";
+      "Request submitted successfully!";
 
-
-    /*
-     * Clear form
-     */
 
     document
       .getElementById("description")
@@ -1470,18 +1714,13 @@ async function submitRequest(){
       .value = "";
 
 
-    /*
-     * Refresh customer's requests
-     */
-
-    await loadRequests();
+    await loadCustomerRequests();
 
 
-    setTimeout(() => {
-
-      closeRequest();
-
-    },1500);
+    setTimeout(
+      closeRequest,
+      1200
+    );
 
 
   }catch(error){
@@ -1497,52 +1736,43 @@ async function submitRequest(){
 }
 
 
-/* =========================
-   LOAD CUSTOMER REQUESTS
-========================= */
+/* =====================================================
+   CUSTOMER REQUESTS
+===================================================== */
 
-async function loadRequests(){
+async function loadCustomerRequests(){
 
   const container =
     document
-      .getElementById("requestsContainer");
-
-
-  if(!container) return;
-
-
-  container.innerHTML =
-    "<p style='color:#6b7280;'>Loading...</p>";
+      .getElementById("customerRequests");
 
 
   const {
-    data:sessionData
+    data
   } =
-  await supabaseClient.auth.getSession();
+  await supabaseClient
+    .auth
+    .getSession();
 
 
   const user =
-    sessionData.session?.user;
+    data.session?.user;
 
 
-  if(!user){
-
-    container.innerHTML =
-      "<p>Please login.</p>";
-
-    return;
-
-  }
+  if(!user) return;
 
 
   const {
-    data,
+    data:requests,
     error
   } =
   await supabaseClient
     .from("service_requests")
     .select("*")
-    .eq("customer_id",user.id)
+    .eq(
+      "customer_id",
+      user.id
+    )
     .order(
       "created_at",
       {
@@ -1553,26 +1783,54 @@ async function loadRequests(){
 
   if(error){
 
-    console.log(error);
-
     container.innerHTML =
-      "<p style='color:#dc2626;'>Unable to load requests.</p>";
+      `<p class="empty">
+        ${escapeHtml(error.message)}
+      </p>`;
 
     return;
 
   }
 
 
-  if(!data || data.length === 0){
+  const total =
+    requests?.length || 0;
 
-    container.innerHTML = `
-      <div class="request-card">
-        <h3>No service requests yet</h3>
-        <p>
-          Tap "Request a Service" to submit your first request.
-        </p>
-      </div>
-    `;
+
+  const pending =
+    requests?.filter(
+      r => r.status === "pending"
+    ).length || 0;
+
+
+  const accepted =
+    requests?.filter(
+      r => r.status === "accepted"
+    ).length || 0;
+
+
+  document
+    .getElementById("totalRequests")
+    .innerText = total;
+
+
+  document
+    .getElementById("pendingRequests")
+    .innerText = pending;
+
+
+  document
+    .getElementById("acceptedRequests")
+    .innerText = accepted;
+
+
+  if(!requests ||
+     requests.length === 0){
+
+    container.innerHTML =
+      `<p class="empty">
+        You haven't submitted any requests yet.
+      </p>`;
 
     return;
 
@@ -1582,32 +1840,23 @@ async function loadRequests(){
   container.innerHTML = "";
 
 
-  data.forEach(request => {
+  requests.forEach(request => {
 
-    const card =
+    const div =
       document.createElement("div");
 
-
-    card.className =
+    div.className =
       "request-card";
 
 
-    const date =
-      request.created_at
-      ? new Date(
-          request.created_at
-        ).toLocaleDateString()
-      : "";
-
-
-    card.innerHTML = `
+    div.innerHTML = `
 
       <h3>
         ${escapeHtml(request.service_type)}
       </h3>
 
       <p>
-        <strong>Description:</strong>
+        <strong>Job:</strong>
         ${escapeHtml(request.description)}
       </p>
 
@@ -1628,59 +1877,134 @@ async function loadRequests(){
           <strong>Budget:</strong>
           ₦${Number(request.budget).toLocaleString()}
         </p>`
-        :
-        ""
+        : ""
       }
 
-      ${
-        request.preferred_date
-        ?
-        `<p>
-          <strong>Date:</strong>
-          ${escapeHtml(request.preferred_date)}
-        </p>`
-        :
-        ""
-      }
-
-      <p>
-        <strong>Submitted:</strong>
-        ${date}
-      </p>
-
-      <span class="status">
+      <span class="status ${request.status}">
         ${escapeHtml(request.status || "pending")}
       </span>
 
     `;
 
 
-    container.appendChild(card);
+    container.appendChild(div);
 
   });
 
 }
 
 
-/* =========================
-   SECURITY HELPER
-========================= */
+/* =====================================================
+   PROVIDER DASHBOARD
+===================================================== */
 
-function escapeHtml(value){
+async function loadProviderDashboard(){
 
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  const {
+    data
+  } =
+  await supabaseClient
+    .auth
+    .getUser();
+
+
+  const user =
+    data.user;
+
+
+  if(!user) return;
+
+
+  /*
+   * Get provider record
+   */
+
+  const {
+    data:provider,
+    error
+  } =
+  await supabaseClient
+    .from("providers")
+    .select("*")
+    .eq(
+      "user_id",
+      user.id
+    )
+    .single();
+
+
+  if(error){
+
+    console.error(error);
+
+  }
+
+
+  if(provider){
+
+    updateProviderOnlineUI(
+      provider.is_online
+    );
+
+  }
+
+
+  await loadProviderJobs();
 
 }
 
 
-/* =========================
-   PROVIDER ONLINE
-========================= */
+/* =====================================================
+   PROVIDER ONLINE/OFFLINE
+===================================================== */
+
+function updateProviderOnlineUI(isOnline){
+
+  const button =
+    document
+      .getElementById("onlineButton");
+
+  const status =
+    document
+      .getElementById("providerStatus");
+
+  const text =
+    document
+      .getElementById("providerOnlineText");
+
+
+  if(isOnline){
+
+    button.innerText =
+      "Go Offline";
+
+    button.className =
+      "offline-btn";
+
+    status.innerText =
+      "ON";
+
+    text.innerText =
+      "🟢 You are online and available for jobs.";
+
+  }else{
+
+    button.innerText =
+      "Go Online";
+
+    button.className =
+      "online-btn";
+
+    status.innerText =
+      "OFF";
+
+    text.innerText =
+      "You are currently offline.";
+
+  }
+
+}
+
 
 async function toggleOnline(){
 
@@ -1692,7 +2016,11 @@ async function toggleOnline(){
     .getUser();
 
 
-  if(!data.user) return;
+  if(!data.user){
+
+    return;
+
+  }
 
 
   const {
@@ -1709,7 +2037,8 @@ async function toggleOnline(){
     .single();
 
 
-  if(error || !provider){
+  if(error ||
+     !provider){
 
     alert(
       "Provider profile not found."
@@ -1751,29 +2080,460 @@ async function toggleOnline(){
   }
 
 
-  document
-    .getElementById("onlineButton")
-    .innerText =
-      newStatus
-      ? "Go Offline"
-      : "Go Online";
+  updateProviderOnlineUI(
+    newStatus
+  );
 
-
-  document
-    .getElementById("onlineStatus")
-    .innerText =
-      newStatus
-      ?
-      "🟢 You are online and available for jobs."
-      :
-      "You are currently offline.";
 
 }
 
 
-/* =========================
+/* =====================================================
+   PROVIDER JOBS
+===================================================== */
+
+async function loadProviderJobs(){
+
+  const availableContainer =
+    document
+      .getElementById("providerRequests");
+
+  const acceptedContainer =
+    document
+      .getElementById("myProviderJobs");
+
+
+  /*
+   * Get current provider
+   */
+
+  const {
+    data
+  } =
+  await supabaseClient
+    .auth
+    .getUser();
+
+
+  const user =
+    data.user;
+
+
+  if(!user) return;
+
+
+  /*
+   * Available pending jobs
+   */
+
+  const {
+    data:requests,
+    error
+  } =
+  await supabaseClient
+    .from("service_requests")
+    .select("*")
+    .eq(
+      "status",
+      "pending"
+    )
+    .order(
+      "created_at",
+      {
+        ascending:false
+      }
+    );
+
+
+  if(error){
+
+    availableContainer.innerHTML =
+      `<p class="empty">
+        ${escapeHtml(error.message)}
+      </p>`;
+
+  }else if(!requests ||
+           requests.length === 0){
+
+    availableContainer.innerHTML =
+      `<p class="empty">
+        No new service requests right now.
+      </p>`;
+
+  }else{
+
+    availableContainer.innerHTML = "";
+
+
+    requests.forEach(request => {
+
+      const div =
+        document.createElement("div");
+
+      div.className =
+        "request-card";
+
+
+      div.innerHTML = `
+
+        <h3>
+          ${escapeHtml(request.service_type)}
+        </h3>
+
+        <p>
+          <strong>Job:</strong>
+          ${escapeHtml(request.description)}
+        </p>
+
+        <p>
+          <strong>Location:</strong>
+          ${escapeHtml(request.location)}
+        </p>
+
+        <p>
+          <strong>Budget:</strong>
+          ${
+            request.budget
+            ?
+            "₦" +
+            Number(
+              request.budget
+            ).toLocaleString()
+            :
+            "Not specified"
+          }
+        </p>
+
+        <button
+          class="action-btn accept-btn"
+          onclick="acceptJob('${request.id}')">
+
+          Accept Job
+
+        </button>
+
+        <button
+          class="action-btn reject-btn"
+          onclick="rejectJob('${request.id}')">
+
+          Reject
+
+        </button>
+
+      `;
+
+
+      availableContainer
+        .appendChild(div);
+
+    });
+
+  }
+
+
+  /*
+   * Accepted jobs
+   *
+   * This version stores provider ID
+   * in the provider_id column only
+   * if that column exists.
+   */
+
+  const {
+    data:acceptedJobs
+  } =
+  await supabaseClient
+    .from("service_requests")
+    .select("*")
+    .eq(
+      "status",
+      "accepted"
+    )
+    .order(
+      "created_at",
+      {
+        ascending:false
+      }
+    );
+
+
+  const myJobs =
+    acceptedJobs?.filter(
+      job =>
+        job.provider_id === user.id
+    ) || [];
+
+
+  document
+    .getElementById("acceptedJobs")
+    .innerText =
+      myJobs.length;
+
+
+  if(myJobs.length === 0){
+
+    acceptedContainer.innerHTML =
+      `<p class="empty">
+        You have no accepted jobs yet.
+      </p>`;
+
+  }else{
+
+    acceptedContainer.innerHTML = "";
+
+
+    myJobs.forEach(job => {
+
+      const div =
+        document.createElement("div");
+
+      div.className =
+        "request-card";
+
+
+      div.innerHTML = `
+
+        <h3>
+          ${escapeHtml(job.service_type)}
+        </h3>
+
+        <p>
+          ${escapeHtml(job.description)}
+        </p>
+
+        <p>
+          📍 ${escapeHtml(job.location)}
+        </p>
+
+        <span class="status accepted">
+          ACCEPTED
+        </span>
+
+        <br>
+
+        <button
+          class="action-btn complete-btn"
+          onclick="completeJob('${job.id}')">
+
+          Mark Completed
+
+        </button>
+
+      `;
+
+
+      acceptedContainer
+        .appendChild(div);
+
+    });
+
+  }
+
+
+  document
+    .getElementById("availableJobs")
+    .innerText =
+      requests?.length || 0;
+
+}
+
+
+/* =====================================================
+   ACCEPT JOB
+===================================================== */
+
+async function acceptJob(requestId){
+
+  const {
+    data
+  } =
+  await supabaseClient
+    .auth
+    .getUser();
+
+
+  if(!data.user){
+
+    alert("Please login again.");
+
+    return;
+
+  }
+
+
+  /*
+   * We need provider_id.
+   */
+
+  const {
+    data:provider
+  } =
+  await supabaseClient
+    .from("providers")
+    .select("id")
+    .eq(
+      "user_id",
+      data.user.id
+    )
+    .single();
+
+
+  if(!provider){
+
+    alert(
+      "Provider profile not found."
+    );
+
+    return;
+
+  }
+
+
+  const {
+    error
+  } =
+  await supabaseClient
+    .from("service_requests")
+    .update({
+
+      status:"accepted",
+
+      provider_id:provider.id
+
+    })
+    .eq(
+      "id",
+      requestId
+    )
+    .eq(
+      "status",
+      "pending"
+    );
+
+
+  if(error){
+
+    alert(error.message);
+
+    return;
+
+  }
+
+
+  alert(
+    "Job accepted successfully!"
+  );
+
+
+  await loadProviderJobs();
+
+}
+
+
+/* =====================================================
+   REJECT JOB
+===================================================== */
+
+async function rejectJob(requestId){
+
+  /*
+   * For now, rejected jobs are marked rejected.
+   */
+
+  const {
+    error
+  } =
+  await supabaseClient
+    .from("service_requests")
+    .update({
+
+      status:"rejected"
+
+    })
+    .eq(
+      "id",
+      requestId
+    )
+    .eq(
+      "status",
+      "pending"
+    );
+
+
+  if(error){
+
+    alert(error.message);
+
+    return;
+
+  }
+
+
+  await loadProviderJobs();
+
+}
+
+
+/* =====================================================
+   COMPLETE JOB
+===================================================== */
+
+async function completeJob(requestId){
+
+  const {
+    error
+  } =
+  await supabaseClient
+    .from("service_requests")
+    .update({
+
+      status:"completed"
+
+    })
+    .eq(
+      "id",
+      requestId
+    );
+
+
+  if(error){
+
+    alert(error.message);
+
+    return;
+
+  }
+
+
+  alert(
+    "Job marked as completed."
+  );
+
+
+  await loadProviderJobs();
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
    LOGOUT
-========================= */
+===================================================== */
 
 async function logout(){
 
@@ -1786,25 +2546,22 @@ async function logout(){
     .getElementById("customerDashboard")
     .classList.remove("active");
 
-
   document
     .getElementById("providerDashboard")
     .classList.remove("active");
 
-
   document
     .getElementById("home")
     .style.display = "block";
-
 
   window.location.reload();
 
 }
 
 
-/* =========================
-   CHECK SESSION
-========================= */
+/* =====================================================
+   SESSION CHECK
+===================================================== */
 
 async function checkSession(){
 
