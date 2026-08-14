@@ -406,15 +406,6 @@ footer{
   margin-top:20px;
 }
 
-.email-box{
-  background:#eff6ff;
-  border:1px solid #93c5fd;
-  color:#1e40af;
-  padding:15px;
-  border-radius:10px;
-  margin-top:15px;
-}
-
 @media(max-width:600px){
 
   .hero{
@@ -453,6 +444,10 @@ Login / Sign Up
 </button>
 
 </header>
+
+<!-- =====================================================
+HOME
+===================================================== -->
 
 <main id="home">
 
@@ -536,6 +531,10 @@ Get Started
 </section>
 
 </main>
+
+<!-- =====================================================
+CUSTOMER DASHBOARD
+===================================================== -->
 
 <section id="customerDashboard" class="dashboard">
 
@@ -627,7 +626,10 @@ Submit Service Request
 
 </button>
 
-<div id="customerMessage" class="message"></div>
+<div
+id="customerMessage"
+class="message">
+</div>
 
 </div>
 
@@ -675,6 +677,10 @@ Logout
 
 </section>
 
+<!-- =====================================================
+PROVIDER DASHBOARD
+===================================================== -->
+
 <section id="providerDashboard" class="dashboard">
 
 <div class="dashboard-header">
@@ -708,6 +714,8 @@ style="margin-top:12px">
 
 </div>
 
+<!-- PROVIDER VERIFICATION -->
+
 <div class="card">
 
 <h2>
@@ -726,7 +734,8 @@ Loading verification status...
 
 </div>
 
-<div id="providerVerificationForm" class="hidden">
+<div id="providerVerificationForm"
+class="hidden">
 
 <h3 style="margin-bottom:15px">
 Personal Information
@@ -778,15 +787,29 @@ Identity Information
 <select id="verifyIDType">
 
 <option value="">Select ID type</option>
-<option>National ID / NIN</option>
-<option>International Passport</option>
-<option>Driver's License</option>
-<option>Voter's Card</option>
+<option value="NIN">NIN</option>
+<option value="National ID">National ID</option>
+<option value="International Passport">
+International Passport
+</option>
+<option value="Driver License">
+Driver License
+</option>
+<option value="Voter Card">
+Voter Card
+</option>
+<option value="Other">
+Other
+</option>
 
 </select>
 
 <label>ID Number</label>
-<input id="verifyIDNumber">
+
+<input
+id="verifyIDNumber"
+placeholder="Enter your ID number"
+>
 
 <h3 style="margin-top:15px;margin-bottom:15px">
 Guarantor 1
@@ -808,12 +831,32 @@ Guarantor 1
 <input id="g1Relationship">
 
 <label>ID Type</label>
-<input id="g1IDType">
+
+<select id="g1IDType">
+
+<option value="">Select ID type</option>
+<option value="NIN">NIN</option>
+<option value="National ID">National ID</option>
+<option value="International Passport">
+International Passport
+</option>
+<option value="Driver License">
+Driver License
+</option>
+<option value="Voter Card">
+Voter Card
+</option>
+<option value="Other">
+Other
+</option>
+
+</select>
 
 <label>ID Number</label>
 <input id="g1IDNumber">
 
 <label>
+
 <input
 type="checkbox"
 id="g1Consent"
@@ -843,12 +886,32 @@ Guarantor 2
 <input id="g2Relationship">
 
 <label>ID Type</label>
-<input id="g2IDType">
+
+<select id="g2IDType">
+
+<option value="">Select ID type</option>
+<option value="NIN">NIN</option>
+<option value="National ID">National ID</option>
+<option value="International Passport">
+International Passport
+</option>
+<option value="Driver License">
+Driver License
+</option>
+<option value="Voter Card">
+Voter Card
+</option>
+<option value="Other">
+Other
+</option>
+
+</select>
 
 <label>ID Number</label>
 <input id="g2IDNumber">
 
 <label>
+
 <input
 type="checkbox"
 id="g2Consent"
@@ -922,6 +985,10 @@ Logout
 </button>
 
 </section>
+
+<!-- =====================================================
+ADMIN DASHBOARD
+===================================================== -->
 
 <section id="adminDashboard" class="dashboard">
 
@@ -1020,6 +1087,10 @@ Logout
 </button>
 
 </section>
+
+<!-- =====================================================
+AUTH
+===================================================== -->
 
 <div class="modal" id="authModal">
 
@@ -1130,9 +1201,6 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
 "sb_publishable_dlSEmHjmV1YLmtXsezUFNQ_WEXpl9KP";
 
-const SITE_URL =
-"https://phil-connect.vercel.app";
-
 const supabaseClient =
 window.supabase.createClient(
 SUPABASE_URL,
@@ -1145,6 +1213,51 @@ let currentUser = null;
 let refreshTimer = null;
 let currentAdmin = false;
 
+/* =========================================================
+VALID DATABASE ID TYPES
+========================================================= */
+
+const VALID_ID_TYPES = [
+"NIN",
+"National ID",
+"International Passport",
+"Driver License",
+"Voter Card",
+"Other"
+];
+
+function normalizeIDType(value){
+
+if(!value){
+return null;
+}
+
+if(VALID_ID_TYPES.includes(value)){
+return value;
+}
+
+/* Convert old values to the exact database values */
+
+const oldValues = {
+
+"National ID / NIN":"NIN",
+
+"NIN / National ID":"NIN",
+
+"Driver's License":"Driver License",
+
+"Drivers License":"Driver License",
+
+"Voter's Card":"Voter Card",
+
+"International passport":
+"International Passport"
+
+};
+
+return oldValues[value] || "Other";
+
+}
 
 /* =========================================================
 AUTH MODAL
@@ -1220,7 +1333,6 @@ signupMode
 
 }
 
-
 /* =========================================================
 AUTH
 ========================================================= */
@@ -1255,10 +1367,6 @@ return;
 
 try{
 
-/* =========================
-SIGN UP
-========================= */
-
 if(signupMode){
 
 if(!fullName){
@@ -1270,14 +1378,6 @@ return;
 
 }
 
-
-/*
-IMPORTANT:
-After email confirmation, Supabase
-returns the user to the live Phil
-Connect website.
-*/
-
 const {data,error} =
 await supabaseClient.auth.signUp({
 
@@ -1285,15 +1385,10 @@ email,
 password,
 
 options:{
-
-emailRedirectTo:
-SITE_URL,
-
 data:{
 full_name:fullName,
 role:selectedRole
 }
-
 }
 
 });
@@ -1307,17 +1402,6 @@ throw new Error(
 );
 
 }
-
-
-/*
-Create/update profile.
-This can succeed immediately if
-email confirmation is disabled,
-or after confirmation depending
-on the Supabase project settings.
-*/
-
-if(data.user){
 
 const {error:profileError} =
 await supabaseClient
@@ -1342,11 +1426,6 @@ profileError
 
 }
 
-
-/*
-Create provider record.
-*/
-
 if(selectedRole === "provider"){
 
 const {error:providerError} =
@@ -1366,7 +1445,7 @@ verification_status:
 
 is_online:false,
 
-is_available:true,
+is_available:false,
 
 rating:0,
 
@@ -1387,60 +1466,8 @@ providerError
 
 }
 
-}
-
-
-/*
-If email confirmation is enabled,
-show a clear message instead of
-trying to enter the dashboard.
-*/
-
-if(!data.session){
-
-message.innerHTML = `
-
-<div class="email-box">
-
-<strong>✅ Account created.</strong>
-
-<br><br>
-
-We sent a verification email to:
-
-<strong>${escapeHTML(email)}</strong>
-
-<br><br>
-
-Open the email and click the verification
-button. You will be returned to Phil Connect.
-
-</div>
-
-`;
-
-}else{
-
-message.innerHTML = `
-
-<div class="success-box">
-
-✅ Account created and signed in.
-
-</div>
-
-`;
-
-currentUser =
-data.user;
-
-closeAuth();
-
-await showDashboard(
-data.user.id
-);
-
-}
+message.innerText =
+"Account created successfully. Please login.";
 
 signupMode = false;
 
@@ -1466,10 +1493,7 @@ return;
 
 }
 
-
-/* =========================
-LOGIN
-========================= */
+/* LOGIN */
 
 const {data,error} =
 await supabaseClient.auth
@@ -1513,7 +1537,6 @@ error.message ||
 }
 
 }
-
 
 /* =========================================================
 SHOW DASHBOARD
@@ -1611,7 +1634,6 @@ startAutoRefresh("customer");
 
 }
 
-
 /* =========================================================
 AUTO REFRESH
 ========================================================= */
@@ -1669,7 +1691,6 @@ refreshTimer = null;
 }
 
 }
-
 
 /* =========================================================
 CUSTOMER
@@ -1803,7 +1824,6 @@ Request this Workman
 `).join("");
 
 }
-
 
 /* =========================================================
 CREATE JOB
@@ -1981,7 +2001,6 @@ message.innerHTML =
 
 }
 
-
 /* =========================================================
 CHOOSE PROVIDER
 ========================================================= */
@@ -2072,7 +2091,6 @@ console.error(error);
 
 }
 
-
 /* =========================================================
 LATEST CUSTOMER REQUEST
 ========================================================= */
@@ -2124,7 +2142,6 @@ return data && data.length
 : null;
 
 }
-
 
 /* =========================================================
 CUSTOMER REQUESTS
@@ -2431,7 +2448,6 @@ ${actionHTML}
 
 }
 
-
 /* =========================================================
 PROVIDER DASHBOARD
 ========================================================= */
@@ -2482,7 +2498,6 @@ await loadAvailableJobs();
 await loadProviderJobs();
 
 }
-
 
 /* =========================================================
 PROVIDER ONLINE
@@ -2539,7 +2554,7 @@ await supabaseClient
 
 is_online:newStatus,
 
-is_available:true
+is_available:newStatus
 
 })
 .eq(
@@ -2582,7 +2597,6 @@ online
 : "⚪ You are offline.";
 
 }
-
 
 /* =========================================================
 AVAILABLE JOBS
@@ -2778,7 +2792,6 @@ Accept Job
 
 }
 
-
 /* =========================================================
 ACCEPT JOB
 ========================================================= */
@@ -2932,7 +2945,6 @@ await loadAvailableJobs();
 await loadProviderJobs();
 
 }
-
 
 /* =========================================================
 PROVIDER JOBS
@@ -3144,7 +3156,6 @@ job.status === "completed"
 
 }
 
-
 /* =========================================================
 CHANGE JOB STATUS
 ========================================================= */
@@ -3240,7 +3251,6 @@ return;
 await loadProviderJobs();
 
 }
-
 
 /* =========================================================
 PROVIDER VERIFICATION
@@ -3432,7 +3442,6 @@ form.classList.add("hidden");
 
 }
 
-
 /* =========================================================
 POPULATE VERIFICATION
 ========================================================= */
@@ -3494,10 +3503,13 @@ document.getElementById(
 ).value =
 v.emergency_contact_relationship || "";
 
+/* IMPORTANT:
+Use only valid database ID values */
+
 document.getElementById(
 "verifyIDType"
 ).value =
-v.id_type || "";
+normalizeIDType(v.id_type);
 
 document.getElementById(
 "verifyIDNumber"
@@ -3505,7 +3517,6 @@ document.getElementById(
 v.id_number || "";
 
 }
-
 
 /* =========================================================
 SUBMIT PROVIDER VERIFICATION
@@ -3607,10 +3618,18 @@ document.getElementById(
 "verifyEmergencyRelationship"
 ).value.trim();
 
+/*
+IMPORTANT FIX:
+Always normalize the ID type before sending
+to Supabase.
+*/
+
 const idType =
+normalizeIDType(
 document.getElementById(
 "verifyIDType"
-).value;
+).value
+);
 
 const idNumber =
 document.getElementById(
@@ -3669,9 +3688,11 @@ document.getElementById(
 ).value.trim(),
 
 id_type:
+normalizeIDType(
 document.getElementById(
 "g1IDType"
-).value.trim(),
+).value
+),
 
 id_number:
 document.getElementById(
@@ -3713,9 +3734,11 @@ document.getElementById(
 ).value.trim(),
 
 id_type:
+normalizeIDType(
 document.getElementById(
 "g2IDType"
-).value.trim(),
+).value
+),
 
 id_number:
 document.getElementById(
@@ -3767,7 +3790,41 @@ return;
 
 }
 
-const {data:existing} =
+/* FINAL SAFETY CHECK */
+
+if(!VALID_ID_TYPES.includes(idType)){
+
+alert(
+"Invalid identity type selected."
+);
+
+return;
+
+}
+
+if(!VALID_ID_TYPES.includes(g1.id_type)){
+
+alert(
+"Invalid Guarantor 1 ID type."
+);
+
+return;
+
+}
+
+if(!VALID_ID_TYPES.includes(g2.id_type)){
+
+alert(
+"Invalid Guarantor 2 ID type."
+);
+
+return;
+
+}
+
+/* FIND EXISTING VERIFICATION */
+
+const {data:existing,error:existingError} =
 await supabaseClient
 .from("provider_verifications")
 .select("id,status")
@@ -3775,9 +3832,30 @@ await supabaseClient
 "provider_id",
 provider.id
 )
+.order(
+"created_at",
+{
+ascending:false
+}
+)
+.limit(1)
 .maybeSingle();
 
+if(existingError){
+
+console.error(
+"EXISTING VERIFICATION ERROR:",
+existingError
+);
+
+}
+
 let verificationId = null;
+
+const oldStatus =
+existing
+? existing.status
+: null;
 
 const verificationData = {
 
@@ -3822,6 +3900,17 @@ emergencyPhone,
 
 emergency_contact_relationship:
 emergencyRelationship,
+
+/*
+THIS IS THE IMPORTANT FIX.
+The database will receive exactly:
+NIN
+National ID
+International Passport
+Driver License
+Voter Card
+or Other
+*/
 
 id_type:
 idType,
@@ -3869,6 +3958,7 @@ return;
 verificationId =
 data.id;
 
+const {error:deleteError} =
 await supabaseClient
 .from("provider_guarantors")
 .delete()
@@ -3877,7 +3967,17 @@ await supabaseClient
 verificationId
 );
 
-}else{
+if(deleteError){
+
+console.error(
+"OLD GUARANTOR DELETE ERROR:",
+deleteError
+);
+
+}
+
+}
+else{
 
 const {data,error} =
 await supabaseClient
@@ -3889,6 +3989,11 @@ verificationData
 .single();
 
 if(error){
+
+console.error(
+"VERIFICATION INSERT ERROR:",
+error
+);
 
 alert(
 "Could not submit verification: " +
@@ -3903,6 +4008,8 @@ verificationId =
 data.id;
 
 }
+
+/* GUARANTOR 1 */
 
 const {error:g1Error} =
 await supabaseClient
@@ -3921,14 +4028,17 @@ phone:g1.phone,
 residential_address:
 g1.residential_address,
 
-occupation:g1.occupation,
+occupation:
+g1.occupation,
 
 relationship_to_provider:
 g1.relationship_to_provider,
 
-id_type:g1.id_type,
+id_type:
+g1.id_type,
 
-id_number:g1.id_number,
+id_number:
+g1.id_number,
 
 consent_confirmed:
 g1.consent_confirmed,
@@ -3949,6 +4059,8 @@ return;
 
 }
 
+/* GUARANTOR 2 */
+
 const {error:g2Error} =
 await supabaseClient
 .from("provider_guarantors")
@@ -3966,14 +4078,17 @@ phone:g2.phone,
 residential_address:
 g2.residential_address,
 
-occupation:g2.occupation,
+occupation:
+g2.occupation,
 
 relationship_to_provider:
 g2.relationship_to_provider,
 
-id_type:g2.id_type,
+id_type:
+g2.id_type,
 
-id_number:g2.id_number,
+id_number:
+g2.id_number,
 
 consent_confirmed:
 g2.consent_confirmed,
@@ -3994,6 +4109,9 @@ return;
 
 }
 
+/* KEEP PROVIDER PENDING */
+
+const {error:providerUpdateError} =
 await supabaseClient
 .from("providers")
 .update({
@@ -4011,6 +4129,18 @@ is_available:false
 provider.id
 );
 
+if(providerUpdateError){
+
+console.error(
+"PROVIDER STATUS ERROR:",
+providerUpdateError
+);
+
+}
+
+/* EVENT */
+
+const {error:eventError} =
 await supabaseClient
 .from("provider_verification_events")
 .insert({
@@ -4025,9 +4155,7 @@ action:
 "submitted",
 
 old_status:
-existing
-? existing.status
-: null,
+oldStatus,
 
 new_status:
 "pending",
@@ -4037,6 +4165,15 @@ notes:
 
 });
 
+if(eventError){
+
+console.error(
+"VERIFICATION EVENT ERROR:",
+eventError
+);
+
+}
+
 alert(
 "✅ Verification submitted successfully. Please wait for admin review."
 );
@@ -4044,7 +4181,6 @@ alert(
 await loadProviderVerification();
 
 }
-
 
 /* =========================================================
 ADMIN DASHBOARD
@@ -4094,7 +4230,6 @@ await loadAdminStats();
 await loadAdminVerifications();
 
 }
-
 
 /* =========================================================
 ADMIN STATISTICS
@@ -4147,7 +4282,6 @@ document.getElementById(
 
 }
 
-
 /* =========================================================
 ADMIN VERIFICATIONS
 ========================================================= */
@@ -4196,7 +4330,8 @@ return;
 container.innerHTML =
 data.map(verification => `
 
-<div class="provider-card">
+<div
+class="provider-card">
 
 <h3>
 
@@ -4286,7 +4421,6 @@ Review Application
 `).join("");
 
 }
-
 
 /* =========================================================
 VIEW VERIFICATION
@@ -4406,7 +4540,7 @@ g.relationship_to_provider || ""
 
 <strong>ID Type:</strong>
 ${escapeHTML(
-g.id_type || ""
+normalizeIDType(g.id_type) || ""
 )}
 
 </p>
@@ -4667,8 +4801,9 @@ Identity
 <strong>ID Type:</strong>
 
 ${escapeHTML(
-verification.id_type ||
-""
+normalizeIDType(
+verification.id_type
+) || ""
 )}
 
 </p>
@@ -4768,7 +4903,6 @@ behavior:"smooth"
 });
 
 }
-
 
 /* =========================================================
 APPROVE VERIFICATION
@@ -4918,7 +5052,6 @@ alert(
 await loadAdminDashboard();
 
 }
-
 
 /* =========================================================
 REJECT VERIFICATION
@@ -5088,7 +5221,6 @@ await loadAdminDashboard();
 
 }
 
-
 /* =========================================================
 SERVICE SELECTION
 ========================================================= */
@@ -5103,7 +5235,6 @@ service;
 openAuth();
 
 }
-
 
 /* =========================================================
 LOGOUT
@@ -5142,7 +5273,6 @@ window.scrollTo(
 
 }
 
-
 /* =========================================================
 SESSION
 ========================================================= */
@@ -5166,7 +5296,6 @@ data.session.user.id
 }
 
 }
-
 
 /* =========================================================
 AUTH STATE
@@ -5207,7 +5336,6 @@ stopAutoRefresh();
 }
 
 });
-
 
 /* =========================================================
 SECURITY
@@ -5252,7 +5380,6 @@ return String(value)
 );
 
 }
-
 
 /* =========================================================
 START APPLICATION
