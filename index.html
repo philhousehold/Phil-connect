@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 
 <meta
-name="viewport"
-content="width=device-width,initial-scale=1.0"
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
 >
 
 <title>Phil Connect</title>
@@ -17,509 +16,550 @@ content="width=device-width,initial-scale=1.0"
 <style>
 
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
-font-family:Arial,sans-serif;
-background:#f5f7f8;
-color:#111827;
+  font-family:Arial,sans-serif;
+  background:#f5f7f8;
+  color:#111827;
 }
 
 header{
-background:#111827;
-color:white;
-padding:18px 6%;
-display:flex;
-justify-content:space-between;
-align-items:center;
+  background:#111827;
+  color:white;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .logo{
-font-size:24px;
-font-weight:800;
+  font-size:24px;
+  font-weight:800;
 }
 
 .logo span{
-color:#22c55e;
+  color:#22c55e;
 }
 
 button{
-border:0;
-cursor:pointer;
-font-weight:700;
-}
-
-.btn{
-padding:12px 18px;
-border-radius:9px;
+  border:0;
+  cursor:pointer;
+  font-weight:700;
 }
 
 .green{
-background:#22c55e;
-color:white;
+  background:#22c55e;
+  color:white;
 }
 
 .red{
-background:#ef4444;
-color:white;
+  background:#ef4444;
+  color:white;
 }
 
 .blue{
-background:#2563eb;
-color:white;
+  background:#2563eb;
+  color:white;
 }
 
 .gray{
-background:#6b7280;
-color:white;
+  background:#6b7280;
+  color:white;
+}
+
+.btn{
+  padding:12px 18px;
+  border-radius:9px;
 }
 
 .hero{
-background:white;
-text-align:center;
-padding:70px 6%;
+  background:white;
+  text-align:center;
+  padding:70px 6%;
 }
 
 .hero h1{
-font-size:clamp(38px,7vw,64px);
-margin-bottom:18px;
+  font-size:clamp(38px,7vw,64px);
+  margin-bottom:18px;
 }
 
 .hero h1 span{
-color:#22c55e;
+  color:#22c55e;
 }
 
 .hero p{
-max-width:650px;
-margin:auto;
-color:#6b7280;
-font-size:18px;
-line-height:1.6;
+  max-width:650px;
+  margin:auto;
+  color:#6b7280;
+  font-size:18px;
+  line-height:1.6;
 }
 
 section{
-padding:50px 6%;
+  padding:50px 6%;
 }
 
 .title{
-text-align:center;
-margin-bottom:30px;
+  text-align:center;
+  margin-bottom:30px;
 }
 
 .title h2{
-font-size:32px;
+  font-size:32px;
 }
 
 .title p{
-color:#6b7280;
-margin-top:8px;
+  color:#6b7280;
+  margin-top:8px;
 }
 
 .services{
-max-width:1000px;
-margin:auto;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-gap:15px;
+  max-width:1000px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:15px;
 }
 
 .service{
-background:white;
-padding:25px 12px;
-border-radius:15px;
-text-align:center;
-border:1px solid #e5e7eb;
-cursor:pointer;
+  background:white;
+  padding:25px 12px;
+  border-radius:15px;
+  text-align:center;
+  border:1px solid #e5e7eb;
+  cursor:pointer;
 }
 
 .service:hover{
-border-color:#22c55e;
+  border-color:#22c55e;
 }
 
 .icon{
-font-size:32px;
-margin-bottom:10px;
+  font-size:32px;
+  margin-bottom:10px;
 }
 
 .dashboard{
-display:none;
-padding:40px 6%;
+  display:none;
+  padding:40px 6%;
 }
 
 .dashboard.active{
-display:block;
+  display:block;
 }
 
 .dashboard-header{
-background:#111827;
-color:white;
-padding:25px;
-border-radius:16px;
-margin-bottom:25px;
+  background:#111827;
+  color:white;
+  padding:25px;
+  border-radius:16px;
+  margin-bottom:25px;
 }
 
 .dashboard-header p{
-color:#d1d5db;
-margin-top:8px;
+  color:#d1d5db;
+  margin-top:8px;
 }
 
 .card{
-background:white;
-padding:25px;
-border-radius:16px;
-margin-bottom:20px;
-border:1px solid #e5e7eb;
+  background:white;
+  padding:25px;
+  border-radius:16px;
+  margin-bottom:20px;
+  border:1px solid #e5e7eb;
 }
 
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
 }
 
 input,
 select,
 textarea{
-width:100%;
-padding:13px;
-border:1px solid #d1d5db;
-border-radius:8px;
-margin-top:7px;
-margin-bottom:15px;
-font-size:15px;
-}
-
-input[type="checkbox"]{
-width:auto;
-}
-
-input[type="file"]{
-background:#f9fafb;
-padding:12px;
+  width:100%;
+  padding:13px;
+  border:1px solid #d1d5db;
+  border-radius:8px;
+  margin-top:7px;
+  margin-bottom:15px;
+  font-size:15px;
 }
 
 textarea{
-min-height:100px;
-resize:vertical;
+  min-height:100px;
+  resize:vertical;
 }
 
 label{
-font-weight:700;
-font-size:14px;
+  font-weight:700;
+  font-size:14px;
 }
 
-.provider-card,
-.job-card,
-.admin-application{
-background:white;
-border:1px solid #e5e7eb;
-border-radius:15px;
-padding:20px;
-margin-bottom:15px;
+.provider-card{
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:15px;
+  padding:20px;
+  margin-bottom:15px;
 }
 
-.provider-card h3,
-.job-card h3{
-margin-bottom:8px;
+.provider-card h3{
+  margin-bottom:8px;
 }
 
 .available{
-color:#16a34a;
-font-weight:700;
+  color:#16a34a;
+  font-weight:700;
 }
 
 .offline{
-color:#6b7280;
+  color:#6b7280;
+}
+
+.job-card{
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:15px;
+  padding:20px;
+  margin-bottom:15px;
+}
+
+.job-card h3{
+  margin-bottom:10px;
 }
 
 .info{
-margin:7px 0;
-color:#4b5563;
-}
-
-.price{
-font-size:22px;
-font-weight:800;
-margin:10px 0;
+  margin:7px 0;
+  color:#4b5563;
 }
 
 .status{
-display:inline-block;
-padding:6px 10px;
-border-radius:20px;
-background:#f3f4f6;
-font-size:12px;
-font-weight:700;
-margin:8px 0;
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:20px;
+  background:#f3f4f6;
+  font-size:12px;
+  font-weight:700;
+  margin:8px 0;
 }
 
+.status.pending,
 .status.submitted{
-background:#fef3c7;
-color:#92400e;
+  background:#fef3c7;
+  color:#92400e;
 }
 
 .status.under_review{
-background:#dbeafe;
-color:#1e40af;
+  background:#dbeafe;
+  color:#1e40af;
 }
 
-.status.approved{
-background:#dcfce7;
-color:#166534;
+.status.approved,
+.status.accepted{
+  background:#dcfce7;
+  color:#166534;
 }
 
 .status.rejected{
-background:#fee2e2;
-color:#991b1b;
-}
-
-.status.pending{
-background:#fef3c7;
-color:#92400e;
-}
-
-.status.accepted{
-background:#dcfce7;
-color:#166534;
+  background:#fee2e2;
+  color:#991b1b;
 }
 
 .status.in_progress{
-background:#dbeafe;
-color:#1e40af;
+  background:#dbeafe;
+  color:#1e40af;
 }
 
 .status.completed{
-background:#d1fae5;
-color:#065f46;
+  background:#d1fae5;
+  color:#065f46;
+}
+
+.status.suspended{
+  background:#fee2e2;
+  color:#991b1b;
 }
 
 .modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.6);
-justify-content:center;
-align-items:center;
-padding:20px;
-z-index:100;
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  z-index:100;
 }
 
 .modal.active{
-display:flex;
+  display:flex;
 }
 
 .modal-box{
-width:100%;
-max-width:430px;
-background:white;
-border-radius:18px;
-padding:28px;
-position:relative;
-max-height:90vh;
-overflow-y:auto;
+  width:100%;
+  max-width:430px;
+  background:white;
+  border-radius:18px;
+  padding:28px;
+  position:relative;
+  max-height:90vh;
+  overflow-y:auto;
 }
 
 .close{
-position:absolute;
-right:18px;
-top:12px;
-font-size:26px;
-cursor:pointer;
+  position:absolute;
+  right:18px;
+  top:12px;
+  font-size:26px;
+  cursor:pointer;
 }
 
 .role-buttons{
-display:flex;
-gap:10px;
-margin:20px 0;
+  display:flex;
+  gap:10px;
+  margin:20px 0;
 }
 
 .role-buttons button{
-flex:1;
-padding:12px;
-border-radius:8px;
-background:#f3f4f6;
+  flex:1;
+  padding:12px;
+  border-radius:8px;
+  background:#f3f4f6;
 }
 
 .role-buttons .active{
-background:#22c55e;
-color:white;
+  background:#22c55e;
+  color:white;
 }
 
 .message{
-margin:10px 0;
-font-size:14px;
+  margin:10px 0;
+  font-size:14px;
 }
 
 .logout{
-margin-top:10px;
+  margin-top:10px;
 }
 
 footer{
-background:#030712;
-color:#9ca3af;
-text-align:center;
-padding:25px;
+  background:#030712;
+  color:#9ca3af;
+  text-align:center;
+  padding:25px;
 }
 
 .hidden{
-display:none!important;
+  display:none!important;
+}
+
+.price{
+  font-size:22px;
+  font-weight:800;
+  margin:10px 0;
 }
 
 .refresh-text{
-color:#6b7280;
-font-size:13px;
-margin-top:10px;
+  color:#6b7280;
+  font-size:13px;
+  margin-top:10px;
 }
 
 .success-box{
-background:#ecfdf5;
-border:1px solid #86efac;
-color:#166534;
-padding:15px;
-border-radius:10px;
-margin-bottom:15px;
+  background:#ecfdf5;
+  border:1px solid #86efac;
+  color:#166534;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:15px;
 }
 
 .warning-box{
-background:#fffbeb;
-border:1px solid #fde68a;
-color:#92400e;
-padding:15px;
-border-radius:10px;
-margin-bottom:15px;
+  background:#fffbeb;
+  border:1px solid #fde68a;
+  color:#92400e;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:15px;
 }
 
 .danger-box{
-background:#fef2f2;
-border:1px solid #fca5a5;
-color:#991b1b;
-padding:15px;
-border-radius:10px;
-margin-bottom:15px;
+  background:#fef2f2;
+  border:1px solid #fca5a5;
+  color:#991b1b;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:15px;
 }
 
 .stat-number{
-font-size:32px;
-font-weight:800;
-margin-top:10px;
+  font-size:32px;
+  font-weight:800;
+  margin-top:10px;
 }
 
 .verification-section{
-margin-top:20px;
-padding-top:20px;
-border-top:1px solid #e5e7eb;
+  margin-top:20px;
+  padding-top:20px;
+  border-top:1px solid #e5e7eb;
 }
 
 .document-box{
-background:#f9fafb;
-border:1px solid #e5e7eb;
-padding:15px;
-border-radius:10px;
-margin-top:10px;
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+  padding:15px;
+  border-radius:10px;
+  margin-top:10px;
 }
 
 .admin-actions{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-top:20px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:20px;
 }
 
 .review-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:15px;
-flex-wrap:wrap;
-margin-bottom:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
 }
 
 .review-title{
-font-size:28px;
-font-weight:800;
+  font-size:28px;
+  font-weight:800;
 }
 
 .detail-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:15px;
-margin-top:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:15px;
+  margin-top:15px;
 }
 
 .detail-item{
-background:#f9fafb;
-border:1px solid #e5e7eb;
-padding:15px;
-border-radius:10px;
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+  padding:15px;
+  border-radius:10px;
 }
 
 .detail-item strong{
-display:block;
-font-size:12px;
-color:#6b7280;
-text-transform:uppercase;
-margin-bottom:6px;
+  display:block;
+  font-size:12px;
+  color:#6b7280;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+
+.admin-application{
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:15px;
+  padding:20px;
+  margin-bottom:15px;
 }
 
 .application-top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-flex-wrap:wrap;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
 .application-actions{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-top:15px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:15px;
 }
 
 .application-actions button{
-padding:10px 15px;
-border-radius:8px;
+  padding:10px 15px;
+  border-radius:8px;
 }
 
 .sticky-actions{
-position:sticky;
-bottom:0;
-background:white;
-padding:15px 0 0;
-border-top:1px solid #e5e7eb;
-margin-top:25px;
+  position:sticky;
+  bottom:0;
+  background:white;
+  padding:15px 0 0;
+  border-top:1px solid #e5e7eb;
+  margin-top:25px;
 }
 
-.document-link{
-display:inline-block;
-margin-top:8px;
-text-decoration:none;
+.document-upload{
+  background:#f9fafb;
+  border:1px dashed #9ca3af;
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:20px;
+}
+
+.document-upload input{
+  background:white;
+}
+
+.badge-new{
+  display:inline-block;
+  background:#2563eb;
+  color:white;
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:700;
+  margin-left:6px;
+}
+
+.admin-badge{
+  display:inline-block;
+  background:#7c3aed;
+  color:white;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:700;
+  margin-top:10px;
+}
+
+.empty-box{
+  padding:20px;
+  background:#f9fafb;
+  border-radius:10px;
+  color:#6b7280;
+  text-align:center;
 }
 
 @media(max-width:600px){
 
-.hero{
-padding:55px 5%;
-}
+  .hero{
+    padding:55px 5%;
+  }
 
-section{
-padding:40px 5%;
-}
+  section{
+    padding:40px 5%;
+  }
 
-header{
-padding:15px 5%;
-}
+  header{
+    padding:15px 5%;
+  }
 
-.admin-actions{
-flex-direction:column;
-}
+  .admin-actions{
+    flex-direction:column;
+  }
 
-.admin-actions button{
-width:100%;
-}
+  .admin-actions button{
+    width:100%;
+  }
 
 }
 
@@ -543,6 +583,11 @@ Login / Sign Up
 </button>
 
 </header>
+
+
+<!-- =====================================================
+HOME
+===================================================== -->
 
 <main id="home">
 
@@ -568,6 +613,7 @@ Get Started
 
 </section>
 
+
 <section>
 
 <div class="title">
@@ -577,6 +623,7 @@ Get Started
 <p>Select a service to get started.</p>
 
 </div>
+
 
 <div class="services">
 
@@ -627,7 +674,9 @@ Get Started
 </main>
 
 
-<!-- CUSTOMER -->
+<!-- =====================================================
+CUSTOMER DASHBOARD
+===================================================== -->
 
 <section
 id="customerDashboard"
@@ -636,13 +685,16 @@ class="dashboard"
 
 <div class="dashboard-header">
 
-<h1>Customer Dashboard 👋</h1>
+<h1>
+Welcome, <span id="customerName">Customer</span> 👋
+</h1>
 
 <p>
-Find approved professionals and request a service.
+Find a trusted professional near you.
 </p>
 
 </div>
+
 
 <div class="card">
 
@@ -667,6 +719,7 @@ Find approved professionals and request a service.
 
 </select>
 
+
 <label>Describe the job</label>
 
 <textarea
@@ -674,12 +727,14 @@ id="jobDescription"
 placeholder="Describe what you need done..."
 ></textarea>
 
+
 <label>Location</label>
 
 <input
 id="jobLocation"
 placeholder="Where should the work be done?"
 >
+
 
 <label>Phone number</label>
 
@@ -689,12 +744,14 @@ type="tel"
 placeholder="08012345678"
 >
 
+
 <label>Preferred date</label>
 
 <input
 type="date"
 id="preferredDate"
 >
+
 
 <label>Preferred time</label>
 
@@ -704,6 +761,7 @@ id="preferredTime"
 placeholder="e.g. 10:00 AM"
 >
 
+
 <label>Your budget (₦)</label>
 
 <input
@@ -712,12 +770,14 @@ id="customerBudget"
 placeholder="e.g. 50000"
 >
 
+
 <button
 class="btn green"
 onclick="createJob()"
 >
 Submit Service Request
 </button>
+
 
 <div
 id="customerMessage"
@@ -758,6 +818,7 @@ Requests refresh automatically every 5 seconds.
 
 </div>
 
+
 <button
 class="btn red logout"
 onclick="logout()"
@@ -768,7 +829,9 @@ Logout
 </section>
 
 
-<!-- PROVIDER -->
+<!-- =====================================================
+PROVIDER DASHBOARD
+===================================================== -->
 
 <section
 id="providerDashboard"
@@ -777,7 +840,9 @@ class="dashboard"
 
 <div class="dashboard-header">
 
-<h1>Provider Dashboard 🧑‍🔧</h1>
+<h1>
+Provider Dashboard 🧑‍🔧
+</h1>
 
 <p id="providerBusiness">
 Provider
@@ -803,15 +868,20 @@ style="margin-top:12px"
 </div>
 
 
+<!-- VERIFICATION -->
+
 <div class="card">
 
-<h2>🛡️ Provider Verification</h2>
+<h2>
+🛡️ Provider Verification
+</h2>
 
 <p
 style="color:#6b7280;margin:8px 0 20px"
 >
 Complete your verification before you can receive jobs.
 </p>
+
 
 <div id="providerVerificationStatus">
 Loading verification status...
@@ -827,9 +897,11 @@ class="hidden"
 Personal Information
 </h3>
 
+
 <label>Legal Full Name</label>
 
 <input id="verifyLegalName">
+
 
 <label>Date of Birth</label>
 
@@ -838,13 +910,16 @@ type="date"
 id="verifyDOB"
 >
 
+
 <label>Phone Number</label>
 
 <input id="verifyPhone">
 
+
 <label>Residential Address</label>
 
 <textarea id="verifyAddress"></textarea>
+
 
 <label>State</label>
 
@@ -853,12 +928,14 @@ id="verifyState"
 placeholder="e.g. Edo"
 >
 
+
 <label>LGA</label>
 
 <input
 id="verifyLGA"
 placeholder="e.g. Ovia North East"
 >
+
 
 <label>Service Type</label>
 
@@ -867,6 +944,7 @@ id="verifyServiceType"
 placeholder="e.g. Plumbing"
 >
 
+
 <label>Years of Experience</label>
 
 <input
@@ -874,30 +952,35 @@ type="number"
 id="verifyExperience"
 >
 
-<h3 style="margin-top:15px;margin-bottom:15px">
+
+<h3
+style="margin-top:15px;margin-bottom:15px"
+>
 Emergency Contact
 </h3>
+
 
 <label>Emergency Contact Name</label>
 
 <input id="verifyEmergencyName">
 
+
 <label>Emergency Contact Phone</label>
 
 <input id="verifyEmergencyPhone">
+
 
 <label>Relationship</label>
 
 <input id="verifyEmergencyRelationship">
 
 
-<!-- ID -->
-
 <h3
 style="margin-top:15px;margin-bottom:15px"
 >
-🪪 Identity Information
+🪪 Identity Documents
 </h3>
+
 
 <label>ID Type</label>
 
@@ -911,63 +994,53 @@ Select ID type
 NIN
 </option>
 
-<option value="national_id">
+<option value="National ID">
 National ID
 </option>
 
-<option value="drivers_license">
-Driver's License
-</option>
-
-<option value="international_passport">
+<option value="International Passport">
 International Passport
 </option>
 
-<option value="voters_card">
-Voter's Card
+<option value="Driver License">
+Driver License
+</option>
+
+<option value="Voter Card">
+Voter Card
 </option>
 
 </select>
+
 
 <label>ID Number</label>
 
 <input
 id="verifyIDNumber"
-placeholder="Enter ID number"
+placeholder="Enter your ID number"
 >
 
-<label>
-Photo ID Document
-</label>
+
+<div class="document-upload">
+
+<strong>
+📷 Photo ID Document
+</strong>
+
+<p
+style="color:#6b7280;margin:8px 0"
+>
+Upload a clear photo or scan of your identification document.
+</p>
 
 <input
 type="file"
-id="verifyPhotoID"
+id="verifyIDPhoto"
 accept="image/*,.pdf"
 >
 
-<p class="refresh-text">
-Upload a clear photo or PDF of your selected ID.
-Maximum size: 5MB.
-</p>
+</div>
 
-<label>
-Selfie
-</label>
-
-<input
-type="file"
-id="verifySelfie"
-accept="image/*"
->
-
-<p class="refresh-text">
-Upload a clear selfie.
-Maximum size: 5MB.
-</p>
-
-
-<!-- GUARANTOR 1 -->
 
 <h3
 style="margin-top:15px;margin-bottom:15px"
@@ -975,24 +1048,20 @@ style="margin-top:15px;margin-bottom:15px"
 Guarantor 1
 </h3>
 
-<label>Full Name</label>
 
+<label>Full Name</label>
 <input id="g1Name">
 
 <label>Phone</label>
-
 <input id="g1Phone">
 
 <label>Residential Address</label>
-
 <textarea id="g1Address"></textarea>
 
 <label>Occupation</label>
-
 <input id="g1Occupation">
 
 <label>Relationship to Provider</label>
-
 <input id="g1Relationship">
 
 <label>ID Type</label>
@@ -1022,7 +1091,6 @@ Voter's Card
 </select>
 
 <label>ID Number</label>
-
 <input id="g1IDNumber">
 
 <label>
@@ -1030,13 +1098,13 @@ Voter's Card
 <input
 type="checkbox"
 id="g1Consent"
+style="width:auto;margin-right:8px"
 >
+
 Guarantor consent confirmed
 
 </label>
 
-
-<!-- GUARANTOR 2 -->
 
 <h3
 style="margin-top:15px;margin-bottom:15px"
@@ -1044,24 +1112,20 @@ style="margin-top:15px;margin-bottom:15px"
 Guarantor 2
 </h3>
 
-<label>Full Name</label>
 
+<label>Full Name</label>
 <input id="g2Name">
 
 <label>Phone</label>
-
 <input id="g2Phone">
 
 <label>Residential Address</label>
-
 <textarea id="g2Address"></textarea>
 
 <label>Occupation</label>
-
 <input id="g2Occupation">
 
 <label>Relationship to Provider</label>
-
 <input id="g2Relationship">
 
 <label>ID Type</label>
@@ -1091,7 +1155,6 @@ Voter's Card
 </select>
 
 <label>ID Number</label>
-
 <input id="g2IDNumber">
 
 <label>
@@ -1099,7 +1162,9 @@ Voter's Card
 <input
 type="checkbox"
 id="g2Consent"
+style="width:auto;margin-right:8px"
 >
+
 Guarantor consent confirmed
 
 </label>
@@ -1114,10 +1179,6 @@ Phil Connect may verify the information before approval.
 
 </div>
 
-<div
-id="documentUploadStatus"
-class="message"
-></div>
 
 <button
 class="btn green"
@@ -1152,6 +1213,7 @@ Submit / Resubmit Verification
 
 </div>
 
+
 <button
 class="btn red logout"
 onclick="logout()"
@@ -1162,7 +1224,9 @@ Logout
 </section>
 
 
-<!-- ADMIN -->
+<!-- =====================================================
+ADMIN DASHBOARD
+===================================================== -->
 
 <section
 id="adminDashboard"
@@ -1171,11 +1235,18 @@ class="dashboard"
 
 <div class="dashboard-header">
 
-<h1>Admin Dashboard 🛡️</h1>
+<h1>
+Admin Dashboard 🛡️
+</h1>
 
 <p>
+Welcome, <span id="adminName">Administrator</span>.
 Review and verify Phil Connect providers.
 </p>
+
+<div class="admin-badge">
+ADMINISTRATOR
+</div>
 
 </div>
 
@@ -1184,7 +1255,9 @@ Review and verify Phil Connect providers.
 
 <div class="card">
 
-<h3>Total Submitted</h3>
+<h3>
+Submitted / Under Review
+</h3>
 
 <p
 id="adminPendingCount"
@@ -1198,7 +1271,9 @@ class="stat-number"
 
 <div class="card">
 
-<h3>Total Approved</h3>
+<h3>
+Approved Providers
+</h3>
 
 <p
 id="adminApprovedCount"
@@ -1212,7 +1287,9 @@ class="stat-number"
 
 <div class="card">
 
-<h3>Total Rejected</h3>
+<h3>
+Rejected Applications
+</h3>
 
 <p
 id="adminRejectedCount"
@@ -1226,7 +1303,9 @@ class="stat-number"
 </div>
 
 
-<div id="adminApplicationsView">
+<div
+id="adminApplicationsView"
+>
 
 <div class="card">
 
@@ -1239,22 +1318,27 @@ Provider Verification Applications
 </h2>
 
 <p class="refresh-text">
-All applications remain in the system so rejected applications can be tracked.
+New and resubmitted applications appear automatically.
 </p>
 
 </div>
 
 <button
 class="btn blue"
-onclick="loadAdminVerifications()"
+onclick="loadAdminDashboard()"
 >
 Refresh
 </button>
 
 </div>
 
+
 <div id="adminVerificationList">
-Loading...
+
+<p>
+Loading verification applications...
+</p>
+
 </div>
 
 </div>
@@ -1285,10 +1369,11 @@ Provider Verification Review
 class="btn gray"
 onclick="backToAdminApplications()"
 >
-← Back
+← Back to Applications
 </button>
 
 </div>
+
 
 <div id="adminReviewContent">
 Loading...
@@ -1309,7 +1394,9 @@ Logout
 </section>
 
 
-<!-- AUTH -->
+<!-- =====================================================
+AUTH MODAL
+===================================================== -->
 
 <div
 class="modal"
@@ -1325,9 +1412,11 @@ onclick="closeAuth()"
 ×
 </div>
 
+
 <h2 id="authTitle">
 Welcome to Phil Connect
 </h2>
+
 
 <p
 id="authSubtitle"
@@ -1346,6 +1435,7 @@ onclick="selectRole('customer')"
 >
 Customer
 </button>
+
 
 <button
 id="providerRole"
@@ -1382,11 +1472,13 @@ type="email"
 placeholder="Email address"
 >
 
+
 <input
 id="password"
 type="password"
 placeholder="Password"
 >
+
 
 <button
 id="submitButton"
@@ -1397,9 +1489,11 @@ onclick="submitAuth()"
 Login
 </button>
 
+
 <p
 style="text-align:center;margin-top:18px"
 >
+
 Don't have an account?
 
 <span
@@ -1443,11 +1537,19 @@ SUPABASE_KEY
 );
 
 
-let selectedRole="customer";
-let signupMode=false;
-let currentUser=null;
-let refreshTimer=null;
-let currentReviewId=null;
+/* =========================================================
+GLOBAL VARIABLES
+========================================================= */
+
+let selectedRole = "customer";
+
+let signupMode = false;
+
+let currentUser = null;
+
+let refreshTimer = null;
+
+let currentReviewId = null;
 
 
 /* =========================================================
@@ -1462,6 +1564,7 @@ document
 
 }
 
+
 function closeAuth(){
 
 document
@@ -1470,29 +1573,31 @@ document
 
 }
 
+
 function selectRole(role){
 
-selectedRole=role;
+selectedRole = role;
 
 document
 .getElementById("customerRole")
 .classList.toggle(
 "active",
-role==="customer"
+role === "customer"
 );
 
 document
 .getElementById("providerRole")
 .classList.toggle(
 "active",
-role==="provider"
+role === "provider"
 );
 
 }
 
+
 function toggleMode(){
 
-signupMode=!signupMode;
+signupMode = !signupMode;
 
 document
 .getElementById("nameField")
@@ -1503,73 +1608,91 @@ document
 
 document
 .getElementById("submitButton")
-.innerText=
+.innerText =
 signupMode
-?"Create Account"
-:"Login";
+? "Create Account"
+: "Login";
 
 document
 .getElementById("authSubtitle")
-.innerText=
+.innerText =
 signupMode
-?"Create your Phil Connect account."
-:"Login to continue.";
+? "Create your Phil Connect account."
+: "Login to continue.";
 
 document
 .getElementById("switchText")
-.innerText=
+.innerText =
 signupMode
-?"Login"
-:"Sign up";
+? "Login"
+: "Sign up";
 
 }
 
 
 async function submitAuth(){
 
-const email=
-document.getElementById("email")
-.value.trim();
+const email =
+document
+.getElementById("email")
+.value
+.trim();
 
-const password=
-document.getElementById("password")
+const password =
+document
+.getElementById("password")
 .value;
 
-const fullName=
-document.getElementById("fullName")
-.value.trim();
+const fullName =
+document
+.getElementById("fullName")
+.value
+.trim();
 
-const message=
-document.getElementById("authMessage");
+const message =
+document.getElementById(
+"authMessage"
+);
 
-message.innerText="";
+message.innerText = "";
 
-if(!email||!password){
 
-message.innerText=
+if(!email || !password){
+
+message.innerText =
 "Please enter your email and password.";
 
 return;
 
 }
 
+
 try{
+
+/* =====================================================
+SIGN UP
+===================================================== */
 
 if(signupMode){
 
 if(!fullName){
 
-message.innerText=
+message.innerText =
 "Please enter your full name.";
 
 return;
 
 }
 
-const {data,error}=
+
+const {
+data,
+error
+} =
 await supabaseClient.auth.signUp({
 
 email,
+
 password,
 
 options:{
@@ -1581,7 +1704,9 @@ role:selectedRole
 
 });
 
-if(error)throw error;
+
+if(error) throw error;
+
 
 if(!data.user){
 
@@ -1591,13 +1716,20 @@ throw new Error(
 
 }
 
+
+const {
+error:profileError
+} =
 await supabaseClient
 .from("profiles")
 .upsert({
 
 id:data.user.id,
+
 full_name:fullName,
+
 email:email,
+
 role:selectedRole
 
 },{
@@ -1605,77 +1737,134 @@ onConflict:"id"
 });
 
 
-if(selectedRole==="provider"){
+if(profileError){
 
+console.error(
+"PROFILE CREATE ERROR:",
+profileError
+);
+
+}
+
+
+if(selectedRole === "provider"){
+
+const {
+error:providerError
+} =
 await supabaseClient
 .from("providers")
 .upsert({
 
 user_id:data.user.id,
+
 business_name:fullName,
+
 description:
 "Phil Connect service provider",
+
 verification_status:"pending",
+
 is_online:false,
+
 is_available:false,
+
 rating:0,
+
 total_jobs:0
 
 },{
 onConflict:"user_id"
 });
 
+
+if(providerError){
+
+console.error(
+"PROVIDER CREATE ERROR:",
+providerError
+);
+
+}
+
 }
 
 
-message.innerText=
+message.innerText =
 "Account created successfully. Please check your email if verification is required, then login.";
 
-signupMode=false;
+signupMode = false;
+
 
 document
 .getElementById("nameField")
 .classList.add("hidden");
 
+
 document
 .getElementById("submitButton")
-.innerText="Login";
+.innerText =
+"Login";
+
+
+document
+.getElementById("authSubtitle")
+.innerText =
+"Login to continue.";
+
 
 document
 .getElementById("switchText")
-.innerText="Sign up";
+.innerText =
+"Sign up";
+
 
 return;
 
 }
 
 
-const {data,error}=
-await supabaseClient
-.auth
-.signInWithPassword({
+/* =====================================================
+LOGIN
+===================================================== */
+
+const {
+data,
+error
+} =
+await supabaseClient.auth.signInWithPassword({
 
 email,
+
 password
 
 });
 
-if(error)throw error;
 
-currentUser=data.user;
+if(error) throw error;
+
+
+currentUser =
+data.user;
+
 
 closeAuth();
+
 
 await showDashboard(
 data.user.id
 );
 
+
 }catch(error){
 
-console.error(error);
+console.error(
+"AUTH ERROR:",
+error
+);
 
-message.innerText=
-error.message||
+message.innerText =
+error.message ||
 "Something went wrong.";
 
 }
@@ -1684,22 +1873,44 @@ error.message||
 
 
 /* =========================================================
-DASHBOARD
+DASHBOARD ROUTING
+CUSTOMER / PROVIDER / ADMIN
 ========================================================= */
 
 async function showDashboard(userId){
 
-const {data:profile,error}=
+try{
+
+console.log(
+"PHIL CONNECT: Loading dashboard for:",
+userId
+);
+
+
+/* GET PROFILE */
+
+const {
+data:profile,
+error
+} =
 await supabaseClient
 .from("profiles")
-.select("*")
+.select(
+"id,full_name,email,role"
+)
 .eq("id",userId)
 .maybeSingle();
 
+
 if(error){
 
+console.error(
+"PROFILE ERROR:",
+error
+);
+
 alert(
-"Could not load your profile: "+
+"Could not load your profile: " +
 error.message
 );
 
@@ -1707,64 +1918,193 @@ return;
 
 }
 
+
 if(!profile){
 
-alert("Your profile was not found.");
+alert(
+"Your Phil Connect profile was not found."
+);
 
 return;
 
 }
 
+
+/* NORMALIZE ROLE */
+
+const role =
+String(
+profile.role || ""
+)
+.trim()
+.toLowerCase();
+
+
+console.log(
+"PHIL CONNECT PROFILE:",
+profile
+);
+
+console.log(
+"PHIL CONNECT ROLE:",
+role
+);
+
+
+/* HIDE ALL */
+
 document
 .getElementById("home")
 .classList.add("hidden");
+
 
 document
 .getElementById("customerDashboard")
 .classList.remove("active");
 
+
 document
 .getElementById("providerDashboard")
 .classList.remove("active");
 
+
 document
 .getElementById("adminDashboard")
 .classList.remove("active");
 
 
-if(profile.role==="admin"){
+stopAutoRefresh();
+
+
+/* =====================================================
+ADMIN
+===================================================== */
+
+if(role === "admin"){
+
+console.log(
+"PHIL CONNECT: ADMIN DASHBOARD"
+);
+
 
 document
 .getElementById("adminDashboard")
 .classList.add("active");
+
+
+document
+.getElementById("adminName")
+.innerText =
+profile.full_name ||
+"Administrator";
+
 
 await loadAdminDashboard();
 
 startAutoRefresh("admin");
 
+window.scrollTo(
+0,
+0
+);
+
+return;
+
 }
 
-else if(profile.role==="provider"){
+
+/* =====================================================
+PROVIDER
+===================================================== */
+
+if(role === "provider"){
+
+console.log(
+"PHIL CONNECT: PROVIDER DASHBOARD"
+);
+
 
 document
 .getElementById("providerDashboard")
 .classList.add("active");
 
-await loadProviderDashboard(userId);
+
+await loadProviderDashboard(
+userId
+);
 
 startAutoRefresh("provider");
 
+window.scrollTo(
+0,
+0
+);
+
+return;
+
 }
 
-else{
+
+/* =====================================================
+CUSTOMER
+===================================================== */
+
+if(role === "customer"){
+
+console.log(
+"PHIL CONNECT: CUSTOMER DASHBOARD"
+);
+
 
 document
 .getElementById("customerDashboard")
 .classList.add("active");
 
+
+document
+.getElementById("customerName")
+.innerText =
+profile.full_name ||
+"Customer";
+
+
 await loadCustomerDashboard();
 
 startAutoRefresh("customer");
+
+window.scrollTo(
+0,
+0
+);
+
+return;
+
+}
+
+
+/* UNKNOWN ROLE */
+
+alert(
+"Your account role is not recognized: " +
+profile.role
+);
+
+document
+.getElementById("home")
+.classList.remove("hidden");
+
+
+}catch(error){
+
+console.error(
+"SHOW DASHBOARD ERROR:",
+error
+);
+
+alert(
+"Could not open dashboard: " +
+error.message
+);
 
 }
 
@@ -1779,27 +2119,37 @@ function startAutoRefresh(role){
 
 stopAutoRefresh();
 
-refreshTimer=
-setInterval(async()=>{
+
+refreshTimer =
+setInterval(
+async()=>{
 
 try{
 
-if(!currentUser)return;
+if(!currentUser) return;
 
-if(role==="customer"){
+
+if(role === "customer"){
+
+await loadProviders();
 
 await loadMyRequests();
 
 }
 
-if(role==="provider"){
+
+if(role === "provider"){
 
 await loadAvailableJobs();
+
 await loadProviderJobs();
+
+await loadProviderVerification();
 
 }
 
-if(role==="admin"){
+
+if(role === "admin"){
 
 if(!currentReviewId){
 
@@ -1812,13 +2162,15 @@ await loadAdminDashboard();
 }catch(error){
 
 console.error(
-"AUTO REFRESH ERROR",
+"AUTO REFRESH ERROR:",
 error
 );
 
 }
 
-},5000);
+},
+5000
+);
 
 }
 
@@ -1827,9 +2179,11 @@ function stopAutoRefresh(){
 
 if(refreshTimer){
 
-clearInterval(refreshTimer);
+clearInterval(
+refreshTimer
+);
 
-refreshTimer=null;
+refreshTimer = null;
 
 }
 
@@ -1843,6 +2197,7 @@ CUSTOMER
 async function loadCustomerDashboard(){
 
 await loadProviders();
+
 await loadMyRequests();
 
 }
@@ -1850,43 +2205,84 @@ await loadMyRequests();
 
 async function loadProviders(){
 
-const {data,error}=
+const container =
+document.getElementById(
+"providersList"
+);
+
+
+const {
+data,
+error
+} =
 await supabaseClient
 .from("providers")
-.select("*")
-.eq("verification_status","approved")
-.eq("is_available",true)
-.eq("is_online",true);
+.select(`
+id,
+user_id,
+business_name,
+description,
+service_type,
+service_area,
+verification_status,
+is_online,
+is_available,
+rating,
+total_jobs
+`)
+.eq(
+"verification_status",
+"approved"
+)
+.eq(
+"is_available",
+true
+)
+.eq(
+"is_online",
+true
+);
 
-const container=
-document.getElementById("providersList");
 
 if(error){
 
-container.innerHTML=
-"<p>Could not load providers.</p>";
+container.innerHTML =
+`
+<div class="danger-box">
+Could not load providers.
+<br><br>
+${escapeHTML(error.message)}
+</div>
+`;
 
 return;
 
 }
 
-if(!data||!data.length){
 
-container.innerHTML=
-"<p>No approved workmen are currently online.</p>";
+if(!data || !data.length){
+
+container.innerHTML =
+`
+<div class="empty-box">
+No approved workmen are currently online.
+</div>
+`;
 
 return;
 
 }
 
-container.innerHTML=
-data.map(provider=>`
+
+container.innerHTML =
+data.map(
+provider=>`
 
 <div class="provider-card">
 
 <h3>
 ${escapeHTML(
-provider.business_name||
+provider.business_name ||
 "Professional"
 )}
 </h3>
@@ -1897,21 +2293,21 @@ provider.business_name||
 
 <p class="info">
 🔧 ${escapeHTML(
-provider.service_type||
+provider.service_type ||
 "General Services"
 )}
 </p>
 
 <p class="info">
 📍 ${escapeHTML(
-provider.service_area||
+provider.service_area ||
 "Nigeria"
 )}
 </p>
 
 <p class="info">
-⭐ ${provider.rating||0}
-(${provider.total_jobs||0} jobs)
+⭐ ${provider.rating || 0}
+(${provider.total_jobs || 0} jobs)
 </p>
 
 <button
@@ -1923,7 +2319,8 @@ Request this Workman
 
 </div>
 
-`).join("");
+`
+).join("");
 
 }
 
@@ -1934,53 +2331,84 @@ CREATE JOB
 
 async function createJob(){
 
-const message=
-document.getElementById("customerMessage");
+const message =
+document.getElementById(
+"customerMessage"
+);
 
-message.innerText=
+message.innerText =
 "Submitting request...";
+
 
 try{
 
 const {
 data:{user}
-}=
+} =
 await supabaseClient.auth.getUser();
 
-if(!user)
-throw new Error("You are not logged in.");
 
-const service=
-document.getElementById("serviceType").value;
+if(!user){
 
-const description=
-document.getElementById("jobDescription")
-.value.trim();
-
-const location=
-document.getElementById("jobLocation")
-.value.trim();
-
-const phone=
-document.getElementById("jobPhone")
-.value.trim();
-
-const date=
-document.getElementById("preferredDate").value;
-
-const time=
-document.getElementById("preferredTime")
-.value.trim();
-
-const budget=
-Number(
-document.getElementById("customerBudget").value
+throw new Error(
+"You are not logged in."
 );
 
+}
+
+
+const service =
+document
+.getElementById("serviceType")
+.value;
+
+
+const description =
+document
+.getElementById("jobDescription")
+.value
+.trim();
+
+
+const location =
+document
+.getElementById("jobLocation")
+.value
+.trim();
+
+
+const phone =
+document
+.getElementById("jobPhone")
+.value
+.trim();
+
+
+const date =
+document
+.getElementById("preferredDate")
+.value;
+
+
+const time =
+document
+.getElementById("preferredTime")
+.value
+.trim();
+
+
+const budget =
+Number(
+document
+.getElementById("customerBudget")
+.value
+);
+
+
 if(
-!service||
-!description||
-!location||
+!service ||
+!description ||
+!location ||
 !budget
 ){
 
@@ -1990,64 +2418,122 @@ throw new Error(
 
 }
 
-const {error}=
+
+const {
+error
+} =
 await supabaseClient
 .from("service_requests")
 .insert({
 
 customer_id:user.id,
+
 service_type:service,
+
 description:description,
+
 location:location,
-phone:phone||null,
-preferred_date:date||null,
-preferred_time:time||null,
+
+phone:phone || null,
+
+preferred_date:
+date || null,
+
+preferred_time:
+time || null,
+
 budget:budget,
+
 customer_budget:budget,
+
 status:"pending"
 
 });
 
-if(error)throw error;
 
-message.innerHTML=
+if(error){
+
+throw new Error(
+error.message
+);
+
+}
+
+
+message.innerHTML =
 "✅ Request submitted successfully!";
 
-document.getElementById("jobDescription").value="";
-document.getElementById("jobLocation").value="";
-document.getElementById("jobPhone").value="";
-document.getElementById("preferredDate").value="";
-document.getElementById("preferredTime").value="";
-document.getElementById("customerBudget").value="";
+
+document
+.getElementById("jobDescription")
+.value="";
+
+
+document
+.getElementById("jobLocation")
+.value="";
+
+
+document
+.getElementById("jobPhone")
+.value="";
+
+
+document
+.getElementById("preferredDate")
+.value="";
+
+
+document
+.getElementById("preferredTime")
+.value="";
+
+
+document
+.getElementById("customerBudget")
+.value="";
+
 
 await loadMyRequests();
 
+
 }catch(error){
 
-message.innerHTML=
-"❌ "+error.message;
+message.innerHTML =
+"❌ " +
+escapeHTML(error.message);
 
 }
 
 }
 
+
+/* =========================================================
+CHOOSE PROVIDER
+========================================================= */
 
 async function chooseProvider(providerId){
 
 const {
 data:{user}
-}=
+} =
 await supabaseClient.auth.getUser();
+
 
 if(!user){
 
-alert("Please login.");
+alert(
+"Please login."
+);
+
 return;
 
 }
 
-const request=
+
+const request =
 await getLatestCustomerRequest();
+
 
 if(!request){
 
@@ -2059,131 +2545,220 @@ return;
 
 }
 
-const {error}=
+
+const {
+error
+} =
 await supabaseClient
 .from("service_requests")
 .update({
-provider_id:providerId
+
+provider_id:
+providerId
+
 })
-.eq("id",request.id)
-.eq("customer_id",user.id);
+.eq(
+"id",
+request.id
+)
+.eq(
+"customer_id",
+user.id
+);
+
 
 if(error){
 
-alert(error.message);
+alert(
+error.message
+);
+
 return;
 
 }
 
+
 alert(
 "Request sent to the selected workman."
 );
+
 
 await loadMyRequests();
 
 }
 
 
+/* =========================================================
+LATEST CUSTOMER REQUEST
+========================================================= */
+
 async function getLatestCustomerRequest(){
 
 const {
 data:{user}
-}=
+} =
 await supabaseClient.auth.getUser();
 
-if(!user)return null;
 
-const {data}=
+if(!user) return null;
+
+
+const {
+data
+} =
 await supabaseClient
 .from("service_requests")
 .select("*")
-.eq("customer_id",user.id)
-.order("created_at",{ascending:false})
+.eq(
+"customer_id",
+user.id
+)
+.order(
+"created_at",
+{
+ascending:false
+}
+)
 .limit(1);
 
-return data&&data.length
-?data[0]
-:null;
+
+return data &&
+data.length
+? data[0]
+: null;
 
 }
 
+
+/* =========================================================
+MY REQUESTS
+========================================================= */
 
 async function loadMyRequests(){
 
 const {
 data:{user}
-}=
+} =
 await supabaseClient.auth.getUser();
 
-if(!user)return;
 
-const container=
-document.getElementById("myRequests");
+if(!user) return;
 
-const {data,error}=
+
+const container =
+document.getElementById(
+"myRequests"
+);
+
+
+const {
+data,
+error
+} =
 await supabaseClient
 .from("service_requests")
 .select("*")
-.eq("customer_id",user.id)
-.order("created_at",{ascending:false});
+.eq(
+"customer_id",
+user.id
+)
+.order(
+"created_at",
+{
+ascending:false
+}
+);
+
 
 if(error){
 
-container.innerHTML=
-"<p>Could not load your requests.</p>";
+container.innerHTML =
+`
+<div class="danger-box">
+Could not load your requests.
+<br><br>
+${escapeHTML(error.message)}
+</div>
+`;
 
 return;
 
 }
 
-if(!data||!data.length){
 
-container.innerHTML=
-"<p>You have no service requests yet.</p>";
+if(!data || !data.length){
+
+container.innerHTML =
+`
+<div class="empty-box">
+You have no service requests yet.
+</div>
+`;
 
 return;
 
 }
 
-container.innerHTML=
-data.map(job=>`
+
+container.innerHTML =
+data.map(
+job=>`
 
 <div class="job-card">
 
 <h3>
-${escapeHTML(job.service_type)}
+${escapeHTML(
+job.service_type
+)}
 </h3>
 
 <p class="info">
-📝 ${escapeHTML(job.description)}
+📝 ${escapeHTML(
+job.description
+)}
 </p>
 
 <p class="info">
-📍 ${escapeHTML(job.location)}
+📍 ${escapeHTML(
+job.location
+)}
 </p>
 
 <p class="info">
-📞 ${escapeHTML(job.phone||"Not provided")}
+📞 ${escapeHTML(
+job.phone ||
+"Not provided"
+)}
 </p>
 
 <p class="price">
 ₦${Number(
-job.provider_amount||
-job.customer_budget||
-job.budget||
+job.provider_amount ||
+job.customer_budget ||
+job.budget ||
 0
 ).toLocaleString()}
 </p>
 
-<span class="status ${escapeHTML(job.status||"pending")}">
+<span class="status ${escapeHTML(
+job.status ||
+"pending"
+)}">
+
 ${escapeHTML(
-(job.status||"pending").toUpperCase()
+(
+job.status ||
+"pending"
+)
+.toUpperCase()
 )}
+
 </span>
 
 </div>
 
-`).join("");
+`
+).join("");
 
 }
 
@@ -2192,55 +2767,102 @@ ${escapeHTML(
 PROVIDER
 ========================================================= */
 
-async function loadProviderDashboard(userId){
+async function loadProviderDashboard(
+userId
+){
 
-const {data:provider}=
+const {
+data:provider
+} =
 await supabaseClient
 .from("providers")
 .select("*")
-.eq("user_id",userId)
+.eq(
+"user_id",
+userId
+)
 .maybeSingle();
 
-if(!provider)return;
+
+if(!provider){
 
 document.getElementById(
 "providerBusiness"
-).innerText=
-provider.business_name||"Provider";
+).innerText =
+"Provider profile not found.";
 
-updateOnlineUI(provider.is_online);
+return;
+
+}
+
+
+document.getElementById(
+"providerBusiness"
+).innerText =
+provider.business_name ||
+"Provider";
+
+
+updateOnlineUI(
+provider.is_online
+);
+
 
 await loadProviderVerification();
+
 await loadAvailableJobs();
+
 await loadProviderJobs();
 
 }
 
 
+/* =========================================================
+ONLINE STATUS
+========================================================= */
+
 async function toggleOnline(){
 
 const {
 data:{user}
-}=
+} =
 await supabaseClient.auth.getUser();
 
-if(!user)return;
 
-const {data:provider,error}=
+if(!user) return;
+
+
+const {
+data:provider,
+error
+} =
 await supabaseClient
 .from("providers")
-.select("is_online,verification_status")
-.eq("user_id",user.id)
+.select(
+"is_online,verification_status"
+)
+.eq(
+"user_id",
+user.id
+)
 .single();
+
 
 if(error){
 
-alert(error.message);
+alert(
+error.message
+);
+
 return;
 
 }
 
-if(provider.verification_status!=="approved"){
+
+if(
+provider.verification_status !==
+"approved"
+){
 
 alert(
 "Your account must be approved before you can go online."
@@ -2250,157 +2872,248 @@ return;
 
 }
 
-const newStatus=!provider.is_online;
 
-const {error:updateError}=
+const newStatus =
+!provider.is_online;
+
+
+const {
+error:updateError
+} =
 await supabaseClient
 .from("providers")
 .update({
 
 is_online:newStatus,
+
 is_available:newStatus
 
 })
-.eq("user_id",user.id);
+.eq(
+"user_id",
+user.id
+);
+
 
 if(updateError){
 
-alert(updateError.message);
+alert(
+updateError.message
+);
+
 return;
 
 }
 
-updateOnlineUI(newStatus);
+
+updateOnlineUI(
+newStatus
+);
 
 }
 
 
-function updateOnlineUI(online){
+function updateOnlineUI(
+online
+){
 
 document.getElementById(
 "onlineButton"
-).innerText=
+).innerText =
 online
-?"Go Offline"
-:"Go Online";
+? "Go Offline"
+: "Go Online";
+
 
 document.getElementById(
 "onlineStatus"
-).innerText=
+).innerText =
 online
-?"🟢 You are online and available."
-:"⚪ You are offline.";
+? "🟢 You are online and available."
+: "⚪ You are offline.";
 
 }
 
+
+/* =========================================================
+AVAILABLE JOBS
+========================================================= */
 
 async function loadAvailableJobs(){
 
 const {
 data:{user}
-}=
+} =
 await supabaseClient.auth.getUser();
 
-if(!user)return;
 
-const {data:provider}=
+if(!user) return;
+
+
+const {
+data:provider
+} =
 await supabaseClient
 .from("providers")
-.select("*")
-.eq("user_id",user.id)
+.select(`
+id,
+verification_status,
+is_online,
+is_available
+`)
+.eq(
+"user_id",
+user.id
+)
 .maybeSingle();
 
-const container=
-document.getElementById("availableJobs");
+
+const container =
+document.getElementById(
+"availableJobs"
+);
+
 
 if(!provider){
 
-container.innerHTML=
+container.innerHTML =
 "<p>Provider profile not found.</p>";
 
 return;
 
 }
 
-if(provider.verification_status!=="approved"){
 
-container.innerHTML=
-`
+if(
+provider.verification_status !==
+"approved"
+){
+
+container.innerHTML = `
+
 <div class="warning-box">
+
 Your account must be approved before you can receive jobs.
+
 </div>
+
 `;
 
 return;
 
 }
 
-if(!provider.is_online||
-!provider.is_available){
 
-container.innerHTML=
-`
+if(
+!provider.is_online ||
+!provider.is_available
+){
+
+container.innerHTML = `
+
 <div class="warning-box">
+
 You are currently offline.
+
 Go online to receive available jobs.
+
 </div>
+
 `;
 
 return;
 
 }
 
-const {data,error}=
+
+const {
+data,
+error
+} =
 await supabaseClient
 .from("service_requests")
 .select("*")
-.is("provider_id",null)
-.eq("status","pending")
-.order("created_at",{ascending:false});
+.is(
+"provider_id",
+null
+)
+.eq(
+"status",
+"pending"
+)
+.order(
+"created_at",
+{
+ascending:false
+}
+);
+
 
 if(error){
 
-container.innerHTML=
-"<p>Could not load jobs.</p>";
+container.innerHTML =
+`
+<div class="danger-box">
+Could not load jobs.
+<br><br>
+${escapeHTML(error.message)}
+</div>
+`;
 
 return;
 
 }
 
-if(!data||!data.length){
 
-container.innerHTML=
-"<p>No available jobs right now.</p>";
+if(!data || !data.length){
+
+container.innerHTML =
+`
+<div class="empty-box">
+No available jobs right now.
+</div>
+`;
 
 return;
 
 }
 
-container.innerHTML=
-data.map(job=>`
+
+container.innerHTML =
+data.map(
+job=>`
 
 <div class="job-card">
 
 <h3>
-${escapeHTML(job.service_type)}
+${escapeHTML(
+job.service_type
+)}
 </h3>
 
 <p class="info">
-📝 ${escapeHTML(job.description)}
+📝 ${escapeHTML(
+job.description
+)}
 </p>
 
 <p class="info">
-📍 ${escapeHTML(job.location)}
+📍 ${escapeHTML(
+job.location
+)}
 </p>
 
 <p class="info">
-📞 ${escapeHTML(job.phone||"Not provided")}
+📞 ${escapeHTML(
+job.phone ||
+"Not provided"
+)}
 </p>
 
 <p class="price">
 ₦${Number(
-job.customer_budget||
-job.budget||
+job.customer_budget ||
+job.budget ||
 0
 ).toLocaleString()}
 </p>
@@ -2414,35 +3127,60 @@ Accept Job
 
 </div>
 
-`).join("");
+`
+).join("");
 
 }
 
 
-async function acceptJob(jobId){
+/* =========================================================
+ACCEPT JOB
+========================================================= */
+
+async function acceptJob(
+jobId
+){
 
 const {
 data:{user}
-}=
+} =
 await supabaseClient.auth.getUser();
 
-if(!user)return;
 
-const {data:provider,error}=
+if(!user) return;
+
+
+const {
+data:provider,
+error
+} =
 await supabaseClient
 .from("providers")
-.select("id,verification_status")
-.eq("user_id",user.id)
+.select(
+"id,verification_status,is_online,is_available"
+)
+.eq(
+"user_id",
+user.id
+)
 .single();
+
 
 if(error){
 
-alert(error.message);
+alert(
+error.message
+);
+
 return;
 
 }
 
-if(provider.verification_status!=="approved"){
+
+if(
+provider.verification_status !==
+"approved"
+){
 
 alert(
 "Your provider account is not approved."
@@ -2452,45 +3190,81 @@ return;
 
 }
 
-const amount=
+
+const amount =
 prompt(
 "Enter the amount you will charge for this job:"
 );
 
-if(amount===null)return;
 
-const finalAmount=Number(amount);
+if(amount === null) return;
 
-if(!finalAmount||finalAmount<=0){
 
-alert("Enter a valid amount.");
+const finalAmount =
+Number(amount);
+
+
+if(
+!finalAmount ||
+finalAmount <= 0
+){
+
+alert(
+"Enter a valid amount."
+);
+
 return;
 
 }
 
-const {data,error:updateError}=
+
+const {
+data,
+error:updateError
+} =
 await supabaseClient
 .from("service_requests")
 .update({
 
-provider_id:provider.id,
-provider_amount:finalAmount,
-status:"accepted",
-accepted_at:new Date().toISOString()
+provider_id:
+provider.id,
+
+provider_amount:
+finalAmount,
+
+status:
+"accepted",
+
+accepted_at:
+new Date().toISOString()
 
 })
-.eq("id",jobId)
-.is("provider_id",null)
-.eq("status","pending")
+.eq(
+"id",
+jobId
+)
+.is(
+"provider_id",
+null
+)
+.eq(
+"status",
+"pending"
+)
 .select()
 .single();
 
+
 if(updateError){
 
-alert(updateError.message);
+alert(
+updateError.message
+);
+
 return;
 
 }
+
 
 if(!data){
 
@@ -2502,178 +3276,288 @@ return;
 
 }
 
+
 alert(
 "Job accepted successfully."
 );
 
+
 await loadAvailableJobs();
+
 await loadProviderJobs();
 
 }
 
 
+/* =========================================================
+PROVIDER JOBS
+========================================================= */
+
 async function loadProviderJobs(){
 
 const {
 data:{user}
-}=
+} =
 await supabaseClient.auth.getUser();
 
-if(!user)return;
 
-const {data:provider}=
+if(!user) return;
+
+
+const {
+data:provider
+} =
 await supabaseClient
 .from("providers")
 .select("id")
-.eq("user_id",user.id)
+.eq(
+"user_id",
+user.id
+)
 .maybeSingle();
 
-const container=
-document.getElementById("providerJobs");
+
+const container =
+document.getElementById(
+"providerJobs"
+);
+
 
 if(!provider){
 
-container.innerHTML=
+container.innerHTML =
 "<p>Provider profile not found.</p>";
 
 return;
 
 }
 
-const {data,error}=
+
+const {
+data,
+error
+} =
 await supabaseClient
 .from("service_requests")
 .select("*")
-.eq("provider_id",provider.id)
-.order("created_at",{ascending:false});
+.eq(
+"provider_id",
+provider.id
+)
+.order(
+"created_at",
+{
+ascending:false
+}
+);
+
 
 if(error){
 
-container.innerHTML=
-"<p>Could not load your jobs.</p>";
+container.innerHTML =
+`
+<div class="danger-box">
+Could not load your jobs.
+<br><br>
+${escapeHTML(error.message)}
+</div>
+`;
 
 return;
 
 }
 
-if(!data||!data.length){
 
-container.innerHTML=
-"<p>You have no accepted jobs.</p>";
+if(!data || !data.length){
+
+container.innerHTML =
+`
+<div class="empty-box">
+You have no accepted jobs.
+</div>
+`;
 
 return;
 
 }
 
-container.innerHTML=
-data.map(job=>`
+
+container.innerHTML =
+data.map(
+job=>`
 
 <div class="job-card">
 
 <h3>
-${escapeHTML(job.service_type)}
+${escapeHTML(
+job.service_type
+)}
 </h3>
 
 <p class="info">
-📝 ${escapeHTML(job.description)}
+📝 ${escapeHTML(
+job.description
+)}
 </p>
 
 <p class="info">
-📍 ${escapeHTML(job.location)}
+📍 ${escapeHTML(
+job.location
+)}
 </p>
 
 <p class="price">
 ₦${Number(
-job.provider_amount||0
+job.provider_amount ||
+0
 ).toLocaleString()}
 </p>
 
-<span class="status ${escapeHTML(job.status)}">
+<span class="status ${escapeHTML(
+job.status
+)}">
+
 ${escapeHTML(
-job.status.toUpperCase()
+(
+job.status ||
+""
+)
+.toUpperCase()
 )}
+
 </span>
 
+
 ${
-job.status==="accepted"
+job.status === "accepted"
 ?
 `
+
 <button
 class="btn blue"
-onclick="changeJobStatus('${job.id}','in_progress')"
+onclick="changeJobStatus(
+'${job.id}',
+'in_progress'
+)"
 >
 Start Job
 </button>
+
 `
-:""
+:
+""
 }
 
+
 ${
-job.status==="in_progress"
+job.status === "in_progress"
 ?
 `
+
 <button
 class="btn green"
-onclick="changeJobStatus('${job.id}','completed')"
+onclick="changeJobStatus(
+'${job.id}',
+'completed'
+)"
 >
 Complete Job
 </button>
+
 `
-:""
+:
+""
 }
 
 </div>
 
-`).join("");
+`
+).join("");
 
 }
 
 
-async function changeJobStatus(jobId,status){
+/* =========================================================
+CHANGE JOB STATUS
+========================================================= */
+
+async function changeJobStatus(
+jobId,
+status
+){
 
 const {
 data:{user}
-}=
+} =
 await supabaseClient.auth.getUser();
 
-if(!user)return;
 
-const {data:provider}=
+if(!user) return;
+
+
+const {
+data:provider
+} =
 await supabaseClient
 .from("providers")
 .select("id")
-.eq("user_id",user.id)
+.eq(
+"user_id",
+user.id
+)
 .single();
+
 
 if(!provider){
 
-alert("Provider profile not found.");
+alert(
+"Provider profile not found."
+);
+
 return;
 
 }
 
-const updates={status:status};
 
-if(status==="completed"){
+const updates = {
+status:status
+};
 
-updates.completed_at=
+
+if(status === "completed"){
+
+updates.completed_at =
 new Date().toISOString();
 
 }
 
-const {error}=
+
+const {
+error
+} =
 await supabaseClient
 .from("service_requests")
 .update(updates)
-.eq("id",jobId)
-.eq("provider_id",provider.id);
+.eq(
+"id",
+jobId
+)
+.eq(
+"provider_id",
+provider.id
+);
+
 
 if(error){
 
-alert(error.message);
+alert(
+error.message
+);
+
 return;
 
 }
+
 
 await loadProviderJobs();
 
@@ -2688,75 +3572,127 @@ async function loadProviderVerification(){
 
 const {
 data:{user}
-}=
+} =
 await supabaseClient.auth.getUser();
 
-if(!user)return;
 
-const {data:provider}=
+if(!user) return;
+
+
+const {
+data:provider,
+error:providerError
+} =
 await supabaseClient
 .from("providers")
 .select("id")
-.eq("user_id",user.id)
+.eq(
+"user_id",
+user.id
+)
 .single();
 
-if(!provider)return;
 
-const {data:verification,error}=
+if(
+providerError ||
+!provider
+){
+
+return;
+
+}
+
+
+const {
+data:verification,
+error
+} =
 await supabaseClient
 .from("provider_verifications")
 .select("*")
-.eq("provider_id",provider.id)
-.order("created_at",{ascending:false})
-.limit(1)
+.eq(
+"provider_id",
+provider.id
+)
 .maybeSingle();
 
-const statusBox=
+
+const statusBox =
 document.getElementById(
 "providerVerificationStatus"
 );
 
-const form=
+
+const form =
 document.getElementById(
 "providerVerificationForm"
 );
 
+
 if(error){
 
-statusBox.innerHTML=
-`
+statusBox.innerHTML = `
+
 <div class="danger-box">
+
 Could not load verification status.
+
+<br><br>
+
+${escapeHTML(
+error.message
+)}
+
 </div>
+
 `;
 
 return;
 
 }
+
 
 if(!verification){
 
-statusBox.innerHTML=
-`
+statusBox.innerHTML = `
+
 <div class="warning-box">
-Your verification has not been submitted yet.
-Complete the form below.
+
+<strong>
+Verification not submitted
+</strong>
+
+<p style="margin-top:8px">
+Complete the form below to submit your verification.
+</p>
+
 </div>
+
 `;
 
-form.classList.remove("hidden");
+form.classList.remove(
+"hidden"
+);
 
 return;
 
 }
 
-if(verification.status==="approved"){
 
-statusBox.innerHTML=
-`
+/* APPROVED */
+
+if(
+verification.status ===
+"approved"
+){
+
+statusBox.innerHTML = `
+
 <div class="success-box">
 
-<h3>✅ Verification Approved</h3>
+<h3>
+✅ Verification Approved
+</h3>
 
 <p style="margin-top:8px">
 Your verification has been approved.
@@ -2764,222 +3700,381 @@ You can now receive jobs.
 </p>
 
 </div>
+
 `;
 
-form.classList.add("hidden");
+form.classList.add(
+"hidden"
+);
 
 return;
 
 }
 
-if(verification.status==="rejected"){
 
-statusBox.innerHTML=
-`
+/* REJECTED */
+
+if(
+verification.status ===
+"rejected"
+){
+
+statusBox.innerHTML = `
+
 <div class="danger-box">
 
-<h3>❌ Verification Rejected</h3>
+<h3>
+❌ Verification Rejected
+</h3>
 
 <p style="margin-top:8px">
+<strong>Admin reason:</strong>
+</p>
+
+<p style="margin-top:5px">
+
 ${escapeHTML(
-verification.rejection_reason||
+verification.rejection_reason ||
 "Please correct your information and resubmit."
 )}
+
+</p>
+
+<p style="margin-top:12px">
+
+You can correct your information and submit again for approval.
+
 </p>
 
 </div>
 
-<div class="warning-box">
-
-<strong>You can resubmit.</strong>
-
-<p style="margin-top:8px">
-Correct the information above and upload your documents again.
-Your previous rejected application will remain in the admin history.
-</p>
-
-</div>
 `;
 
-form.classList.remove("hidden");
+form.classList.remove(
+"hidden"
+);
 
-populateVerificationForm(verification);
+populateVerificationForm(
+verification
+);
 
 return;
 
 }
 
-statusBox.innerHTML=
-`
+
+/* SUBMITTED / UNDER REVIEW */
+
+statusBox.innerHTML = `
+
 <div class="warning-box">
 
-<h3>⏳ Verification Submitted</h3>
+<h3>
+⏳ Verification Submitted
+</h3>
 
 <p style="margin-top:8px">
-Your application is waiting for admin review.
+
+Your application has been submitted and is waiting for admin review.
+
 </p>
 
 </div>
+
 `;
 
-form.classList.add("hidden");
-
-}
-
-
-function populateVerificationForm(v){
-
-document.getElementById("verifyLegalName").value=
-v.legal_full_name||"";
-
-document.getElementById("verifyDOB").value=
-v.date_of_birth||"";
-
-document.getElementById("verifyPhone").value=
-v.phone||"";
-
-document.getElementById("verifyAddress").value=
-v.residential_address||"";
-
-document.getElementById("verifyState").value=
-v.state||"";
-
-document.getElementById("verifyLGA").value=
-v.lga||"";
-
-document.getElementById("verifyServiceType").value=
-v.service_type||"";
-
-document.getElementById("verifyExperience").value=
-v.years_of_experience||"";
-
-document.getElementById("verifyEmergencyName").value=
-v.emergency_contact_name||"";
-
-document.getElementById("verifyEmergencyPhone").value=
-v.emergency_contact_phone||"";
-
-document.getElementById("verifyEmergencyRelationship").value=
-v.emergency_contact_relationship||"";
-
-document.getElementById("verifyIDType").value=
-v.id_type||"";
-
-document.getElementById("verifyIDNumber").value=
-v.id_number||"";
+form.classList.add(
+"hidden"
+);
 
 }
 
 
 /* =========================================================
-SUBMIT / RESUBMIT VERIFICATION
+POPULATE VERIFICATION FORM
+========================================================= */
+
+function populateVerificationForm(v){
+
+document.getElementById(
+"verifyLegalName"
+).value =
+v.legal_full_name ||
+"";
+
+
+document.getElementById(
+"verifyDOB"
+).value =
+v.date_of_birth ||
+"";
+
+
+document.getElementById(
+"verifyPhone"
+).value =
+v.phone ||
+"";
+
+
+document.getElementById(
+"verifyAddress"
+).value =
+v.residential_address ||
+"";
+
+
+document.getElementById(
+"verifyState"
+).value =
+v.state ||
+"";
+
+
+document.getElementById(
+"verifyLGA"
+).value =
+v.lga ||
+"";
+
+
+document.getElementById(
+"verifyServiceType"
+).value =
+v.service_type ||
+"";
+
+
+document.getElementById(
+"verifyExperience"
+).value =
+v.years_of_experience ||
+"";
+
+
+document.getElementById(
+"verifyEmergencyName"
+).value =
+v.emergency_contact_name ||
+"";
+
+
+document.getElementById(
+"verifyEmergencyPhone"
+).value =
+v.emergency_contact_phone ||
+"";
+
+
+document.getElementById(
+"verifyEmergencyRelationship"
+).value =
+v.emergency_contact_relationship ||
+"";
+
+
+document.getElementById(
+"verifyIDType"
+).value =
+v.id_type ||
+"";
+
+
+document.getElementById(
+"verifyIDNumber"
+).value =
+v.id_number ||
+"";
+
+}
+
+
+/* =========================================================
+SUBMIT PROVIDER VERIFICATION
 ========================================================= */
 
 async function submitProviderVerification(){
 
 const {
 data:{user}
-}=
+} =
 await supabaseClient.auth.getUser();
+
 
 if(!user){
 
-alert("Please login.");
+alert(
+"Please login."
+);
+
 return;
 
 }
 
-const {data:provider,error:providerError}=
+
+const {
+data:provider,
+error:providerError
+} =
 await supabaseClient
 .from("providers")
 .select("id")
-.eq("user_id",user.id)
+.eq(
+"user_id",
+user.id
+)
 .single();
 
-if(providerError||!provider){
 
-alert("Provider profile not found.");
+if(
+providerError ||
+!provider
+){
+
+alert(
+"Provider profile not found."
+);
+
 return;
 
 }
 
-const legalName=
-document.getElementById("verifyLegalName")
-.value.trim();
 
-const dob=
-document.getElementById("verifyDOB").value;
+/* PERSONAL */
 
-const phone=
-document.getElementById("verifyPhone")
-.value.trim();
+const legalName =
+document
+.getElementById(
+"verifyLegalName"
+)
+.value
+.trim();
 
-const address=
-document.getElementById("verifyAddress")
-.value.trim();
 
-const state=
-document.getElementById("verifyState")
-.value.trim();
+const dob =
+document
+.getElementById(
+"verifyDOB"
+)
+.value;
 
-const lga=
-document.getElementById("verifyLGA")
-.value.trim();
 
-const serviceType=
-document.getElementById("verifyServiceType")
-.value.trim();
+const phone =
+document
+.getElementById(
+"verifyPhone"
+)
+.value
+.trim();
 
-const experience=
+
+const address =
+document
+.getElementById(
+"verifyAddress"
+)
+.value
+.trim();
+
+
+const state =
+document
+.getElementById(
+"verifyState"
+)
+.value
+.trim();
+
+
+const lga =
+document
+.getElementById(
+"verifyLGA"
+)
+.value
+.trim();
+
+
+const serviceType =
+document
+.getElementById(
+"verifyServiceType"
+)
+.value
+.trim();
+
+
+const experience =
 Number(
-document.getElementById("verifyExperience").value
+document
+.getElementById(
+"verifyExperience"
+)
+.value
 );
 
-const emergencyName=
-document.getElementById("verifyEmergencyName")
-.value.trim();
 
-const emergencyPhone=
-document.getElementById("verifyEmergencyPhone")
-.value.trim();
+/* EMERGENCY */
 
-const emergencyRelationship=
-document.getElementById("verifyEmergencyRelationship")
-.value.trim();
+const emergencyName =
+document
+.getElementById(
+"verifyEmergencyName"
+)
+.value
+.trim();
 
-const idType=
-document.getElementById("verifyIDType").value;
 
-const idNumber=
-document.getElementById("verifyIDNumber")
-.value.trim();
+const emergencyPhone =
+document
+.getElementById(
+"verifyEmergencyPhone"
+)
+.value
+.trim();
 
-const photoIDFile=
-document.getElementById("verifyPhotoID")
-.files[0];
 
-const selfieFile=
-document.getElementById("verifySelfie")
-.files[0];
+const emergencyRelationship =
+document
+.getElementById(
+"verifyEmergencyRelationship"
+)
+.value
+.trim();
 
-const uploadStatus=
-document.getElementById(
-"documentUploadStatus"
-);
+
+/* ID */
+
+const idType =
+document
+.getElementById(
+"verifyIDType"
+)
+.value;
+
+
+const idNumber =
+document
+.getElementById(
+"verifyIDNumber"
+)
+.value
+.trim();
+
 
 if(
-!legalName||
-!dob||
-!phone||
-!address||
-!state||
-!lga||
-!serviceType||
-!experience||
-!emergencyName||
-!emergencyPhone||
-!emergencyRelationship||
-!idType||
+!legalName ||
+!dob ||
+!phone ||
+!address ||
+!state ||
+!lga ||
+!serviceType ||
+!experience ||
+!emergencyName ||
+!emergencyPhone ||
+!emergencyRelationship ||
+!idType ||
 !idNumber
 ){
 
@@ -2991,83 +4086,71 @@ return;
 
 }
 
-if(!photoIDFile){
-
-alert(
-"Please upload your Photo ID document."
-);
-
-return;
-
-}
-
-if(!selfieFile){
-
-alert(
-"Please upload your selfie."
-);
-
-return;
-
-}
-
-const maxSize=
-5*1024*1024;
-
-if(photoIDFile.size>maxSize){
-
-alert(
-"Photo ID must not be larger than 5MB."
-);
-
-return;
-
-}
-
-if(selfieFile.size>maxSize){
-
-alert(
-"Selfie must not be larger than 5MB."
-);
-
-return;
-
-}
-
 
 /* GUARANTOR 1 */
 
-const g1={
+const g1 = {
 
 full_name:
-document.getElementById("g1Name")
-.value.trim(),
+document
+.getElementById(
+"g1Name"
+)
+.value
+.trim(),
 
 phone:
-document.getElementById("g1Phone")
-.value.trim(),
+document
+.getElementById(
+"g1Phone"
+)
+.value
+.trim(),
 
 residential_address:
-document.getElementById("g1Address")
-.value.trim(),
+document
+.getElementById(
+"g1Address"
+)
+.value
+.trim(),
 
 occupation:
-document.getElementById("g1Occupation")
-.value.trim(),
+document
+.getElementById(
+"g1Occupation"
+)
+.value
+.trim(),
 
 relationship_to_provider:
-document.getElementById("g1Relationship")
-.value.trim(),
+document
+.getElementById(
+"g1Relationship"
+)
+.value
+.trim(),
 
 id_type:
-document.getElementById("g1IDType").value,
+document
+.getElementById(
+"g1IDType"
+)
+.value,
 
 id_number:
-document.getElementById("g1IDNumber")
-.value.trim(),
+document
+.getElementById(
+"g1IDNumber"
+)
+.value
+.trim(),
 
 consent_confirmed:
-document.getElementById("g1Consent")
+document
+.getElementById(
+"g1Consent"
+)
 .checked
 
 };
@@ -3075,50 +4158,81 @@ document.getElementById("g1Consent")
 
 /* GUARANTOR 2 */
 
-const g2={
+const g2 = {
 
 full_name:
-document.getElementById("g2Name")
-.value.trim(),
+document
+.getElementById(
+"g2Name"
+)
+.value
+.trim(),
 
 phone:
-document.getElementById("g2Phone")
-.value.trim(),
+document
+.getElementById(
+"g2Phone"
+)
+.value
+.trim(),
 
 residential_address:
-document.getElementById("g2Address")
-.value.trim(),
+document
+.getElementById(
+"g2Address"
+)
+.value
+.trim(),
 
 occupation:
-document.getElementById("g2Occupation")
-.value.trim(),
+document
+.getElementById(
+"g2Occupation"
+)
+.value
+.trim(),
 
 relationship_to_provider:
-document.getElementById("g2Relationship")
-.value.trim(),
+document
+.getElementById(
+"g2Relationship"
+)
+.value
+.trim(),
 
 id_type:
-document.getElementById("g2IDType").value,
+document
+.getElementById(
+"g2IDType"
+)
+.value,
 
 id_number:
-document.getElementById("g2IDNumber")
-.value.trim(),
+document
+.getElementById(
+"g2IDNumber"
+)
+.value
+.trim(),
 
 consent_confirmed:
-document.getElementById("g2Consent")
+document
+.getElementById(
+"g2Consent"
+)
 .checked
 
 };
 
 
 if(
-!g1.full_name||
-!g1.phone||
-!g1.residential_address||
-!g1.occupation||
-!g1.relationship_to_provider||
-!g1.id_type||
-!g1.id_number||
+!g1.full_name ||
+!g1.phone ||
+!g1.residential_address ||
+!g1.occupation ||
+!g1.relationship_to_provider ||
+!g1.id_type ||
+!g1.id_number ||
 !g1.consent_confirmed
 ){
 
@@ -3130,14 +4244,15 @@ return;
 
 }
 
+
 if(
-!g2.full_name||
-!g2.phone||
-!g2.residential_address||
-!g2.occupation||
-!g2.relationship_to_provider||
-!g2.id_type||
-!g2.id_number||
+!g2.full_name ||
+!g2.phone ||
+!g2.residential_address ||
+!g2.occupation ||
+!g2.relationship_to_provider ||
+!g2.id_type ||
+!g2.id_number ||
 !g2.consent_confirmed
 ){
 
@@ -3150,38 +4265,27 @@ return;
 }
 
 
-uploadStatus.innerHTML=
-"⏳ Preparing application...";
+/* EXISTING APPLICATION */
 
-
-/* FIND LATEST APPLICATION */
-
-const {data:existing,error:existingError}=
+const {
+data:existing,
+error:existingError
+} =
 await supabaseClient
 .from("provider_verifications")
 .select("id,status")
-.eq("provider_id",provider.id)
-.order("created_at",{ascending:false})
-.limit(1)
+.eq(
+"provider_id",
+provider.id
+)
 .maybeSingle();
+
 
 if(existingError){
 
-console.error(existingError);
-
-}
-
-
-if(
-existing &&
-(
-existing.status==="submitted"||
-existing.status==="under_review"
-)
-){
-
 alert(
-"This application is already waiting for admin review."
+"Could not check existing application: " +
+existingError.message
 );
 
 return;
@@ -3189,159 +4293,139 @@ return;
 }
 
 
-/*
-IMPORTANT:
+/* DATA */
 
-Rejected application = NEW application.
+const verificationData = {
 
-The old rejected application remains.
+provider_id:
+provider.id,
 
-This means admin can see:
-Rejected application #1
-Submitted application #2
-*/
+user_id:
+user.id,
 
-const verificationData={
+status:
+"submitted",
 
-provider_id:provider.id,
-user_id:user.id,
+legal_full_name:
+legalName,
 
-status:"submitted",
+date_of_birth:
+dob,
 
-legal_full_name:legalName,
-date_of_birth:dob,
-phone:phone,
-residential_address:address,
-state:state,
-lga:lga,
-service_type:serviceType,
-years_of_experience:experience,
+phone:
+phone,
 
-emergency_contact_name:emergencyName,
-emergency_contact_phone:emergencyPhone,
+residential_address:
+address,
+
+state:
+state,
+
+lga:
+lga,
+
+service_type:
+serviceType,
+
+years_of_experience:
+experience,
+
+emergency_contact_name:
+emergencyName,
+
+emergency_contact_phone:
+emergencyPhone,
+
 emergency_contact_relationship:
 emergencyRelationship,
 
-id_type:idType,
-id_number:idNumber,
+id_type:
+idType,
+
+id_number:
+idNumber,
 
 submitted_at:
 new Date().toISOString(),
 
-reviewed_at:null,
-reviewed_by:null,
-rejection_reason:null,
-admin_notes:null
+reviewed_at:
+null,
+
+reviewed_by:
+null,
+
+rejection_reason:
+null,
+
+admin_notes:
+null
 
 };
 
 
 let verificationId;
 
-if(
-existing &&
-existing.status==="rejected"
-){
 
-const {data:newVerification,error}=
+/* UPDATE */
+
+if(existing){
+
+const {
+data:updated,
+error:updateError
+} =
 await supabaseClient
 .from("provider_verifications")
-.insert(verificationData)
+.update(
+verificationData
+)
+.eq(
+"id",
+existing.id
+)
 .select()
 .single();
 
-if(error){
+
+if(updateError){
 
 alert(
-"Could not create new application: "+
-error.message
+"Could not resubmit verification: " +
+updateError.message
 );
 
 return;
 
 }
 
-verificationId=
-newVerification.id;
 
-}
-else if(existing){
-
-const {data:updated,error}=
-await supabaseClient
-.from("provider_verifications")
-.update(verificationData)
-.eq("id",existing.id)
-.select()
-.single();
-
-if(error){
-
-alert(
-"Could not update application: "+
-error.message
-);
-
-return;
-
-}
-
-verificationId=
+verificationId =
 updated.id;
 
 }
+
+/* CREATE */
+
 else{
 
-const {data:newVerification,error}=
+const {
+data:created,
+error:createError
+} =
 await supabaseClient
 .from("provider_verifications")
-.insert(verificationData)
+.insert(
+verificationData
+)
 .select()
 .single();
 
-if(error){
+
+if(createError){
 
 alert(
-"Could not submit application: "+
-error.message
-);
-
-return;
-
-}
-
-verificationId=
-newVerification.id;
-
-}
-
-
-/* PHOTO ID */
-
-uploadStatus.innerHTML=
-"⏳ Uploading Photo ID...";
-
-const photoIDPath=
-`${user.id}/${verificationId}/photo_id_${Date.now()}_${safeFileName(photoIDFile.name)}`;
-
-const {error:photoError}=
-await supabaseClient
-.storage
-.from("verification-documents")
-.upload(
-photoIDPath,
-photoIDFile,
-{
-upsert:true,
-contentType:photoIDFile.type
-}
-);
-
-if(photoError){
-
-alert(
-"Photo ID upload failed: "+
-photoError.message
+"Could not create verification: " +
+createError.message
 );
 
 return;
@@ -3349,102 +4433,87 @@ return;
 }
 
 
-/* SELFIE */
-
-uploadStatus.innerHTML=
-"⏳ Uploading selfie...";
-
-const selfiePath=
-`${user.id}/${verificationId}/selfie_${Date.now()}_${safeFileName(selfieFile.name)}`;
-
-const {error:selfieError}=
-await supabaseClient
-.storage
-.from("verification-documents")
-.upload(
-selfiePath,
-selfieFile,
-{
-upsert:true,
-contentType:selfieFile.type
-}
-);
-
-if(selfieError){
-
-alert(
-"Selfie upload failed: "+
-selfieError.message
-);
-
-return;
+verificationId =
+created.id;
 
 }
 
 
-/* SAVE DOCUMENT PATHS */
+/* DELETE OLD GUARANTORS */
 
-const {error:documentError}=
-await supabaseClient
-.from("provider_verifications")
-.update({
-
-photo_id_document_path:
-photoIDPath,
-
-selfie_document_path:
-selfiePath
-
-})
-.eq("id",verificationId);
-
-if(documentError){
-
-alert(
-"Could not save document information: "+
-documentError.message
-);
-
-return;
-
-}
-
-
-/* DELETE OLD GUARANTORS FOR THIS APPLICATION */
-
+const {
+error:deleteError
+} =
 await supabaseClient
 .from("provider_guarantors")
 .delete()
-.eq("verification_id",verificationId);
+.eq(
+"verification_id",
+verificationId
+);
+
+
+if(deleteError){
+
+alert(
+"Could not update guarantors: " +
+deleteError.message
+);
+
+return;
+
+}
 
 
 /* GUARANTOR 1 */
 
-const {error:g1Error}=
+const {
+error:g1Error
+} =
 await supabaseClient
 .from("provider_guarantors")
 .insert({
 
-verification_id:verificationId,
-guarantor_number:1,
-full_name:g1.full_name,
-phone:g1.phone,
-residential_address:g1.residential_address,
-occupation:g1.occupation,
+verification_id:
+verificationId,
+
+guarantor_number:
+1,
+
+full_name:
+g1.full_name,
+
+phone:
+g1.phone,
+
+residential_address:
+g1.residential_address,
+
+occupation:
+g1.occupation,
+
 relationship_to_provider:
 g1.relationship_to_provider,
-id_type:g1.id_type,
-id_number:g1.id_number,
+
+id_type:
+g1.id_type,
+
+id_number:
+g1.id_number,
+
 consent_confirmed:
 g1.consent_confirmed,
-verification_status:"pending"
+
+verification_status:
+"pending"
 
 });
+
 
 if(g1Error){
 
 alert(
-"Guarantor 1 error: "+
+"Guarantor 1 error: " +
 g1Error.message
 );
 
@@ -3455,31 +4524,53 @@ return;
 
 /* GUARANTOR 2 */
 
-const {error:g2Error}=
+const {
+error:g2Error
+} =
 await supabaseClient
 .from("provider_guarantors")
 .insert({
 
-verification_id:verificationId,
-guarantor_number:2,
-full_name:g2.full_name,
-phone:g2.phone,
-residential_address:g2.residential_address,
-occupation:g2.occupation,
+verification_id:
+verificationId,
+
+guarantor_number:
+2,
+
+full_name:
+g2.full_name,
+
+phone:
+g2.phone,
+
+residential_address:
+g2.residential_address,
+
+occupation:
+g2.occupation,
+
 relationship_to_provider:
 g2.relationship_to_provider,
-id_type:g2.id_type,
-id_number:g2.id_number,
+
+id_type:
+g2.id_type,
+
+id_number:
+g2.id_number,
+
 consent_confirmed:
 g2.consent_confirmed,
-verification_status:"pending"
+
+verification_status:
+"pending"
 
 });
+
 
 if(g2Error){
 
 alert(
-"Guarantor 2 error: "+
+"Guarantor 2 error: " +
 g2Error.message
 );
 
@@ -3488,47 +4579,95 @@ return;
 }
 
 
-/* PROVIDER STAYS OFFLINE */
+/* PROVIDER STATUS */
 
+const {
+error:providerUpdateError
+} =
 await supabaseClient
 .from("providers")
 .update({
 
-verification_status:"pending",
-is_online:false,
-is_available:false
+verification_status:
+"pending",
+
+is_online:
+false,
+
+is_available:
+false
 
 })
-.eq("id",provider.id);
+.eq(
+"id",
+provider.id
+);
+
+
+if(providerUpdateError){
+
+alert(
+"Provider status update failed: " +
+providerUpdateError.message
+);
+
+return;
+
+}
 
 
 /* EVENT */
 
+const {
+error:eventError
+} =
 await supabaseClient
 .from("provider_verification_events")
 .insert({
 
-verification_id:verificationId,
-actor_id:user.id,
-action:"submitted",
+verification_id:
+verificationId,
+
+actor_id:
+user.id,
+
+action:
+existing
+? "resubmitted"
+: "submitted",
+
 old_status:
-existing?existing.status:null,
-new_status:"submitted",
+existing
+? existing.status
+: null,
+
+new_status:
+"submitted",
+
 notes:
-existing&&existing.status==="rejected"
-?
-"Provider resubmitted after rejection."
-:
-"Provider verification submitted."
+existing
+? "Provider resubmitted rejected application for approval."
+: "Provider verification submitted."
 
 });
 
 
-uploadStatus.innerHTML="";
+if(eventError){
+
+console.error(
+"Verification event error:",
+eventError
+);
+
+}
+
 
 alert(
-"✅ Verification submitted successfully. Please wait for admin review."
+existing
+? "✅ Application resubmitted successfully. It is now waiting for admin review."
+: "✅ Verification submitted successfully. Please wait for admin review."
 );
+
 
 await loadProviderVerification();
 
@@ -3536,21 +4675,62 @@ await loadProviderVerification();
 
 
 /* =========================================================
-ADMIN
+ADMIN DASHBOARD
 ========================================================= */
 
 async function loadAdminDashboard(){
 
-if(!currentUser)return;
+if(!currentUser){
 
-const {data:profile}=
+console.error(
+"ADMIN: No current user."
+);
+
+return;
+
+}
+
+
+const {
+data:profile,
+error
+} =
 await supabaseClient
 .from("profiles")
-.select("role")
-.eq("id",currentUser.id)
+.select(
+"id,full_name,email,role"
+)
+.eq(
+"id",
+currentUser.id
+)
 .maybeSingle();
 
-if(!profile||profile.role!=="admin"){
+
+if(error){
+
+console.error(
+"ADMIN PROFILE ERROR:",
+error
+);
+
+return;
+
+}
+
+
+if(
+!profile ||
+String(profile.role)
+.trim()
+.toLowerCase() !==
+"admin"
+){
+
+console.error(
+"ADMIN ACCESS DENIED:",
+profile
+);
 
 alert(
 "Administrator access required."
@@ -3560,7 +4740,16 @@ return;
 
 }
 
+
+document.getElementById(
+"adminName"
+).innerText =
+profile.full_name ||
+"Administrator";
+
+
 await loadAdminStats();
+
 
 if(!currentReviewId){
 
@@ -3577,104 +4766,160 @@ ADMIN STATS
 
 async function loadAdminStats(){
 
-const {data,error}=
+const {
+data,
+error
+} =
 await supabaseClient
 .from("provider_verifications")
 .select("status");
 
+
 if(error){
 
-console.error(error);
+console.error(
+"ADMIN STATS ERROR:",
+error
+);
+
 return;
 
 }
 
-const submitted=
-(data||[])
-.filter(v=>
-v.status==="submitted"||
-v.status==="under_review"
+
+const submitted =
+(data || [])
+.filter(
+v =>
+v.status === "submitted" ||
+v.status === "under_review"
 )
 .length;
 
-const approved=
-(data||[])
-.filter(v=>
-v.status==="approved"
+
+const approved =
+(data || [])
+.filter(
+v =>
+v.status === "approved"
 )
 .length;
 
-const rejected=
-(data||[])
-.filter(v=>
-v.status==="rejected"
+
+const rejected =
+(data || [])
+.filter(
+v =>
+v.status === "rejected"
 )
 .length;
+
 
 document.getElementById(
 "adminPendingCount"
-).innerText=submitted;
+).innerText =
+submitted;
+
 
 document.getElementById(
 "adminApprovedCount"
-).innerText=approved;
+).innerText =
+approved;
+
 
 document.getElementById(
 "adminRejectedCount"
-).innerText=rejected;
+).innerText =
+rejected;
 
 }
 
 
 /* =========================================================
-ADMIN APPLICATION LIST
+ADMIN APPLICATIONS
 ========================================================= */
 
 async function loadAdminVerifications(){
 
-if(currentReviewId)return;
+if(currentReviewId){
 
-const container=
+return;
+
+}
+
+
+const container =
 document.getElementById(
 "adminVerificationList"
 );
 
-const {data,error}=
+
+const {
+data,
+error
+} =
 await supabaseClient
 .from("provider_verifications")
 .select("*")
-.order("created_at",{ascending:false});
+.order(
+"created_at",
+{
+ascending:false
+}
+);
+
 
 if(error){
 
-container.innerHTML=
-`
+console.error(
+"ADMIN APPLICATION ERROR:",
+error
+);
+
+container.innerHTML = `
+
 <div class="danger-box">
-Could not load applications.
+
+Could not load verification applications.
+
 <br><br>
-${escapeHTML(error.message)}
+
+${escapeHTML(
+error.message
+)}
+
 </div>
+
 `;
 
 return;
 
 }
 
-if(!data||!data.length){
 
-container.innerHTML=
-`
+if(
+!data ||
+!data.length
+){
+
+container.innerHTML = `
+
 <div class="warning-box">
+
 No provider verification applications yet.
+
 </div>
+
 `;
 
 return;
 
 }
 
-container.innerHTML=
-data.map(v=>`
+
+container.innerHTML =
+data.map(
+v=>`
 
 <div class="admin-application">
 
@@ -3683,39 +4928,77 @@ data.map(v=>`
 <div>
 
 <h3>
+
 ${escapeHTML(
-v.legal_full_name||
+v.legal_full_name ||
 "Unnamed Provider"
 )}
+
+${
+v.status === "submitted"
+?
+'<span class="badge-new">NEW / RESUBMITTED</span>'
+:
+""
+}
+
 </h3>
 
+
 <p class="info">
+
 📞 ${escapeHTML(
-v.phone||
+v.phone ||
 "Not provided"
 )}
+
 </p>
 
+
 <p class="info">
+
 🔧 ${escapeHTML(
-v.service_type||
+v.service_type ||
 "Not provided"
 )}
+
 </p>
 
+
 <p class="info">
-📅 ${formatDate(v.created_at)}
+
+📍 ${escapeHTML(
+v.state ||
+""
+)
+}
+${v.lga
+? " - " +
+escapeHTML(v.lga)
+: ""}
+
 </p>
 
 </div>
 
-<span class="status ${escapeHTML(v.status||"submitted")}">
+
+<span class="status ${escapeHTML(
+v.status ||
+"submitted"
+)}">
+
 ${escapeHTML(
-(v.status||"submitted").toUpperCase()
+(
+v.status ||
+"submitted"
+)
+.toUpperCase()
 )}
+
 </span>
 
 </div>
+
 
 <div class="application-actions">
 
@@ -3730,7 +5013,8 @@ Review Application
 
 </div>
 
-`).join("");
+`
+).join("");
 
 }
 
@@ -3743,49 +5027,85 @@ async function openVerificationReview(
 verificationId
 ){
 
-currentReviewId=verificationId;
+currentReviewId =
+verificationId;
+
 
 document
-.getElementById("adminApplicationsView")
-.classList.add("hidden");
+.getElementById(
+"adminApplicationsView"
+)
+.classList.add(
+"hidden"
+);
+
 
 document
-.getElementById("adminReviewView")
-.classList.remove("hidden");
+.getElementById(
+"adminReviewView"
+)
+.classList.remove(
+"hidden"
+);
+
 
 document
-.getElementById("adminReviewContent")
-.innerHTML=
-`
+.getElementById(
+"adminReviewContent"
+)
+.innerHTML = `
+
 <div class="warning-box">
+
 Loading complete application...
+
 </div>
+
 `;
 
-window.scrollTo({
+
+window.scrollTo(
+{
 top:0,
 behavior:"smooth"
-});
+}
+);
 
 
-const {data:verification,error}=
+const {
+data:verification,
+error
+} =
 await supabaseClient
 .from("provider_verifications")
 .select("*")
-.eq("id",verificationId)
+.eq(
+"id",
+verificationId
+)
 .single();
+
 
 if(error){
 
 document
-.getElementById("adminReviewContent")
-.innerHTML=
-`
+.getElementById(
+"adminReviewContent"
+)
+.innerHTML = `
+
 <div class="danger-box">
+
 Could not load application.
+
 <br><br>
-${escapeHTML(error.message)}
+
+${escapeHTML(
+error.message
+)}
+
 </div>
+
 `;
 
 return;
@@ -3793,84 +5113,116 @@ return;
 }
 
 
-const {data:guarantors}=
+const {
+data:guarantors,
+error:gError
+} =
 await supabaseClient
 .from("provider_guarantors")
 .select("*")
-.eq("verification_id",verificationId)
-.order("guarantor_number");
+.eq(
+"verification_id",
+verificationId
+)
+.order(
+"guarantor_number"
+);
 
 
-const guarantor1=
-(guarantors||[])
-.find(g=>g.guarantor_number===1);
+if(gError){
 
-const guarantor2=
-(guarantors||[])
-.find(g=>g.guarantor_number===2);
+console.error(
+gError
+);
+
+}
+
+
+const guarantor1 =
+(guarantors || [])
+.find(
+g =>
+g.guarantor_number === 1
+);
+
+
+const guarantor2 =
+(guarantors || [])
+.find(
+g =>
+g.guarantor_number === 2
+);
 
 
 document.getElementById(
 "reviewProviderStatus"
-).innerHTML=
-`
+).innerHTML = `
+
 <span class="status ${escapeHTML(
-verification.status
+verification.status ||
+"submitted"
 )}">
+
 ${escapeHTML(
-verification.status.toUpperCase()
+(
+verification.status ||
+"submitted"
+)
+.toUpperCase()
 )}
+
 </span>
+
 `;
 
 
-const g1HTML=
+const g1HTML =
 guarantor1
 ?
-renderGuarantor(guarantor1,1)
+renderGuarantor(
+guarantor1,
+1
+)
 :
 `
+
 <div class="warning-box">
+
 Guarantor 1 information was not found.
+
 </div>
+
 `;
 
 
-const g2HTML=
+const g2HTML =
 guarantor2
 ?
-renderGuarantor(guarantor2,2)
+renderGuarantor(
+guarantor2,
+2
+)
 :
 `
+
 <div class="warning-box">
+
 Guarantor 2 information was not found.
+
 </div>
+
 `;
-
-
-/* DOCUMENT LINKS */
-
-const photoIDHTML=
-await createDocumentHTML(
-"🪪 Photo ID",
-verification.photo_id_document_path
-);
-
-const selfieHTML=
-await createDocumentHTML(
-"📸 Selfie",
-verification.selfie_document_path
-);
 
 
 document.getElementById(
 "adminReviewContent"
-).innerHTML=
-`
+).innerHTML = `
 
 <div class="verification-section">
 
-<h2>👤 Personal Information</h2>
+<h2>
+👤 Personal Information
+</h2>
 
 <div class="detail-grid">
 
@@ -3921,7 +5273,9 @@ verification.years_of_experience
 
 <div class="verification-section">
 
-<h2>🚨 Emergency Contact</h2>
+<h2>
+🚨 Emergency Contact
+</h2>
 
 <div class="detail-grid">
 
@@ -3947,13 +5301,15 @@ verification.emergency_contact_relationship
 
 <div class="verification-section">
 
-<h2>🪪 Identity Information</h2>
+<h2>
+🪪 Identity Information
+</h2>
 
 <div class="detail-grid">
 
 ${detail(
 "ID Type",
-idTypeLabel(verification.id_type)
+verification.id_type
 )}
 
 ${detail(
@@ -3961,13 +5317,11 @@ ${detail(
 verification.id_number
 )}
 
-</div>
-
-<div class="detail-grid">
-
-${photoIDHTML}
-
-${selfieHTML}
+${detail(
+"Photo ID Document",
+verification.selfie_document_path ||
+"Not uploaded"
+)}
 
 </div>
 
@@ -3976,7 +5330,9 @@ ${selfieHTML}
 
 <div class="verification-section">
 
-<h2>👥 Guarantor 1</h2>
+<h2>
+👥 Guarantor 1
+</h2>
 
 ${g1HTML}
 
@@ -3985,7 +5341,9 @@ ${g1HTML}
 
 <div class="verification-section">
 
-<h2>👥 Guarantor 2</h2>
+<h2>
+👥 Guarantor 2
+</h2>
 
 ${g2HTML}
 
@@ -3994,40 +5352,9 @@ ${g2HTML}
 
 <div class="verification-section">
 
-<h2>📝 Previous Admin Decision</h2>
-
-<div class="detail-grid">
-
-${detail(
-"Previous Rejection Reason",
-verification.rejection_reason||
-"None"
-)}
-
-${detail(
-"Admin Notes",
-verification.admin_notes||
-"None"
-)}
-
-${detail(
-"Submitted",
-formatDate(verification.submitted_at)
-)}
-
-${detail(
-"Reviewed",
-formatDate(verification.reviewed_at)
-)}
-
-</div>
-
-</div>
-
-
-<div class="verification-section">
-
-<h2>🛡️ Admin Decision</h2>
+<h2>
+📝 Admin Decision
+</h2>
 
 <label>
 Admin Notes
@@ -4035,9 +5362,10 @@ Admin Notes
 
 <textarea
 id="adminNotes_${verification.id}"
-placeholder="Enter notes..."
+placeholder="Enter notes about this application..."
 >${escapeHTML(
-verification.admin_notes||""
+verification.admin_notes ||
+""
 )}</textarea>
 
 
@@ -4047,9 +5375,10 @@ Rejection Reason
 
 <textarea
 id="rejectionReason_${verification.id}"
-placeholder="Required if rejecting..."
+placeholder="Required if rejecting this application..."
 >${escapeHTML(
-verification.rejection_reason||""
+verification.rejection_reason ||
+""
 )}</textarea>
 
 
@@ -4058,44 +5387,56 @@ verification.rejection_reason||""
 <div class="admin-actions">
 
 ${
-verification.status!=="approved"
+verification.status !==
+"approved"
 ?
 `
+
 <button
 class="btn green"
 onclick="approveVerification('${verification.id}')"
 >
 ✅ Approve Provider
 </button>
+
 `
 :
 `
+
 <div class="success-box">
-✅ This provider is approved.
+
+✅ This provider is already approved.
+
 </div>
+
 `
 }
 
 
 ${
-verification.status!=="rejected"
+verification.status !==
+"rejected"
 ?
 `
+
 <button
 class="btn red"
 onclick="rejectVerification('${verification.id}')"
 >
 ❌ Reject Provider
 </button>
+
 `
 :
 `
+
 <button
-class="btn blue"
+class="btn green"
 onclick="approveVerification('${verification.id}')"
 >
-Approve After Re-review
+✅ Approve After Re-review
 </button>
+
 `
 }
 
@@ -4119,83 +5460,13 @@ onclick="backToAdminApplications()"
 
 
 /* =========================================================
-DOCUMENT VIEW
-========================================================= */
-
-async function createDocumentHTML(
-label,
-path
-){
-
-if(!path){
-
-return `
-<div class="detail-item">
-
-<strong>
-${escapeHTML(label)}
-</strong>
-
-Not uploaded.
-
-</div>
-`;
-
-}
-
-
-const {data,error}=
-await supabaseClient
-.storage
-.from("verification-documents")
-.createSignedUrl(
-path,
-600
-);
-
-if(error||!data){
-
-return `
-<div class="detail-item">
-
-<strong>
-${escapeHTML(label)}
-</strong>
-
-Document unavailable.
-
-</div>
-`;
-
-}
-
-return `
-<div class="detail-item">
-
-<strong>
-${escapeHTML(label)}
-</strong>
-
-<a
-href="${escapeHTML(data.signedUrl)}"
-target="_blank"
-rel="noopener"
-class="btn blue document-link"
->
-View Document
-</a>
-
-</div>
-`;
-
-}
-
-
-/* =========================================================
 DETAIL
 ========================================================= */
 
-function detail(label,value){
+function detail(
+label,
+value
+){
 
 return `
 
@@ -4206,9 +5477,9 @@ ${escapeHTML(label)}
 </strong>
 
 ${escapeHTML(
-value===null||
-value===undefined||
-value===""
+value === null ||
+value === undefined ||
+value === ""
 ?
 "Not provided"
 :
@@ -4222,17 +5493,31 @@ String(value)
 }
 
 
-function renderGuarantor(g,number){
+/* =========================================================
+GUARANTOR
+========================================================= */
 
-const idTypeMap={
+function renderGuarantor(
+g,
+number
+){
 
-national_id:"National ID",
-drivers_license:"Driver's License",
+const idTypeMap = {
+
+national_id:
+"National ID",
+
+drivers_license:
+"Driver's License",
+
 international_passport:
 "International Passport",
-voters_card:"Voter's Card"
+
+voters_card:
+"Voter's Card"
 
 };
+
 
 return `
 
@@ -4271,7 +5556,8 @@ g.relationship_to_provider
 
 ${detail(
 "ID Type",
-idTypeMap[g.id_type]||g.id_type
+idTypeMap[g.id_type] ||
+g.id_type
 )}
 
 ${detail(
@@ -4290,12 +5576,14 @@ g.consent_confirmed
 
 ${detail(
 "Verification Status",
-g.verification_status||"Pending"
+g.verification_status ||
+"Pending"
 )}
 
 ${detail(
 "Admin Notes",
-g.admin_notes||"None"
+g.admin_notes ||
+"None"
 )}
 
 </div>
@@ -4303,6 +5591,47 @@ g.admin_notes||"None"
 </div>
 
 `;
+
+}
+
+
+/* =========================================================
+BACK TO ADMIN APPLICATIONS
+========================================================= */
+
+function backToAdminApplications(){
+
+currentReviewId =
+null;
+
+
+document
+.getElementById(
+"adminReviewView"
+)
+.classList.add(
+"hidden"
+);
+
+
+document
+.getElementById(
+"adminApplicationsView"
+)
+.classList.remove(
+"hidden"
+);
+
+
+loadAdminDashboard();
+
+
+window.scrollTo(
+{
+top:0,
+behavior:"smooth"
+}
+);
 
 }
 
@@ -4325,48 +5654,69 @@ return;
 
 }
 
-const notesElement=
+
+const notesElement =
 document.getElementById(
-"adminNotes_"+verificationId
+"adminNotes_" +
+verificationId
 );
 
-const notes=
+
+const notes =
 notesElement
 ?
 notesElement.value.trim()
-:"";
+:
+"";
 
 
-const {data:verification,error}=
+const {
+data:verification,
+error
+} =
 await supabaseClient
 .from("provider_verifications")
-.select("provider_id,status")
-.eq("id",verificationId)
+.select(
+"provider_id,status"
+)
+.eq(
+"id",
+verificationId
+)
 .single();
+
 
 if(error){
 
-alert(error.message);
+alert(
+error.message
+);
+
 return;
 
 }
 
 
-if(!confirm(
+if(
+!confirm(
 "Are you sure you want to APPROVE this provider?"
-)){
+)
+){
 
 return;
 
 }
 
 
-const {error:updateError}=
+const {
+error:updateError
+} =
 await supabaseClient
 .from("provider_verifications")
 .update({
 
-status:"approved",
+status:
+"approved",
 
 reviewed_at:
 new Date().toISOString(),
@@ -4375,18 +5725,23 @@ reviewed_by:
 currentUser.id,
 
 admin_notes:
-notes||null,
+notes ||
+null,
 
-rejection_reason:null
+rejection_reason:
+null
 
 })
-.eq("id",verificationId);
+.eq(
+"id",
+verificationId
+);
 
 
 if(updateError){
 
 alert(
-"Verification update failed: "+
+"Verification update failed: " +
 updateError.message
 );
 
@@ -4395,23 +5750,33 @@ return;
 }
 
 
-const {error:providerError}=
+const {
+error:providerError
+} =
 await supabaseClient
 .from("providers")
 .update({
 
-verification_status:"approved",
-is_available:true,
-is_online:false
+verification_status:
+"approved",
+
+is_available:
+true,
+
+is_online:
+false
 
 })
-.eq("id",verification.provider_id);
+.eq(
+"id",
+verification.provider_id
+);
 
 
 if(providerError){
 
 alert(
-"Provider status update failed: "+
+"Provider status update failed: " +
 providerError.message
 );
 
@@ -4424,23 +5789,42 @@ await supabaseClient
 .from("provider_guarantors")
 .update({
 
-verification_status:"approved",
-admin_notes:notes||null
+verification_status:
+"approved",
+
+admin_notes:
+notes ||
+null
 
 })
-.eq("verification_id",verificationId);
+.eq(
+"verification_id",
+verificationId
+);
 
 
 await supabaseClient
 .from("provider_verification_events")
 .insert({
 
-verification_id:verificationId,
-actor_id:currentUser.id,
-action:"approved",
-old_status:verification.status,
-new_status:"approved",
-notes:notes||null
+verification_id:
+verificationId,
+
+actor_id:
+currentUser.id,
+
+action:
+"approved",
+
+old_status:
+verification.status,
+
+new_status:
+"approved",
+
+notes:
+notes ||
+null
 
 });
 
@@ -4449,9 +5833,13 @@ alert(
 "✅ Provider approved successfully."
 );
 
-currentReviewId=null;
+
+currentReviewId =
+null;
+
 
 await loadAdminStats();
+
 
 backToAdminApplications();
 
@@ -4477,16 +5865,19 @@ return;
 }
 
 
-const reasonElement=
+const reasonElement =
 document.getElementById(
-"rejectionReason_"+verificationId
+"rejectionReason_" +
+verificationId
 );
 
-const reason=
+
+const reason =
 reasonElement
 ?
 reasonElement.value.trim()
-:"";
+:
+"";
 
 
 if(!reason){
@@ -4500,48 +5891,68 @@ return;
 }
 
 
-const notesElement=
+const notesElement =
 document.getElementById(
-"adminNotes_"+verificationId
+"adminNotes_" +
+verificationId
 );
 
-const notes=
+
+const notes =
 notesElement
 ?
 notesElement.value.trim()
-:"";
+:
+"";
 
 
-const {data:verification,error}=
+const {
+data:verification,
+error
+} =
 await supabaseClient
 .from("provider_verifications")
-.select("provider_id,status")
-.eq("id",verificationId)
+.select(
+"provider_id,status"
+)
+.eq(
+"id",
+verificationId
+)
 .single();
+
 
 if(error){
 
-alert(error.message);
+alert(
+error.message
+);
+
 return;
 
 }
 
 
-if(!confirm(
+if(
+!confirm(
 "Are you sure you want to REJECT this provider?"
-)){
+)
+){
 
 return;
 
 }
 
 
-const {error:updateError}=
+const {
+error:updateError
+} =
 await supabaseClient
 .from("provider_verifications")
 .update({
 
-status:"rejected",
+status:
+"rejected",
 
 reviewed_at:
 new Date().toISOString(),
@@ -4549,18 +5960,24 @@ new Date().toISOString(),
 reviewed_by:
 currentUser.id,
 
-rejection_reason:reason,
+rejection_reason:
+reason,
 
-admin_notes:notes||null
+admin_notes:
+notes ||
+null
 
 })
-.eq("id",verificationId);
+.eq(
+"id",
+verificationId
+);
 
 
 if(updateError){
 
 alert(
-"Could not reject provider: "+
+"Could not reject provider: " +
 updateError.message
 );
 
@@ -4569,24 +5986,33 @@ return;
 }
 
 
-const {error:providerError}=
+const {
+error:providerError
+} =
 await supabaseClient
 .from("providers")
 .update({
 
-verification_status:"rejected",
+verification_status:
+"rejected",
 
-is_online:false,
-is_available:false
+is_online:
+false,
+
+is_available:
+false
 
 })
-.eq("id",verification.provider_id);
+.eq(
+"id",
+verification.provider_id
+);
 
 
 if(providerError){
 
 alert(
-"Provider status update failed: "+
+"Provider status update failed: " +
 providerError.message
 );
 
@@ -4599,23 +6025,40 @@ await supabaseClient
 .from("provider_guarantors")
 .update({
 
-verification_status:"rejected",
-admin_notes:reason
+verification_status:
+"rejected",
+
+admin_notes:
+reason
 
 })
-.eq("verification_id",verificationId);
+.eq(
+"verification_id",
+verificationId
+);
 
 
 await supabaseClient
 .from("provider_verification_events")
 .insert({
 
-verification_id:verificationId,
-actor_id:currentUser.id,
-action:"rejected",
-old_status:verification.status,
-new_status:"rejected",
-notes:reason
+verification_id:
+verificationId,
+
+actor_id:
+currentUser.id,
+
+action:
+"rejected",
+
+old_status:
+verification.status,
+
+new_status:
+"rejected",
+
+notes:
+reason
 
 });
 
@@ -4624,9 +6067,13 @@ alert(
 "Provider verification rejected. The provider can now correct the information and resubmit."
 );
 
-currentReviewId=null;
+
+currentReviewId =
+null;
+
 
 await loadAdminStats();
+
 
 backToAdminApplications();
 
@@ -4634,117 +6081,18 @@ backToAdminApplications();
 
 
 /* =========================================================
-BACK
+SERVICE START
 ========================================================= */
 
-function backToAdminApplications(){
-
-currentReviewId=null;
-
-document
-.getElementById("adminReviewView")
-.classList.add("hidden");
-
-document
-.getElementById("adminApplicationsView")
-.classList.remove("hidden");
-
-loadAdminStats();
-loadAdminVerifications();
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-
-/* =========================================================
-HELPERS
-========================================================= */
-
-function idTypeLabel(value){
-
-const map={
-
-NIN:"NIN",
-
-national_id:"National ID",
-
-drivers_license:
-"Driver's License",
-
-international_passport:
-"International Passport",
-
-voters_card:
-"Voter's Card"
-
-};
-
-return map[value]||value||"Not provided";
-
-}
-
-
-function safeFileName(name){
-
-return String(name)
-.replace(/[^a-zA-Z0-9._-]/g,"_");
-
-}
-
-
-function formatDate(value){
-
-if(!value)return"Not available";
-
-try{
-
-return new Date(value)
-.toLocaleString();
-
-}catch{
-
-return String(value);
-
-}
-
-}
-
-
-function escapeHTML(value){
-
-if(
-value===null||
-value===undefined
+function startService(
+service
 ){
-
-return "";
-
-}
-
-return String(value)
-
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-
-}
-
-
-/* =========================================================
-SERVICE
-========================================================= */
-
-function startService(service){
 
 document.getElementById(
 "serviceType"
-).value=service;
+).value =
+service;
+
 
 openAuth();
 
@@ -4759,103 +6107,277 @@ async function logout(){
 
 stopAutoRefresh();
 
+
 await supabaseClient.auth.signOut();
 
-currentUser=null;
-currentReviewId=null;
+
+currentUser =
+null;
+
+
+currentReviewId =
+null;
+
 
 document
-.getElementById("customerDashboard")
-.classList.remove("active");
+.getElementById(
+"customerDashboard"
+)
+.classList.remove(
+"active"
+);
+
 
 document
-.getElementById("providerDashboard")
-.classList.remove("active");
+.getElementById(
+"providerDashboard"
+)
+.classList.remove(
+"active"
+);
+
 
 document
-.getElementById("adminDashboard")
-.classList.remove("active");
+.getElementById(
+"adminDashboard"
+)
+.classList.remove(
+"active"
+);
+
 
 document
-.getElementById("home")
-.classList.remove("hidden");
+.getElementById(
+"home"
+)
+.classList.remove(
+"hidden"
+);
+
 
 document
-.getElementById("adminReviewView")
-.classList.add("hidden");
+.getElementById(
+"adminReviewView"
+)
+.classList.add(
+"hidden"
+);
+
 
 document
-.getElementById("adminApplicationsView")
-.classList.remove("hidden");
+.getElementById(
+"adminApplicationsView"
+)
+.classList.remove(
+"hidden"
+);
 
-window.scrollTo(0,0);
+
+window.scrollTo(
+0,
+0
+);
 
 }
 
 
 /* =========================================================
-SESSION
+SESSION CHECK
 ========================================================= */
 
 async function checkSession(){
 
-const {data}=
-await supabaseClient
-.auth
-.getSession();
+try{
 
-if(data.session){
+const {
+data,
+error
+} =
+await supabaseClient.auth.getSession();
 
-currentUser=
+
+if(error){
+
+console.error(
+"SESSION ERROR:",
+error
+);
+
+return;
+
+}
+
+
+if(
+data &&
+data.session
+){
+
+currentUser =
 data.session.user;
+
+
+console.log(
+"PHIL CONNECT: Existing session found"
+);
+
 
 await showDashboard(
 data.session.user.id
 );
 
-}
-
-}
-
-
-supabaseClient
-.auth
-.onAuthStateChange(
-async(event,session)=>{
+}else{
 
 console.log(
-"AUTH EVENT:",
+"PHIL CONNECT: No active session"
+);
+
+}
+
+}catch(error){
+
+console.error(
+"CHECK SESSION ERROR:",
+error
+);
+
+}
+
+}
+
+
+/* =========================================================
+AUTH STATE
+========================================================= */
+
+supabaseClient.auth.onAuthStateChange(
+async(
+event,
+session
+)=>{
+
+console.log(
+"PHIL CONNECT AUTH EVENT:",
 event
 );
 
-if(
-session &&
-!currentUser
-){
 
-currentUser=
+if(session){
+
+currentUser =
 session.user;
+
+
+setTimeout(
+async()=>{
 
 await showDashboard(
 session.user.id
 );
 
-}
+},
+100
+);
 
-if(!session){
+}else{
 
-currentUser=null;
+currentUser =
+null;
+
 
 stopAutoRefresh();
 
-}
 
-}
+document
+.getElementById(
+"customerDashboard"
+)
+.classList.remove(
+"active"
 );
 
 
+document
+.getElementById(
+"providerDashboard"
+)
+.classList.remove(
+"active"
+);
+
+
+document
+.getElementById(
+"adminDashboard"
+)
+.classList.remove(
+"active"
+);
+
+
+document
+.getElementById(
+"home"
+)
+.classList.remove(
+"hidden"
+);
+
+}
+
+});
+
+
 /* =========================================================
-START
+ESCAPE HTML
+========================================================= */
+
+function escapeHTML(
+value
+){
+
+if(
+value === null ||
+value === undefined
+){
+
+return "";
+
+}
+
+
+return String(value)
+
+.replace(
+/&/g,
+"&amp;"
+)
+
+.replace(
+/</g,
+"&lt;"
+)
+
+.replace(
+/>/g,
+"&gt;"
+)
+
+.replace(
+/"/g,
+"&quot;"
+)
+
+.replace(
+/'/g,
+"&#039;"
+);
+
+}
+
+
+/* =========================================================
+START APPLICATION
 ========================================================= */
 
 checkSession();
@@ -4863,5 +6385,4 @@ checkSession();
 </script>
 
 </body>
-
 </html>
