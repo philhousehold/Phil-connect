@@ -13,15 +13,16 @@ body{font-family:Arial,sans-serif;background:#f5f7f8;color:#111827}
 header{background:#111827;color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:24px;font-weight:800}.logo span{color:#22c55e}
 button{border:0;cursor:pointer;font-weight:700}
-.btn{padding:12px 18px;border-radius:9px}
 .green{background:#22c55e;color:white}.red{background:#ef4444;color:white}
-.blue{background:#2563eb;color:white}.orange{background:#f59e0b;color:white}
+.blue{background:#2563eb;color:white}
+.btn{padding:12px 18px;border-radius:9px}
 .hero{background:white;text-align:center;padding:70px 6%}
 .hero h1{font-size:clamp(38px,7vw,64px);margin-bottom:18px}
 .hero h1 span{color:#22c55e}
 .hero p{max-width:650px;margin:auto;color:#6b7280;font-size:18px;line-height:1.6}
-section{padding:50px 6%}.title{text-align:center;margin-bottom:30px}
-.title h2{font-size:32px}.title p{color:#6b7280;margin-top:8px}
+section{padding:50px 6%}
+.title{text-align:center;margin-bottom:30px}.title h2{font-size:32px}
+.title p{color:#6b7280;margin-top:8px}
 .services{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:15px}
 .service{background:white;padding:25px 12px;border-radius:15px;text-align:center;border:1px solid #e5e7eb;cursor:pointer}
 .service:hover{border-color:#22c55e}.icon{font-size:32px;margin-bottom:10px}
@@ -32,41 +33,38 @@ section{padding:50px 6%}.title{text-align:center;margin-bottom:30px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
 input,select,textarea{width:100%;padding:13px;border:1px solid #d1d5db;border-radius:8px;margin-top:7px;margin-bottom:15px;font-size:15px}
 textarea{min-height:100px;resize:vertical}
-label{font-weight:700;font-size:14px;display:block}
+label{font-weight:700;font-size:14px}
 .provider-card,.job-card{background:white;border:1px solid #e5e7eb;border-radius:15px;padding:20px;margin-bottom:15px}
 .provider-card h3,.job-card h3{margin-bottom:10px}
-.available{color:#16a34a;font-weight:700}.offline{color:#6b7280}
-.info{margin:7px 0;color:#4b5563}.price{font-size:22px;font-weight:800;margin:10px 0}
+.available{color:#16a34a;font-weight:700}.info{margin:7px 0;color:#4b5563}
 .status{display:inline-block;padding:6px 10px;border-radius:20px;background:#f3f4f6;font-size:12px;font-weight:700;margin:8px 0}
 .status.pending{background:#fef3c7;color:#92400e}
-.status.accepted,.status.approved{background:#dcfce7;color:#166534}
+.status.approved{background:#dcfce7;color:#166534}
+.status.rejected{background:#fee2e2;color:#991b1b}
+.status.accepted{background:#dcfce7;color:#166534}
 .status.in_progress{background:#dbeafe;color:#1e40af}
 .status.completed{background:#d1fae5;color:#065f46}
-.status.rejected{background:#fee2e2;color:#991b1b}
-.status.needs_changes{background:#ffedd5;color:#9a3412}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);justify-content:center;align-items:center;padding:20px;z-index:100}
-.modal.active{display:flex}.modal-box{width:100%;max-width:500px;max-height:90vh;overflow-y:auto;background:white;border-radius:18px;padding:28px;position:relative}
-.close{position:absolute;right:18px;top:12px;font-size:26px;cursor:pointer}
-.role-buttons{display:flex;gap:10px;margin:20px 0}.role-buttons button{flex:1;padding:12px;border-radius:8px;background:#f3f4f6}
-.role-buttons .active{background:#22c55e;color:white}
-.message{margin:10px 0;font-size:14px}.logout{margin-top:10px}
-footer{background:#030712;color:#9ca3af;text-align:center;padding:25px}
+.price{font-size:22px;font-weight:800;margin:10px 0}
+.message{margin:10px 0;font-size:14px}
+.logout{margin-top:10px}
 .hidden{display:none!important}
 .refresh-text{color:#6b7280;font-size:13px;margin-top:10px}
 .success-box{background:#ecfdf5;border:1px solid #86efac;color:#166534;padding:15px;border-radius:10px;margin-bottom:15px}
 .warning-box{background:#fffbeb;border:1px solid #fde68a;color:#92400e;padding:15px;border-radius:10px;margin-bottom:15px}
-.danger-box{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:15px;border-radius:10px;margin-bottom:15px}
-.step{padding:15px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;margin-bottom:15px}
-.step h3{margin-bottom:15px}
-.file-label{display:block;padding:12px;background:#f3f4f6;border:1px dashed #9ca3af;border-radius:8px;margin-bottom:15px}
-.admin-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
-.admin-tabs button{padding:10px 14px;border-radius:8px;background:#f3f4f6}
-.admin-tabs button.active{background:#111827;color:white}
-.small{font-size:13px;color:#6b7280}
-hr{border:0;border-top:1px solid #e5e7eb;margin:20px 0}
-@media(max-width:600px){
-.hero{padding:55px 5%}section{padding:40px 5%}header{padding:15px 5%}
-}
+.error-box{background:#fef2f2;border:1px solid #fca5a5;color:#991b1b;padding:15px;border-radius:10px;margin-bottom:15px}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);justify-content:center;align-items:center;padding:20px;z-index:100}
+.modal.active{display:flex}.modal-box{width:100%;max-width:430px;background:white;border-radius:18px;padding:28px;position:relative}
+.close{position:absolute;right:18px;top:12px;font-size:26px;cursor:pointer}
+.role-buttons{display:flex;gap:10px;margin:20px 0}
+.role-buttons button{flex:1;padding:12px;border-radius:8px;background:#f3f4f6}
+.role-buttons .active{background:#22c55e;color:white}
+.verification-header{background:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;padding:18px;margin-bottom:20px}
+.step-title{font-size:20px;font-weight:800;margin:25px 0 15px;border-bottom:1px solid #e5e7eb;padding-bottom:10px}
+.file-box{background:#f8fafc;padding:15px;border-radius:10px;border:1px dashed #9ca3af;margin-bottom:15px}
+.checkbox{display:flex;gap:10px;align-items:flex-start;margin:12px 0}
+.checkbox input{width:auto;margin:3px 0}
+footer{background:#030712;color:#9ca3af;text-align:center;padding:25px}
+@media(max-width:600px){.hero{padding:55px 5%}section{padding:40px 5%}header{padding:15px 5%}}
 </style>
 </head>
 
@@ -105,6 +103,7 @@ hr{border:0;border-top:1px solid #e5e7eb;margin:20px 0}
 </main>
 
 <!-- CUSTOMER DASHBOARD -->
+
 <section id="customerDashboard" class="dashboard">
 
 <div class="dashboard-header">
@@ -118,9 +117,15 @@ hr{border:0;border-top:1px solid #e5e7eb;margin:20px 0}
 <label>Service</label>
 <select id="serviceType">
 <option value="">Select service</option>
-<option>Plumbing</option><option>Electrical</option><option>Cleaning</option>
-<option>AC Services</option><option>Carpentry</option><option>Painting</option>
-<option>Moving</option><option>CCTV</option><option>General Services</option>
+<option>Plumbing</option>
+<option>Electrical</option>
+<option>Cleaning</option>
+<option>AC Services</option>
+<option>Carpentry</option>
+<option>Painting</option>
+<option>Moving</option>
+<option>CCTV</option>
+<option>General Services</option>
 </select>
 
 <label>Describe the job</label>
@@ -147,94 +152,262 @@ hr{border:0;border-top:1px solid #e5e7eb;margin:20px 0}
 
 <div class="card">
 <h2>Available Approved Workmen</h2>
-<p class="small" style="margin:8px 0 20px">Only approved and available professionals are shown.</p>
+<p style="color:#6b7280;margin:8px 0 20px">Only approved and available professionals are shown.</p>
 <div id="providersList"><p>Loading providers...</p></div>
 </div>
 
 <div class="card">
 <h2>My Requests</h2>
-<p class="refresh-text">Requests refresh automatically.</p>
+<p class="refresh-text">Requests refresh automatically every 5 seconds.</p>
 <div id="myRequests"><p>Loading...</p></div>
 </div>
 
 <button class="btn red logout" onclick="logout()">Logout</button>
 </section>
 
-
 <!-- PROVIDER DASHBOARD -->
+
 <section id="providerDashboard" class="dashboard">
 
 <div class="dashboard-header">
 <h1>Provider Dashboard 🧑‍🔧</h1>
 <p id="providerBusiness">Provider</p>
+
 <br>
+
 <button id="onlineButton" class="btn green" onclick="toggleOnline()">Go Offline</button>
-<p id="onlineStatus" style="margin-top:12px">Checking status...</p>
+
+<p id="onlineStatus" style="margin-top:12px">
+🟢 You are online and available.
+</p>
 </div>
 
-<!-- VERIFICATION -->
+<!-- VERIFICATION CENTER -->
+
 <div class="card">
+
 <h2>🔐 Provider Verification</h2>
-<p class="small" style="margin:8px 0 20px">
-Before you can receive customer jobs, Phil Connect must verify your identity and guarantors.
+
+<p style="color:#6b7280;margin:8px 0 20px">
+Because Phil Connect connects people who may not know each other, verification is required before you can receive jobs.
 </p>
 
-<div id="verificationStatusBox">
-<p>Loading verification status...</p>
+<div id="verificationStatus"></div>
+
+<div id="verificationForm">
+
+<div class="step-title">1. Personal Information</div>
+
+<label>Legal Full Name</label>
+<input id="vLegalName" placeholder="Enter your full legal name">
+
+<label>Date of Birth</label>
+<input id="vDob" type="date">
+
+<label>Phone Number</label>
+<input id="vPhone" type="tel" placeholder="08012345678">
+
+<label>Residential Address</label>
+<textarea id="vAddress" placeholder="Full residential address"></textarea>
+
+<div class="grid">
+<div>
+<label>State</label>
+<input id="vState" placeholder="e.g. Edo">
 </div>
 
-<button id="openVerificationButton" class="btn blue" onclick="openVerification()">
-Complete Verification
-</button>
+<div>
+<label>LGA</label>
+<input id="vLga" placeholder="e.g. Oredo">
 </div>
+</div>
+
+<div class="step-title">2. Professional Information</div>
+
+<label>Service Type</label>
+<select id="vService">
+<option value="">Select service</option>
+<option>Plumbing</option>
+<option>Electrical</option>
+<option>Cleaning</option>
+<option>AC Services</option>
+<option>Carpentry</option>
+<option>Painting</option>
+<option>Moving</option>
+<option>CCTV</option>
+<option>General Services</option>
+</select>
+
+<label>Years of Experience</label>
+<input id="vExperience" type="number" min="0" placeholder="e.g. 5">
+
+<div class="step-title">3. Government Identification</div>
+
+<label>ID Type</label>
+<select id="vIdType">
+<option value="">Select ID type</option>
+<option>NIN</option>
+<option>International Passport</option>
+<option>Driver's License</option>
+<option>Voter's Card</option>
+</select>
+
+<label>ID Number</label>
+<input id="vIdNumber" placeholder="Enter ID number">
+
+<div class="file-box">
+<label>Government ID Document</label>
+<input id="vIdFile" type="file" accept="image/*,.pdf">
+</div>
+
+<div class="file-box">
+<label>Selfie / Identity Photo</label>
+<input id="vSelfie" type="file" accept="image/*">
+</div>
+
+<div class="step-title">4. Emergency Contact</div>
+
+<label>Emergency Contact Name</label>
+<input id="vEmergencyName">
+
+<label>Emergency Contact Phone</label>
+<input id="vEmergencyPhone" type="tel">
+
+<label>Relationship</label>
+<input id="vEmergencyRelationship" placeholder="e.g. Brother, Sister, Spouse">
+
+<div class="step-title">5. Guarantor 1</div>
+
+<label>Full Name</label>
+<input id="g1Name">
+
+<label>Phone</label>
+<input id="g1Phone" type="tel">
+
+<label>Residential Address</label>
+<textarea id="g1Address"></textarea>
+
+<label>Occupation</label>
+<input id="g1Occupation">
+
+<label>Relationship to Provider</label>
+<input id="g1Relationship">
+
+<label>ID Type</label>
+<select id="g1IdType">
+<option value="">Select ID type</option>
+<option>NIN</option>
+<option>International Passport</option>
+<option>Driver's License</option>
+<option>Voter's Card</option>
+</select>
+
+<label>ID Number</label>
+<input id="g1IdNumber">
+
+<div class="file-box">
+<label>Guarantor 1 ID Document</label>
+<input id="g1IdFile" type="file" accept="image/*,.pdf">
+</div>
+
+<div class="checkbox">
+<input type="checkbox" id="g1Consent">
+<label for="g1Consent">
+I confirm that this guarantor has given consent for their information to be provided for verification.
+</label>
+</div>
+
+<div class="step-title">6. Guarantor 2</div>
+
+<label>Full Name</label>
+<input id="g2Name">
+
+<label>Phone</label>
+<input id="g2Phone" type="tel">
+
+<label>Residential Address</label>
+<textarea id="g2Address"></textarea>
+
+<label>Occupation</label>
+<input id="g2Occupation">
+
+<label>Relationship to Provider</label>
+<input id="g2Relationship">
+
+<label>ID Type</label>
+<select id="g2IdType">
+<option value="">Select ID type</option>
+<option>NIN</option>
+<option>International Passport</option>
+<option>Driver's License</option>
+<option>Voter's Card</option>
+</select>
+
+<label>ID Number</label>
+<input id="g2IdNumber">
+
+<div class="file-box">
+<label>Guarantor 2 ID Document</label>
+<input id="g2IdFile" type="file" accept="image/*,.pdf">
+</div>
+
+<div class="checkbox">
+<input type="checkbox" id="g2Consent">
+<label for="g2Consent">
+I confirm that this guarantor has given consent for their information to be provided for verification.
+</label>
+</div>
+
+<div class="warning-box">
+<strong>Important:</strong><br>
+Submitting false information may result in rejection or removal from Phil Connect.
+All verification information is used for provider safety and verification.
+</div>
+
+<button class="btn green" id="submitVerificationButton" onclick="submitVerification()">
+Submit Verification
+</button>
+
+<div id="verificationMessage" class="message"></div>
+
+</div>
+</div>
+
+<!-- AVAILABLE JOBS -->
 
 <div class="card">
 <h2>Available Jobs</h2>
-<p class="small" style="margin:8px 0 20px">New customer requests appear here automatically.</p>
+<p style="color:#6b7280;margin:8px 0 20px">
+New customer requests appear here automatically.
+</p>
 <div id="availableJobs"><p>Loading jobs...</p></div>
 </div>
 
+<!-- PROVIDER JOBS -->
+
 <div class="card">
 <h2>My Accepted Jobs</h2>
+<p class="refresh-text">This section refreshes automatically.</p>
 <div id="providerJobs"><p>Loading...</p></div>
 </div>
 
 <button class="btn red logout" onclick="logout()">Logout</button>
+
 </section>
-
-
-<!-- ADMIN DASHBOARD -->
-<section id="adminDashboard" class="dashboard">
-
-<div class="dashboard-header">
-<h1>Admin Dashboard 🛡️</h1>
-<p>Review and manage provider verification applications.</p>
-</div>
-
-<div class="admin-tabs">
-<button class="active" onclick="loadAdminVerifications('pending')">Pending</button>
-<button onclick="loadAdminVerifications('approved')">Approved</button>
-<button onclick="loadAdminVerifications('rejected')">Rejected</button>
-<button onclick="loadAdminVerifications('all')">All</button>
-</div>
-
-<div class="card">
-<div id="adminVerifications">
-<p>Loading verification applications...</p>
-</div>
-</div>
-
-<button class="btn red logout" onclick="logout()">Logout</button>
-</section>
-
 
 <!-- AUTH -->
+
 <div class="modal" id="authModal">
+
 <div class="modal-box">
 
 <div class="close" onclick="closeAuth()">×</div>
+
 <h2>Welcome to Phil Connect</h2>
-<p class="small" style="margin-top:8px">Login to continue.</p>
+
+<p id="authSubtitle" style="color:#6b7280;margin-top:8px">
+Login to continue.
+</p>
 
 <div class="role-buttons">
 <button id="customerRole" class="active" onclick="selectRole('customer')">Customer</button>
@@ -250,234 +423,27 @@ Complete Verification
 <input id="email" type="email" placeholder="Email address">
 <input id="password" type="password" placeholder="Password">
 
-<button id="submitButton" class="btn green" style="width:100%" onclick="submitAuth()">Login</button>
+<button id="submitButton" class="btn green" style="width:100%" onclick="submitAuth()">
+Login
+</button>
 
 <p style="text-align:center;margin-top:18px">
 Don't have an account?
-<span id="switchText" style="color:#16a34a;font-weight:bold;cursor:pointer" onclick="toggleMode()">Sign up</span>
+<span id="switchText" style="color:#16a34a;font-weight:bold;cursor:pointer" onclick="toggleMode()">
+Sign up
+</span>
 </p>
 
 </div>
 </div>
-
-
-<!-- VERIFICATION MODAL -->
-<div class="modal" id="verificationModal">
-<div class="modal-box">
-
-<div class="close" onclick="closeVerification()">×</div>
-
-<h2>Provider Verification</h2>
-<p class="small" style="margin:8px 0 20px">
-Please provide accurate information. This information will be reviewed by Phil Connect administration.
-</p>
-
-<div id="verificationMessage" class="message"></div>
-
-<form id="verificationForm" onsubmit="submitVerification(event)">
-
-<div class="step">
-<h3>1. Personal Information</h3>
-
-<label>Legal Full Name</label>
-<input id="vLegalName" required>
-
-<label>Date of Birth</label>
-<input id="vDob" type="date" required>
-
-<label>Phone Number</label>
-<input id="vPhone" type="tel" required>
-
-<label>Residential Address</label>
-<textarea id="vAddress" required></textarea>
-
-<div class="grid">
-<div>
-<label>State</label>
-<input id="vState" placeholder="e.g. Edo" required>
-</div>
-<div>
-<label>LGA</label>
-<input id="vLga" placeholder="e.g. Oredo" required>
-</div>
-</div>
-</div>
-
-
-<div class="step">
-<h3>2. Professional Information</h3>
-
-<label>Service Type</label>
-<select id="vService" required>
-<option value="">Select service</option>
-<option>Plumbing</option>
-<option>Electrical</option>
-<option>Cleaning</option>
-<option>AC Services</option>
-<option>Carpentry</option>
-<option>Painting</option>
-<option>Moving</option>
-<option>CCTV</option>
-<option>General Services</option>
-</select>
-
-<label>Years of Experience</label>
-<input id="vExperience" type="number" min="0" max="80" required>
-</div>
-
-
-<div class="step">
-<h3>3. Emergency Contact</h3>
-
-<label>Full Name</label>
-<input id="vEmergencyName" required>
-
-<label>Phone Number</label>
-<input id="vEmergencyPhone" type="tel" required>
-
-<label>Relationship</label>
-<input id="vEmergencyRelationship" placeholder="e.g. Brother, Sister, Parent" required>
-</div>
-
-
-<div class="step">
-<h3>4. Identity Verification</h3>
-
-<label>ID Type</label>
-<select id="vIdType" required>
-<option value="">Select ID</option>
-<option>National ID / NIN Slip</option>
-<option>International Passport</option>
-<option>Driver's Licence</option>
-<option>Voter's Card</option>
-</select>
-
-<label>ID Number</label>
-<input id="vIdNumber" required>
-
-<label class="file-label">
-Upload ID Document
-<input id="vIdFile" type="file" accept="image/*,.pdf" required>
-</label>
-
-<label class="file-label">
-Upload Selfie / Verification Photo
-<input id="vSelfieFile" type="file" accept="image/*" required>
-</label>
-</div>
-
-
-<div class="step">
-<h3>5. Guarantor 1</h3>
-
-<label>Full Name</label>
-<input id="g1Name" required>
-
-<label>Phone</label>
-<input id="g1Phone" type="tel" required>
-
-<label>Residential Address</label>
-<textarea id="g1Address" required></textarea>
-
-<label>Occupation</label>
-<input id="g1Occupation" required>
-
-<label>Relationship to Provider</label>
-<input id="g1Relationship" required>
-
-<label>ID Type</label>
-<select id="g1IdType" required>
-<option value="">Select ID</option>
-<option>National ID / NIN Slip</option>
-<option>International Passport</option>
-<option>Driver's Licence</option>
-<option>Voter's Card</option>
-</select>
-
-<label>ID Number</label>
-<input id="g1IdNumber" required>
-
-<label class="file-label">
-Upload Guarantor ID
-<input id="g1IdFile" type="file" accept="image/*,.pdf" required>
-</label>
-
-<label>
-<input id="g1Consent" type="checkbox" required style="width:auto">
- I confirm that this guarantor has given consent to be listed.
-</label>
-</div>
-
-
-<div class="step">
-<h3>6. Guarantor 2</h3>
-
-<label>Full Name</label>
-<input id="g2Name" required>
-
-<label>Phone</label>
-<input id="g2Phone" type="tel" required>
-
-<label>Residential Address</label>
-<textarea id="g2Address" required></textarea>
-
-<label>Occupation</label>
-<input id="g2Occupation" required>
-
-<label>Relationship to Provider</label>
-<input id="g2Relationship" required>
-
-<label>ID Type</label>
-<select id="g2IdType" required>
-<option value="">Select ID</option>
-<option>National ID / NIN Slip</option>
-<option>International Passport</option>
-<option>Driver's Licence</option>
-<option>Voter's Card</option>
-</select>
-
-<label>ID Number</label>
-<input id="g2IdNumber" required>
-
-<label class="file-label">
-Upload Guarantor ID
-<input id="g2IdFile" type="file" accept="image/*,.pdf" required>
-</label>
-
-<label>
-<input id="g2Consent" type="checkbox" required style="width:auto">
- I confirm that this guarantor has given consent to be listed.
-</label>
-</div>
-
-
-<div class="warning-box">
-<strong>Declaration</strong><br><br>
-I confirm that the information supplied is accurate and that my guarantors have consented to being listed. I understand that false information may result in rejection or removal from Phil Connect.
-<br><br>
-<label>
-<input id="vDeclaration" type="checkbox" required style="width:auto">
- I agree to this declaration.
-</label>
-</div>
-
-<button id="verificationSubmitButton" class="btn green" type="submit" style="width:100%">
-Submit Verification
-</button>
-
-</form>
-</div>
-</div>
-
 
 <footer>© 2026 Phil Connect. All rights reserved.</footer>
 
-
 <script>
 
-/* =========================================================
+/* =====================================================
 SUPABASE
-========================================================= */
+===================================================== */
 
 const SUPABASE_URL =
 "https://zkebonwbbumhdmmppozq.supabase.co";
@@ -485,24 +451,24 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
 "sb_publishable_dlSEmHjmV1YLmtXsezUFNQ_WEXpl9KP";
 
-const STORAGE_BUCKET =
-"provider-verification";
-
 const supabaseClient =
 window.supabase.createClient(
 SUPABASE_URL,
 SUPABASE_KEY
 );
 
-let selectedRole = "customer";
-let signupMode = false;
-let currentUser = null;
-let refreshTimer = null;
+const STORAGE_BUCKET =
+"provider-verification";
+
+let selectedRole="customer";
+let signupMode=false;
+let currentUser=null;
+let refreshTimer=null;
 
 
-/* =========================================================
+/* =====================================================
 AUTH
-========================================================= */
+===================================================== */
 
 function openAuth(){
 document.getElementById("authModal").classList.add("active");
@@ -513,7 +479,7 @@ document.getElementById("authModal").classList.remove("active");
 }
 
 function selectRole(role){
-selectedRole = role;
+selectedRole=role;
 
 document.getElementById("customerRole")
 .classList.toggle("active",role==="customer");
@@ -529,13 +495,22 @@ signupMode=!signupMode;
 document.getElementById("nameField")
 .classList.toggle("hidden",!signupMode);
 
-document.getElementById("submitButton").innerText =
-signupMode ? "Create Account" : "Login";
+document.getElementById("submitButton").innerText=
+signupMode?"Create Account":"Login";
 
-document.getElementById("switchText").innerText =
-signupMode ? "Login" : "Sign up";
+document.getElementById("authSubtitle").innerText=
+signupMode
+?"Create your Phil Connect account."
+:"Login to continue.";
+
+document.getElementById("switchText").innerText=
+signupMode?"Login":"Sign up";
 }
 
+
+/* =====================================================
+AUTH SUBMIT
+===================================================== */
 
 async function submitAuth(){
 
@@ -581,7 +556,7 @@ const {error:profileError}=await supabaseClient
 .upsert({
 id:data.user.id,
 full_name:fullName,
-email:email,
+email,
 role:selectedRole
 },{onConflict:"id"});
 
@@ -610,7 +585,7 @@ console.error("PROVIDER ERROR:",providerError);
 message.innerText=
 "Account created successfully. Please login.";
 
-signupMode=true;
+signupMode=false;
 toggleMode();
 
 return;
@@ -635,15 +610,17 @@ await showDashboard(data.user.id);
 }catch(error){
 
 console.error("AUTH ERROR:",error);
-message.innerText=error.message||"Something went wrong.";
+
+message.innerText=
+error.message||"Something went wrong.";
+}
 
 }
-}
 
 
-/* =========================================================
-DASHBOARD ROUTING
-========================================================= */
+/* =====================================================
+DASHBOARD
+===================================================== */
 
 async function showDashboard(userId){
 
@@ -664,7 +641,8 @@ alert("Your profile was not found.");
 return;
 }
 
-document.getElementById("home").classList.add("hidden");
+document.getElementById("home")
+.classList.add("hidden");
 
 document.getElementById("customerDashboard")
 .classList.remove("active");
@@ -672,19 +650,7 @@ document.getElementById("customerDashboard")
 document.getElementById("providerDashboard")
 .classList.remove("active");
 
-document.getElementById("adminDashboard")
-.classList.remove("active");
-
-if(profile.role==="admin"){
-
-document.getElementById("adminDashboard")
-.classList.add("active");
-
-await loadAdminVerifications("pending");
-
-startAutoRefresh("admin");
-
-}else if(profile.role==="provider"){
+if(profile.role==="provider"){
 
 document.getElementById("providerDashboard")
 .classList.add("active");
@@ -701,14 +667,13 @@ document.getElementById("customerDashboard")
 await loadCustomerDashboard();
 
 startAutoRefresh("customer");
-
 }
 }
 
 
-/* =========================================================
+/* =====================================================
 AUTO REFRESH
-========================================================= */
+===================================================== */
 
 function startAutoRefresh(role){
 
@@ -716,24 +681,26 @@ stopAutoRefresh();
 
 refreshTimer=setInterval(async()=>{
 
-if(!currentUser)return;
-
 try{
 
-if(role==="customer")
+if(!currentUser)return;
+
+if(role==="customer"){
+
 await loadMyRequests();
 
-if(role==="provider"){
+}else{
+
 await loadAvailableJobs();
 await loadProviderJobs();
-await loadVerificationStatus();
+await loadVerification();
+
 }
 
-if(role==="admin")
-await loadAdminVerifications("pending");
-
 }catch(error){
+
 console.error("REFRESH ERROR:",error);
+
 }
 
 },5000);
@@ -745,13 +712,12 @@ if(refreshTimer){
 clearInterval(refreshTimer);
 refreshTimer=null;
 }
-
 }
 
 
-/* =========================================================
+/* =====================================================
 CUSTOMER
-========================================================= */
+===================================================== */
 
 async function loadCustomerDashboard(){
 
@@ -759,6 +725,11 @@ await loadProviders();
 await loadMyRequests();
 
 }
+
+
+/* =====================================================
+PROVIDERS
+===================================================== */
 
 async function loadProviders(serviceFilter=""){
 
@@ -781,8 +752,14 @@ total_jobs
 .eq("is_available",true)
 .eq("is_online",true);
 
-if(serviceFilter)
-query=query.ilike("service_type",`%${serviceFilter}%`);
+if(serviceFilter){
+
+query=query.ilike(
+"service_type",
+`%${serviceFilter}%`
+);
+
+}
 
 const {data,error}=await query;
 
@@ -791,16 +768,19 @@ const container=document.getElementById("providersList");
 if(error){
 
 console.error(error);
-container.innerHTML="<p>Could not load providers.</p>";
-return;
 
+container.innerHTML=
+"<p>Could not load providers.</p>";
+
+return;
 }
 
 if(!data||data.length===0){
 
-container.innerHTML="<p>No approved workmen are currently online.</p>";
-return;
+container.innerHTML=
+"<p>No approved workmen are currently online.</p>";
 
+return;
 }
 
 container.innerHTML=data.map(provider=>`
@@ -811,17 +791,11 @@ container.innerHTML=data.map(provider=>`
 
 <p class="available">🟢 Available now</p>
 
-<p class="info">
-🔧 ${escapeHTML(provider.service_type||"General Services")}
-</p>
+<p class="info">🔧 ${escapeHTML(provider.service_type||"General Services")}</p>
 
-<p class="info">
-📍 ${escapeHTML(provider.service_area||"Nigeria")}
-</p>
+<p class="info">📍 ${escapeHTML(provider.service_area||"Nigeria")}</p>
 
-<p class="info">
-⭐ ${provider.rating||0} (${provider.total_jobs||0} jobs)
-</p>
+<p class="info">⭐ ${provider.rating||0} (${provider.total_jobs||0} jobs)</p>
 
 <button class="btn green"
 onclick="chooseProvider('${provider.id}')">
@@ -834,13 +808,14 @@ Request this Workman
 }
 
 
-/* =========================================================
+/* =====================================================
 CREATE JOB
-========================================================= */
+===================================================== */
 
 async function createJob(){
 
 const message=document.getElementById("customerMessage");
+
 message.innerText="Submitting request...";
 
 try{
@@ -848,7 +823,7 @@ try{
 const {data:{user},error:authError}=
 await supabaseClient.auth.getUser();
 
-if(authError)throw new Error(authError.message);
+if(authError)throw authError;
 
 if(!user)
 throw new Error("You are not logged in.");
@@ -861,8 +836,13 @@ const date=document.getElementById("preferredDate").value;
 const time=document.getElementById("preferredTime").value.trim();
 const budget=Number(document.getElementById("customerBudget").value);
 
-if(!service||!description||!location||!budget)
-throw new Error("Please complete service, description, location and budget.");
+if(!service||!description||!location||!budget){
+
+throw new Error(
+"Please complete service, description, location and budget."
+);
+
+}
 
 const {data,error}=await supabaseClient
 .from("service_requests")
@@ -881,9 +861,9 @@ status:"pending"
 .select()
 .single();
 
-if(error)throw new Error(error.message);
+if(error)throw error;
 
-message.innerText="✅ Request submitted successfully!";
+message.innerHTML="✅ Request submitted successfully!";
 
 document.getElementById("jobDescription").value="";
 document.getElementById("jobLocation").value="";
@@ -898,86 +878,24 @@ await loadProviders(service);
 }catch(error){
 
 console.error(error);
-message.innerText="❌ "+error.message;
-alert("Request could not be submitted.\n\n"+error.message);
 
+message.innerHTML="❌ "+error.message;
+
+alert(
+"Request could not be submitted.\n\n"+error.message
+);
 }
 }
 
 
-/* =========================================================
-CHOOSE PROVIDER
-========================================================= */
-
-async function chooseProvider(providerId){
-
-const {data:{user}}=await supabaseClient.auth.getUser();
-
-if(!user){
-alert("Please login.");
-return;
-}
-
-const request=await getLatestCustomerRequest();
-
-if(!request){
-alert("Please create a service request first.");
-return;
-}
-
-const {data,error}=await supabaseClient
-.from("service_requests")
-.update({provider_id:providerId})
-.eq("id",request.id)
-.eq("customer_id",user.id)
-.select()
-.single();
-
-if(error){
-alert("Could not select provider: "+error.message);
-return;
-}
-
-if(!data){
-alert("Request was not updated.");
-return;
-}
-
-alert("Request sent to the selected workman.");
-
-await loadMyRequests();
-}
-
-
-async function getLatestCustomerRequest(){
-
-const {data:{user}}=await supabaseClient.auth.getUser();
-
-if(!user)return null;
-
-const {data,error}=await supabaseClient
-.from("service_requests")
-.select("*")
-.eq("customer_id",user.id)
-.order("created_at",{ascending:false})
-.limit(1);
-
-if(error){
-console.error(error);
-return null;
-}
-
-return data&&data.length?data[0]:null;
-}
-
-
-/* =========================================================
+/* =====================================================
 CUSTOMER REQUESTS
-========================================================= */
+===================================================== */
 
 async function loadMyRequests(){
 
-const {data:{user}}=await supabaseClient.auth.getUser();
+const {data:{user}}=
+await supabaseClient.auth.getUser();
 
 if(!user)return;
 
@@ -990,16 +908,28 @@ const {data,error}=await supabaseClient
 .order("created_at",{ascending:false});
 
 if(error){
-container.innerHTML="<p>Could not load your requests.</p>";
+
+console.error(error);
+
+container.innerHTML=
+"<p>Could not load your requests.</p>";
+
 return;
 }
 
 if(!data||data.length===0){
-container.innerHTML="<p>You have no service requests yet.</p>";
+
+container.innerHTML=
+"<p>You have no service requests yet.</p>";
+
 return;
 }
 
-const providerIds=[...new Set(data.map(x=>x.provider_id).filter(Boolean))];
+const providerIds=[
+...new Set(
+data.map(x=>x.provider_id).filter(Boolean)
+)
+];
 
 let providersMap={};
 
@@ -1011,81 +941,100 @@ const {data:providers}=await supabaseClient
 .in("id",providerIds);
 
 providersMap=Object.fromEntries(
-(providers||[]).map(x=>[x.id,x])
+(providers||[]).map(p=>[p.id,p])
 );
-
 }
 
 container.innerHTML=data.map(job=>{
 
-const provider=job.provider_id?providersMap[job.provider_id]:null;
+const provider=job.provider_id?
+providersMap[job.provider_id]:null;
 
-let providerHTML=provider?`
-
-<p class="info">
-🧑‍🔧 Provider:
-<strong>${escapeHTML(provider.business_name||"Professional")}</strong>
-</p>
-
-<p class="info">
-🔧 ${escapeHTML(provider.service_type||"Service Provider")}
-</p>
-
-<p class="info">
-📍 ${escapeHTML(provider.service_area||"Nigeria")}
-</p>
-
-`:`<p class="info">🧑‍🔧 Waiting for a workman to accept this job.</p>`;
-
-let actionHTML="";
-
-if(job.status==="accepted")
-actionHTML=`
-<div class="success-box">
-✅ Your request has been accepted.
-<br><br>
-<strong>Agreed provider amount:
-₦${Number(job.provider_amount||0).toLocaleString()}</strong>
-</div>`;
-
-if(job.status==="in_progress")
-actionHTML=`
-<div class="warning-box">
-🔵 Your workman has started this job.
-</div>`;
-
-if(job.status==="completed")
-actionHTML=`
-<div class="success-box">
-✅ This job has been completed.
-<br><br>
-<strong>Final amount:
-₦${Number(job.provider_amount||0).toLocaleString()}</strong>
-</div>`;
-
-return`
+return `
 
 <div class="job-card">
 
 <h3>${escapeHTML(job.service_type||"Service")}</h3>
 
 <p class="info">📝 ${escapeHTML(job.description||"")}</p>
+
 <p class="info">📍 ${escapeHTML(job.location||"")}</p>
+
 <p class="info">📞 ${escapeHTML(job.phone||"Not provided")}</p>
+
 <p class="info">📅 ${escapeHTML(job.preferred_date||"Flexible")}</p>
+
 <p class="info">⏰ ${escapeHTML(job.preferred_time||"Flexible")}</p>
 
 <p class="price">
-Your budget:
-₦${Number(job.customer_budget||job.budget||0).toLocaleString()}
+Your budget: ₦${Number(
+job.customer_budget||job.budget||0
+).toLocaleString()}
 </p>
 
 <span class="status ${escapeHTML(job.status||"pending")}">
 ${escapeHTML((job.status||"pending").toUpperCase())}
 </span>
 
-${providerHTML}
-${actionHTML}
+${
+provider
+?
+`
+<p class="info">
+🧑‍🔧 Provider:
+<strong>${escapeHTML(provider.business_name)}</strong>
+</p>
+`
+:
+`
+<p class="info">
+🧑‍🔧 Waiting for a workman to accept this job.
+</p>
+`
+}
+
+${
+job.status==="accepted"
+?
+`
+<div class="success-box">
+✅ Your request has been accepted.
+<br><br>
+<strong>
+Agreed provider amount:
+₦${Number(job.provider_amount||0).toLocaleString()}
+</strong>
+</div>
+`
+:""
+}
+
+${
+job.status==="in_progress"
+?
+`
+<div class="warning-box">
+🔵 Your workman has started this job.
+</div>
+`
+:""
+}
+
+${
+job.status==="completed"
+?
+`
+<div class="success-box">
+✅ This job has been completed.
+<br><br>
+<strong>
+Final amount:
+₦${Number(job.provider_amount||0).toLocaleString()}
+</strong>
+</div>
+`
+:""
+}
 
 </div>
 
@@ -1095,9 +1044,57 @@ ${actionHTML}
 }
 
 
-/* =========================================================
+/* =====================================================
+CHOOSE PROVIDER
+===================================================== */
+
+async function chooseProvider(providerId){
+
+const {data:{user}}=
+await supabaseClient.auth.getUser();
+
+if(!user){
+alert("Please login.");
+return;
+}
+
+const {data:request}=await supabaseClient
+.from("service_requests")
+.select("*")
+.eq("customer_id",user.id)
+.eq("status","pending")
+.is("provider_id",null)
+.order("created_at",{ascending:false})
+.limit(1)
+.maybeSingle();
+
+if(!request){
+
+alert("Please create a service request first.");
+return;
+}
+
+const {error}=await supabaseClient
+.from("service_requests")
+.update({provider_id:providerId})
+.eq("id",request.id)
+.eq("customer_id",user.id);
+
+if(error){
+
+alert("Could not select provider: "+error.message);
+return;
+}
+
+alert("Request sent to the selected workman.");
+
+await loadMyRequests();
+}
+
+
+/* =====================================================
 PROVIDER DASHBOARD
-========================================================= */
+===================================================== */
 
 async function loadProviderDashboard(userId){
 
@@ -1114,11 +1111,13 @@ return;
 
 if(!provider){
 
-document.getElementById("providerDashboard").innerHTML=`
+document.getElementById("providerDashboard").innerHTML=
+`
 <div class="card">
 <h2>Provider profile not found</h2>
-<p>Your provider profile has not been created.</p>
-</div>`;
+<p>Your provider profile has not been created yet.</p>
+</div>
+`;
 return;
 }
 
@@ -1127,38 +1126,54 @@ provider.business_name||"Provider";
 
 updateOnlineUI(provider.is_online);
 
-await loadVerificationStatus();
-await loadAvailableJobs();
-await loadProviderJobs();
+await loadVerification();
 
+await loadAvailableJobs();
+
+await loadProviderJobs();
 }
 
 
-/* =========================================================
-VERIFICATION STATUS
-========================================================= */
+/* =====================================================
+VERIFICATION
+===================================================== */
 
-async function loadVerificationStatus(){
+async function getProvider(){
 
-if(!currentUser)return;
+const {data:{user}}=
+await supabaseClient.auth.getUser();
 
-const box=document.getElementById("verificationStatusBox");
-const button=document.getElementById("openVerificationButton");
+if(!user)return null;
 
-if(!box)return;
-
-const {data:provider}=await supabaseClient
+const {data,error}=await supabaseClient
 .from("providers")
-.select("id,verification_status")
-.eq("user_id",currentUser.id)
+.select("id,user_id,business_name,verification_status")
+.eq("user_id",user.id)
 .maybeSingle();
 
-if(!provider){
-box.innerHTML="<p>Provider profile not found.</p>";
-return;
+if(error){
+console.error("GET PROVIDER ERROR:",error);
+return null;
 }
 
-const {data:verification,error}=await supabaseClient
+return data;
+}
+
+
+/* =====================================================
+LOAD VERIFICATION
+===================================================== */
+
+async function loadVerification(){
+
+const provider=await getProvider();
+
+if(!provider)return;
+
+const statusBox=document.getElementById("verificationStatus");
+const form=document.getElementById("verificationForm");
+
+const {data,error}=await supabaseClient
 .from("provider_verifications")
 .select("*")
 .eq("provider_id",provider.id)
@@ -1167,256 +1182,265 @@ const {data:verification,error}=await supabaseClient
 .maybeSingle();
 
 if(error){
-console.error("VERIFICATION STATUS ERROR:",error);
-}
 
-if(!verification){
+console.error(
+"VERIFICATION LOAD ERROR:",
+error
+);
 
-box.innerHTML=`
-<div class="warning-box">
-<strong>Verification not submitted</strong><br>
-Complete your verification before receiving customer jobs.
-</div>`;
-
-button.innerText="Complete Verification";
-button.classList.remove("hidden");
 return;
 }
 
-if(verification.status==="approved"){
+if(!data){
 
-box.innerHTML=`
+statusBox.innerHTML=`
+<div class="warning-box">
+<strong>Verification required</strong><br>
+Please complete the verification form below before receiving jobs.
+</div>
+`;
+
+form.classList.remove("hidden");
+
+return;
+}
+
+
+/* LOAD EXISTING INFORMATION */
+
+fillVerificationForm(data);
+
+if(data.status==="approved"){
+
+statusBox.innerHTML=`
 <div class="success-box">
-<strong>✅ Verification Approved</strong><br><br>
+<strong>✅ Verification Approved</strong><br>
 Your identity and guarantor information have been verified.
-You can now receive jobs.
-</div>`;
+You can receive jobs.
+</div>
+`;
 
-button.innerText="View / Update Verification";
+form.classList.add("hidden");
+
 return;
 }
 
-if(verification.status==="rejected"){
+if(data.status==="rejected"){
 
-box.innerHTML=`
-<div class="danger-box">
-<strong>❌ Verification Rejected</strong><br><br>
-${escapeHTML(verification.rejection_reason||"Please review your information and submit again.")}
-</div>`;
+statusBox.innerHTML=`
+<div class="error-box">
+<strong>❌ Verification Rejected</strong><br>
+${escapeHTML(data.rejection_reason||"Please correct your information and resubmit.")}
+</div>
+`;
 
-button.innerText="Resubmit Verification";
+form.classList.remove("hidden");
+
 return;
 }
 
-if(verification.status==="needs_changes"){
-
-box.innerHTML=`
+statusBox.innerHTML=`
 <div class="warning-box">
-<strong>⚠️ Changes Required</strong><br><br>
-${escapeHTML(verification.admin_notes||"Please correct your verification information.")}
-</div>`;
+<strong>⏳ Verification Pending</strong><br>
+Your verification has been submitted and is waiting for administrator review.
+</div>
+`;
 
-button.innerText="Update Verification";
-return;
-}
-
-box.innerHTML=`
-<div class="warning-box">
-<strong>⏳ Verification Pending</strong><br><br>
-Your application has been submitted and is waiting for admin review.
-</div>`;
-
-button.innerText="View Verification";
+form.classList.add("hidden");
 }
 
 
-/* =========================================================
-VERIFICATION MODAL
-========================================================= */
+/* =====================================================
+FILL VERIFICATION
+===================================================== */
 
-function openVerification(){
-document.getElementById("verificationModal").classList.add("active");
-loadExistingVerification();
+function fillVerificationForm(v){
+
+setValue("vLegalName",v.legal_full_name);
+setValue("vDob",v.date_of_birth);
+setValue("vPhone",v.phone);
+setValue("vAddress",v.residential_address);
+setValue("vState",v.state);
+setValue("vLga",v.lga);
+setValue("vService",v.service_type);
+setValue("vExperience",v.years_of_experience);
+setValue("vIdType",v.id_type);
+setValue("vIdNumber",v.id_number);
+setValue("vEmergencyName",v.emergency_contact_name);
+setValue("vEmergencyPhone",v.emergency_contact_phone);
+setValue("vEmergencyRelationship",v.emergency_contact_relationship);
 }
 
-function closeVerification(){
-document.getElementById("verificationModal").classList.remove("active");
-}
+function setValue(id,value){
 
+const el=document.getElementById(id);
 
-async function loadExistingVerification(){
-
-if(!currentUser)return;
-
-const {data:provider}=await supabaseClient
-.from("providers")
-.select("id")
-.eq("user_id",currentUser.id)
-.maybeSingle();
-
-if(!provider)return;
-
-const {data:v}=await supabaseClient
-.from("provider_verifications")
-.select("*")
-.eq("provider_id",provider.id)
-.order("created_at",{ascending:false})
-.limit(1)
-.maybeSingle();
-
-if(!v)return;
-
-document.getElementById("vLegalName").value=v.legal_full_name||"";
-document.getElementById("vDob").value=v.date_of_birth||"";
-document.getElementById("vPhone").value=v.phone||"";
-document.getElementById("vAddress").value=v.residential_address||"";
-document.getElementById("vState").value=v.state||"";
-document.getElementById("vLga").value=v.lga||"";
-document.getElementById("vService").value=v.service_type||"";
-document.getElementById("vExperience").value=v.years_of_experience||"";
-document.getElementById("vEmergencyName").value=v.emergency_contact_name||"";
-document.getElementById("vEmergencyPhone").value=v.emergency_contact_phone||"";
-document.getElementById("vEmergencyRelationship").value=v.emergency_contact_relationship||"";
-document.getElementById("vIdType").value=v.id_type||"";
-document.getElementById("vIdNumber").value=v.id_number||"";
-
-const {data:guarantors}=await supabaseClient
-.from("provider_guarantors")
-.select("*")
-.eq("verification_id",v.id)
-.order("guarantor_number");
-
-if(guarantors&&guarantors.length){
-
-const g1=guarantors.find(x=>x.guarantor_number===1);
-const g2=guarantors.find(x=>x.guarantor_number===2);
-
-if(g1){
-document.getElementById("g1Name").value=g1.full_name||"";
-document.getElementById("g1Phone").value=g1.phone||"";
-document.getElementById("g1Address").value=g1.residential_address||"";
-document.getElementById("g1Occupation").value=g1.occupation||"";
-document.getElementById("g1Relationship").value=g1.relationship_to_provider||"";
-document.getElementById("g1IdType").value=g1.id_type||"";
-document.getElementById("g1IdNumber").value=g1.id_number||"";
-}
-
-if(g2){
-document.getElementById("g2Name").value=g2.full_name||"";
-document.getElementById("g2Phone").value=g2.phone||"";
-document.getElementById("g2Address").value=g2.residential_address||"";
-document.getElementById("g2Occupation").value=g2.occupation||"";
-document.getElementById("g2Relationship").value=g2.relationship_to_provider||"";
-document.getElementById("g2IdType").value=g2.id_type||"";
-document.getElementById("g2IdNumber").value=g2.id_number||"";
-}
-
-}
-
+if(el&&value!==null&&value!==undefined)
+el.value=value;
 }
 
 
-/* =========================================================
-FILE UPLOAD
-========================================================= */
-
-async function uploadVerificationFile(file,userId,type){
-
-if(!file)return null;
-
-const cleanName=file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
-
-const path=
-userId+
-"/"+
-Date.now()+
-"_"+type+
-"_"+cleanName;
-
-const {error}=await supabaseClient.storage
-.from(STORAGE_BUCKET)
-.upload(path,file,{
-upsert:false
-});
-
-if(error)throw error;
-
-return path;
-}
-
-
-/* =========================================================
+/* =====================================================
 SUBMIT VERIFICATION
-========================================================= */
+===================================================== */
 
-async function submitVerification(event){
+async function submitVerification(){
 
-event.preventDefault();
+const button=document.getElementById(
+"submitVerificationButton"
+);
 
-const message=document.getElementById("verificationMessage");
-const button=document.getElementById("verificationSubmitButton");
+const message=document.getElementById(
+"verificationMessage"
+);
 
-message.innerText="Submitting verification...";
+message.innerText="";
+
 button.disabled=true;
-button.innerText="Uploading and submitting...";
+button.innerText="Submitting...";
 
 try{
 
-const {data:{user},error:authError}=
-await supabaseClient.auth.getUser();
+const provider=await getProvider();
 
-if(authError)throw authError;
-if(!user)throw new Error("Please login again.");
-
-const {data:provider,error:providerError}=
-await supabaseClient
-.from("providers")
-.select("id")
-.eq("user_id",user.id)
-.single();
-
-if(providerError)throw providerError;
+if(!provider)
+throw new Error("Provider profile not found.");
 
 
-/* FORM DATA */
+/* FORM VALUES */
 
-const legalName=document.getElementById("vLegalName").value.trim();
-const dob=document.getElementById("vDob").value;
-const phone=document.getElementById("vPhone").value.trim();
-const address=document.getElementById("vAddress").value.trim();
-const state=document.getElementById("vState").value.trim();
-const lga=document.getElementById("vLga").value.trim();
-const service=document.getElementById("vService").value;
-const experience=Number(document.getElementById("vExperience").value);
-const emergencyName=document.getElementById("vEmergencyName").value.trim();
-const emergencyPhone=document.getElementById("vEmergencyPhone").value.trim();
-const emergencyRelationship=document.getElementById("vEmergencyRelationship").value.trim();
-const idType=document.getElementById("vIdType").value;
-const idNumber=document.getElementById("vIdNumber").value.trim();
+const legalName=get("vLegalName");
+const dob=get("vDob");
+const phone=get("vPhone");
+const address=get("vAddress");
+const state=get("vState");
+const lga=get("vLga");
+const service=get("vService");
+const experience=Number(get("vExperience"));
+const idType=get("vIdType");
+const idNumber=get("vIdNumber");
+
+const emergencyName=get("vEmergencyName");
+const emergencyPhone=get("vEmergencyPhone");
+const emergencyRelationship=get("vEmergencyRelationship");
+
+
+if(
+!legalName||
+!dob||
+!phone||
+!address||
+!state||
+!lga||
+!service||
+isNaN(experience)||
+!idType||
+!idNumber||
+!emergencyName||
+!emergencyPhone||
+!emergencyRelationship
+){
+
+throw new Error(
+"Please complete all required personal, professional, identity and emergency contact fields."
+);
+}
+
+
+/* GUARANTORS */
+
+const g1={
+name:get("g1Name"),
+phone:get("g1Phone"),
+address:get("g1Address"),
+occupation:get("g1Occupation"),
+relationship:get("g1Relationship"),
+idType:get("g1IdType"),
+idNumber:get("g1IdNumber"),
+consent:document.getElementById("g1Consent").checked
+};
+
+const g2={
+name:get("g2Name"),
+phone:get("g2Phone"),
+address:get("g2Address"),
+occupation:get("g2Occupation"),
+relationship:get("g2Relationship"),
+idType:get("g2IdType"),
+idNumber:get("g2IdNumber"),
+consent:document.getElementById("g2Consent").checked
+};
+
+
+if(
+!g1.name||
+!g1.phone||
+!g1.address||
+!g1.occupation||
+!g1.relationship||
+!g1.idType||
+!g1.idNumber||
+!g1.consent
+){
+
+throw new Error(
+"Please complete all Guarantor 1 information and confirm consent."
+);
+}
+
+if(
+!g2.name||
+!g2.phone||
+!g2.address||
+!g2.occupation||
+!g2.relationship||
+!g2.idType||
+!g2.idNumber||
+!g2.consent
+){
+
+throw new Error(
+"Please complete all Guarantor 2 information and confirm consent."
+);
+}
+
+
+/* FILES */
 
 const idFile=document.getElementById("vIdFile").files[0];
-const selfieFile=document.getElementById("vSelfieFile").files[0];
+const selfie=document.getElementById("vSelfie").files[0];
+const g1File=document.getElementById("g1IdFile").files[0];
+const g2File=document.getElementById("g2IdFile").files[0];
 
-if(!idFile||!selfieFile)
-throw new Error("Please upload your ID and selfie.");
+if(!idFile||!selfie||!g1File||!g2File){
 
-const idPath=await uploadVerificationFile(
-idFile,user.id,"identity"
+throw new Error(
+"Please upload the government ID, selfie and both guarantor ID documents."
 );
-
-const selfiePath=await uploadVerificationFile(
-selfieFile,user.id,"selfie"
-);
+}
 
 
-/* CREATE VERIFICATION */
+/* FIND EXISTING VERIFICATION */
 
-const {data:verification,error:verificationError}=
-await supabaseClient
+const {data:existing}=await supabaseClient
 .from("provider_verifications")
-.insert({
-provider_id:provider.id,
-user_id:user.id,
+.select("id")
+.eq("provider_id",provider.id)
+.maybeSingle();
+
+let verificationId;
+
+
+/* CREATE / UPDATE VERIFICATION */
+
+if(existing){
+
+verificationId=existing.id;
+
+const {error}=await supabaseClient
+.from("provider_verifications")
+.update({
+
 status:"pending",
 legal_full_name:legalName,
 date_of_birth:dob,
@@ -1431,140 +1455,148 @@ emergency_contact_phone:emergencyPhone,
 emergency_contact_relationship:emergencyRelationship,
 id_type:idType,
 id_number:idNumber,
-selfie_document_path:selfiePath,
+submitted_at:new Date().toISOString(),
+reviewed_at:null,
+reviewed_by:null,
+rejection_reason:null
+
+})
+.eq("id",verificationId);
+
+if(error)throw error;
+
+}else{
+
+const {data,error}=await supabaseClient
+.from("provider_verifications")
+.insert({
+
+provider_id:provider.id,
+user_id:provider.user_id,
+status:"pending",
+legal_full_name:legalName,
+date_of_birth:dob,
+phone,
+residential_address:address,
+state,
+lga,
+service_type:service,
+years_of_experience:experience,
+emergency_contact_name:emergencyName,
+emergency_contact_phone:emergencyPhone,
+emergency_contact_relationship:emergencyRelationship,
+id_type:idType,
+id_number:idNumber,
 submitted_at:new Date().toISOString()
+
 })
 .select()
 .single();
 
-if(verificationError)throw verificationError;
+if(error)throw error;
+
+verificationId=data.id;
+}
+
+
+/* UPLOAD FILES */
+
+const idPath=
+await uploadVerificationFile(
+idFile,
+provider.user_id,
+"government-id"
+);
+
+const selfiePath=
+await uploadVerificationFile(
+selfie,
+provider.user_id,
+"selfie"
+);
+
+const g1Path=
+await uploadVerificationFile(
+g1File,
+provider.user_id,
+"guarantor-1-id"
+);
+
+const g2Path=
+await uploadVerificationFile(
+g2File,
+provider.user_id,
+"guarantor-2-id"
+);
 
 
 /* DOCUMENT RECORDS */
 
-const documents=[
-{
-verification_id:verification.id,
-document_type:"identity_document",
-file_path:idPath,
-original_file_name:idFile.name,
-verification_status:"pending"
-},
-{
-verification_id:verification.id,
-document_type:"selfie",
-file_path:selfiePath,
-original_file_name:selfieFile.name,
-verification_status:"pending"
-}
-];
+await insertDocument(
+verificationId,
+"government_id",
+idPath,
+idFile.name
+);
 
-const {error:docError}=await supabaseClient
-.from("provider_verification_documents")
-.insert(documents);
-
-if(docError)throw docError;
+await insertDocument(
+verificationId,
+"selfie",
+selfiePath,
+selfie.name
+);
 
 
-/* GUARANTOR DATA */
+/* GUARANTOR 1 */
 
-const guarantors=[
-{
-verification_id:verification.id,
+const {data:guarantor1,error:g1Error}=
+await supabaseClient
+.from("provider_guarantors")
+.insert({
+
+verification_id:verificationId,
 guarantor_number:1,
-full_name:document.getElementById("g1Name").value.trim(),
-phone:document.getElementById("g1Phone").value.trim(),
-residential_address:document.getElementById("g1Address").value.trim(),
-occupation:document.getElementById("g1Occupation").value.trim(),
-relationship_to_provider:document.getElementById("g1Relationship").value.trim(),
-id_type:document.getElementById("g1IdType").value,
-id_number:document.getElementById("g1IdNumber").value.trim(),
-consent_confirmed:document.getElementById("g1Consent").checked,
+full_name:g1.name,
+phone:g1.phone,
+residential_address:g1.address,
+occupation:g1.occupation,
+relationship_to_provider:g1.relationship,
+id_type:g1.idType,
+id_number:g1.idNumber,
+id_document_path:g1Path,
+consent_confirmed:g1.consent,
 verification_status:"pending"
-},
-{
-verification_id:verification.id,
-guarantor_number:2,
-full_name:document.getElementById("g2Name").value.trim(),
-phone:document.getElementById("g2Phone").value.trim(),
-residential_address:document.getElementById("g2Address").value.trim(),
-occupation:document.getElementById("g2Occupation").value.trim(),
-relationship_to_provider:document.getElementById("g2Relationship").value.trim(),
-id_type:document.getElementById("g2IdType").value,
-id_number:document.getElementById("g2IdNumber").value.trim(),
-consent_confirmed:document.getElementById("g2Consent").checked,
-verification_status:"pending"
-}
-];
 
-const {data:guarantorRows,error:guarantorError}=
-await supabaseClient
-.from("provider_guarantors")
-.insert(guarantors)
-.select();
-
-if(guarantorError)throw guarantorError;
-
-
-/* GUARANTOR FILES */
-
-const g1File=document.getElementById("g1IdFile").files[0];
-const g2File=document.getElementById("g2IdFile").files[0];
-
-const g1Path=await uploadVerificationFile(
-g1File,user.id,"guarantor1"
-);
-
-const g2Path=await uploadVerificationFile(
-g2File,user.id,"guarantor2"
-);
-
-if(guarantorRows&&guarantorRows.length){
-
-for(const g of guarantorRows){
-
-const path=
-g.guarantor_number===1?g1Path:g2Path;
-
-await supabaseClient
-.from("provider_guarantors")
-.update({
-id_document_path:path
 })
-.eq("id",g.id);
+.select()
+.single();
 
+if(g1Error)throw g1Error;
+
+
+/* GUARANTOR 2 */
+
+const {error:g2Error}=
 await supabaseClient
-.from("provider_verification_documents")
+.from("provider_guarantors")
 .insert({
-verification_id:verification.id,
-document_type:
-g.guarantor_number===1
-?"guarantor_1_id"
-:"guarantor_2_id",
-file_path:path,
-original_file_name:
-g.guarantor_number===1
-?g1File.name
-:g2File.name,
+
+verification_id:verificationId,
+guarantor_number:2,
+full_name:g2.name,
+phone:g2.phone,
+residential_address:g2.address,
+occupation:g2.occupation,
+relationship_to_provider:g2.relationship,
+id_type:g2.idType,
+id_number:g2.idNumber,
+id_document_path:g2Path,
+consent_confirmed:g2.consent,
 verification_status:"pending"
+
 });
 
-}
-}
-
-
-/* EVENT */
-
-await supabaseClient
-.from("provider_verification_events")
-.insert({
-verification_id:verification.id,
-actor_id:user.id,
-action:"submitted",
-old_status:null,
-new_status:"pending",
-notes:"Provider submitted verification application."
-});
+if(g2Error)throw g2Error;
 
 
 /* UPDATE PROVIDER */
@@ -1577,35 +1609,141 @@ verification_status:"pending"
 .eq("id",provider.id);
 
 
+/* EVENT */
+
+await supabaseClient
+.from("provider_verification_events")
+.insert({
+
+verification_id:verificationId,
+actor_id:provider.user_id,
+action:"submitted",
+old_status:provider.verification_status||null,
+new_status:"pending",
+notes:"Provider submitted verification for administrator review."
+
+});
+
+
 message.innerHTML=
-"✅ Verification submitted successfully. Phil Connect will review your application.";
+"✅ Verification submitted successfully. Please wait for administrator review.";
 
-button.innerText="Submitted";
-button.disabled=true;
-
-await loadVerificationStatus();
+await loadVerification();
 
 }catch(error){
 
-console.error("VERIFICATION ERROR:",error);
+console.error(
+"VERIFICATION ERROR:",
+error
+);
 
 message.innerHTML=
-"❌ "+(error.message||"Verification submission failed.");
+"❌ "+error.message;
+
+}finally{
 
 button.disabled=false;
 button.innerText="Submit Verification";
 
 }
+
 }
 
 
-/* =========================================================
-PROVIDER ONLINE
-========================================================= */
+/* =====================================================
+UPLOAD VERIFICATION FILE
+===================================================== */
+
+async function uploadVerificationFile(
+file,
+userId,
+type
+){
+
+const safeName=file.name
+.replace(/[^a-zA-Z0-9._-]/g,"_");
+
+const path=
+userId+
+"/"+
+Date.now()+
+"-"+
+type+
+"-"+
+safeName;
+
+const {error}=await supabaseClient
+.storage
+.from(STORAGE_BUCKET)
+.upload(
+path,
+file,
+{
+upsert:false,
+contentType:file.type
+}
+);
+
+if(error){
+
+throw new Error(
+"File upload failed: "+error.message
+);
+}
+
+return path;
+}
+
+
+/* =====================================================
+DOCUMENT RECORD
+===================================================== */
+
+async function insertDocument(
+verificationId,
+documentType,
+path,
+originalName
+){
+
+const {error}=await supabaseClient
+.from("provider_verification_documents")
+.insert({
+
+verification_id:verificationId,
+document_type:documentType,
+file_path:path,
+original_file_name:originalName,
+verification_status:"pending"
+
+});
+
+if(error)throw error;
+}
+
+
+/* =====================================================
+GET FIELD
+===================================================== */
+
+function get(id){
+
+return document
+.getElementById(id)
+.value
+.trim();
+
+}
+
+
+/* =====================================================
+ONLINE
+===================================================== */
 
 async function toggleOnline(){
 
-const {data:{user}}=await supabaseClient.auth.getUser();
+const {data:{user}}=
+await supabaseClient.auth.getUser();
 
 if(!user)return;
 
@@ -1616,12 +1754,24 @@ const {data:provider,error}=await supabaseClient
 .single();
 
 if(error){
+
 alert(error.message);
 return;
 }
 
-if(provider.verification_status!=="approved"){
-alert("You must be approved before going online.");
+
+/*
+Only approved providers can go online.
+*/
+
+if(
+provider.verification_status!=="approved"
+){
+
+alert(
+"Your provider account must be approved before you can go online and receive jobs."
+);
+
 return;
 }
 
@@ -1636,13 +1786,16 @@ is_available:true
 .eq("user_id",user.id);
 
 if(updateError){
+
 alert(updateError.message);
 return;
 }
 
 updateOnlineUI(newStatus);
+
 await loadAvailableJobs();
 }
+
 
 function updateOnlineUI(online){
 
@@ -1653,17 +1806,17 @@ document.getElementById("onlineStatus").innerText=
 online
 ?"🟢 You are online and available."
 :"⚪ You are offline.";
-
 }
 
 
-/* =========================================================
+/* =====================================================
 AVAILABLE JOBS
-========================================================= */
+===================================================== */
 
 async function loadAvailableJobs(){
 
-const {data:{user}}=await supabaseClient.auth.getUser();
+const {data:{user}}=
+await supabaseClient.auth.getUser();
 
 if(!user)return;
 
@@ -1676,11 +1829,17 @@ const {data:provider,error}=await supabaseClient
 .maybeSingle();
 
 if(error){
-container.innerHTML="<p>Could not load provider information.</p>";
+
+console.error(error);
+
+container.innerHTML=
+"<p>Could not load provider information.</p>";
+
 return;
 }
 
 if(!provider){
+
 container.innerHTML="<p>Provider profile not found.</p>";
 return;
 }
@@ -1689,8 +1848,9 @@ if(provider.verification_status!=="approved"){
 
 container.innerHTML=`
 <div class="warning-box">
-Your account must be approved before you can receive jobs.
-</div>`;
+🔐 Complete and pass verification before receiving jobs.
+</div>
+`;
 
 return;
 }
@@ -1699,8 +1859,9 @@ if(!provider.is_online||!provider.is_available){
 
 container.innerHTML=`
 <div class="warning-box">
-You are currently offline. Go online to receive jobs.
-</div>`;
+You are currently offline. Go online to see available jobs.
+</div>
+`;
 
 return;
 }
@@ -1713,12 +1874,20 @@ const {data,error:jobError}=await supabaseClient
 .order("created_at",{ascending:false});
 
 if(jobError){
-container.innerHTML="<p>Could not load jobs.</p>";
+
+console.error(jobError);
+
+container.innerHTML=
+"<p>Could not load jobs.</p>";
+
 return;
 }
 
 if(!data||data.length===0){
-container.innerHTML="<p>No available jobs right now.</p>";
+
+container.innerHTML=
+"<p>No available jobs right now.</p>";
+
 return;
 }
 
@@ -1729,13 +1898,19 @@ container.innerHTML=data.map(job=>`
 <h3>${escapeHTML(job.service_type)}</h3>
 
 <p class="info">📝 ${escapeHTML(job.description)}</p>
+
 <p class="info">📍 ${escapeHTML(job.location)}</p>
+
 <p class="info">📞 ${escapeHTML(job.phone||"Not provided")}</p>
+
 <p class="info">📅 ${escapeHTML(job.preferred_date||"Flexible")}</p>
+
 <p class="info">⏰ ${escapeHTML(job.preferred_time||"Flexible")}</p>
 
 <p class="price">
-₦${Number(job.customer_budget||job.budget||0).toLocaleString()}
+₦${Number(
+job.customer_budget||job.budget||0
+).toLocaleString()}
 </p>
 
 <button class="btn green"
@@ -1749,13 +1924,14 @@ Accept Job
 }
 
 
-/* =========================================================
+/* =====================================================
 ACCEPT JOB
-========================================================= */
+===================================================== */
 
 async function acceptJob(jobId){
 
-const {data:{user}}=await supabaseClient.auth.getUser();
+const {data:{user}}=
+await supabaseClient.auth.getUser();
 
 if(!user){
 alert("Please login.");
@@ -1764,27 +1940,35 @@ return;
 
 const {data:provider,error}=await supabaseClient
 .from("providers")
-.select("id,verification_status")
+.select("id,verification_status,is_online,is_available")
 .eq("user_id",user.id)
 .single();
 
 if(error){
+
 alert(error.message);
 return;
 }
 
 if(provider.verification_status!=="approved"){
-alert("Your provider account is not approved.");
+
+alert(
+"Your provider verification has not been approved."
+);
+
 return;
 }
 
-const amount=prompt("Enter the amount you will charge for this job:");
+const amount=prompt(
+"Enter the amount you will charge for this job:"
+);
 
 if(amount===null)return;
 
 const finalAmount=Number(amount);
 
 if(!finalAmount||finalAmount<=0){
+
 alert("Enter a valid amount.");
 return;
 }
@@ -1792,10 +1976,12 @@ return;
 const {data,error:updateError}=await supabaseClient
 .from("service_requests")
 .update({
+
 provider_id:provider.id,
 provider_amount:finalAmount,
 status:"accepted",
 accepted_at:new Date().toISOString()
+
 })
 .eq("id",jobId)
 .is("provider_id",null)
@@ -1804,12 +1990,23 @@ accepted_at:new Date().toISOString()
 .single();
 
 if(updateError){
-alert("Could not accept job: "+updateError.message);
+
+console.error(updateError);
+
+alert(
+"Could not accept job: "+
+updateError.message
+);
+
 return;
 }
 
 if(!data){
-alert("This job has already been accepted.");
+
+alert(
+"This job has already been accepted by another provider."
+);
+
 await loadAvailableJobs();
 return;
 }
@@ -1821,26 +2018,38 @@ await loadProviderJobs();
 }
 
 
-/* =========================================================
+/* =====================================================
 PROVIDER JOBS
-========================================================= */
+===================================================== */
 
 async function loadProviderJobs(){
 
-const {data:{user}}=await supabaseClient.auth.getUser();
+const {data:{user}}=
+await supabaseClient.auth.getUser();
 
 if(!user)return;
 
-const container=document.getElementById("providerJobs");
-
 const {data:provider,error}=await supabaseClient
 .from("providers")
-.select("id")
+.select("id,verification_status")
 .eq("user_id",user.id)
 .maybeSingle();
 
-if(error||!provider){
-container.innerHTML="<p>Provider profile not found.</p>";
+const container=document.getElementById("providerJobs");
+
+if(error){
+
+container.innerHTML=
+"<p>Could not load provider profile.</p>";
+
+return;
+}
+
+if(!provider){
+
+container.innerHTML=
+"<p>Provider profile not found.</p>";
+
 return;
 }
 
@@ -1851,12 +2060,20 @@ const {data,error:jobError}=await supabaseClient
 .order("created_at",{ascending:false});
 
 if(jobError){
-container.innerHTML="<p>Could not load your jobs.</p>";
+
+console.error(jobError);
+
+container.innerHTML=
+"<p>Could not load your jobs.</p>";
+
 return;
 }
 
 if(!data||data.length===0){
-container.innerHTML="<p>You have no accepted jobs.</p>";
+
+container.innerHTML=
+"<p>You have no accepted jobs.</p>";
+
 return;
 }
 
@@ -1867,7 +2084,9 @@ container.innerHTML=data.map(job=>`
 <h3>${escapeHTML(job.service_type)}</h3>
 
 <p class="info">📝 ${escapeHTML(job.description)}</p>
+
 <p class="info">📍 ${escapeHTML(job.location)}</p>
+
 <p class="info">📞 ${escapeHTML(job.phone||"Not provided")}</p>
 
 <p class="price">
@@ -1878,20 +2097,42 @@ container.innerHTML=data.map(job=>`
 ${escapeHTML(job.status.toUpperCase())}
 </span>
 
-${job.status==="accepted"?`
+${
+job.status==="accepted"
+?
+`
+<br><br>
 <button class="btn blue"
 onclick="changeJobStatus('${job.id}','in_progress')">
 Start Job
-</button>`:""}
+</button>
+`
+:""
+}
 
-${job.status==="in_progress"?`
+${
+job.status==="in_progress"
+?
+`
+<br><br>
 <button class="btn green"
 onclick="changeJobStatus('${job.id}','completed')">
 Complete Job
-</button>`:""}
+</button>
+`
+:""
+}
 
-${job.status==="completed"?`
-<div class="success-box">✅ Job completed.</div>`:""}
+${
+job.status==="completed"
+?
+`
+<div class="success-box">
+✅ Job completed.
+</div>
+`
+:""
+}
 
 </div>
 
@@ -1899,13 +2140,14 @@ ${job.status==="completed"?`
 }
 
 
-/* =========================================================
+/* =====================================================
 CHANGE JOB STATUS
-========================================================= */
+===================================================== */
 
 async function changeJobStatus(jobId,status){
 
-const {data:{user}}=await supabaseClient.auth.getUser();
+const {data:{user}}=
+await supabaseClient.auth.getUser();
 
 if(!user){
 alert("Please login.");
@@ -1919,6 +2161,7 @@ const {data:provider,error}=await supabaseClient
 .single();
 
 if(error){
+
 alert(error.message);
 return;
 }
@@ -1937,400 +2180,45 @@ const {data,error:updateError}=await supabaseClient
 .single();
 
 if(updateError){
-alert(updateError.message);
+
+alert(
+"Could not update job: "+
+updateError.message
+);
+
 return;
 }
 
 if(!data){
+
 alert("Job was not updated.");
 return;
 }
 
+alert(
+"Job status updated to "+status
+);
+
 await loadProviderJobs();
+await loadMyRequests();
 }
 
 
-/* =========================================================
-ADMIN
-========================================================= */
-
-async function loadAdminVerifications(status="pending"){
-
-const container=document.getElementById("adminVerifications");
-
-container.innerHTML="<p>Loading verification applications...</p>";
-
-let query=supabaseClient
-.from("provider_verifications")
-.select("*")
-.order("created_at",{ascending:false});
-
-if(status!=="all")
-query=query.eq("status",status);
-
-const {data,error}=await query;
-
-if(error){
-
-console.error("ADMIN VERIFICATION ERROR:",error);
-
-container.innerHTML=
-"<p>Could not load verification applications. Check admin RLS policies.</p>";
-
-return;
-}
-
-if(!data||data.length===0){
-
-container.innerHTML=
-"<p>No "+status+" verification applications.</p>";
-
-return;
-}
-
-container.innerHTML=data.map(v=>`
-
-<div class="job-card">
-
-<h3>${escapeHTML(v.legal_full_name||"Provider")}</h3>
-
-<span class="status ${escapeHTML(v.status)}">
-${escapeHTML(v.status.toUpperCase())}
-</span>
-
-<p class="info">📞 ${escapeHTML(v.phone||"")}</p>
-<p class="info">📍 ${escapeHTML(v.residential_address||"")}</p>
-<p class="info">📍 ${escapeHTML(v.state||"")} / ${escapeHTML(v.lga||"")}</p>
-<p class="info">🔧 ${escapeHTML(v.service_type||"")}</p>
-<p class="info">💼 ${v.years_of_experience||0} years experience</p>
-
-<p class="info">
-🪪 ${escapeHTML(v.id_type||"")}:
-${escapeHTML(v.id_number||"")}
-</p>
-
-<p class="info">
-🚨 Emergency Contact:
-${escapeHTML(v.emergency_contact_name||"")}
--
-${escapeHTML(v.emergency_contact_phone||"")}
-</p>
-
-<hr>
-
-<div id="adminDetails_${v.id}">
-<button class="btn blue"
-onclick="viewVerification('${v.id}')">
-View Full Verification
-</button>
-</div>
-
-</div>
-
-`).join("");
-}
-
-
-/* =========================================================
-VIEW ADMIN VERIFICATION
-========================================================= */
-
-async function viewVerification(id){
-
-const box=document.getElementById("adminDetails_"+id);
-
-if(!box)return;
-
-const {data:v,error}=await supabaseClient
-.from("provider_verifications")
-.select("*")
-.eq("id",id)
-.single();
-
-if(error){
-box.innerHTML="<p>Could not load verification.</p>";
-return;
-}
-
-const {data:guarantors}=await supabaseClient
-.from("provider_guarantors")
-.select("*")
-.eq("verification_id",id)
-.order("guarantor_number");
-
-const {data:documents}=await supabaseClient
-.from("provider_verification_documents")
-.select("*")
-.eq("verification_id",id);
-
-let guarantorHTML=(guarantors||[]).map(g=>`
-
-<div class="step">
-
-<h3>Guarantor ${g.guarantor_number}</h3>
-
-<p class="info"><strong>Name:</strong> ${escapeHTML(g.full_name)}</p>
-<p class="info"><strong>Phone:</strong> ${escapeHTML(g.phone)}</p>
-<p class="info"><strong>Address:</strong> ${escapeHTML(g.residential_address)}</p>
-<p class="info"><strong>Occupation:</strong> ${escapeHTML(g.occupation)}</p>
-<p class="info"><strong>Relationship:</strong> ${escapeHTML(g.relationship_to_provider)}</p>
-<p class="info"><strong>ID:</strong> ${escapeHTML(g.id_type)} - ${escapeHTML(g.id_number)}</p>
-<p class="info"><strong>Consent:</strong> ${g.consent_confirmed?"Yes":"No"}</p>
-
-</div>
-
-`).join("");
-
-let documentHTML=(documents||[]).map(d=>`
-
-<div class="info">
-📄 ${escapeHTML(d.document_type)}
-<br>
-<small>${escapeHTML(d.original_file_name||"Document")}</small>
-<br>
-<button class="btn blue"
-onclick="viewDocument('${escapeHTML(d.file_path)}')">
-View Document
-</button>
-</div>
-
-`).join("");
-
-box.innerHTML=`
-
-<hr>
-
-<div class="step">
-
-<h3>Personal Details</h3>
-
-<p class="info"><strong>Legal name:</strong> ${escapeHTML(v.legal_full_name)}</p>
-<p class="info"><strong>DOB:</strong> ${escapeHTML(v.date_of_birth)}</p>
-<p class="info"><strong>Phone:</strong> ${escapeHTML(v.phone)}</p>
-<p class="info"><strong>Address:</strong> ${escapeHTML(v.residential_address)}</p>
-<p class="info"><strong>State:</strong> ${escapeHTML(v.state)}</p>
-<p class="info"><strong>LGA:</strong> ${escapeHTML(v.lga)}</p>
-
-</div>
-
-<div class="step">
-<h3>Emergency Contact</h3>
-<p class="info">${escapeHTML(v.emergency_contact_name)}</p>
-<p class="info">${escapeHTML(v.emergency_contact_phone)}</p>
-<p class="info">${escapeHTML(v.emergency_contact_relationship)}</p>
-</div>
-
-<div class="step">
-<h3>Documents</h3>
-${documentHTML||"<p>No documents.</p>"}
-</div>
-
-${guarantorHTML}
-
-${
-v.status==="pending"||
-v.status==="needs_changes"
-?`
-
-<div class="step">
-
-<h3>Admin Decision</h3>
-
-<label>Admin notes</label>
-
-<textarea id="adminNotes_${id}"
-placeholder="Enter verification notes..."></textarea>
-
-<button class="btn green"
-onclick="reviewVerification('${id}','approved')">
-Approve Provider
-</button>
-
-<button class="btn orange"
-onclick="reviewVerification('${id}','needs_changes')">
-Request Changes
-</button>
-
-<button class="btn red"
-onclick="reviewVerification('${id}','rejected')">
-Reject Provider
-</button>
-
-</div>
-
-`:""}
-
-`;
-}
-
-
-/* =========================================================
-ADMIN DOCUMENT VIEW
-========================================================= */
-
-async function viewDocument(path){
-
-try{
-
-const {data,error}=await supabaseClient.storage
-.from(STORAGE_BUCKET)
-.createSignedUrl(path,300);
-
-if(error)throw error;
-
-if(data&&data.signedUrl)
-window.open(data.signedUrl,"_blank");
-
-}catch(error){
-
-alert("Could not open document: "+error.message);
-
-}
-}
-
-
-/* =========================================================
-ADMIN REVIEW
-========================================================= */
-
-async function reviewVerification(id,newStatus){
-
-const notesElement=document.getElementById("adminNotes_"+id);
-
-const notes=notesElement?notesElement.value.trim():"";
-
-if(newStatus==="rejected"&&!notes){
-alert("Please enter the reason for rejection.");
-return;
-}
-
-if(newStatus==="needs_changes"&&!notes){
-alert("Please enter what the provider needs to correct.");
-return;
-}
-
-if(!confirm(
-"Are you sure you want to mark this application as "+
-newStatus+"?"
-))return;
-
-const {data:{user}}=await supabaseClient.auth.getUser();
-
-if(!user){
-alert("Admin session not found.");
-return;
-}
-
-const {data:old}=await supabaseClient
-.from("provider_verifications")
-.select("status,provider_id")
-.eq("id",id)
-.single();
-
-if(!old){
-alert("Verification not found.");
-return;
-}
-
-const {data:updated,error}=await supabaseClient
-.from("provider_verifications")
-.update({
-status:newStatus,
-reviewed_at:new Date().toISOString(),
-reviewed_by:user.id,
-admin_notes:notes,
-rejection_reason:
-newStatus==="rejected"?notes:null
-})
-.eq("id",id)
-.select()
-.single();
-
-if(error){
-
-alert("Could not update verification: "+error.message);
-return;
-
-}
-
-
-/* UPDATE DOCUMENT STATUS */
-
-await supabaseClient
-.from("provider_verification_documents")
-.update({
-verification_status:newStatus,
-admin_notes:notes
-})
-.eq("verification_id",id);
-
-
-/* UPDATE GUARANTORS */
-
-await supabaseClient
-.from("provider_guarantors")
-.update({
-verification_status:newStatus,
-admin_notes:notes
-})
-.eq("verification_id",id);
-
-
-/* UPDATE PROVIDER */
-
-await supabaseClient
-.from("providers")
-.update({
-verification_status:
-newStatus==="approved"
-?"approved"
-:"pending",
-is_online:false,
-is_available:
-newStatus==="approved"
-})
-.eq("id",old.provider_id);
-
-
-/* EVENT */
-
-await supabaseClient
-.from("provider_verification_events")
-.insert({
-verification_id:id,
-actor_id:user.id,
-action:
-newStatus==="approved"
-?"approved"
-:newStatus==="rejected"
-?"rejected"
-:"changes_requested",
-old_status:old.status,
-new_status:newStatus,
-notes
-});
-
-alert("Verification updated successfully.");
-
-await loadAdminVerifications("pending");
-}
-
-
-/* =========================================================
+/* =====================================================
 SERVICE
-========================================================= */
+===================================================== */
 
 function startService(service){
 
 document.getElementById("serviceType").value=service;
-openAuth();
 
+openAuth();
 }
 
 
-/* =========================================================
+/* =====================================================
 LOGOUT
-========================================================= */
+===================================================== */
 
 async function logout(){
 
@@ -2346,9 +2234,6 @@ document.getElementById("customerDashboard")
 document.getElementById("providerDashboard")
 .classList.remove("active");
 
-document.getElementById("adminDashboard")
-.classList.remove("active");
-
 document.getElementById("home")
 .classList.remove("hidden");
 
@@ -2356,9 +2241,9 @@ window.scrollTo(0,0);
 }
 
 
-/* =========================================================
+/* =====================================================
 SESSION
-========================================================= */
+===================================================== */
 
 async function checkSession(){
 
@@ -2368,15 +2253,13 @@ if(data.session){
 
 currentUser=data.session.user;
 
-await showDashboard(data.session.user.id);
+await showDashboard(
+data.session.user.id
+);
 
 }
 }
 
-
-/* =========================================================
-AUTH STATE
-========================================================= */
 
 supabaseClient.auth.onAuthStateChange(
 async(event,session)=>{
@@ -2387,9 +2270,9 @@ if(session&&!currentUser){
 
 currentUser=session.user;
 
-setTimeout(async()=>{
-await showDashboard(session.user.id);
-},0);
+await showDashboard(
+session.user.id
+);
 
 }
 
@@ -2403,9 +2286,9 @@ stopAutoRefresh();
 });
 
 
-/* =========================================================
+/* =====================================================
 SECURITY
-========================================================= */
+===================================================== */
 
 function escapeHTML(value){
 
@@ -2418,13 +2301,12 @@ return String(value)
 .replace(/>/g,"&gt;")
 .replace(/"/g,"&quot;")
 .replace(/'/g,"&#039;");
-
 }
 
 
-/* =========================================================
+/* =====================================================
 START
-========================================================= */
+===================================================== */
 
 checkSession();
 
