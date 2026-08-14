@@ -190,27 +190,7 @@ label{
   font-size:14px;
 }
 
-.provider-card{
-  background:white;
-  border:1px solid #e5e7eb;
-  border-radius:15px;
-  padding:20px;
-  margin-bottom:15px;
-}
-
-.provider-card h3{
-  margin-bottom:8px;
-}
-
-.available{
-  color:#16a34a;
-  font-weight:700;
-}
-
-.offline{
-  color:#6b7280;
-}
-
+.provider-card,
 .job-card{
   background:white;
   border:1px solid #e5e7eb;
@@ -219,8 +199,14 @@ label{
   margin-bottom:15px;
 }
 
+.provider-card h3,
 .job-card h3{
-  margin-bottom:10px;
+  margin-bottom:8px;
+}
+
+.available{
+  color:#16a34a;
+  font-weight:700;
 }
 
 .info{
@@ -238,7 +224,22 @@ label{
   margin:8px 0;
 }
 
-.status.pending{
+.status.not_started{
+  background:#f3f4f6;
+  color:#374151;
+}
+
+.status.incomplete{
+  background:#fef3c7;
+  color:#92400e;
+}
+
+.status.submitted{
+  background:#dbeafe;
+  color:#1e40af;
+}
+
+.status.under_review{
   background:#fef3c7;
   color:#92400e;
 }
@@ -249,6 +250,11 @@ label{
 }
 
 .status.rejected{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.status.suspended{
   background:#fee2e2;
   color:#991b1b;
 }
@@ -445,9 +451,7 @@ Login / Sign Up
 
 </header>
 
-<!-- =====================================================
-HOME
-===================================================== -->
+<!-- HOME -->
 
 <main id="home">
 
@@ -532,9 +536,7 @@ Get Started
 
 </main>
 
-<!-- =====================================================
-CUSTOMER DASHBOARD
-===================================================== -->
+<!-- CUSTOMER DASHBOARD -->
 
 <section id="customerDashboard" class="dashboard">
 
@@ -626,10 +628,7 @@ Submit Service Request
 
 </button>
 
-<div
-id="customerMessage"
-class="message">
-</div>
+<div id="customerMessage" class="message"></div>
 
 </div>
 
@@ -638,15 +637,11 @@ class="message">
 <h2>Available Approved Workmen</h2>
 
 <p style="color:#6b7280;margin:8px 0 20px">
-
 Only approved and available professionals are shown.
-
 </p>
 
 <div id="providersList">
-
 <p>Loading providers...</p>
-
 </div>
 
 </div>
@@ -660,26 +655,18 @@ Requests refresh automatically every 5 seconds.
 </p>
 
 <div id="myRequests">
-
 <p>Loading...</p>
-
 </div>
 
 </div>
 
-<button
-class="btn red logout"
-onclick="logout()">
-
+<button class="btn red logout" onclick="logout()">
 Logout
-
 </button>
 
 </section>
 
-<!-- =====================================================
-PROVIDER DASHBOARD
-===================================================== -->
+<!-- PROVIDER DASHBOARD -->
 
 <section id="providerDashboard" class="dashboard">
 
@@ -700,21 +687,17 @@ id="onlineButton"
 class="btn green"
 onclick="toggleOnline()">
 
-Go Offline
+Go Online
 
 </button>
 
-<p
-id="onlineStatus"
-style="margin-top:12px">
-
-🟢 You are online and available.
-
+<p id="onlineStatus" style="margin-top:12px">
+⚪ You are offline.
 </p>
 
 </div>
 
-<!-- PROVIDER VERIFICATION -->
+<!-- VERIFICATION -->
 
 <div class="card">
 
@@ -723,19 +706,14 @@ style="margin-top:12px">
 </h2>
 
 <p style="color:#6b7280;margin:8px 0 20px">
-
 Complete your verification before you can receive jobs.
-
 </p>
 
 <div id="providerVerificationStatus">
-
 Loading verification status...
-
 </div>
 
-<div id="providerVerificationForm"
-class="hidden">
+<div id="providerVerificationForm" class="hidden">
 
 <h3 style="margin-bottom:15px">
 Personal Information
@@ -805,11 +783,7 @@ Other
 </select>
 
 <label>ID Number</label>
-
-<input
-id="verifyIDNumber"
-placeholder="Enter your ID number"
->
+<input id="verifyIDNumber">
 
 <h3 style="margin-top:15px;margin-bottom:15px">
 Guarantor 1
@@ -856,7 +830,6 @@ Other
 <input id="g1IDNumber">
 
 <label>
-
 <input
 type="checkbox"
 id="g1Consent"
@@ -911,7 +884,6 @@ Other
 <input id="g2IDNumber">
 
 <label>
-
 <input
 type="checkbox"
 id="g2Consent"
@@ -947,15 +919,11 @@ Submit Verification
 <h2>Available Jobs</h2>
 
 <p style="color:#6b7280;margin:8px 0 20px">
-
 New customer requests appear here automatically.
-
 </p>
 
 <div id="availableJobs">
-
 <p>Loading jobs...</p>
-
 </div>
 
 </div>
@@ -969,26 +937,18 @@ This section refreshes automatically.
 </p>
 
 <div id="providerJobs">
-
 <p>Loading...</p>
-
 </div>
 
 </div>
 
-<button
-class="btn red logout"
-onclick="logout()">
-
+<button class="btn red logout" onclick="logout()">
 Logout
-
 </button>
 
 </section>
 
-<!-- =====================================================
-ADMIN DASHBOARD
-===================================================== -->
+<!-- ADMIN DASHBOARD -->
 
 <section id="adminDashboard" class="dashboard">
 
@@ -1007,51 +967,18 @@ Review and verify Phil Connect providers.
 <div class="grid">
 
 <div class="card">
-
-<h3>
-Pending Verifications
-</h3>
-
-<p
-id="adminPendingCount"
-class="stat-number">
-
-0
-
-</p>
-
+<h3>Submitted</h3>
+<p id="adminPendingCount" class="stat-number">0</p>
 </div>
 
 <div class="card">
-
-<h3>
-Approved
-</h3>
-
-<p
-id="adminApprovedCount"
-class="stat-number">
-
-0
-
-</p>
-
+<h3>Approved</h3>
+<p id="adminApprovedCount" class="stat-number">0</p>
 </div>
 
 <div class="card">
-
-<h3>
-Rejected
-</h3>
-
-<p
-id="adminRejectedCount"
-class="stat-number">
-
-0
-
-</p>
-
+<h3>Rejected</h3>
+<p id="adminRejectedCount" class="stat-number">0</p>
 </div>
 
 </div>
@@ -1063,34 +990,22 @@ Provider Verification Applications
 </h2>
 
 <p class="refresh-text">
-
 Review each provider before approving them.
-
 </p>
 
 <div id="adminVerificationList">
-
-<p>
-Loading verification applications...
-</p>
-
+<p>Loading verification applications...</p>
 </div>
 
 </div>
 
-<button
-class="btn red logout"
-onclick="logout()">
-
+<button class="btn red logout" onclick="logout()">
 Logout
-
 </button>
 
 </section>
 
-<!-- =====================================================
-AUTH
-===================================================== -->
+<!-- AUTH -->
 
 <div class="modal" id="authModal">
 
@@ -1184,16 +1099,14 @@ Sign up
 </div>
 
 <footer>
-
 © 2026 Phil Connect. All rights reserved.
-
 </footer>
 
 <script>
 
-/* =========================================================
+/* =====================================================
 SUPABASE
-========================================================= */
+===================================================== */
 
 const SUPABASE_URL =
 "https://zkebonwbbumhdmmppozq.supabase.co";
@@ -1213,55 +1126,9 @@ let currentUser = null;
 let refreshTimer = null;
 let currentAdmin = false;
 
-/* =========================================================
-VALID DATABASE ID TYPES
-========================================================= */
-
-const VALID_ID_TYPES = [
-"NIN",
-"National ID",
-"International Passport",
-"Driver License",
-"Voter Card",
-"Other"
-];
-
-function normalizeIDType(value){
-
-if(!value){
-return null;
-}
-
-if(VALID_ID_TYPES.includes(value)){
-return value;
-}
-
-/* Convert old values to the exact database values */
-
-const oldValues = {
-
-"National ID / NIN":"NIN",
-
-"NIN / National ID":"NIN",
-
-"Driver's License":"Driver License",
-
-"Drivers License":"Driver License",
-
-"Voter's Card":"Voter Card",
-
-"International passport":
-"International Passport"
-
-};
-
-return oldValues[value] || "Other";
-
-}
-
-/* =========================================================
-AUTH MODAL
-========================================================= */
+/* =====================================================
+AUTH
+===================================================== */
 
 function openAuth(){
 
@@ -1333,9 +1200,9 @@ signupMode
 
 }
 
-/* =========================================================
-AUTH
-========================================================= */
+/* =====================================================
+AUTH SUBMIT
+===================================================== */
 
 async function submitAuth(){
 
@@ -1493,8 +1360,6 @@ return;
 
 }
 
-/* LOGIN */
-
 const {data,error} =
 await supabaseClient.auth
 .signInWithPassword({
@@ -1538,9 +1403,9 @@ error.message ||
 
 }
 
-/* =========================================================
-SHOW DASHBOARD
-========================================================= */
+/* =====================================================
+DASHBOARD
+===================================================== */
 
 async function showDashboard(userId){
 
@@ -1634,9 +1499,9 @@ startAutoRefresh("customer");
 
 }
 
-/* =========================================================
+/* =====================================================
 AUTO REFRESH
-========================================================= */
+===================================================== */
 
 function startAutoRefresh(role){
 
@@ -1657,7 +1522,6 @@ await loadMyRequests();
 else if(role === "provider"){
 
 await loadAvailableJobs();
-
 await loadProviderJobs();
 
 }
@@ -1685,21 +1549,19 @@ function stopAutoRefresh(){
 if(refreshTimer){
 
 clearInterval(refreshTimer);
-
 refreshTimer = null;
 
 }
 
 }
 
-/* =========================================================
+/* =====================================================
 CUSTOMER
-========================================================= */
+===================================================== */
 
 async function loadCustomerDashboard(){
 
 await loadProviders();
-
 await loadMyRequests();
 
 }
@@ -1722,18 +1584,9 @@ is_available,
 rating,
 total_jobs
 `)
-.eq(
-"verification_status",
-"approved"
-)
-.eq(
-"is_available",
-true
-)
-.eq(
-"is_online",
-true
-);
+.eq("verification_status","approved")
+.eq("is_available",true)
+.eq("is_online",true);
 
 if(serviceFilter){
 
@@ -1825,9 +1678,9 @@ Request this Workman
 
 }
 
-/* =========================================================
+/* =====================================================
 CREATE JOB
-========================================================= */
+===================================================== */
 
 async function createJob(){
 
@@ -1849,14 +1702,7 @@ error:authError
 } =
 await supabaseClient.auth.getUser();
 
-if(authError){
-
-throw new Error(
-"Authentication error: " +
-authError.message
-);
-
-}
+if(authError) throw authError;
 
 if(!user){
 
@@ -1867,40 +1713,40 @@ throw new Error(
 }
 
 const service =
-document
-.getElementById("serviceType")
-.value;
+document.getElementById(
+"serviceType"
+).value;
 
 const description =
-document
-.getElementById("jobDescription")
-.value.trim();
+document.getElementById(
+"jobDescription"
+).value.trim();
 
 const location =
-document
-.getElementById("jobLocation")
-.value.trim();
+document.getElementById(
+"jobLocation"
+).value.trim();
 
 const phone =
-document
-.getElementById("jobPhone")
-.value.trim();
+document.getElementById(
+"jobPhone"
+).value.trim();
 
 const date =
-document
-.getElementById("preferredDate")
-.value;
+document.getElementById(
+"preferredDate"
+).value;
 
 const time =
-document
-.getElementById("preferredTime")
-.value.trim();
+document.getElementById(
+"preferredTime"
+).value.trim();
 
 const budget =
 Number(
-document
-.getElementById("customerBudget")
-.value
+document.getElementById(
+"customerBudget"
+).value
 );
 
 if(
@@ -1916,81 +1762,43 @@ throw new Error(
 
 }
 
-const {data,error} =
+const {error} =
 await supabaseClient
 .from("service_requests")
 .insert({
 
 customer_id:user.id,
-
 service_type:service,
-
 description:description,
-
 location:location,
-
 phone:phone || null,
-
-preferred_date:
-date || null,
-
-preferred_time:
-time || null,
-
+preferred_date:date || null,
+preferred_time:time || null,
 budget:budget,
-
 customer_budget:budget,
-
 status:"pending"
 
-})
-.select()
-.single();
+});
 
-if(error){
-
-throw new Error(
-"Supabase error: " +
-error.message
-);
-
-}
+if(error) throw error;
 
 message.innerHTML =
 "✅ Request submitted successfully!";
 
-document
-.getElementById("jobDescription")
-.value = "";
-
-document
-.getElementById("jobLocation")
-.value = "";
-
-document
-.getElementById("jobPhone")
-.value = "";
-
-document
-.getElementById("preferredDate")
-.value = "";
-
-document
-.getElementById("preferredTime")
-.value = "";
-
-document
-.getElementById("customerBudget")
-.value = "";
+document.getElementById("jobDescription").value="";
+document.getElementById("jobLocation").value="";
+document.getElementById("jobPhone").value="";
+document.getElementById("preferredDate").value="";
+document.getElementById("preferredTime").value="";
+document.getElementById("customerBudget").value="";
 
 await loadMyRequests();
-
 await loadProviders(service);
 
 }catch(error){
 
 console.error(
-"REQUEST SUBMISSION FAILED:",
+"REQUEST ERROR:",
 error
 );
 
@@ -2001,13 +1809,11 @@ message.innerHTML =
 
 }
 
-/* =========================================================
+/* =====================================================
 CHOOSE PROVIDER
-========================================================= */
+===================================================== */
 
 async function chooseProvider(providerId){
-
-try{
 
 const {
 data:{
@@ -2019,7 +1825,6 @@ await supabaseClient.auth.getUser();
 if(!user){
 
 alert("Please login.");
-
 return;
 
 }
@@ -2037,24 +1842,14 @@ return;
 
 }
 
-const {data,error} =
+const {error} =
 await supabaseClient
 .from("service_requests")
 .update({
-
 provider_id:providerId
-
 })
-.eq(
-"id",
-request.id
-)
-.eq(
-"customer_id",
-user.id
-)
-.select()
-.single();
+.eq("id",request.id)
+.eq("customer_id",user.id);
 
 if(error){
 
@@ -2067,33 +1862,17 @@ return;
 
 }
 
-if(!data){
-
-alert(
-"Request was not updated."
-);
-
-return;
-
-}
-
 alert(
 "Request sent to the selected workman."
 );
 
 await loadMyRequests();
 
-}catch(error){
-
-console.error(error);
-
 }
 
-}
-
-/* =========================================================
-LATEST CUSTOMER REQUEST
-========================================================= */
+/* =====================================================
+LATEST REQUEST
+===================================================== */
 
 async function getLatestCustomerRequest(){
 
@@ -2104,35 +1883,19 @@ user
 } =
 await supabaseClient.auth.getUser();
 
-if(!user){
-
-return null;
-
-}
+if(!user) return null;
 
 const {data,error} =
 await supabaseClient
 .from("service_requests")
 .select("*")
-.eq(
-"customer_id",
-user.id
-)
-.order(
-"created_at",
-{
-ascending:false
-}
-)
+.eq("customer_id",user.id)
+.order("created_at",{ascending:false})
 .limit(1);
 
 if(error){
 
-console.error(
-"LATEST REQUEST ERROR:",
-error
-);
-
+console.error(error);
 return null;
 
 }
@@ -2143,9 +1906,9 @@ return data && data.length
 
 }
 
-/* =========================================================
+/* =====================================================
 CUSTOMER REQUESTS
-========================================================= */
+===================================================== */
 
 async function loadMyRequests(){
 
@@ -2156,38 +1919,19 @@ user
 } =
 await supabaseClient.auth.getUser();
 
-if(!user){
-
-return;
-
-}
+if(!user) return;
 
 const container =
-document.getElementById(
-"myRequests"
-);
+document.getElementById("myRequests");
 
 const {data,error} =
 await supabaseClient
 .from("service_requests")
 .select("*")
-.eq(
-"customer_id",
-user.id
-)
-.order(
-"created_at",
-{
-ascending:false
-}
-);
+.eq("customer_id",user.id)
+.order("created_at",{ascending:false});
 
 if(error){
-
-console.error(
-"MY REQUESTS ERROR:",
-error
-);
 
 container.innerHTML =
 "<p>Could not load your requests.</p>";
@@ -2208,17 +1952,15 @@ return;
 const providerIds =
 [
 ...new Set(
-data
-.map(job => job.provider_id)
-.filter(Boolean)
+data.map(x=>x.provider_id).filter(Boolean)
 )
 ];
 
-let providersMap = {};
+let providersMap={};
 
 if(providerIds.length){
 
-const {data:providers,error:providerError} =
+const {data:providers} =
 await supabaseClient
 .from("providers")
 .select(`
@@ -2228,51 +1970,38 @@ service_type,
 service_area,
 rating
 `)
-.in(
-"id",
-providerIds
-);
-
-if(!providerError){
+.in("id",providerIds);
 
 providersMap =
 Object.fromEntries(
 (providers || [])
-.map(provider => [
-provider.id,
-provider
-])
+.map(p=>[p.id,p])
 );
 
 }
 
-}
-
 container.innerHTML =
-data.map(job => {
+data.map(job=>{
 
 const provider =
 job.provider_id
 ? providersMap[job.provider_id]
 : null;
 
-let providerHTML = "";
+let providerHTML="";
 
 if(provider){
 
-providerHTML = `
+providerHTML=`
 
 <p class="info">
-
 🧑‍🔧 Provider:
-
 <strong>
 ${escapeHTML(
 provider.business_name ||
 "Professional"
 )}
 </strong>
-
 </p>
 
 <p class="info">
@@ -2293,23 +2022,21 @@ provider.service_area ||
 
 }else{
 
-providerHTML = `
+providerHTML=`
 
 <p class="info">
-
 🧑‍🔧 Waiting for a workman to accept this job.
-
 </p>
 
 `;
 
 }
 
-let actionHTML = "";
+let actionHTML="";
 
-if(job.status === "accepted"){
+if(job.status==="accepted"){
 
-actionHTML = `
+actionHTML=`
 
 <div class="success-box">
 
@@ -2330,9 +2057,9 @@ job.provider_amount || 0
 
 }
 
-if(job.status === "in_progress"){
+if(job.status==="in_progress"){
 
-actionHTML = `
+actionHTML=`
 
 <div class="warning-box">
 
@@ -2344,9 +2071,9 @@ actionHTML = `
 
 }
 
-if(job.status === "completed"){
+if(job.status==="completed"){
 
-actionHTML = `
+actionHTML=`
 
 <div class="success-box">
 
@@ -2373,71 +2100,60 @@ return `
 
 <h3>
 ${escapeHTML(
-job.service_type ||
-"Service"
+job.service_type || "Service"
 )}
 </h3>
 
 <p class="info">
 📝 ${escapeHTML(
-job.description ||
-""
+job.description || ""
 )}
 </p>
 
 <p class="info">
 📍 ${escapeHTML(
-job.location ||
-""
+job.location || ""
 )}
 </p>
 
 <p class="info">
 📞 ${escapeHTML(
-job.phone ||
-"Not provided"
+job.phone || "Not provided"
 )}
 </p>
 
 <p class="info">
 📅 ${escapeHTML(
-job.preferred_date ||
-"Flexible"
+job.preferred_date || "Flexible"
 )}
 </p>
 
 <p class="info">
 ⏰ ${escapeHTML(
-job.preferred_time ||
-"Flexible"
+job.preferred_time || "Flexible"
 )}
 </p>
 
 <p class="price">
-
 Your budget:
 ₦${Number(
 job.customer_budget ||
 job.budget ||
 0
 ).toLocaleString()}
-
 </p>
 
 <span class="status ${escapeHTML(
-job.status ||
-"pending"
+job.status || "pending"
 )}">
 
 ${escapeHTML(
-(job.status || "pending")
-.toUpperCase()
+(job.status || "pending").toUpperCase()
 )}
 
 </span>
 
 ${providerHTML}
-
 ${actionHTML}
 
 </div>
@@ -2448,9 +2164,9 @@ ${actionHTML}
 
 }
 
-/* =========================================================
+/* =====================================================
 PROVIDER DASHBOARD
-========================================================= */
+===================================================== */
 
 async function loadProviderDashboard(userId){
 
@@ -2458,19 +2174,12 @@ const {data:provider,error} =
 await supabaseClient
 .from("providers")
 .select("*")
-.eq(
-"user_id",
-userId
-)
+.eq("user_id",userId)
 .maybeSingle();
 
 if(error){
 
-console.error(
-"PROVIDER PROFILE ERROR:",
-error
-);
-
+console.error(error);
 return;
 
 }
@@ -2487,21 +2196,17 @@ document.getElementById(
 provider.business_name ||
 "Provider";
 
-updateOnlineUI(
-provider.is_online
-);
+updateOnlineUI(provider.is_online);
 
 await loadProviderVerification();
-
 await loadAvailableJobs();
-
 await loadProviderJobs();
 
 }
 
-/* =========================================================
-PROVIDER ONLINE
-========================================================= */
+/* =====================================================
+ONLINE
+===================================================== */
 
 async function toggleOnline(){
 
@@ -2518,18 +2223,12 @@ const {data:provider,error} =
 await supabaseClient
 .from("providers")
 .select("is_online,verification_status")
-.eq(
-"user_id",
-user.id
-)
+.eq("user_id",user.id)
 .single();
 
 if(error){
 
-alert(
-error.message
-);
-
+alert(error.message);
 return;
 
 }
@@ -2553,28 +2252,19 @@ await supabaseClient
 .update({
 
 is_online:newStatus,
-
 is_available:newStatus
 
 })
-.eq(
-"user_id",
-user.id
-);
+.eq("user_id",user.id);
 
 if(updateError){
 
-alert(
-updateError.message
-);
-
+alert(updateError.message);
 return;
 
 }
 
-updateOnlineUI(
-newStatus
-);
+updateOnlineUI(newStatus);
 
 await loadAvailableJobs();
 
@@ -2598,9 +2288,9 @@ online
 
 }
 
-/* =========================================================
+/* =====================================================
 AVAILABLE JOBS
-========================================================= */
+===================================================== */
 
 async function loadAvailableJobs(){
 
@@ -2623,16 +2313,11 @@ verification_status,
 is_online,
 is_available
 `)
-.eq(
-"user_id",
-user.id
-)
+.eq("user_id",user.id)
 .maybeSingle();
 
 const container =
-document.getElementById(
-"availableJobs"
-);
+document.getElementById("availableJobs");
 
 if(providerError){
 
@@ -2691,20 +2376,9 @@ const {data,error} =
 await supabaseClient
 .from("service_requests")
 .select("*")
-.is(
-"provider_id",
-null
-)
-.eq(
-"status",
-"pending"
-)
-.order(
-"created_at",
-{
-ascending:false
-}
-);
+.is("provider_id",null)
+.eq("status","pending")
+.order("created_at",{ascending:false});
 
 if(error){
 
@@ -2715,7 +2389,7 @@ return;
 
 }
 
-if(!data || data.length === 0){
+if(!data || data.length===0){
 
 container.innerHTML =
 "<p>No available jobs right now.</p>";
@@ -2725,57 +2399,40 @@ return;
 }
 
 container.innerHTML =
-data.map(job => `
+data.map(job=>`
 
 <div class="job-card">
 
 <h3>
-${escapeHTML(
-job.service_type
-)}
+${escapeHTML(job.service_type)}
 </h3>
 
 <p class="info">
-📝 ${escapeHTML(
-job.description
-)}
+📝 ${escapeHTML(job.description)}
 </p>
 
 <p class="info">
-📍 ${escapeHTML(
-job.location
-)}
+📍 ${escapeHTML(job.location)}
 </p>
 
 <p class="info">
-📞 ${escapeHTML(
-job.phone ||
-"Not provided"
-)}
+📞 ${escapeHTML(job.phone || "Not provided")}
 </p>
 
 <p class="info">
-📅 ${escapeHTML(
-job.preferred_date ||
-"Flexible"
-)}
+📅 ${escapeHTML(job.preferred_date || "Flexible")}
 </p>
 
 <p class="info">
-⏰ ${escapeHTML(
-job.preferred_time ||
-"Flexible"
-)}
+⏰ ${escapeHTML(job.preferred_time || "Flexible")}
 </p>
 
 <p class="price">
-
 ₦${Number(
 job.customer_budget ||
 job.budget ||
 0
 ).toLocaleString()}
-
 </p>
 
 <button
@@ -2792,9 +2449,9 @@ Accept Job
 
 }
 
-/* =========================================================
+/* =====================================================
 ACCEPT JOB
-========================================================= */
+===================================================== */
 
 async function acceptJob(jobId){
 
@@ -2807,10 +2464,7 @@ await supabaseClient.auth.getUser();
 
 if(!user){
 
-alert(
-"Please login."
-);
-
+alert("Please login.");
 return;
 
 }
@@ -2818,19 +2472,15 @@ return;
 const {data:provider,error} =
 await supabaseClient
 .from("providers")
-.select("id,verification_status,is_online,is_available")
-.eq(
-"user_id",
-user.id
+.select(
+"id,verification_status,is_online,is_available"
 )
+.eq("user_id",user.id)
 .single();
 
 if(error){
 
-alert(
-error.message
-);
-
+alert(error.message);
 return;
 
 }
@@ -2861,19 +2511,12 @@ prompt(
 "Enter the amount you will charge for this job:"
 );
 
-if(amount === null){
-
-return;
-
-}
+if(amount===null) return;
 
 const finalAmount =
 Number(amount);
 
-if(
-!finalAmount ||
-finalAmount <= 0
-){
+if(!finalAmount || finalAmount<=0){
 
 alert(
 "Enter a valid amount."
@@ -2889,27 +2532,14 @@ await supabaseClient
 .update({
 
 provider_id:provider.id,
-
 provider_amount:finalAmount,
-
 status:"accepted",
-
-accepted_at:
-new Date().toISOString()
+accepted_at:new Date().toISOString()
 
 })
-.eq(
-"id",
-jobId
-)
-.is(
-"provider_id",
-null
-)
-.eq(
-"status",
-"pending"
-)
+.eq("id",jobId)
+.is("provider_id",null)
+.eq("status","pending")
 .select()
 .single();
 
@@ -2931,7 +2561,6 @@ alert(
 );
 
 await loadAvailableJobs();
-
 return;
 
 }
@@ -2941,14 +2570,13 @@ alert(
 );
 
 await loadAvailableJobs();
-
 await loadProviderJobs();
 
 }
 
-/* =========================================================
+/* =====================================================
 PROVIDER JOBS
-========================================================= */
+===================================================== */
 
 async function loadProviderJobs(){
 
@@ -2959,26 +2587,17 @@ user
 } =
 await supabaseClient.auth.getUser();
 
-if(!user){
-
-return;
-
-}
+if(!user) return;
 
 const {data:provider,error:providerError} =
 await supabaseClient
 .from("providers")
 .select("id")
-.eq(
-"user_id",
-user.id
-)
+.eq("user_id",user.id)
 .maybeSingle();
 
 const container =
-document.getElementById(
-"providerJobs"
-);
+document.getElementById("providerJobs");
 
 if(providerError){
 
@@ -3002,16 +2621,8 @@ const {data,error} =
 await supabaseClient
 .from("service_requests")
 .select("*")
-.eq(
-"provider_id",
-provider.id
-)
-.order(
-"created_at",
-{
-ascending:false
-}
-);
+.eq("provider_id",provider.id)
+.order("created_at",{ascending:false});
 
 if(error){
 
@@ -3022,7 +2633,7 @@ return;
 
 }
 
-if(!data || data.length === 0){
+if(!data || data.length===0){
 
 container.innerHTML =
 "<p>You have no accepted jobs.</p>";
@@ -3032,40 +2643,30 @@ return;
 }
 
 container.innerHTML =
-data.map(job => `
+data.map(job=>`
 
 <div class="job-card">
 
 <h3>
-${escapeHTML(
-job.service_type
-)}
+${escapeHTML(job.service_type)}
 </h3>
 
 <p class="info">
-📝 ${escapeHTML(
-job.description
-)}
+📝 ${escapeHTML(job.description)}
 </p>
 
 <p class="info">
-📍 ${escapeHTML(
-job.location
-)}
+📍 ${escapeHTML(job.location)}
 </p>
 
 <p class="info">
-📞 ${escapeHTML(
-job.phone ||
-"Not provided"
-)}
+📞 ${escapeHTML(job.phone || "Not provided")}
 </p>
 
 <p class="price">
 
 ₦${Number(
-job.provider_amount ||
-0
+job.provider_amount || 0
 ).toLocaleString()}
 
 </p>
@@ -3081,7 +2682,7 @@ job.status.toUpperCase()
 </span>
 
 ${
-job.status === "accepted"
+job.status==="accepted"
 ?
 
 `
@@ -3099,14 +2700,12 @@ Start Job
 
 `
 
-:
-
-""
+:""
 
 }
 
 ${
-job.status === "in_progress"
+job.status==="in_progress"
 ?
 
 `
@@ -3124,14 +2723,12 @@ Complete Job
 
 `
 
-:
-
-""
+:""
 
 }
 
 ${
-job.status === "completed"
+job.status==="completed"
 ?
 
 `
@@ -3144,9 +2741,7 @@ job.status === "completed"
 
 `
 
-:
-
-""
+:""
 
 }
 
@@ -3156,9 +2751,9 @@ job.status === "completed"
 
 }
 
-/* =========================================================
+/* =====================================================
 CHANGE JOB STATUS
-========================================================= */
+===================================================== */
 
 async function changeJobStatus(jobId,status){
 
@@ -3171,10 +2766,7 @@ await supabaseClient.auth.getUser();
 
 if(!user){
 
-alert(
-"Please login."
-);
-
+alert("Please login.");
 return;
 
 }
@@ -3183,29 +2775,21 @@ const {data:provider,error:providerError} =
 await supabaseClient
 .from("providers")
 .select("id")
-.eq(
-"user_id",
-user.id
-)
+.eq("user_id",user.id)
 .single();
 
 if(providerError){
 
-alert(
-providerError.message
-);
-
+alert(providerError.message);
 return;
 
 }
 
-const updates = {
-
+const updates={
 status:status
-
 };
 
-if(status === "completed"){
+if(status==="completed"){
 
 updates.completed_at =
 new Date().toISOString();
@@ -3216,14 +2800,8 @@ const {data,error} =
 await supabaseClient
 .from("service_requests")
 .update(updates)
-.eq(
-"id",
-jobId
-)
-.eq(
-"provider_id",
-provider.id
-)
+.eq("id",jobId)
+.eq("provider_id",provider.id)
 .select()
 .single();
 
@@ -3240,10 +2818,7 @@ return;
 
 if(!data){
 
-alert(
-"Job was not updated."
-);
-
+alert("Job was not updated.");
 return;
 
 }
@@ -3252,9 +2827,9 @@ await loadProviderJobs();
 
 }
 
-/* =========================================================
-PROVIDER VERIFICATION
-========================================================= */
+/* =====================================================
+VERIFICATION STATUS
+===================================================== */
 
 async function loadProviderVerification(){
 
@@ -3265,20 +2840,13 @@ user
 } =
 await supabaseClient.auth.getUser();
 
-if(!user){
-
-return;
-
-}
+if(!user) return;
 
 const {data:provider,error:providerError} =
 await supabaseClient
 .from("providers")
 .select("id")
-.eq(
-"user_id",
-user.id
-)
+.eq("user_id",user.id)
 .single();
 
 if(providerError || !provider){
@@ -3291,16 +2859,8 @@ const {data:verification,error} =
 await supabaseClient
 .from("provider_verifications")
 .select("*")
-.eq(
-"provider_id",
-provider.id
-)
-.order(
-"created_at",
-{
-ascending:false
-}
-)
+.eq("provider_id",provider.id)
+.order("created_at",{ascending:false})
 .limit(1)
 .maybeSingle();
 
@@ -3355,7 +2915,7 @@ return;
 
 }
 
-if(verification.status === "approved"){
+if(verification.status==="approved"){
 
 statusBox.innerHTML = `
 
@@ -3367,7 +2927,7 @@ statusBox.innerHTML = `
 
 <p style="margin-top:8px">
 
-Your identity and guarantor information have been approved.
+Your verification has been approved.
 
 You can now receive jobs.
 
@@ -3378,12 +2938,11 @@ You can now receive jobs.
 `;
 
 form.classList.add("hidden");
-
 return;
 
 }
 
-if(verification.status === "rejected"){
+if(verification.status==="rejected"){
 
 statusBox.innerHTML = `
 
@@ -3420,6 +2979,11 @@ return;
 
 }
 
+if(
+verification.status==="submitted" ||
+verification.status==="under_review"
+){
+
 statusBox.innerHTML = `
 
 <div class="warning-box">
@@ -3439,12 +3003,32 @@ Your application has been submitted and is waiting for admin review.
 `;
 
 form.classList.add("hidden");
+return;
 
 }
 
-/* =========================================================
-POPULATE VERIFICATION
-========================================================= */
+statusBox.innerHTML = `
+
+<div class="warning-box">
+
+Verification status:
+<strong>
+${escapeHTML(
+verification.status
+)}
+</strong>
+
+</div>
+
+`;
+
+form.classList.remove("hidden");
+
+}
+
+/* =====================================================
+POPULATE FORM
+===================================================== */
 
 function populateVerificationForm(v){
 
@@ -3503,13 +3087,10 @@ document.getElementById(
 ).value =
 v.emergency_contact_relationship || "";
 
-/* IMPORTANT:
-Use only valid database ID values */
-
 document.getElementById(
 "verifyIDType"
 ).value =
-normalizeIDType(v.id_type);
+v.id_type || "";
 
 document.getElementById(
 "verifyIDNumber"
@@ -3518,9 +3099,9 @@ v.id_number || "";
 
 }
 
-/* =========================================================
-SUBMIT PROVIDER VERIFICATION
-========================================================= */
+/* =====================================================
+SUBMIT VERIFICATION
+===================================================== */
 
 async function submitProviderVerification(){
 
@@ -3533,10 +3114,7 @@ await supabaseClient.auth.getUser();
 
 if(!user){
 
-alert(
-"Please login."
-);
-
+alert("Please login.");
 return;
 
 }
@@ -3545,10 +3123,7 @@ const {data:provider,error:providerError} =
 await supabaseClient
 .from("providers")
 .select("id")
-.eq(
-"user_id",
-user.id
-)
+.eq("user_id",user.id)
 .single();
 
 if(providerError || !provider){
@@ -3618,18 +3193,10 @@ document.getElementById(
 "verifyEmergencyRelationship"
 ).value.trim();
 
-/*
-IMPORTANT FIX:
-Always normalize the ID type before sending
-to Supabase.
-*/
-
 const idType =
-normalizeIDType(
 document.getElementById(
 "verifyIDType"
-).value
-);
+).value;
 
 const idNumber =
 document.getElementById(
@@ -3660,7 +3227,9 @@ return;
 
 }
 
-const g1 = {
+/* GUARANTOR 1 */
+
+const g1={
 
 full_name:
 document.getElementById(
@@ -3688,11 +3257,9 @@ document.getElementById(
 ).value.trim(),
 
 id_type:
-normalizeIDType(
 document.getElementById(
 "g1IDType"
-).value
-),
+).value,
 
 id_number:
 document.getElementById(
@@ -3706,7 +3273,9 @@ document.getElementById(
 
 };
 
-const g2 = {
+/* GUARANTOR 2 */
+
+const g2={
 
 full_name:
 document.getElementById(
@@ -3734,11 +3303,9 @@ document.getElementById(
 ).value.trim(),
 
 id_type:
-normalizeIDType(
 document.getElementById(
 "g2IDType"
-).value
-),
+).value,
 
 id_number:
 document.getElementById(
@@ -3790,54 +3357,14 @@ return;
 
 }
 
-/* FINAL SAFETY CHECK */
-
-if(!VALID_ID_TYPES.includes(idType)){
-
-alert(
-"Invalid identity type selected."
-);
-
-return;
-
-}
-
-if(!VALID_ID_TYPES.includes(g1.id_type)){
-
-alert(
-"Invalid Guarantor 1 ID type."
-);
-
-return;
-
-}
-
-if(!VALID_ID_TYPES.includes(g2.id_type)){
-
-alert(
-"Invalid Guarantor 2 ID type."
-);
-
-return;
-
-}
-
-/* FIND EXISTING VERIFICATION */
+/* EXISTING VERIFICATION */
 
 const {data:existing,error:existingError} =
 await supabaseClient
 .from("provider_verifications")
 .select("id,status")
-.eq(
-"provider_id",
-provider.id
-)
-.order(
-"created_at",
-{
-ascending:false
-}
-)
+.eq("provider_id",provider.id)
+.order("created_at",{ascending:false})
 .limit(1)
 .maybeSingle();
 
@@ -3850,73 +3377,55 @@ existingError
 
 }
 
-let verificationId = null;
+/*
+IMPORTANT:
+The database allows:
 
-const oldStatus =
-existing
-? existing.status
-: null;
+not_started
+incomplete
+submitted
+under_review
+approved
+rejected
+suspended
 
-const verificationData = {
+Therefore we use "submitted" here.
+*/
 
-provider_id:
-provider.id,
+const verificationData={
 
-user_id:
-user.id,
+provider_id:provider.id,
 
-status:
-"pending",
+user_id:user.id,
 
-legal_full_name:
-legalName,
+status:"submitted",
 
-date_of_birth:
-dob,
+legal_full_name:legalName,
 
-phone:
-phone,
+date_of_birth:dob,
 
-residential_address:
-address,
+phone:phone,
 
-state:
-state,
+residential_address:address,
 
-lga:
-lga,
+state:state,
 
-service_type:
-serviceType,
+lga:lga,
 
-years_of_experience:
-experience,
+service_type:serviceType,
 
-emergency_contact_name:
-emergencyName,
+years_of_experience:experience,
 
-emergency_contact_phone:
-emergencyPhone,
+emergency_contact_name:emergencyName,
+
+emergency_contact_phone:emergencyPhone,
 
 emergency_contact_relationship:
 emergencyRelationship,
 
-/*
-THIS IS THE IMPORTANT FIX.
-The database will receive exactly:
-NIN
-National ID
-International Passport
-Driver License
-Voter Card
-or Other
-*/
+id_type:idType,
 
-id_type:
-idType,
-
-id_number:
-idNumber,
+id_number:idNumber,
 
 submitted_at:
 new Date().toISOString(),
@@ -3929,7 +3438,13 @@ rejection_reason:null
 
 };
 
+let verificationId=null;
+let oldStatus=null;
+
 if(existing){
+
+oldStatus =
+existing.status;
 
 const {data,error} =
 await supabaseClient
@@ -3937,10 +3452,7 @@ await supabaseClient
 .update(
 verificationData
 )
-.eq(
-"id",
-existing.id
-)
+.eq("id",existing.id)
 .select()
 .single();
 
@@ -3955,10 +3467,8 @@ return;
 
 }
 
-verificationId =
-data.id;
+verificationId=data.id;
 
-const {error:deleteError} =
 await supabaseClient
 .from("provider_guarantors")
 .delete()
@@ -3967,17 +3477,7 @@ await supabaseClient
 verificationId
 );
 
-if(deleteError){
-
-console.error(
-"OLD GUARANTOR DELETE ERROR:",
-deleteError
-);
-
-}
-
-}
-else{
+}else{
 
 const {data,error} =
 await supabaseClient
@@ -3990,11 +3490,6 @@ verificationData
 
 if(error){
 
-console.error(
-"VERIFICATION INSERT ERROR:",
-error
-);
-
 alert(
 "Could not submit verification: " +
 error.message
@@ -4004,8 +3499,7 @@ return;
 
 }
 
-verificationId =
-data.id;
+verificationId=data.id;
 
 }
 
@@ -4028,17 +3522,14 @@ phone:g1.phone,
 residential_address:
 g1.residential_address,
 
-occupation:
-g1.occupation,
+occupation:g1.occupation,
 
 relationship_to_provider:
 g1.relationship_to_provider,
 
-id_type:
-g1.id_type,
+id_type:g1.id_type,
 
-id_number:
-g1.id_number,
+id_number:g1.id_number,
 
 consent_confirmed:
 g1.consent_confirmed,
@@ -4078,17 +3569,14 @@ phone:g2.phone,
 residential_address:
 g2.residential_address,
 
-occupation:
-g2.occupation,
+occupation:g2.occupation,
 
 relationship_to_provider:
 g2.relationship_to_provider,
 
-id_type:
-g2.id_type,
+id_type:g2.id_type,
 
-id_number:
-g2.id_number,
+id_number:g2.id_number,
 
 consent_confirmed:
 g2.consent_confirmed,
@@ -4109,34 +3597,20 @@ return;
 
 }
 
-/* KEEP PROVIDER PENDING */
+/* PROVIDER MUST STAY OFFLINE */
 
-const {error:providerUpdateError} =
 await supabaseClient
 .from("providers")
 .update({
 
-verification_status:
-"pending",
+verification_status:"pending",
 
 is_online:false,
 
 is_available:false
 
 })
-.eq(
-"id",
-provider.id
-);
-
-if(providerUpdateError){
-
-console.error(
-"PROVIDER STATUS ERROR:",
-providerUpdateError
-);
-
-}
+.eq("id",provider.id);
 
 /* EVENT */
 
@@ -4148,17 +3622,13 @@ await supabaseClient
 verification_id:
 verificationId,
 
-actor_id:
-user.id,
+actor_id:user.id,
 
-action:
-"submitted",
+action:"submitted",
 
-old_status:
-oldStatus,
+old_status:oldStatus,
 
-new_status:
-"pending",
+new_status:"submitted",
 
 notes:
 "Provider verification submitted."
@@ -4167,9 +3637,9 @@ notes:
 
 if(eventError){
 
-console.error(
-"VERIFICATION EVENT ERROR:",
-eventError
+console.warn(
+"Verification event warning:",
+eventError.message
 );
 
 }
@@ -4182,40 +3652,24 @@ await loadProviderVerification();
 
 }
 
-/* =========================================================
-ADMIN DASHBOARD
-========================================================= */
+/* =====================================================
+ADMIN
+===================================================== */
 
 async function loadAdminDashboard(){
 
-if(!currentUser){
+if(!currentUser) return;
 
-return;
-
-}
-
-const {data:profile,error:profileError} =
+const {data:profile,error} =
 await supabaseClient
 .from("profiles")
 .select("role")
-.eq(
-"id",
-currentUser.id
-)
+.eq("id",currentUser.id)
 .maybeSingle();
 
-if(profileError){
+if(error) return;
 
-console.error(
-"ADMIN PROFILE ERROR:",
-profileError
-);
-
-return;
-
-}
-
-if(!profile || profile.role !== "admin"){
+if(!profile || profile.role!=="admin"){
 
 alert(
 "Administrator access required."
@@ -4226,14 +3680,13 @@ return;
 }
 
 await loadAdminStats();
-
 await loadAdminVerifications();
 
 }
 
-/* =========================================================
-ADMIN STATISTICS
-========================================================= */
+/* =====================================================
+ADMIN STATS
+===================================================== */
 
 async function loadAdminStats(){
 
@@ -4244,47 +3697,50 @@ await supabaseClient
 
 if(error){
 
-console.error(
-"ADMIN STATS ERROR:",
-error
-);
-
+console.error(error);
 return;
 
 }
 
-const pending =
+const submitted =
 (data || [])
-.filter(v => v.status === "pending")
+.filter(v =>
+v.status==="submitted" ||
+v.status==="under_review"
+)
 .length;
 
 const approved =
 (data || [])
-.filter(v => v.status === "approved")
+.filter(v =>
+v.status==="approved"
+)
 .length;
 
 const rejected =
 (data || [])
-.filter(v => v.status === "rejected")
+.filter(v =>
+v.status==="rejected"
+)
 .length;
 
 document.getElementById(
 "adminPendingCount"
-).innerText = pending;
+).innerText=submitted;
 
 document.getElementById(
 "adminApprovedCount"
-).innerText = approved;
+).innerText=approved;
 
 document.getElementById(
 "adminRejectedCount"
-).innerText = rejected;
+).innerText=rejected;
 
 }
 
-/* =========================================================
+/* =====================================================
 ADMIN VERIFICATIONS
-========================================================= */
+===================================================== */
 
 async function loadAdminVerifications(){
 
@@ -4297,19 +3753,11 @@ const {data,error} =
 await supabaseClient
 .from("provider_verifications")
 .select("*")
-.order(
-"created_at",
-{
-ascending:false
-}
-);
+.order("created_at",{ascending:false});
 
 if(error){
 
-console.error(
-"ADMIN VERIFICATION ERROR:",
-error
-);
+console.error(error);
 
 container.innerHTML =
 "<p>Could not load verification applications.</p>";
@@ -4318,7 +3766,7 @@ return;
 
 }
 
-if(!data || data.length === 0){
+if(!data || data.length===0){
 
 container.innerHTML =
 "<p>No provider verification applications yet.</p>";
@@ -4328,88 +3776,65 @@ return;
 }
 
 container.innerHTML =
-data.map(verification => `
+data.map(v=>`
 
-<div
-class="provider-card">
+<div class="provider-card">
 
 <h3>
 
 ${escapeHTML(
-verification.legal_full_name ||
+v.legal_full_name ||
 "Unnamed Provider"
 )}
 
 </h3>
 
-<span
-class="status ${
-escapeHTML(
-verification.status ||
-"pending"
-)
-}">
+<span class="status ${escapeHTML(
+v.status || "submitted"
+)}">
 
 ${escapeHTML(
-(verification.status || "pending")
-.toUpperCase()
+(v.status || "submitted").toUpperCase()
 )}
 
 </span>
 
 <p class="info">
-
 📞 ${escapeHTML(
-verification.phone ||
-"Not provided"
+v.phone || "Not provided"
 )}
-
 </p>
 
 <p class="info">
-
 📍 ${escapeHTML(
-verification.state ||
-""
-)}
-
-${
-verification.lga
-? " / " +
-escapeHTML(
-verification.lga
+v.state || ""
 )
+}
+${
+v.lga
+? " / " +
+escapeHTML(v.lga)
 : ""
 }
-
 </p>
 
 <p class="info">
-
 🔧 ${escapeHTML(
-verification.service_type ||
-"Not provided"
+v.service_type || "Not provided"
 )}
-
 </p>
 
 <p class="info">
-
 💼 ${escapeHTML(
-String(
-verification.years_of_experience ||
-0
-)
+String(v.years_of_experience || 0)
 )}
-
 years experience
-
 </p>
 
 <button
 class="btn blue"
 onclick="viewVerification(
-'${verification.id}'
+'${v.id}'
 )">
 
 Review Application
@@ -4422,9 +3847,9 @@ Review Application
 
 }
 
-/* =========================================================
+/* =====================================================
 VIEW VERIFICATION
-========================================================= */
+===================================================== */
 
 async function viewVerification(
 verificationId
@@ -4434,10 +3859,7 @@ const {data:verification,error} =
 await supabaseClient
 .from("provider_verifications")
 .select("*")
-.eq(
-"id",
-verificationId
-)
+.eq("id",verificationId)
 .single();
 
 if(error){
@@ -4459,9 +3881,7 @@ await supabaseClient
 "verification_id",
 verificationId
 )
-.order(
-"guarantor_number"
-);
+.order("guarantor_number");
 
 const {data:documents} =
 await supabaseClient
@@ -4478,12 +3898,12 @@ ascending:false
 }
 );
 
-let guarantorHTML = "";
+let guarantorHTML="";
 
 if(guarantors && guarantors.length){
 
 guarantorHTML =
-guarantors.map(g => `
+guarantors.map(g=>`
 
 <div class="document-box">
 
@@ -4492,66 +3912,48 @@ Guarantor ${g.guarantor_number}
 </h3>
 
 <p class="info">
-
 <strong>Name:</strong>
-${escapeHTML(
-g.full_name || ""
-)}
-
+${escapeHTML(g.full_name || "")}
 </p>
 
 <p class="info">
-
 <strong>Phone:</strong>
-${escapeHTML(
-g.phone || ""
-)}
-
+${escapeHTML(g.phone || "")}
 </p>
 
 <p class="info">
-
 <strong>Address:</strong>
 ${escapeHTML(
 g.residential_address || ""
 )}
-
 </p>
 
 <p class="info">
-
 <strong>Occupation:</strong>
 ${escapeHTML(
 g.occupation || ""
 )}
-
 </p>
 
 <p class="info">
-
 <strong>Relationship:</strong>
 ${escapeHTML(
 g.relationship_to_provider || ""
 )}
-
 </p>
 
 <p class="info">
-
 <strong>ID Type:</strong>
 ${escapeHTML(
-normalizeIDType(g.id_type) || ""
+g.id_type || ""
 )}
-
 </p>
 
 <p class="info">
-
 <strong>ID Number:</strong>
 ${escapeHTML(
 g.id_number || ""
 )}
-
 </p>
 
 <p class="info">
@@ -4571,8 +3973,7 @@ g.consent_confirmed
 <strong>Status:</strong>
 
 ${escapeHTML(
-g.verification_status ||
-"pending"
+g.verification_status || "pending"
 )}
 
 </p>
@@ -4588,12 +3989,12 @@ guarantorHTML =
 
 }
 
-let documentsHTML = "";
+let documentsHTML="";
 
 if(documents && documents.length){
 
 documentsHTML =
-documents.map(d => `
+documents.map(d=>`
 
 <div class="document-box">
 
@@ -4606,7 +4007,6 @@ d.document_type
 <p class="info">
 
 File:
-
 ${escapeHTML(
 d.original_file_name ||
 d.file_path
@@ -4617,7 +4017,6 @@ d.file_path
 <p class="info">
 
 Status:
-
 ${escapeHTML(
 d.verification_status ||
 "pending"
@@ -4641,7 +4040,7 @@ document.getElementById(
 "adminVerificationList"
 );
 
-container.innerHTML = `
+container.innerHTML=`
 
 <div class="card">
 
@@ -4656,95 +4055,62 @@ Personal Information
 </h3>
 
 <p class="info">
-
 <strong>Legal Name:</strong>
-
 ${escapeHTML(
-verification.legal_full_name ||
-""
+verification.legal_full_name || ""
 )}
-
 </p>
 
 <p class="info">
-
 <strong>Date of Birth:</strong>
-
 ${escapeHTML(
-verification.date_of_birth ||
-""
+verification.date_of_birth || ""
 )}
-
 </p>
 
 <p class="info">
-
 <strong>Phone:</strong>
-
 ${escapeHTML(
-verification.phone ||
-""
+verification.phone || ""
 )}
-
 </p>
 
 <p class="info">
-
 <strong>Residential Address:</strong>
-
 ${escapeHTML(
-verification.residential_address ||
-""
+verification.residential_address || ""
 )}
-
 </p>
 
 <p class="info">
-
 <strong>State:</strong>
-
 ${escapeHTML(
-verification.state ||
-""
+verification.state || ""
 )}
-
 </p>
 
 <p class="info">
-
 <strong>LGA:</strong>
-
 ${escapeHTML(
-verification.lga ||
-""
+verification.lga || ""
 )}
-
 </p>
 
 <p class="info">
-
 <strong>Service:</strong>
-
 ${escapeHTML(
-verification.service_type ||
-""
+verification.service_type || ""
 )}
-
 </p>
 
 <p class="info">
-
 <strong>Experience:</strong>
-
 ${escapeHTML(
 String(
-verification.years_of_experience ||
-0
+verification.years_of_experience || 0
 )
 )}
-
 years
-
 </p>
 
 </div>
@@ -4756,36 +4122,24 @@ Emergency Contact
 </h3>
 
 <p class="info">
-
 <strong>Name:</strong>
-
 ${escapeHTML(
-verification.emergency_contact_name ||
-""
+verification.emergency_contact_name || ""
 )}
-
 </p>
 
 <p class="info">
-
 <strong>Phone:</strong>
-
 ${escapeHTML(
-verification.emergency_contact_phone ||
-""
+verification.emergency_contact_phone || ""
 )}
-
 </p>
 
 <p class="info">
-
 <strong>Relationship:</strong>
-
 ${escapeHTML(
-verification.emergency_contact_relationship ||
-""
+verification.emergency_contact_relationship || ""
 )}
-
 </p>
 
 </div>
@@ -4797,26 +4151,17 @@ Identity
 </h3>
 
 <p class="info">
-
 <strong>ID Type:</strong>
-
 ${escapeHTML(
-normalizeIDType(
-verification.id_type
-) || ""
+verification.id_type || ""
 )}
-
 </p>
 
 <p class="info">
-
 <strong>ID Number:</strong>
-
 ${escapeHTML(
-verification.id_number ||
-""
+verification.id_number || ""
 )}
-
 </p>
 
 </div>
@@ -4851,8 +4196,7 @@ Admin Notes
 id="adminNotes_${verificationId}"
 placeholder="Enter admin notes..."
 >${escapeHTML(
-verification.admin_notes ||
-""
+verification.admin_notes || ""
 )}</textarea>
 
 <label>
@@ -4863,8 +4207,7 @@ Rejection Reason
 id="rejectionReason_${verificationId}"
 placeholder="Required when rejecting..."
 >${escapeHTML(
-verification.rejection_reason ||
-""
+verification.rejection_reason || ""
 )}</textarea>
 
 <div class="admin-actions">
@@ -4904,9 +4247,9 @@ behavior:"smooth"
 
 }
 
-/* =========================================================
-APPROVE VERIFICATION
-========================================================= */
+/* =====================================================
+APPROVE
+===================================================== */
 
 async function approveVerification(
 verificationId
@@ -4930,23 +4273,17 @@ verificationId
 
 const {
 data:verification,
-error:verificationError
+error
 } =
 await supabaseClient
 .from("provider_verifications")
 .select("provider_id,status")
-.eq(
-"id",
-verificationId
-)
+.eq("id",verificationId)
 .single();
 
-if(verificationError){
+if(error){
 
-alert(
-verificationError.message
-);
-
+alert(error.message);
 return;
 
 }
@@ -4959,7 +4296,7 @@ return;
 
 }
 
-const {error:updateVerificationError} =
+const {error:updateError} =
 await supabaseClient
 .from("provider_verifications")
 .update({
@@ -4978,16 +4315,13 @@ notes || null,
 rejection_reason:null
 
 })
-.eq(
-"id",
-verificationId
-);
+.eq("id",verificationId);
 
-if(updateVerificationError){
+if(updateError){
 
 alert(
 "Verification update failed: " +
-updateVerificationError.message
+updateError.message
 );
 
 return;
@@ -4999,16 +4333,14 @@ await supabaseClient
 .from("providers")
 .update({
 
-verification_status:
-"approved",
+verification_status:"approved",
 
-is_available:true
+is_available:true,
+
+is_online:false
 
 })
-.eq(
-"id",
-verification.provider_id
-);
+.eq("id",verification.provider_id);
 
 if(providerError){
 
@@ -5031,14 +4363,12 @@ verificationId,
 actor_id:
 currentUser.id,
 
-action:
-"approved",
+action:"approved",
 
 old_status:
 verification.status,
 
-new_status:
-"approved",
+new_status:"approved",
 
 notes:
 notes || null
@@ -5053,9 +4383,9 @@ await loadAdminDashboard();
 
 }
 
-/* =========================================================
-REJECT VERIFICATION
-========================================================= */
+/* =====================================================
+REJECT
+===================================================== */
 
 async function rejectVerification(
 verificationId
@@ -5095,23 +4425,17 @@ verificationId
 
 const {
 data:verification,
-error:verificationError
+error
 } =
 await supabaseClient
 .from("provider_verifications")
 .select("provider_id,status")
-.eq(
-"id",
-verificationId
-)
+.eq("id",verificationId)
 .single();
 
-if(verificationError){
+if(error){
 
-alert(
-verificationError.message
-);
-
+alert(error.message);
 return;
 
 }
@@ -5144,10 +4468,7 @@ admin_notes:
 notes || null
 
 })
-.eq(
-"id",
-verificationId
-);
+.eq("id",verificationId);
 
 if(updateError){
 
@@ -5165,18 +4486,14 @@ await supabaseClient
 .from("providers")
 .update({
 
-verification_status:
-"rejected",
+verification_status:"rejected",
 
 is_online:false,
 
 is_available:false
 
 })
-.eq(
-"id",
-verification.provider_id
-);
+.eq("id",verification.provider_id);
 
 if(providerError){
 
@@ -5199,17 +4516,14 @@ verificationId,
 actor_id:
 currentUser.id,
 
-action:
-"rejected",
+action:"rejected",
 
 old_status:
 verification.status,
 
-new_status:
-"rejected",
+new_status:"rejected",
 
-notes:
-reason
+notes:reason
 
 });
 
@@ -5221,24 +4535,23 @@ await loadAdminDashboard();
 
 }
 
-/* =========================================================
-SERVICE SELECTION
-========================================================= */
+/* =====================================================
+SERVICE
+===================================================== */
 
 function startService(service){
 
-document
-.getElementById("serviceType")
-.value =
-service;
+document.getElementById(
+"serviceType"
+).value=service;
 
 openAuth();
 
 }
 
-/* =========================================================
+/* =====================================================
 LOGOUT
-========================================================= */
+===================================================== */
 
 async function logout(){
 
@@ -5246,9 +4559,8 @@ stopAutoRefresh();
 
 await supabaseClient.auth.signOut();
 
-currentUser = null;
-
-currentAdmin = false;
+currentUser=null;
+currentAdmin=false;
 
 document
 .getElementById("customerDashboard")
@@ -5266,16 +4578,13 @@ document
 .getElementById("home")
 .classList.remove("hidden");
 
-window.scrollTo(
-0,
-0
-);
+window.scrollTo(0,0);
 
 }
 
-/* =========================================================
+/* =====================================================
 SESSION
-========================================================= */
+===================================================== */
 
 async function checkSession(){
 
@@ -5297,12 +4606,12 @@ data.session.user.id
 
 }
 
-/* =========================================================
+/* =====================================================
 AUTH STATE
-========================================================= */
+===================================================== */
 
 supabaseClient.auth.onAuthStateChange(
-async (event,session)=>{
+async(event,session)=>{
 
 console.log(
 "AUTH EVENT:",
@@ -5317,19 +4626,21 @@ session &&
 currentUser =
 session.user;
 
+setTimeout(
+async()=>{
 await showDashboard(
 session.user.id
+);
+},
+0
 );
 
 }
 
 if(!session){
 
-currentUser =
-null;
-
-currentAdmin =
-false;
+currentUser=null;
+currentAdmin=false;
 
 stopAutoRefresh();
 
@@ -5337,9 +4648,9 @@ stopAutoRefresh();
 
 });
 
-/* =========================================================
-SECURITY
-========================================================= */
+/* =====================================================
+ESCAPE HTML
+===================================================== */
 
 function escapeHTML(value){
 
@@ -5354,36 +4665,17 @@ return "";
 
 return String(value)
 
-.replace(
-/&/g,
-"&amp;"
-)
-
-.replace(
-/</g,
-"&lt;"
-)
-
-.replace(
-/>/g,
-"&gt;"
-)
-
-.replace(
-/"/g,
-"&quot;"
-)
-
-.replace(
-/'/g,
-"&#039;"
-);
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
 
 }
 
-/* =========================================================
-START APPLICATION
-========================================================= */
+/* =====================================================
+START
+===================================================== */
 
 checkSession();
 
