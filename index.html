@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phil Connect</title>
+  <meta name="description" content="Find trusted service providers near you with Phil Connect.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f8fa;
+      color: #111827;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #22c55e;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 70px 6%;
+      background: white;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: #22c55e;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #6b7280;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .search-box {
+      max-width: 700px;
+      margin: 35px auto 0;
+      display: flex;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 15px;
+      font-size: 16px;
+    }
+
+    .search-box button {
+      border: none;
+      background: #22c55e;
+      color: white;
+      padding: 0 25px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 55px 6%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #6b7280;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .service {
+      background: white;
+      border-radius: 16px;
+      padding: 25px 15px;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .service:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    }
+
+    .service .icon {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .service h3 {
+      font-size: 16px;
+    }
+
+    .how {
+      background: #111827;
+      color: white;
+    }
+
+    .steps {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .step {
+      padding: 25px;
+      border: 1px solid #374151;
+      border-radius: 15px;
+    }
+
+    .step-number {
+      font-size: 28px;
+      font-weight: 800;
+      color: #22c55e;
+      margin-bottom: 12px;
+    }
+
+    .step p {
+      color: #d1d5db;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #030712;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        display: none;
+      }
+
+      .search-box {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .search-box button {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Phil<span>Connect</span></div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#how">How it works</a>
+    <a href="#">Login</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Find trusted help <span>near you.</span></h1>
+
+  <p>
+    Connect with verified professionals for home, business and everyday services across Nigeria.
+  </p>
+
+  <div class="search-box">
+    <input
+      type="text"
+      id="serviceSearch"
+      placeholder="What service do you need?"
+    >
+
+    <button onclick="searchService()">
+      Find a provider
+    </button>
+  </div>
+</section>
+
+<section id="services">
+
+  <div class="section-title">
+    <h2>What do you need?</h2>
+    <p>Choose a service and find a professional.</p>
+  </div>
+
+  <div class="services">
+
+    <div class="service" onclick="selectService('Plumbing')">
+      <div class="icon">🔧</div>
+      <h3>Plumbing</h3>
+    </div>
+
+    <div class="service" onclick="selectService('Electrical')">
+      <div class="icon">⚡</div>
+      <h3>Electrical</h3>
+    </div>
+
+    <div class="service" onclick="selectService('Cleaning')">
+      <div class="icon">🧹</div>
+      <h3>Cleaning</h3>
+    </div>
+
+    <div class="service" onclick="selectService('Air Conditioning')">
+      <div class="icon">❄️</div>
+      <h3>AC Services</h3>
+    </div>
+
+    <div class="service" onclick="selectService('Carpentry')">
+      <div class="icon">🪚</div>
+      <h3>Carpentry</h3>
+    </div>
+
+    <div class="service" onclick="selectService('Painting')">
+      <div class="icon">🎨</div>
+      <h3>Painting</h3>
+    </div>
+
+    <div class="service" onclick="selectService('Moving Services')">
+      <div class="icon">🚚</div>
+      <h3>Moving</h3>
+    </div>
+
+    <div class="service" onclick="selectService('CCTV Installation')">
+      <div class="icon">📹</div>
+      <h3>CCTV</h3>
+    </div>
+
+  </div>
+</section>
+
+<section class="how" id="how">
+
+  <div class="section-title">
+    <h2>How Phil Connect works</h2>
+    <p>Get help in a few simple steps.</p>
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-number">01</div>
+      <h3>Tell us what you need</h3>
+      <p>
+        Select a service and describe the job you need done.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">02</div>
+      <h3>Find a provider</h3>
+      <p>
+        Discover available professionals near your location.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">03</div>
+      <h3>Get the job done</h3>
+      <p>
+        Connect with your provider, track the job and get it completed.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Phil Connect. All rights reserved.
+</footer>
+
+<script>
+  function selectService(service) {
+    document.getElementById("serviceSearch").value = service;
+    document.getElementById("serviceSearch").focus();
+  }
+
+  function searchService() {
+    const service = document
+      .getElementById("serviceSearch")
+      .value
+      .trim();
+
+    if (!service) {
+      alert("Please select or enter a service.");
+      return;
+    }
+
+    alert("Searching for " + service + " providers near you...");
+  }
+</script>
+
+</body>
+</html>
