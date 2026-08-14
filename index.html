@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phil Connect</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7f8;
+      color: #111827;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #22c55e;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .login-btn {
+      background: #22c55e;
+      color: white;
+      padding: 11px 18px;
+      border-radius: 8px;
+    }
+
+    .hero {
+      background: white;
+      text-align: center;
+      padding: 70px 6%;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 64px);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: #22c55e;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #6b7280;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .main-btn {
+      margin-top: 30px;
+      background: #22c55e;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    section {
+      padding: 55px 6%;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .title h2 {
+      font-size: 32px;
+    }
+
+    .title p {
+      color: #6b7280;
+      margin-top: 8px;
+    }
+
+    .services {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+    }
+
+    .service {
+      background: white;
+      padding: 25px 12px;
+      border-radius: 15px;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+      cursor: pointer;
+    }
+
+    .service:hover {
+      border-color: #22c55e;
+    }
+
+    .icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    /* MODAL */
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.6);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      z-index: 100;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 430px;
+      background: white;
+      border-radius: 18px;
+      padding: 28px;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      right: 18px;
+      top: 15px;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    .modal-box h2 {
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #6b7280;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .role-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .role-buttons button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      background: #f3f4f6;
+    }
+
+    .role-buttons button.active {
+      background: #22c55e;
+      color: white;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 9px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #22c55e;
+    }
+
+    .submit {
+      width: 100%;
+      padding: 14px;
+      background: #22c55e;
+      color: white;
+      border-radius: 9px;
+      margin-top: 5px;
+    }
+
+    .switch {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .switch span {
+      color: #16a34a;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .message {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .dashboard {
+      display: none;
+      padding: 60px 6%;
+      text-align: center;
+    }
+
+    .dashboard.active {
+      display: block;
+    }
+
+    .dashboard-card {
+      max-width: 600px;
+      margin: 30px auto;
+      background: white;
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    }
+
+    .logout {
+      background: #ef4444;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    footer {
+      background: #030712;
+      color: #9ca3af;
+      text-align: center;
+      padding: 25px;
+    }
+
+    @media(max-width:600px) {
+      .hero {
+        padding: 55px 5%;
+      }
+
+      section {
+        padding: 45px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Phil<span>Connect</span></div>
+
+  <button class="login-btn" onclick="openAuth()">
+    Login / Sign Up
+  </button>
+</header>
+
+<!-- HOME -->
+
+<main id="home">
+
+  <section class="hero">
+
+    <h1>
+      Find trusted help
+      <span>near you.</span>
+    </h1>
+
+    <p>
+      Connect with trusted professionals for home,
+      business and everyday services across Nigeria.
+    </p>
+
+    <button class="main-btn" onclick="openAuth()">
+      Get Started
+    </button>
+
+  </section>
+
+  <section>
+
+    <div class="title">
+      <h2>What service do you need?</h2>
+      <p>Choose a service and find a professional.</p>
+    </div>
+
+    <div class="services">
+
+      <div class="service" onclick="openAuth()">
+        <div class="icon">🔧</div>
+        <h3>Plumbing</h3>
+      </div>
+
+      <div class="service" onclick="openAuth()">
+        <div class="icon">⚡</div>
+        <h3>Electrical</h3>
+      </div>
+
+      <div class="service" onclick="openAuth()">
+        <div class="icon">🧹</div>
+        <h3>Cleaning</h3>
+      </div>
+
+      <div class="service" onclick="openAuth()">
+        <div class="icon">❄️</div>
+        <h3>AC Services</h3>
+      </div>
+
+      <div class="service" onclick="openAuth()">
+        <div class="icon">🪚</div>
+        <h3>Carpentry</h3>
+      </div>
+
+      <div class="service" onclick="openAuth()">
+        <div class="icon">🎨</div>
+        <h3>Painting</h3>
+      </div>
+
+      <div class="service" onclick="openAuth()">
+        <div class="icon">🚚</div>
+        <h3>Moving</h3>
+      </div>
+
+      <div class="service" onclick="openAuth()">
+        <div class="icon">📹</div>
+        <h3>CCTV</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<!-- AUTH MODAL -->
+
+<div class="modal" id="authModal">
+
+  <div class="modal-box">
+
+    <div class="close" onclick="closeAuth()">×</div>
+
+    <h2 id="authTitle">Welcome to Phil Connect</h2>
+
+    <p class="subtitle" id="authSubtitle">
+      Login to continue.
+    </p>
+
+    <div class="role-buttons">
+
+      <button
+        id="customerRole"
+        class="active"
+        onclick="selectRole('customer')">
+        Customer
+      </button>
+
+      <button
+        id="providerRole"
+        onclick="selectRole('provider')">
+        Provider
+      </button>
+
+    </div>
+
+    <div id="message" class="message"></div>
+
+    <div id="nameField" style="display:none;">
+      <input
+        type="text"
+        id="fullName"
+        placeholder="Full name">
+    </div>
+
+    <input
+      type="email"
+      id="email"
+      placeholder="Email address">
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Password">
+
+    <button
+      class="submit"
+      id="submitButton"
+      onclick="submitAuth()">
+      Login
+    </button>
+
+    <div class="switch">
+      Don't have an account?
+      <span onclick="toggleMode()" id="switchText">
+        Sign up
+      </span>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- CUSTOMER DASHBOARD -->
+
+<section id="customerDashboard" class="dashboard">
+
+  <div class="dashboard-card">
+
+    <h1>Welcome, <span id="customerName"></span> 👋</h1>
+
+    <p style="margin-top:12px;color:#6b7280;">
+      Find a trusted professional near you.
+    </p>
+
+    <button class="main-btn">
+      Request a Service
+    </button>
+
+    <br>
+
+    <button class="logout" onclick="logout()">
+      Logout
+    </button>
+
+  </div>
+
+</section>
+
+<!-- PROVIDER DASHBOARD -->
+
+<section id="providerDashboard" class="dashboard">
+
+  <div class="dashboard-card">
+
+    <h1>Provider Dashboard 🧑‍🔧</h1>
+
+    <p style="margin-top:12px;color:#6b7280;">
+      Manage your availability and service requests.
+    </p>
+
+    <button
+      class="main-btn"
+      id="onlineButton"
+      onclick="toggleOnline()">
+      Go Online
+    </button>
+
+    <p id="onlineStatus" style="margin-top:15px;">
+      You are currently offline.
+    </p>
+
+    <button class="logout" onclick="logout()">
+      Logout
+    </button>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Phil Connect. All rights reserved.
+</footer>
+
+<script>
+
+const SUPABASE_URL =
+  "https://zkebonwbbumhdmmppozq.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_dlSEmHjmV1YLmtXsezUFNQ_WEXpl9KP";
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+let selectedRole = "customer";
+let signupMode = false;
+
+
+/* AUTH MODAL */
+
+function openAuth() {
+  document
+    .getElementById("authModal")
+    .classList.add("active");
+}
+
+function closeAuth() {
+  document
+    .getElementById("authModal")
+    .classList.remove("active");
+}
+
+function selectRole(role) {
+
+  selectedRole = role;
+
+  document
+    .getElementById("customerRole")
+    .classList.toggle(
+      "active",
+      role === "customer"
+    );
+
+  document
+    .getElementById("providerRole")
+    .classList.toggle(
+      "active",
+      role === "provider"
+    );
+}
+
+
+function toggleMode() {
+
+  signupMode = !signupMode;
+
+  document.getElementById("nameField").style.display =
+    signupMode ? "block" : "none";
+
+  document.getElementById("submitButton").innerText =
+    signupMode ? "Create Account" : "Login";
+
+  document.getElementById("authSubtitle").innerText =
+    signupMode
+      ? "Create your Phil Connect account."
+      : "Login to continue.";
+
+  document.getElementById("switchText").innerText =
+    signupMode ? "Login" : "Sign up";
+}
+
+
+/* AUTH */
+
+async function submitAuth() {
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+  const fullName =
+    document.getElementById("fullName").value.trim();
+
+  const message =
+    document.getElementById("message");
+
+  message.innerText = "";
+
+  if (!email || !password) {
+    message.innerText =
+      "Please enter your email and password.";
+    return;
+  }
+
+  try {
+
+    if (signupMode) {
+
+      if (!fullName) {
+        message.innerText =
+          "Please enter your full name.";
+        return;
+      }
+
+      const { data, error } =
+        await supabaseClient.auth.signUp({
+          email: email,
+          password: password,
+          options: {
+            data: {
+              full_name: fullName,
+              role: selectedRole
+            }
+          }
+        });
+
+      if (error) throw error;
+
+      if (!data.user) {
+        throw new Error("Account creation failed.");
+      }
+
+      /*
+       * Create the profile.
+       */
+
+      const { error: profileError } =
+        await supabaseClient
+          .from("profiles")
+          .insert({
+            id: data.user.id,
+            full_name: fullName,
+            email: email,
+            role: selectedRole
+          });
+
+      if (profileError) {
+
+        /*
+         * If the profile already exists,
+         * don't prevent the user from continuing.
+         */
+
+        if (!profileError.message.includes("duplicate")) {
+          console.log(profileError);
+        }
+      }
+
+      /*
+       * Provider profile
+       */
+
+      if (selectedRole === "provider") {
+
+        await supabaseClient
+          .from("providers")
+          .insert({
+            user_id: data.user.id,
+            business_name: fullName,
+            description:
+              "Phil Connect service provider",
+            verification_status: "pending",
+            is_online: false,
+            is_available: true
+          });
+      }
+
+      message.innerText =
+        "Account created successfully. You can now log in.";
+
+      signupMode = false;
+
+      document.getElementById("nameField").style.display =
+        "none";
+
+      document.getElementById("submitButton").innerText =
+        "Login";
+
+      document.getElementById("switchText").innerText =
+        "Sign up";
+
+    } else {
+
+      const { data, error } =
+        await supabaseClient.auth.signInWithPassword({
+          email: email,
+          password: password
+        });
+
+      if (error) throw error;
+
+      if (!data.user) {
+        throw new Error("Login failed.");
+      }
+
+      await loadUserDashboard(data.user.id);
+
+      closeAuth();
+    }
+
+  } catch (error) {
+
+    message.innerText =
+      error.message || "Something went wrong.";
+
+  }
+
+}
+
+
+/* DASHBOARD */
+
+async function loadUserDashboard(userId) {
+
+  const { data: profile, error } =
+    await supabaseClient
+      .from("profiles")
+      .select("*")
+      .eq("id", userId)
+      .single();
+
+  if (error) {
+    console.log(error);
+    return;
+  }
+
+  document.getElementById("home").style.display =
+    "none";
+
+  document
+    .getElementById("customerDashboard")
+    .classList.remove("active");
+
+  document
+    .getElementById("providerDashboard")
+    .classList.remove("active");
+
+
+  if (profile.role === "provider") {
+
+    document
+      .getElementById("providerDashboard")
+      .classList.add("active");
+
+  } else {
+
+    document.getElementById("customerName").innerText =
+      profile.full_name || "Customer";
+
+    document
+      .getElementById("customerDashboard")
+      .classList.add("active");
+  }
+
+}
+
+
+/* PROVIDER ONLINE STATUS */
+
+async function toggleOnline() {
+
+  const { data } =
+    await supabaseClient.auth.getUser();
+
+  if (!data.user) return;
+
+  const { data: provider } =
+    await supabaseClient
+      .from("providers")
+      .select("is_online")
+      .eq("user_id", data.user.id)
+      .single();
+
+  if (!provider) return;
+
+  const newStatus =
+    !provider.is_online;
+
+  await supabaseClient
+    .from("providers")
+    .update({
+      is_online: newStatus
+    })
+    .eq("user_id", data.user.id);
+
+  document.getElementById("onlineButton").innerText =
+    newStatus ? "Go Offline" : "Go Online";
+
+  document.getElementById("onlineStatus").innerText =
+    newStatus
+      ? "🟢 You are online and available for jobs."
+      : "You are currently offline.";
+}
+
+
+/* LOGOUT */
+
+async function logout() {
+
+  await supabaseClient.auth.signOut();
+
+  document
+    .getElementById("customerDashboard")
+    .classList.remove("active");
+
+  document
+    .getElementById("providerDashboard")
+    .classList.remove("active");
+
+  document.getElementById("home").style.display =
+    "block";
+
+  window.location.reload();
+}
+
+
+/* CHECK EXISTING SESSION */
+
+async function checkSession() {
+
+  const { data } =
+    await supabaseClient.auth.getSession();
+
+  if (data.session) {
+
+    await loadUserDashboard(
+      data.session.user.id
+    );
+
+  }
+
+}
+
+checkSession();
+
+</script>
+
+</body>
+</html>
