@@ -1,321 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Phil Connect</title>
+<title>Phil Connect</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<meta name="description"
+content="Phil Connect connects customers with trusted service providers across Nigeria.">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7f8;
-      color: #111827;
-    }
+<style>
 
-    header {
-      background: #111827;
-      color: white;
-      padding: 18px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-    }
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7f8;
+  color:#111827;
+}
 
-    .logo span {
-      color: #22c55e;
-    }
+header{
+  background:#111827;
+  color:white;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    button {
-      border: none;
-      cursor: pointer;
-      font-weight: 700;
-    }
+.logo{
+  font-size:24px;
+  font-weight:800;
+}
 
-    .login-btn {
-      background: #22c55e;
-      color: white;
-      padding: 12px 18px;
-      border-radius: 8px;
-    }
+.logo span{
+  color:#22c55e;
+}
 
-    .hero {
-      background: white;
-      text-align: center;
-      padding: 70px 6%;
-    }
+button{
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+}
 
-    .hero h1 {
-      font-size: clamp(38px, 7vw, 64px);
-      margin-bottom: 18px;
-    }
+.login-btn{
+  background:#22c55e;
+  color:white;
+  padding:11px 18px;
+  border-radius:8px;
+}
 
-    .hero h1 span {
-      color: #22c55e;
-    }
+.hero{
+  background:white;
+  text-align:center;
+  padding:70px 6%;
+}
 
-    .hero p {
-      max-width: 650px;
-      margin: auto;
-      color: #6b7280;
-      font-size: 18px;
-      line-height: 1.6;
-    }
+.hero h1{
+  font-size:clamp(38px,7vw,64px);
+  margin-bottom:18px;
+}
 
-    .main-btn {
-      margin-top: 30px;
-      background: #22c55e;
-      color: white;
-      padding: 15px 25px;
-      border-radius: 10px;
-      font-size: 16px;
-    }
+.hero h1 span{
+  color:#22c55e;
+}
 
-    section {
-      padding: 55px 6%;
-    }
+.hero p{
+  max-width:650px;
+  margin:auto;
+  color:#6b7280;
+  font-size:18px;
+  line-height:1.6;
+}
 
-    .title {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+.main-btn{
+  margin-top:30px;
+  background:#22c55e;
+  color:white;
+  padding:15px 25px;
+  border-radius:10px;
+  font-size:16px;
+}
 
-    .title h2 {
-      font-size: 32px;
-    }
+section{
+  padding:55px 6%;
+}
 
-    .title p {
-      color: #6b7280;
-      margin-top: 8px;
-    }
+.title{
+  text-align:center;
+  margin-bottom:30px;
+}
 
-    .services {
-      max-width: 1000px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 15px;
-    }
+.title h2{
+  font-size:32px;
+}
 
-    .service {
-      background: white;
-      padding: 25px 12px;
-      border-radius: 15px;
-      text-align: center;
-      border: 1px solid #e5e7eb;
-      cursor: pointer;
-    }
+.title p{
+  color:#6b7280;
+  margin-top:8px;
+}
 
-    .service:hover {
-      border-color: #22c55e;
-    }
+.services{
+  max-width:1000px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:15px;
+}
 
-    .icon {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
+.service{
+  background:white;
+  padding:25px 12px;
+  border-radius:15px;
+  text-align:center;
+  border:1px solid #e5e7eb;
+  cursor:pointer;
+}
 
-    /* LOGIN MODAL */
+.service:hover{
+  border-color:#22c55e;
+}
 
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.65);
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      z-index: 1000;
-    }
+.icon{
+  font-size:32px;
+  margin-bottom:10px;
+}
 
-    .modal.active {
-      display: flex;
-    }
+/* MODALS */
 
-    .modal-box {
-      width: 100%;
-      max-width: 430px;
-      background: white;
-      border-radius: 18px;
-      padding: 28px;
-      position: relative;
-    }
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  z-index:1000;
+  overflow-y:auto;
+}
 
-    .close {
-      position: absolute;
-      right: 18px;
-      top: 12px;
-      font-size: 28px;
-      cursor: pointer;
-    }
+.modal.active{
+  display:flex;
+}
 
-    .modal-box h2 {
-      margin-bottom: 8px;
-    }
+.modal-box{
+  width:100%;
+  max-width:500px;
+  background:white;
+  border-radius:18px;
+  padding:28px;
+  position:relative;
+  max-height:90vh;
+  overflow-y:auto;
+}
 
-    .subtitle {
-      color: #6b7280;
-      margin-bottom: 20px;
-      font-size: 14px;
-    }
+.close{
+  position:absolute;
+  right:18px;
+  top:15px;
+  font-size:25px;
+  cursor:pointer;
+}
 
-    .roles {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
+.modal-box h2{
+  margin-bottom:8px;
+}
 
-    .roles button {
-      flex: 1;
-      padding: 12px;
-      border-radius: 8px;
-      background: #f3f4f6;
-    }
+.subtitle{
+  color:#6b7280;
+  margin-bottom:20px;
+  font-size:14px;
+}
 
-    .roles button.active {
-      background: #22c55e;
-      color: white;
-    }
+.role-buttons{
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;
+}
 
-    input {
-      width: 100%;
-      padding: 14px;
-      margin-bottom: 12px;
-      border: 1px solid #d1d5db;
-      border-radius: 9px;
-      font-size: 15px;
-      outline: none;
-    }
+.role-buttons button{
+  flex:1;
+  padding:12px;
+  border-radius:8px;
+  background:#f3f4f6;
+}
 
-    input:focus {
-      border-color: #22c55e;
-    }
+.role-buttons button.active{
+  background:#22c55e;
+  color:white;
+}
 
-    .submit-btn {
-      width: 100%;
-      padding: 14px;
-      background: #22c55e;
-      color: white;
-      border-radius: 9px;
-    }
+input,
+textarea,
+select{
+  width:100%;
+  padding:14px;
+  margin-bottom:12px;
+  border:1px solid #d1d5db;
+  border-radius:9px;
+  outline:none;
+  font-family:Arial,sans-serif;
+  font-size:15px;
+}
 
-    .message {
-      display: none;
-      padding: 10px;
-      margin-bottom: 12px;
-      border-radius: 8px;
-      font-size: 14px;
-    }
+textarea{
+  min-height:110px;
+  resize:vertical;
+}
 
-    .message.show {
-      display: block;
-    }
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:#22c55e;
+}
 
-    .error {
-      background: #fee2e2;
-      color: #991b1b;
-    }
+.submit{
+  width:100%;
+  padding:14px;
+  background:#22c55e;
+  color:white;
+  border-radius:9px;
+  margin-top:5px;
+  font-size:16px;
+}
 
-    .success {
-      background: #dcfce7;
-      color: #166534;
-    }
+.switch{
+  text-align:center;
+  margin-top:18px;
+  font-size:14px;
+}
 
-    .info {
-      background: #dbeafe;
-      color: #1e40af;
-    }
+.switch span{
+  color:#16a34a;
+  font-weight:bold;
+  cursor:pointer;
+}
 
-    .switch {
-      text-align: center;
-      margin-top: 18px;
-      font-size: 14px;
-    }
+.message{
+  margin-bottom:12px;
+  font-size:14px;
+  color:#16a34a;
+}
 
-    .switch span {
-      color: #16a34a;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.error{
+  color:#dc2626;
+}
 
-    /* DASHBOARD */
+/* DASHBOARD */
 
-    .dashboard {
-      display: none;
-      min-height: 500px;
-      text-align: center;
-      padding: 70px 6%;
-    }
+.dashboard{
+  display:none;
+  padding:60px 6%;
+  text-align:center;
+}
 
-    .dashboard.active {
-      display: block;
-    }
+.dashboard.active{
+  display:block;
+}
 
-    .card {
-      max-width: 650px;
-      margin: auto;
-      background: white;
-      padding: 40px;
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.07);
-    }
+.dashboard-card{
+  max-width:800px;
+  margin:30px auto;
+  background:white;
+  padding:35px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
 
-    .card p {
-      margin-top: 12px;
-      color: #6b7280;
-      line-height: 1.6;
-    }
+.logout{
+  background:#ef4444;
+  color:white;
+  padding:12px 20px;
+  border-radius:8px;
+  margin-top:20px;
+}
 
-    .logout {
-      margin-top: 25px;
-      background: #ef4444;
-      color: white;
-      padding: 12px 22px;
-      border-radius: 8px;
-    }
+.request-list{
+  margin-top:35px;
+  text-align:left;
+}
 
-    .online {
-      margin-top: 25px;
-      background: #22c55e;
-      color: white;
-      padding: 14px 22px;
-      border-radius: 8px;
-    }
+.request-list h2{
+  margin-bottom:15px;
+}
 
-    footer {
-      background: #030712;
-      color: #9ca3af;
-      text-align: center;
-      padding: 25px;
-    }
+.request-card{
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  padding:20px;
+  margin-bottom:15px;
+}
 
-    @media(max-width:600px) {
-      .hero {
-        padding: 55px 5%;
-      }
+.request-card h3{
+  margin-bottom:8px;
+}
 
-      section {
-        padding: 45px 5%;
-      }
+.request-card p{
+  margin:6px 0;
+  color:#6b7280;
+}
 
-      .card {
-        padding: 28px 20px;
-      }
-    }
-  </style>
+.status{
+  display:inline-block;
+  margin-top:10px;
+  padding:6px 12px;
+  border-radius:20px;
+  background:#fef3c7;
+  color:#92400e;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.online{
+  background:#22c55e;
+  color:white;
+  padding:13px 22px;
+  border-radius:9px;
+  margin-top:20px;
+}
+
+footer{
+  background:#030712;
+  color:#9ca3af;
+  text-align:center;
+  padding:25px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+  .hero{
+    padding:55px 5%;
+  }
+
+  section{
+    padding:45px 5%;
+  }
+
+  .dashboard-card{
+    padding:25px 18px;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
@@ -328,8 +365,7 @@
 
   <button
     class="login-btn"
-    id="headerLogin"
-    onclick="openLogin()">
+    onclick="openAuth()">
     Login / Sign Up
   </button>
 
@@ -340,184 +376,314 @@
 
 <main id="home">
 
-  <section class="hero">
+<section class="hero">
 
-    <h1>
-      Find trusted help
-      <span>near you.</span>
-    </h1>
+  <h1>
+    Find trusted help
+    <span>near you.</span>
+  </h1>
+
+  <p>
+    Connect with trusted professionals for home,
+    business and everyday services across Nigeria.
+  </p>
+
+  <button
+    class="main-btn"
+    onclick="openAuth()">
+    Get Started
+  </button>
+
+</section>
+
+
+<section>
+
+  <div class="title">
+
+    <h2>
+      What service do you need?
+    </h2>
 
     <p>
-      Connect with trusted professionals for home,
-      business and everyday services across Nigeria.
+      Choose a service and find a professional.
     </p>
 
-    <button
-      class="main-btn"
-      onclick="openLogin()">
-      Get Started
-    </button>
-
-  </section>
+  </div>
 
 
-  <section>
+  <div class="services">
 
-    <div class="title">
-
-      <h2>
-        What service do you need?
-      </h2>
-
-      <p>
-        Choose a service and find a professional.
-      </p>
-
+    <div class="service" onclick="openRequestFromHome('Plumbing')">
+      <div class="icon">🔧</div>
+      <h3>Plumbing</h3>
     </div>
 
-
-    <div class="services">
-
-      <div class="service" onclick="openLogin()">
-        <div class="icon">🔧</div>
-        <h3>Plumbing</h3>
-      </div>
-
-      <div class="service" onclick="openLogin()">
-        <div class="icon">⚡</div>
-        <h3>Electrical</h3>
-      </div>
-
-      <div class="service" onclick="openLogin()">
-        <div class="icon">🧹</div>
-        <h3>Cleaning</h3>
-      </div>
-
-      <div class="service" onclick="openLogin()">
-        <div class="icon">❄️</div>
-        <h3>AC Services</h3>
-      </div>
-
-      <div class="service" onclick="openLogin()">
-        <div class="icon">🪚</div>
-        <h3>Carpentry</h3>
-      </div>
-
-      <div class="service" onclick="openLogin()">
-        <div class="icon">🎨</div>
-        <h3>Painting</h3>
-      </div>
-
-      <div class="service" onclick="openLogin()">
-        <div class="icon">🚚</div>
-        <h3>Moving</h3>
-      </div>
-
-      <div class="service" onclick="openLogin()">
-        <div class="icon">📹</div>
-        <h3>CCTV</h3>
-      </div>
-
+    <div class="service" onclick="openRequestFromHome('Electrical')">
+      <div class="icon">⚡</div>
+      <h3>Electrical</h3>
     </div>
 
-  </section>
+    <div class="service" onclick="openRequestFromHome('Cleaning')">
+      <div class="icon">🧹</div>
+      <h3>Cleaning</h3>
+    </div>
+
+    <div class="service" onclick="openRequestFromHome('Air Conditioning')">
+      <div class="icon">❄️</div>
+      <h3>AC Services</h3>
+    </div>
+
+    <div class="service" onclick="openRequestFromHome('Carpentry')">
+      <div class="icon">🪚</div>
+      <h3>Carpentry</h3>
+    </div>
+
+    <div class="service" onclick="openRequestFromHome('Painting')">
+      <div class="icon">🎨</div>
+      <h3>Painting</h3>
+    </div>
+
+    <div class="service" onclick="openRequestFromHome('Moving Services')">
+      <div class="icon">🚚</div>
+      <h3>Moving</h3>
+    </div>
+
+    <div class="service" onclick="openRequestFromHome('CCTV Installation')">
+      <div class="icon">📹</div>
+      <h3>CCTV</h3>
+    </div>
+
+  </div>
+
+</section>
 
 </main>
 
 
-<!-- LOGIN / SIGNUP -->
+<!-- AUTH MODAL -->
 
-<div
-  class="modal"
-  id="loginModal">
+<div class="modal" id="authModal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <div
-      class="close"
-      onclick="closeLogin()">
-      ×
-    </div>
+  <div class="close" onclick="closeAuth()">×</div>
 
-    <h2>
-      Welcome to Phil Connect
-    </h2>
+  <h2 id="authTitle">
+    Welcome to Phil Connect
+  </h2>
 
-    <p
-      class="subtitle"
-      id="subtitle">
-      Login to continue.
-    </p>
+  <p class="subtitle" id="authSubtitle">
+    Login to continue.
+  </p>
 
 
-    <div class="roles">
-
-      <button
-        id="customerBtn"
-        class="active"
-        onclick="chooseRole('customer')">
-        Customer
-      </button>
-
-      <button
-        id="providerBtn"
-        onclick="chooseRole('provider')">
-        Provider
-      </button>
-
-    </div>
-
-
-    <div
-      id="message"
-      class="message">
-    </div>
-
-
-    <input
-      id="name"
-      type="text"
-      placeholder="Full name"
-      style="display:none;">
-
-
-    <input
-      id="email"
-      type="email"
-      placeholder="Email address"
-      autocomplete="email">
-
-
-    <input
-      id="password"
-      type="password"
-      placeholder="Password"
-      autocomplete="current-password">
-
+  <div class="role-buttons">
 
     <button
-      class="submit-btn"
-      id="submitBtn"
-      onclick="submitForm()">
-      Login
+      id="customerRole"
+      class="active"
+      onclick="selectRole('customer')">
+      Customer
     </button>
 
-
-    <div class="switch">
-
-      <span id="switchQuestion">
-        Don't have an account?
-      </span>
-
-      <span
-        id="switchAction"
-        onclick="switchMode()">
-        Sign up
-      </span>
-
-    </div>
+    <button
+      id="providerRole"
+      onclick="selectRole('provider')">
+      Provider
+    </button>
 
   </div>
+
+
+  <div id="message" class="message"></div>
+
+
+  <div id="nameField" style="display:none;">
+
+    <input
+      type="text"
+      id="fullName"
+      placeholder="Full name">
+
+  </div>
+
+
+  <input
+    type="email"
+    id="email"
+    placeholder="Email address">
+
+
+  <input
+    type="password"
+    id="password"
+    placeholder="Password">
+
+
+  <button
+    class="submit"
+    id="submitButton"
+    onclick="submitAuth()">
+    Login
+  </button>
+
+
+  <div class="switch">
+
+    Don't have an account?
+
+    <span
+      onclick="toggleMode()"
+      id="switchText">
+      Sign up
+    </span>
+
+  </div>
+
+</div>
+
+</div>
+
+
+<!-- REQUEST SERVICE MODAL -->
+
+<div class="modal" id="requestModal">
+
+<div class="modal-box">
+
+  <div class="close" onclick="closeRequest()">
+    ×
+  </div>
+
+  <h2>
+    Request a Service
+  </h2>
+
+  <p class="subtitle">
+    Tell us what you need and we'll help you find a professional.
+  </p>
+
+
+  <div
+    id="requestMessage"
+    class="message">
+  </div>
+
+
+  <label>
+    Service
+  </label>
+
+  <select id="serviceType">
+
+    <option value="">
+      Select a service
+    </option>
+
+    <option value="Plumbing">
+      🔧 Plumbing
+    </option>
+
+    <option value="Electrical">
+      ⚡ Electrical
+    </option>
+
+    <option value="Cleaning">
+      🧹 Cleaning
+    </option>
+
+    <option value="Air Conditioning">
+      ❄️ Air Conditioning
+    </option>
+
+    <option value="Carpentry">
+      🪚 Carpentry
+    </option>
+
+    <option value="Painting">
+      🎨 Painting
+    </option>
+
+    <option value="Moving Services">
+      🚚 Moving Services
+    </option>
+
+    <option value="CCTV Installation">
+      📹 CCTV Installation
+    </option>
+
+  </select>
+
+
+  <label>
+    Describe the job
+  </label>
+
+  <textarea
+    id="description"
+    placeholder="Tell us what you need done...">
+  </textarea>
+
+
+  <label>
+    Location
+  </label>
+
+  <input
+    type="text"
+    id="location"
+    placeholder="e.g. Ikeja, Lagos">
+
+
+  <label>
+    Phone number
+  </label>
+
+  <input
+    type="tel"
+    id="phone"
+    placeholder="e.g. 08012345678">
+
+
+  <label>
+    Preferred date
+  </label>
+
+  <input
+    type="date"
+    id="preferredDate">
+
+
+  <label>
+    Preferred time
+  </label>
+
+  <input
+    type="text"
+    id="preferredTime"
+    placeholder="e.g. 10:00 AM">
+
+
+  <label>
+    Estimated budget (₦)
+  </label>
+
+  <input
+    type="number"
+    id="budget"
+    placeholder="e.g. 50000">
+
+
+  <button
+    class="submit"
+    onclick="submitRequest()">
+
+    Submit Service Request
+
+  </button>
+
+</div>
 
 </div>
 
@@ -528,35 +694,54 @@
   id="customerDashboard"
   class="dashboard">
 
-  <div class="card">
+<div class="dashboard-card">
 
-    <h1>
-      Welcome,
-      <span id="customerName">
-        Customer
-      </span>
-      👋
-    </h1>
+  <h1>
+    Welcome,
+    <span id="customerName"></span>
+    👋
+  </h1>
 
-    <p>
-      Welcome to your Phil Connect customer dashboard.
-    </p>
+  <p style="margin-top:12px;color:#6b7280;">
+    Welcome to your Phil Connect customer dashboard.
+  </p>
 
-    <button
-      class="main-btn"
-      onclick="alert('Service request system will be added next.')">
-      Request a Service
-    </button>
 
-    <br>
+  <button
+    class="main-btn"
+    onclick="openRequest()">
 
-    <button
-      class="logout"
-      onclick="logout()">
-      Logout
-    </button>
+    Request a Service
+
+  </button>
+
+
+  <div class="request-list">
+
+    <h2>
+      My Service Requests
+    </h2>
+
+    <div id="requestsContainer">
+
+      <p style="color:#6b7280;">
+        Loading your requests...
+      </p>
+
+    </div>
 
   </div>
+
+
+  <button
+    class="logout"
+    onclick="logout()">
+
+    Logout
+
+  </button>
+
+</div>
 
 </section>
 
@@ -567,41 +752,53 @@
   id="providerDashboard"
   class="dashboard">
 
-  <div class="card">
+<div class="dashboard-card">
 
-    <h1>
-      Provider Dashboard 🧑‍🔧
-    </h1>
+  <h1>
+    Provider Dashboard 🧑‍🔧
+  </h1>
 
-    <p>
-      Welcome to Phil Connect.
-      You can manage your availability here.
-    </p>
+  <p style="margin-top:12px;color:#6b7280;">
+    Manage your availability and service requests.
+  </p>
 
-    <button
-      class="online"
-      id="onlineButton"
-      onclick="toggleOnline()">
-      Go Online
-    </button>
 
-    <p id="onlineStatus">
-      You are currently offline.
-    </p>
+  <button
+    class="online"
+    id="onlineButton"
+    onclick="toggleOnline()">
 
-    <button
-      class="logout"
-      onclick="logout()">
-      Logout
-    </button>
+    Go Online
 
-  </div>
+  </button>
+
+
+  <p
+    id="onlineStatus"
+    style="margin-top:15px;">
+
+    You are currently offline.
+
+  </p>
+
+
+  <button
+    class="logout"
+    onclick="logout()">
+
+    Logout
+
+  </button>
+
+</div>
 
 </section>
 
 
 <footer>
+
   © 2026 Phil Connect. All rights reserved.
+
 </footer>
 
 
@@ -612,71 +809,62 @@
 ========================= */
 
 const SUPABASE_URL =
-  "https://zkebonwbbumhdmmppozq.supabase.co";
+"https://zkebonwbbumhdmmppozq.supabase.co";
 
 const SUPABASE_KEY =
-  "sb_publishable_dlSEmHjmV1YLmtXsezUFNQ_WEXpl9KP";
+"sb_publishable_dlSEmHjmV1YLmtXsezUFNQ_WEXpl9KP";
 
 const supabaseClient =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
+window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 
 
 /* =========================
    VARIABLES
 ========================= */
 
-let role = "customer";
-let signup = false;
+let selectedRole = "customer";
+
+let signupMode = false;
 
 
 /* =========================
-   OPEN LOGIN
+   AUTH MODAL
 ========================= */
 
-function openLogin() {
+function openAuth(){
 
   document
-    .getElementById("loginModal")
+    .getElementById("authModal")
     .classList.add("active");
-
-  clearMessage();
 
 }
 
 
-/* =========================
-   CLOSE LOGIN
-========================= */
-
-function closeLogin() {
+function closeAuth(){
 
   document
-    .getElementById("loginModal")
+    .getElementById("authModal")
     .classList.remove("active");
 
 }
 
 
-/* =========================
-   SELECT ROLE
-========================= */
+function selectRole(role){
 
-function chooseRole(selectedRole) {
-
-  role = selectedRole;
+  selectedRole = role;
 
   document
-    .getElementById("customerBtn")
+    .getElementById("customerRole")
     .classList.toggle(
       "active",
       role === "customer"
     );
 
   document
-    .getElementById("providerBtn")
+    .getElementById("providerRole")
     .classList.toggle(
       "active",
       role === "provider"
@@ -686,105 +874,52 @@ function chooseRole(selectedRole) {
 
 
 /* =========================
-   LOGIN / SIGNUP SWITCH
+   LOGIN / SIGNUP MODE
 ========================= */
 
-function switchMode() {
+function toggleMode(){
 
-  signup = !signup;
+  signupMode = !signupMode;
 
-  const name =
-    document.getElementById("name");
-
-  const submit =
-    document.getElementById("submitBtn");
-
-  const subtitle =
-    document.getElementById("subtitle");
-
-  const question =
-    document.getElementById("switchQuestion");
-
-  const action =
-    document.getElementById("switchAction");
+  document
+    .getElementById("nameField")
+    .style.display =
+      signupMode
+      ? "block"
+      : "none";
 
 
-  if (signup) {
+  document
+    .getElementById("submitButton")
+    .innerText =
+      signupMode
+      ? "Create Account"
+      : "Login";
 
-    name.style.display = "block";
 
-    submit.innerText =
-      "Create Account";
+  document
+    .getElementById("authSubtitle")
+    .innerText =
+      signupMode
+      ? "Create your Phil Connect account."
+      : "Login to continue.";
 
-    subtitle.innerText =
-      "Create your Phil Connect account.";
 
-    question.innerText =
-      "Already have an account?";
-
-    action.innerText =
-      "Login";
-
-  } else {
-
-    name.style.display = "none";
-
-    submit.innerText =
-      "Login";
-
-    subtitle.innerText =
-      "Login to continue.";
-
-    question.innerText =
-      "Don't have an account?";
-
-    action.innerText =
-      "Sign up";
-
-  }
-
-  clearMessage();
+  document
+    .getElementById("switchText")
+    .innerText =
+      signupMode
+      ? "Login"
+      : "Sign up";
 
 }
 
 
 /* =========================
-   MESSAGES
+   AUTHENTICATION
 ========================= */
 
-function showMessage(text, type) {
-
-  const message =
-    document.getElementById("message");
-
-  message.innerText = text;
-
-  message.className =
-    "message show " + type;
-
-}
-
-
-function clearMessage() {
-
-  const message =
-    document.getElementById("message");
-
-  message.innerText = "";
-
-  message.className =
-    "message";
-
-}
-
-
-/* =========================
-   LOGIN / SIGNUP
-========================= */
-
-async function submitForm() {
-
-  clearMessage();
+async function submitAuth(){
 
   const email =
     document
@@ -799,153 +934,165 @@ async function submitForm() {
 
   const fullName =
     document
-      .getElementById("name")
+      .getElementById("fullName")
       .value
       .trim();
 
-  const button =
-    document.getElementById("submitBtn");
+  const message =
+    document
+      .getElementById("message");
 
 
-  if (!email) {
+  message.className =
+    "message";
 
-    showMessage(
-      "Please enter your email.",
-      "error"
-    );
-
-    return;
-  }
+  message.innerText = "";
 
 
-  if (!password) {
+  if(!email || !password){
 
-    showMessage(
-      "Please enter your password.",
-      "error"
-    );
+    message.classList.add("error");
+
+    message.innerText =
+      "Please enter your email and password.";
 
     return;
   }
 
 
-  if (password.length < 6) {
-
-    showMessage(
-      "Password must be at least 6 characters.",
-      "error"
-    );
-
-    return;
-  }
-
-
-  button.disabled = true;
-
-
-  try {
-
+  try{
 
     /* SIGN UP */
 
-    if (signup) {
+    if(signupMode){
 
-      if (!fullName) {
+      if(!fullName){
 
-        showMessage(
-          "Please enter your full name.",
-          "error"
-        );
+        message.classList.add("error");
 
-        button.disabled = false;
+        message.innerText =
+          "Please enter your full name.";
 
         return;
       }
 
 
-      showMessage(
-        "Creating your account...",
-        "info"
-      );
+      const {
+        data,
+        error
+      } =
+      await supabaseClient.auth.signUp({
 
+        email:email,
 
-      const result =
-        await supabaseClient.auth.signUp({
+        password:password,
 
-          email: email,
-
-          password: password,
-
-          options: {
-
-            data: {
-
-              full_name: fullName,
-
-              role: role
-
-            }
-
+        options:{
+          data:{
+            full_name:fullName,
+            role:selectedRole
           }
+        }
+
+      });
+
+
+      if(error) throw error;
+
+      if(!data.user){
+
+        throw new Error(
+          "Account creation failed."
+        );
+
+      }
+
+
+      /* CREATE PROFILE */
+
+      const {
+        error:profileError
+      } =
+      await supabaseClient
+        .from("profiles")
+        .insert({
+
+          id:data.user.id,
+
+          full_name:fullName,
+
+          email:email,
+
+          role:selectedRole
 
         });
 
 
-      if (result.error) {
-        throw result.error;
-      }
+      if(profileError){
 
-
-      if (!result.data.user) {
-
-        throw new Error(
-          "Account could not be created."
+        console.log(
+          "Profile error:",
+          profileError
         );
 
       }
 
 
-      if (result.data.session) {
+      /* PROVIDER PROFILE */
 
-        showMessage(
-          "Account created successfully.",
-          "success"
-        );
+      if(selectedRole === "provider"){
 
-        showDashboard(
-          result.data.user
-        );
+        const {
+          error:providerError
+        } =
+        await supabaseClient
+          .from("providers")
+          .insert({
 
-        closeLogin();
+            user_id:data.user.id,
 
-      } else {
+            business_name:fullName,
 
-        showMessage(
-          "Account created. Check your email to confirm your account, then login.",
-          "success"
-        );
+            description:
+              "Phil Connect service provider",
 
-        signup = false;
+            verification_status:"pending",
 
-        document
-          .getElementById("name")
-          .style.display = "none";
+            is_online:false,
 
-        document
-          .getElementById("submitBtn")
-          .innerText = "Login";
+            is_available:true
 
-        document
-          .getElementById("switchQuestion")
-          .innerText =
-          "Don't have an account?";
+          });
 
-        document
-          .getElementById("switchAction")
-          .innerText =
-          "Sign up";
+
+        if(providerError){
+
+          console.log(
+            "Provider error:",
+            providerError
+          );
+
+        }
 
       }
+
+
+      message.innerText =
+        "Account created successfully. You can now log in.";
+
+      signupMode = false;
+
+      document
+        .getElementById("nameField")
+        .style.display = "none";
+
+      document
+        .getElementById("submitButton")
+        .innerText = "Login";
+
+      document
+        .getElementById("switchText")
+        .innerText = "Sign up";
 
 
       return;
@@ -955,29 +1102,23 @@ async function submitForm() {
 
     /* LOGIN */
 
-    showMessage(
-      "Logging in...",
-      "info"
-    );
+    const {
+      data,
+      error
+    } =
+    await supabaseClient.auth.signInWithPassword({
+
+      email:email,
+
+      password:password
+
+    });
 
 
-    const result =
-      await supabaseClient.auth
-        .signInWithPassword({
-
-          email: email,
-
-          password: password
-
-        });
+    if(error) throw error;
 
 
-    if (result.error) {
-      throw result.error;
-    }
-
-
-    if (!result.data.user) {
+    if(!data.user){
 
       throw new Error(
         "Login failed."
@@ -986,26 +1127,21 @@ async function submitForm() {
     }
 
 
-    showDashboard(
-      result.data.user
+    await loadUserDashboard(
+      data.user.id
     );
 
-    closeLogin();
+
+    closeAuth();
 
 
-  } catch (error) {
+  }catch(error){
 
-    console.error(error);
+    message.classList.add("error");
 
-    showMessage(
+    message.innerText =
       error.message ||
-      "Something went wrong.",
-      "error"
-    );
-
-  } finally {
-
-    button.disabled = false;
+      "Something went wrong.";
 
   }
 
@@ -1013,21 +1149,29 @@ async function submitForm() {
 
 
 /* =========================
-   SHOW DASHBOARD
+   DASHBOARD
 ========================= */
 
-function showDashboard(user) {
+async function loadUserDashboard(userId){
 
-  const metadata =
-    user.user_metadata || {};
+  const {
+    data:profile,
+    error
+  } =
+  await supabaseClient
+    .from("profiles")
+    .select("*")
+    .eq("id",userId)
+    .single();
 
-  const userRole =
-    metadata.role || "customer";
 
-  const name =
-    metadata.full_name ||
-    user.email?.split("@")[0] ||
-    "Customer";
+  if(error){
+
+    console.log(error);
+
+    return;
+
+  }
 
 
   document
@@ -1045,21 +1189,27 @@ function showDashboard(user) {
     .classList.remove("active");
 
 
-  if (userRole === "provider") {
+  if(profile.role === "provider"){
 
     document
       .getElementById("providerDashboard")
       .classList.add("active");
 
-  } else {
+  }else{
 
     document
       .getElementById("customerName")
-      .innerText = name;
+      .innerText =
+        profile.full_name ||
+        "Customer";
+
 
     document
       .getElementById("customerDashboard")
       .classList.add("active");
+
+
+    loadRequests();
 
   }
 
@@ -1067,18 +1217,533 @@ function showDashboard(user) {
 
 
 /* =========================
-   LOGOUT
+   REQUEST MODAL
 ========================= */
 
-async function logout() {
+function openRequest(){
 
-  const result =
-    await supabaseClient.auth.signOut();
+  document
+    .getElementById("requestModal")
+    .classList.add("active");
 
-  if (result.error) {
+}
+
+
+function closeRequest(){
+
+  document
+    .getElementById("requestModal")
+    .classList.remove("active");
+
+}
+
+
+function openRequestFromHome(service){
+
+  openAuth();
+
+  /*
+   * If user is already logged in,
+   * open the request form directly.
+   */
+
+  supabaseClient.auth.getSession()
+    .then(({data}) => {
+
+      if(data.session){
+
+        closeAuth();
+
+        openRequest();
+
+        document
+          .getElementById("serviceType")
+          .value = service;
+
+      }
+
+    });
+
+}
+
+
+/* =========================
+   SUBMIT SERVICE REQUEST
+========================= */
+
+async function submitRequest(){
+
+  const message =
+    document
+      .getElementById("requestMessage");
+
+
+  message.className =
+    "message";
+
+  message.innerText = "";
+
+
+  const serviceType =
+    document
+      .getElementById("serviceType")
+      .value;
+
+
+  const description =
+    document
+      .getElementById("description")
+      .value
+      .trim();
+
+
+  const location =
+    document
+      .getElementById("location")
+      .value
+      .trim();
+
+
+  const phone =
+    document
+      .getElementById("phone")
+      .value
+      .trim();
+
+
+  const preferredDate =
+    document
+      .getElementById("preferredDate")
+      .value;
+
+
+  const preferredTime =
+    document
+      .getElementById("preferredTime")
+      .value
+      .trim();
+
+
+  const budgetValue =
+    document
+      .getElementById("budget")
+      .value;
+
+
+  if(!serviceType){
+
+    message.classList.add("error");
+
+    message.innerText =
+      "Please select a service.";
+
+    return;
+
+  }
+
+
+  if(!description){
+
+    message.classList.add("error");
+
+    message.innerText =
+      "Please describe the job.";
+
+    return;
+
+  }
+
+
+  if(!location){
+
+    message.classList.add("error");
+
+    message.innerText =
+      "Please enter your location.";
+
+    return;
+
+  }
+
+
+  if(!phone){
+
+    message.classList.add("error");
+
+    message.innerText =
+      "Please enter your phone number.";
+
+    return;
+
+  }
+
+
+  try{
+
+    const {
+      data:sessionData
+    } =
+    await supabaseClient.auth.getSession();
+
+
+    const user =
+      sessionData.session?.user;
+
+
+    if(!user){
+
+      closeRequest();
+
+      openAuth();
+
+      return;
+
+    }
+
+
+    const {
+      error
+    } =
+    await supabaseClient
+      .from("service_requests")
+      .insert({
+
+        customer_id:user.id,
+
+        service_type:serviceType,
+
+        description:description,
+
+        location:location,
+
+        phone:phone,
+
+        preferred_date:
+          preferredDate || null,
+
+        preferred_time:
+          preferredTime || null,
+
+        budget:
+          budgetValue
+          ? Number(budgetValue)
+          : null,
+
+        status:"pending"
+
+      });
+
+
+    if(error) throw error;
+
+
+    message.innerText =
+      "✅ Service request submitted successfully!";
+
+
+    /*
+     * Clear form
+     */
+
+    document
+      .getElementById("description")
+      .value = "";
+
+    document
+      .getElementById("location")
+      .value = "";
+
+    document
+      .getElementById("phone")
+      .value = "";
+
+    document
+      .getElementById("preferredDate")
+      .value = "";
+
+    document
+      .getElementById("preferredTime")
+      .value = "";
+
+    document
+      .getElementById("budget")
+      .value = "";
+
+
+    /*
+     * Refresh customer's requests
+     */
+
+    await loadRequests();
+
+
+    setTimeout(() => {
+
+      closeRequest();
+
+    },1500);
+
+
+  }catch(error){
+
+    message.classList.add("error");
+
+    message.innerText =
+      error.message ||
+      "Unable to submit request.";
+
+  }
+
+}
+
+
+/* =========================
+   LOAD CUSTOMER REQUESTS
+========================= */
+
+async function loadRequests(){
+
+  const container =
+    document
+      .getElementById("requestsContainer");
+
+
+  if(!container) return;
+
+
+  container.innerHTML =
+    "<p style='color:#6b7280;'>Loading...</p>";
+
+
+  const {
+    data:sessionData
+  } =
+  await supabaseClient.auth.getSession();
+
+
+  const user =
+    sessionData.session?.user;
+
+
+  if(!user){
+
+    container.innerHTML =
+      "<p>Please login.</p>";
+
+    return;
+
+  }
+
+
+  const {
+    data,
+    error
+  } =
+  await supabaseClient
+    .from("service_requests")
+    .select("*")
+    .eq("customer_id",user.id)
+    .order(
+      "created_at",
+      {
+        ascending:false
+      }
+    );
+
+
+  if(error){
+
+    console.log(error);
+
+    container.innerHTML =
+      "<p style='color:#dc2626;'>Unable to load requests.</p>";
+
+    return;
+
+  }
+
+
+  if(!data || data.length === 0){
+
+    container.innerHTML = `
+      <div class="request-card">
+        <h3>No service requests yet</h3>
+        <p>
+          Tap "Request a Service" to submit your first request.
+        </p>
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML = "";
+
+
+  data.forEach(request => {
+
+    const card =
+      document.createElement("div");
+
+
+    card.className =
+      "request-card";
+
+
+    const date =
+      request.created_at
+      ? new Date(
+          request.created_at
+        ).toLocaleDateString()
+      : "";
+
+
+    card.innerHTML = `
+
+      <h3>
+        ${escapeHtml(request.service_type)}
+      </h3>
+
+      <p>
+        <strong>Description:</strong>
+        ${escapeHtml(request.description)}
+      </p>
+
+      <p>
+        <strong>Location:</strong>
+        ${escapeHtml(request.location)}
+      </p>
+
+      <p>
+        <strong>Phone:</strong>
+        ${escapeHtml(request.phone)}
+      </p>
+
+      ${
+        request.budget
+        ?
+        `<p>
+          <strong>Budget:</strong>
+          ₦${Number(request.budget).toLocaleString()}
+        </p>`
+        :
+        ""
+      }
+
+      ${
+        request.preferred_date
+        ?
+        `<p>
+          <strong>Date:</strong>
+          ${escapeHtml(request.preferred_date)}
+        </p>`
+        :
+        ""
+      }
+
+      <p>
+        <strong>Submitted:</strong>
+        ${date}
+      </p>
+
+      <span class="status">
+        ${escapeHtml(request.status || "pending")}
+      </span>
+
+    `;
+
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+/* =========================
+   SECURITY HELPER
+========================= */
+
+function escapeHtml(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================
+   PROVIDER ONLINE
+========================= */
+
+async function toggleOnline(){
+
+  const {
+    data
+  } =
+  await supabaseClient
+    .auth
+    .getUser();
+
+
+  if(!data.user) return;
+
+
+  const {
+    data:provider,
+    error
+  } =
+  await supabaseClient
+    .from("providers")
+    .select("is_online")
+    .eq(
+      "user_id",
+      data.user.id
+    )
+    .single();
+
+
+  if(error || !provider){
 
     alert(
-      result.error.message
+      "Provider profile not found."
+    );
+
+    return;
+
+  }
+
+
+  const newStatus =
+    !provider.is_online;
+
+
+  const {
+    error:updateError
+  } =
+  await supabaseClient
+    .from("providers")
+    .update({
+
+      is_online:newStatus
+
+    })
+    .eq(
+      "user_id",
+      data.user.id
+    );
+
+
+  if(updateError){
+
+    alert(
+      updateError.message
     );
 
     return;
@@ -1087,8 +1752,34 @@ async function logout() {
 
 
   document
-    .getElementById("home")
-    .style.display = "block";
+    .getElementById("onlineButton")
+    .innerText =
+      newStatus
+      ? "Go Offline"
+      : "Go Online";
+
+
+  document
+    .getElementById("onlineStatus")
+    .innerText =
+      newStatus
+      ?
+      "🟢 You are online and available for jobs."
+      :
+      "You are currently offline.";
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+async function logout(){
+
+  await supabaseClient
+    .auth
+    .signOut();
 
 
   document
@@ -1100,48 +1791,13 @@ async function logout() {
     .getElementById("providerDashboard")
     .classList.remove("active");
 
-}
+
+  document
+    .getElementById("home")
+    .style.display = "block";
 
 
-/* =========================
-   PROVIDER ONLINE
-========================= */
-
-let online = false;
-
-
-function toggleOnline() {
-
-  online = !online;
-
-  const button =
-    document.getElementById(
-      "onlineButton"
-    );
-
-  const status =
-    document.getElementById(
-      "onlineStatus"
-    );
-
-
-  if (online) {
-
-    button.innerText =
-      "Go Offline";
-
-    status.innerText =
-      "🟢 You are online and available for jobs.";
-
-  } else {
-
-    button.innerText =
-      "Go Online";
-
-    status.innerText =
-      "You are currently offline.";
-
-  }
+  window.location.reload();
 
 }
 
@@ -1150,28 +1806,26 @@ function toggleOnline() {
    CHECK SESSION
 ========================= */
 
-async function checkSession() {
+async function checkSession(){
 
-  const result =
-    await supabaseClient.auth
-      .getSession();
+  const {
+    data
+  } =
+  await supabaseClient
+    .auth
+    .getSession();
 
 
-  if (
-    result.data &&
-    result.data.session
-  ) {
+  if(data.session){
 
-    showDashboard(
-      result.data.session.user
+    await loadUserDashboard(
+      data.session.user.id
     );
 
   }
 
 }
 
-
-/* START */
 
 checkSession();
 
