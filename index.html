@@ -10,360 +10,368 @@
 
 <style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#f5f7f8;
-    color:#111827;
+  font-family:Arial,sans-serif;
+  background:#f5f7f8;
+  color:#111827;
 }
 
 header{
-    background:#111827;
-    color:white;
-    padding:18px 6%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+  background:#111827;
+  color:white;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .logo{
-    font-size:24px;
-    font-weight:800;
+  font-size:24px;
+  font-weight:800;
 }
 
 .logo span{
-    color:#22c55e;
+  color:#22c55e;
 }
 
 button{
-    border:0;
-    cursor:pointer;
-    font-weight:700;
+  border:0;
+  cursor:pointer;
+  font-weight:700;
 }
 
 .green{
-    background:#22c55e;
-    color:white;
+  background:#22c55e;
+  color:white;
 }
 
 .red{
-    background:#ef4444;
-    color:white;
+  background:#ef4444;
+  color:white;
 }
 
 .blue{
-    background:#2563eb;
-    color:white;
+  background:#2563eb;
+  color:white;
 }
 
 .btn{
-    padding:12px 18px;
-    border-radius:9px;
+  padding:12px 18px;
+  border-radius:9px;
 }
 
 .hero{
-    background:white;
-    text-align:center;
-    padding:70px 6%;
+  background:white;
+  text-align:center;
+  padding:70px 6%;
 }
 
 .hero h1{
-    font-size:clamp(38px,7vw,64px);
-    margin-bottom:18px;
+  font-size:clamp(38px,7vw,64px);
+  margin-bottom:18px;
 }
 
 .hero h1 span{
-    color:#22c55e;
+  color:#22c55e;
 }
 
 .hero p{
-    max-width:650px;
-    margin:auto;
-    color:#6b7280;
-    font-size:18px;
-    line-height:1.6;
+  max-width:650px;
+  margin:auto;
+  color:#6b7280;
+  font-size:18px;
+  line-height:1.6;
 }
 
 section{
-    padding:50px 6%;
+  padding:50px 6%;
 }
 
 .title{
-    text-align:center;
-    margin-bottom:30px;
+  text-align:center;
+  margin-bottom:30px;
 }
 
 .title h2{
-    font-size:32px;
+  font-size:32px;
 }
 
 .title p{
-    color:#6b7280;
-    margin-top:8px;
+  color:#6b7280;
+  margin-top:8px;
 }
 
 .services{
-    max-width:1000px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-    gap:15px;
+  max-width:1000px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:15px;
 }
 
 .service{
-    background:white;
-    padding:25px 12px;
-    border-radius:15px;
-    text-align:center;
-    border:1px solid #e5e7eb;
-    cursor:pointer;
+  background:white;
+  padding:25px 12px;
+  border-radius:15px;
+  text-align:center;
+  border:1px solid #e5e7eb;
+  cursor:pointer;
 }
 
 .service:hover{
-    border-color:#22c55e;
+  border-color:#22c55e;
 }
 
 .icon{
-    font-size:32px;
-    margin-bottom:10px;
+  font-size:32px;
+  margin-bottom:10px;
 }
 
 .dashboard{
-    display:none;
-    padding:40px 6%;
+  display:none;
+  padding:40px 6%;
 }
 
 .dashboard.active{
-    display:block;
+  display:block;
 }
 
 .dashboard-header{
-    background:#111827;
-    color:white;
-    padding:25px;
-    border-radius:16px;
-    margin-bottom:25px;
+  background:#111827;
+  color:white;
+  padding:25px;
+  border-radius:16px;
+  margin-bottom:25px;
 }
 
 .dashboard-header p{
-    color:#d1d5db;
-    margin-top:8px;
+  color:#d1d5db;
+  margin-top:8px;
 }
 
 .card{
-    background:white;
-    padding:25px;
-    border-radius:16px;
-    margin-bottom:20px;
-    border:1px solid #e5e7eb;
+  background:white;
+  padding:25px;
+  border-radius:16px;
+  margin-bottom:20px;
+  border:1px solid #e5e7eb;
 }
 
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
 }
 
 input,
 select,
 textarea{
-    width:100%;
-    padding:13px;
-    border:1px solid #d1d5db;
-    border-radius:8px;
-    margin-top:7px;
-    margin-bottom:15px;
-    font-size:15px;
+  width:100%;
+  padding:13px;
+  border:1px solid #d1d5db;
+  border-radius:8px;
+  margin-top:7px;
+  margin-bottom:15px;
+  font-size:15px;
 }
 
 textarea{
-    min-height:100px;
-    resize:vertical;
+  min-height:100px;
+  resize:vertical;
 }
 
 label{
-    font-weight:700;
-    font-size:14px;
+  font-weight:700;
+  font-size:14px;
 }
 
 .provider-card{
-    background:white;
-    border:1px solid #e5e7eb;
-    border-radius:15px;
-    padding:20px;
-    margin-bottom:15px;
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:15px;
+  padding:20px;
+  margin-bottom:15px;
 }
 
 .provider-card h3{
-    margin-bottom:8px;
+  margin-bottom:8px;
 }
 
 .available{
-    color:#16a34a;
-    font-weight:700;
+  color:#16a34a;
+  font-weight:700;
 }
 
 .offline{
-    color:#6b7280;
+  color:#6b7280;
 }
 
 .job-card{
-    background:white;
-    border:1px solid #e5e7eb;
-    border-radius:15px;
-    padding:20px;
-    margin-bottom:15px;
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:15px;
+  padding:20px;
+  margin-bottom:15px;
 }
 
 .job-card h3{
-    margin-bottom:10px;
+  margin-bottom:10px;
 }
 
 .info{
-    margin:7px 0;
-    color:#4b5563;
+  margin:7px 0;
+  color:#4b5563;
 }
 
 .status{
-    display:inline-block;
-    padding:7px 12px;
-    border-radius:20px;
-    background:#f3f4f6;
-    font-size:12px;
-    font-weight:700;
-    margin:8px 0;
-}
-
-.status.accepted{
-    background:#dcfce7;
-    color:#166534;
-}
-
-.status.progress{
-    background:#dbeafe;
-    color:#1d4ed8;
-}
-
-.status.completed{
-    background:#dcfce7;
-    color:#166534;
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:20px;
+  background:#f3f4f6;
+  font-size:12px;
+  font-weight:700;
+  margin:8px 0;
 }
 
 .status.pending{
-    background:#fef3c7;
-    color:#92400e;
+  background:#fef3c7;
+  color:#92400e;
 }
 
-.status.cancelled{
-    background:#fee2e2;
-    color:#991b1b;
+.status.accepted{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.status.in_progress{
+  background:#dbeafe;
+  color:#1e40af;
+}
+
+.status.completed{
+  background:#d1fae5;
+  color:#065f46;
 }
 
 .modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.6);
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-    z-index:100;
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  z-index:100;
 }
 
 .modal.active{
-    display:flex;
+  display:flex;
 }
 
 .modal-box{
-    width:100%;
-    max-width:430px;
-    background:white;
-    border-radius:18px;
-    padding:28px;
-    position:relative;
+  width:100%;
+  max-width:430px;
+  background:white;
+  border-radius:18px;
+  padding:28px;
+  position:relative;
 }
 
 .close{
-    position:absolute;
-    right:18px;
-    top:12px;
-    font-size:26px;
-    cursor:pointer;
+  position:absolute;
+  right:18px;
+  top:12px;
+  font-size:26px;
+  cursor:pointer;
 }
 
 .role-buttons{
-    display:flex;
-    gap:10px;
-    margin:20px 0;
+  display:flex;
+  gap:10px;
+  margin:20px 0;
 }
 
 .role-buttons button{
-    flex:1;
-    padding:12px;
-    border-radius:8px;
-    background:#f3f4f6;
+  flex:1;
+  padding:12px;
+  border-radius:8px;
+  background:#f3f4f6;
 }
 
 .role-buttons .active{
-    background:#22c55e;
-    color:white;
+  background:#22c55e;
+  color:white;
 }
 
 .message{
-    margin:10px 0;
-    font-size:14px;
+  margin:10px 0;
+  font-size:14px;
 }
 
 .logout{
-    margin-top:10px;
+  margin-top:10px;
 }
 
 footer{
-    background:#030712;
-    color:#9ca3af;
-    text-align:center;
-    padding:25px;
+  background:#030712;
+  color:#9ca3af;
+  text-align:center;
+  padding:25px;
 }
 
 .hidden{
-    display:none!important;
+  display:none!important;
 }
 
 .price{
-    font-size:22px;
-    font-weight:800;
-    margin:10px 0;
+  font-size:22px;
+  font-weight:800;
+  margin:10px 0;
 }
 
-.provider-box{
-    margin-top:15px;
-    padding:15px;
-    background:#f9fafb;
-    border-radius:10px;
+.refresh-text{
+  color:#6b7280;
+  font-size:13px;
+  margin-top:10px;
 }
 
-.empty{
-    color:#6b7280;
-    padding:10px 0;
+.success-box{
+  background:#ecfdf5;
+  border:1px solid #86efac;
+  color:#166534;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+
+.warning-box{
+  background:#fffbeb;
+  border:1px solid #fde68a;
+  color:#92400e;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:15px;
 }
 
 @media(max-width:600px){
 
-    .hero{
-        padding:55px 5%;
-    }
+  .hero{
+    padding:55px 5%;
+  }
 
-    section{
-        padding:40px 5%;
-    }
+  section{
+    padding:40px 5%;
+  }
 
-    header{
-        padding:15px 5%;
-    }
+  header{
+    padding:15px 5%;
+  }
+
 }
 </style>
 </head>
@@ -415,13 +423,9 @@ Get Started
 
 <div class="title">
 
-<h2>
-What service do you need?
-</h2>
+<h2>What service do you need?</h2>
 
-<p>
-Select a service to get started.
-</p>
+<p>Select a service to get started.</p>
 
 </div>
 
@@ -477,9 +481,7 @@ Select a service to get started.
 
 <!-- ================= CUSTOMER DASHBOARD ================= -->
 
-<section
-id="customerDashboard"
-class="dashboard">
+<section id="customerDashboard" class="dashboard">
 
 <div class="dashboard-header">
 
@@ -496,23 +498,15 @@ Find approved professionals and request a service.
 
 <div class="card">
 
-<h2>
-Request a Service
-</h2>
+<h2>Request a Service</h2>
 
 <br>
 
-
-<label>
-Service
-</label>
+<label>Service</label>
 
 <select id="serviceType">
 
-<option value="">
-Select service
-</option>
-
+<option value="">Select service</option>
 <option>Plumbing</option>
 <option>Electrical</option>
 <option>Cleaning</option>
@@ -526,9 +520,7 @@ Select service
 </select>
 
 
-<label>
-Describe the job
-</label>
+<label>Describe the job</label>
 
 <textarea
 id="jobDescription"
@@ -536,9 +528,7 @@ placeholder="Describe what you need done..."
 ></textarea>
 
 
-<label>
-Location
-</label>
+<label>Location</label>
 
 <input
 id="jobLocation"
@@ -546,20 +536,16 @@ placeholder="Where should the work be done?"
 >
 
 
-<label>
-Phone
-</label>
+<label>Phone number</label>
 
 <input
-id="customerPhone"
+id="jobPhone"
 type="tel"
 placeholder="08012345678"
 >
 
 
-<label>
-Preferred date
-</label>
+<label>Preferred date</label>
 
 <input
 type="date"
@@ -567,9 +553,7 @@ id="preferredDate"
 >
 
 
-<label>
-Preferred time
-</label>
+<label>Preferred time</label>
 
 <input
 type="text"
@@ -578,9 +562,7 @@ placeholder="e.g. 10:00 AM"
 >
 
 
-<label>
-Your budget (₦)
-</label>
+<label>Your budget (₦)</label>
 
 <input
 type="number"
@@ -593,7 +575,7 @@ placeholder="e.g. 50000"
 class="btn green"
 onclick="createJob()">
 
-Find Available Workmen
+Submit Service Request
 
 </button>
 
@@ -610,12 +592,9 @@ class="message">
 
 <div class="card">
 
-<h2>
-Available Approved Workmen
-</h2>
+<h2>Available Approved Workmen</h2>
 
-<p
-style="color:#6b7280;margin:8px 0 20px">
+<p style="color:#6b7280;margin:8px 0 20px">
 
 Only approved and available professionals are shown.
 
@@ -623,9 +602,7 @@ Only approved and available professionals are shown.
 
 <div id="providersList">
 
-<p class="empty">
-No search performed yet.
-</p>
+<p>Loading providers...</p>
 
 </div>
 
@@ -636,16 +613,15 @@ No search performed yet.
 
 <div class="card">
 
-<h2>
-My Requests
-</h2>
+<h2>My Requests</h2>
 
-<div
-id="myRequests">
-
-<p class="empty">
-Loading...
+<p class="refresh-text">
+Requests refresh automatically every 5 seconds.
 </p>
+
+<div id="myRequests">
+
+<p>Loading...</p>
 
 </div>
 
@@ -665,9 +641,7 @@ Logout
 
 <!-- ================= PROVIDER DASHBOARD ================= -->
 
-<section
-id="providerDashboard"
-class="dashboard">
+<section id="providerDashboard" class="dashboard">
 
 <div class="dashboard-header">
 
@@ -703,22 +677,17 @@ style="margin-top:12px">
 
 <div class="card">
 
-<h2>
-Available Jobs
-</h2>
+<h2>Available Jobs</h2>
 
-<p
-style="color:#6b7280;margin:8px 0 20px">
+<p style="color:#6b7280;margin:8px 0 20px">
 
-Jobs waiting for an approved provider.
+New customer requests appear here automatically.
 
 </p>
 
 <div id="availableJobs">
 
-<p>
-Loading jobs...
-</p>
+<p>Loading jobs...</p>
 
 </div>
 
@@ -727,15 +696,15 @@ Loading jobs...
 
 <div class="card">
 
-<h2>
-My Accepted Jobs
-</h2>
+<h2>My Accepted Jobs</h2>
+
+<p class="refresh-text">
+This section refreshes automatically.
+</p>
 
 <div id="providerJobs">
 
-<p>
-Loading...
-</p>
+<p>Loading...</p>
 
 </div>
 
@@ -753,21 +722,13 @@ Logout
 </section>
 
 
-<!-- ================= AUTH MODAL ================= -->
+<!-- ================= AUTH ================= -->
 
-<div
-class="modal"
-id="authModal">
+<div class="modal" id="authModal">
 
 <div class="modal-box">
 
-<div
-class="close"
-onclick="closeAuth()">
-
-×
-</div>
-
+<div class="close" onclick="closeAuth()">×</div>
 
 <h2 id="authTitle">
 Welcome to Phil Connect
@@ -804,15 +765,10 @@ Provider
 </div>
 
 
-<div
-id="authMessage"
-class="message">
-</div>
+<div id="authMessage" class="message"></div>
 
 
-<div
-id="nameField"
-class="hidden">
+<div id="nameField" class="hidden">
 
 <input
 id="fullName"
@@ -846,8 +802,7 @@ Login
 </button>
 
 
-<p
-style="text-align:center;margin-top:18px">
+<p style="text-align:center;margin-top:18px">
 
 Don't have an account?
 
@@ -876,9 +831,9 @@ Sign up
 
 <script>
 
-/* =====================================================
+/* =========================================================
    SUPABASE
-===================================================== */
+========================================================= */
 
 const SUPABASE_URL =
 "https://zkebonwbbumhdmmppozq.supabase.co";
@@ -888,2589 +843,2428 @@ const SUPABASE_KEY =
 
 const supabaseClient =
 window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
+SUPABASE_URL,
+SUPABASE_KEY
 );
 
 
-/* =====================================================
-   GLOBAL VARIABLES
-===================================================== */
-
 let selectedRole = "customer";
-
 let signupMode = false;
-
 let currentUser = null;
-
-let customerRequestChannel = null;
-
-let providerRequestChannel = null;
-
-let customerRefreshTimer = null;
+let refreshTimer = null;
 
 
-/* =====================================================
+/* =========================================================
    AUTH MODAL
-===================================================== */
+========================================================= */
 
 function openAuth(){
 
-    document
-        .getElementById("authModal")
-        .classList.add("active");
+document
+.getElementById("authModal")
+.classList.add("active");
 
 }
 
 
 function closeAuth(){
 
-    document
-        .getElementById("authModal")
-        .classList.remove("active");
+document
+.getElementById("authModal")
+.classList.remove("active");
 
 }
 
 
 function selectRole(role){
 
-    selectedRole = role;
+selectedRole = role;
 
-    document
-        .getElementById("customerRole")
-        .classList.toggle(
-            "active",
-            role === "customer"
-        );
+document
+.getElementById("customerRole")
+.classList.toggle(
+"active",
+role === "customer"
+);
 
-    document
-        .getElementById("providerRole")
-        .classList.toggle(
-            "active",
-            role === "provider"
-        );
+document
+.getElementById("providerRole")
+.classList.toggle(
+"active",
+role === "provider"
+);
 
 }
 
 
 function toggleMode(){
 
-    signupMode = !signupMode;
+signupMode = !signupMode;
 
-    document
-        .getElementById("nameField")
-        .classList.toggle(
-            "hidden",
-            !signupMode
-        );
+document
+.getElementById("nameField")
+.classList.toggle(
+"hidden",
+!signupMode
+);
 
-    document
-        .getElementById("submitButton")
-        .innerText =
-        signupMode
-        ? "Create Account"
-        : "Login";
+document
+.getElementById("submitButton")
+.innerText =
+signupMode
+? "Create Account"
+: "Login";
 
-    document
-        .getElementById("authSubtitle")
-        .innerText =
-        signupMode
-        ? "Create your Phil Connect account."
-        : "Login to continue.";
+document
+.getElementById("authSubtitle")
+.innerText =
+signupMode
+? "Create your Phil Connect account."
+: "Login to continue.";
 
-    document
-        .getElementById("switchText")
-        .innerText =
-        signupMode
-        ? "Login"
-        : "Sign up";
+document
+.getElementById("switchText")
+.innerText =
+signupMode
+? "Login"
+: "Sign up";
 
 }
 
 
-/* =====================================================
-   AUTH SUBMIT
-===================================================== */
+/* =========================================================
+   AUTH
+========================================================= */
 
 async function submitAuth(){
 
-    const email =
-        document
-            .getElementById("email")
-            .value
-            .trim();
+const email =
+document.getElementById("email")
+.value.trim();
 
-    const password =
-        document
-            .getElementById("password")
-            .value;
+const password =
+document.getElementById("password")
+.value;
 
-    const fullName =
-        document
-            .getElementById("fullName")
-            .value
-            .trim();
+const fullName =
+document.getElementById("fullName")
+.value.trim();
 
-    const message =
-        document
-            .getElementById("authMessage");
+const message =
+document.getElementById("authMessage");
 
-    message.innerText = "";
+message.innerText = "";
 
 
-    if(!email || !password){
+if(!email || !password){
 
-        message.innerText =
-            "Please enter your email and password.";
+message.innerText =
+"Please enter your email and password.";
 
-        return;
-
-    }
-
-
-    try{
-
-        /* ================= SIGN UP ================= */
-
-        if(signupMode){
-
-            if(!fullName){
-
-                message.innerText =
-                    "Please enter your full name.";
-
-                return;
-
-            }
-
-
-            const {
-                data,
-                error
-            } =
-            await supabaseClient.auth.signUp({
-
-                email:email,
-
-                password:password,
-
-                options:{
-                    data:{
-                        full_name:fullName,
-                        role:selectedRole
-                    }
-                }
-
-            });
-
-
-            if(error) throw error;
-
-
-            if(!data.user){
-
-                throw new Error(
-                    "Account creation failed."
-                );
-
-            }
-
-
-            /* CREATE PROFILE */
-
-            const {
-                error:profileError
-            } =
-            await supabaseClient
-                .from("profiles")
-                .upsert({
-
-                    id:data.user.id,
-
-                    full_name:fullName,
-
-                    email:email,
-
-                    role:selectedRole
-
-                });
-
-
-            if(profileError){
-
-                console.error(
-                    "PROFILE ERROR:",
-                    profileError
-                );
-
-            }
-
-
-            /* PROVIDER PROFILE */
-
-            if(selectedRole === "provider"){
-
-                const {
-                    error:providerError
-                } =
-                await supabaseClient
-                    .from("providers")
-                    .upsert({
-
-                        user_id:data.user.id,
-
-                        business_name:fullName,
-
-                        description:
-                            "Phil Connect service provider",
-
-                        verification_status:
-                            "pending",
-
-                        is_online:false,
-
-                        is_available:true,
-
-                        rating:0,
-
-                        total_jobs:0
-
-                    },{
-                        onConflict:"user_id"
-                    });
-
-
-                if(providerError){
-
-                    console.error(
-                        "PROVIDER PROFILE ERROR:",
-                        providerError
-                    );
-
-                }
-
-            }
-
-
-            message.innerText =
-                "Account created successfully. You can now log in.";
-
-            signupMode = false;
-
-            document
-                .getElementById("nameField")
-                .classList.add("hidden");
-
-            document
-                .getElementById("submitButton")
-                .innerText = "Login";
-
-            document
-                .getElementById("switchText")
-                .innerText = "Sign up";
-
-
-            return;
-
-        }
-
-
-        /* ================= LOGIN ================= */
-
-        const {
-            data,
-            error
-        } =
-        await supabaseClient.auth
-            .signInWithPassword({
-
-                email:email,
-
-                password:password
-
-            });
-
-
-        if(error) throw error;
-
-
-        if(!data.user){
-
-            throw new Error(
-                "Login failed."
-            );
-
-        }
-
-
-        currentUser = data.user;
-
-
-        await showDashboard(
-            data.user.id
-        );
-
-
-        closeAuth();
-
-
-    }catch(error){
-
-        console.error(
-            "AUTH ERROR:",
-            error
-        );
-
-        message.innerText =
-            error.message ||
-            "Something went wrong.";
-
-    }
+return;
 
 }
 
 
-/* =====================================================
+try{
+
+/* SIGN UP */
+
+if(signupMode){
+
+if(!fullName){
+
+message.innerText =
+"Please enter your full name.";
+
+return;
+
+}
+
+
+const {data,error} =
+await supabaseClient.auth.signUp({
+
+email,
+password,
+
+options:{
+data:{
+full_name:fullName,
+role:selectedRole
+}
+}
+
+});
+
+
+if(error) throw error;
+
+
+if(!data.user){
+
+throw new Error(
+"Account creation failed."
+);
+
+}
+
+
+/* PROFILE */
+
+const {error:profileError} =
+await supabaseClient
+.from("profiles")
+.upsert({
+
+id:data.user.id,
+full_name:fullName,
+email:email,
+role:selectedRole
+
+},{
+onConflict:"id"
+});
+
+
+if(profileError){
+
+console.error(
+"PROFILE ERROR:",
+profileError
+);
+
+}
+
+
+/* PROVIDER */
+
+if(selectedRole === "provider"){
+
+const {error:providerError} =
+await supabaseClient
+.from("providers")
+.upsert({
+
+user_id:data.user.id,
+
+business_name:fullName,
+
+description:
+"Phil Connect service provider",
+
+verification_status:
+"pending",
+
+is_online:false,
+
+is_available:true,
+
+rating:0,
+
+total_jobs:0
+
+},{
+onConflict:"user_id"
+});
+
+
+if(providerError){
+
+console.error(
+"PROVIDER ERROR:",
+providerError
+);
+
+}
+
+}
+
+
+message.innerText =
+"Account created successfully. Please login.";
+
+signupMode = false;
+
+toggleMode();
+
+return;
+
+}
+
+
+/* LOGIN */
+
+const {data,error} =
+await supabaseClient.auth
+.signInWithPassword({
+
+email,
+password
+
+});
+
+
+if(error) throw error;
+
+
+if(!data.user){
+
+throw new Error(
+"Login failed."
+);
+
+}
+
+
+currentUser =
+data.user;
+
+
+closeAuth();
+
+
+await showDashboard(
+data.user.id
+);
+
+
+}catch(error){
+
+console.error(
+"AUTH ERROR:",
+error
+);
+
+message.innerText =
+error.message ||
+"Something went wrong.";
+
+}
+
+}
+
+
+/* =========================================================
    SHOW DASHBOARD
-===================================================== */
+========================================================= */
 
 async function showDashboard(userId){
 
-    const {
-        data:profile,
-        error
-    } =
-    await supabaseClient
-        .from("profiles")
-        .select("*")
-        .eq("id",userId)
-        .single();
+const {data:profile,error} =
+await supabaseClient
+.from("profiles")
+.select("*")
+.eq("id",userId)
+.maybeSingle();
 
 
-    if(error){
+if(error){
 
-        console.error(
-            "PROFILE LOAD ERROR:",
-            error
-        );
+console.error(
+"PROFILE LOAD ERROR:",
+error
+);
 
-        alert(
-            "Could not load your profile. Please make sure your profile exists."
-        );
+alert(
+"Could not load your profile."
+);
 
-        return;
-
-    }
-
-
-    document
-        .getElementById("home")
-        .classList.add("hidden");
-
-
-    document
-        .getElementById("customerDashboard")
-        .classList.remove("active");
-
-
-    document
-        .getElementById("providerDashboard")
-        .classList.remove("active");
-
-
-    if(profile.role === "provider"){
-
-        document
-            .getElementById("providerDashboard")
-            .classList.add("active");
-
-        await loadProviderDashboard(userId);
-
-    }else{
-
-        document
-            .getElementById("customerDashboard")
-            .classList.add("active");
-
-        await loadCustomerDashboard();
-
-    }
+return;
 
 }
 
 
-/* =====================================================
+if(!profile){
+
+alert(
+"Your profile was not found. Please contact the administrator."
+);
+
+return;
+
+}
+
+
+document
+.getElementById("home")
+.classList.add("hidden");
+
+document
+.getElementById("customerDashboard")
+.classList.remove("active");
+
+document
+.getElementById("providerDashboard")
+.classList.remove("active");
+
+
+if(profile.role === "provider"){
+
+document
+.getElementById("providerDashboard")
+.classList.add("active");
+
+await loadProviderDashboard(userId);
+
+startAutoRefresh("provider");
+
+}else{
+
+document
+.getElementById("customerDashboard")
+.classList.add("active");
+
+await loadCustomerDashboard();
+
+startAutoRefresh("customer");
+
+}
+
+}
+
+
+/* =========================================================
+   AUTO REFRESH
+========================================================= */
+
+function startAutoRefresh(role){
+
+stopAutoRefresh();
+
+refreshTimer =
+setInterval(async function(){
+
+try{
+
+if(!currentUser) return;
+
+if(role === "customer"){
+
+await loadMyRequests();
+
+}else{
+
+await loadAvailableJobs();
+
+await loadProviderJobs();
+
+}
+
+}catch(error){
+
+console.error(
+"AUTO REFRESH ERROR:",
+error
+);
+
+}
+
+},5000);
+
+}
+
+
+function stopAutoRefresh(){
+
+if(refreshTimer){
+
+clearInterval(refreshTimer);
+
+refreshTimer = null;
+
+}
+
+}
+
+
+/* =========================================================
    CUSTOMER DASHBOARD
-===================================================== */
+========================================================= */
 
 async function loadCustomerDashboard(){
 
-    await loadProviders();
+await loadProviders();
 
-    await loadMyRequests();
-
-    await startCustomerRequestSync();
+await loadMyRequests();
 
 }
 
 
-/* =====================================================
-   LOAD PROVIDERS
-===================================================== */
+/* =========================================================
+   PROVIDERS
+========================================================= */
 
 async function loadProviders(
-    serviceFilter=""
+serviceFilter=""
 ){
 
-    let query =
-        supabaseClient
-            .from("providers")
-            .select(`
-                id,
-                user_id,
-                business_name,
-                description,
-                service_type,
-                service_area,
-                verification_status,
-                is_online,
-                is_available,
-                rating,
-                total_jobs
-            `)
-            .eq(
-                "verification_status",
-                "approved"
-            )
-            .eq(
-                "is_available",
-                true
-            )
-            .eq(
-                "is_online",
-                true
-            );
+let query =
+supabaseClient
+.from("providers")
+.select(`
+id,
+user_id,
+business_name,
+description,
+service_type,
+service_area,
+verification_status,
+is_online,
+is_available,
+rating,
+total_jobs
+`)
+.eq(
+"verification_status",
+"approved"
+)
+.eq(
+"is_available",
+true
+)
+.eq(
+"is_online",
+true
+);
 
 
-    if(serviceFilter){
+if(serviceFilter){
 
-        query =
-            query.ilike(
-                "service_type",
-                `%${serviceFilter}%`
-            );
-
-    }
-
-
-    const {
-        data,
-        error
-    } =
-    await query;
-
-
-    const container =
-        document.getElementById(
-            "providersList"
-        );
-
-
-    if(error){
-
-        console.error(
-            "PROVIDERS ERROR:",
-            error
-        );
-
-        container.innerHTML =
-            "<p>Could not load providers.</p>";
-
-        return;
-
-    }
-
-
-    if(!data || data.length === 0){
-
-        container.innerHTML =
-            "<p class='empty'>No approved workmen are currently online for this service.</p>";
-
-        return;
-
-    }
-
-
-    container.innerHTML =
-        data.map(
-            provider => `
-
-            <div class="provider-card">
-
-                <h3>
-                    ${escapeHTML(
-                        provider.business_name ||
-                        "Professional"
-                    )}
-                </h3>
-
-                <p class="available">
-                    🟢 Available now
-                </p>
-
-                <p class="info">
-                    🔧 ${escapeHTML(
-                        provider.service_type ||
-                        "General Services"
-                    )}
-                </p>
-
-                <p class="info">
-                    📍 ${escapeHTML(
-                        provider.service_area ||
-                        "Nigeria"
-                    )}
-                </p>
-
-                <p class="info">
-                    ⭐ ${provider.rating || 0}
-                    (${provider.total_jobs || 0} jobs)
-                </p>
-
-                <button
-                    class="btn green"
-                    onclick="chooseProvider('${provider.id}')">
-
-                    Request this Workman
-
-                </button>
-
-            </div>
-
-        `
-        ).join("");
+query =
+query.ilike(
+"service_type",
+`%${serviceFilter}%`
+);
 
 }
 
 
-/* =====================================================
-   CREATE JOB
-===================================================== */
+const {data,error} =
+await query;
+
+
+const container =
+document.getElementById(
+"providersList"
+);
+
+
+if(error){
+
+console.error(
+"PROVIDERS ERROR:",
+error
+);
+
+container.innerHTML =
+"<p>Could not load providers.</p>";
+
+return;
+
+}
+
+
+if(!data || data.length === 0){
+
+container.innerHTML =
+"<p>No approved workmen are currently online.</p>";
+
+return;
+
+}
+
+
+container.innerHTML =
+data.map(provider => `
+
+<div class="provider-card">
+
+<h3>
+${escapeHTML(
+provider.business_name ||
+"Professional"
+)}
+</h3>
+
+<p class="available">
+🟢 Available now
+</p>
+
+<p class="info">
+🔧 ${escapeHTML(
+provider.service_type ||
+"General Services"
+)}
+</p>
+
+<p class="info">
+📍 ${escapeHTML(
+provider.service_area ||
+"Nigeria"
+)}
+</p>
+
+<p class="info">
+⭐ ${provider.rating || 0}
+(${provider.total_jobs || 0} jobs)
+</p>
+
+<button
+class="btn green"
+onclick="chooseProvider('${provider.id}')">
+
+Request this Workman
+
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =========================================================
+   CREATE CUSTOMER REQUEST
+========================================================= */
 
 async function createJob(){
 
-    const message =
-        document.getElementById(
-            "customerMessage"
-        );
+const message =
+document.getElementById(
+"customerMessage"
+);
 
+message.innerText =
+"Submitting request...";
 
-    message.innerText =
-        "Submitting request...";
 
+try{
 
-    try{
+const {
+data:{
+user
+},
+error:authError
+} =
+await supabaseClient.auth.getUser();
 
-        const {
-            data:{
-                user
-            },
-            error:authError
-        } =
-        await supabaseClient.auth.getUser();
 
+if(authError){
 
-        if(authError){
-
-            throw new Error(
-                "Authentication error: " +
-                authError.message
-            );
-
-        }
-
-
-        if(!user){
-
-            throw new Error(
-                "You are not logged in. Please login again."
-            );
-
-        }
-
-
-        console.log(
-            "Logged-in customer ID:",
-            user.id
-        );
-
-
-        const service =
-            document
-                .getElementById(
-                    "serviceType"
-                )
-                .value;
-
-
-        const description =
-            document
-                .getElementById(
-                    "jobDescription"
-                )
-                .value
-                .trim();
-
-
-        const location =
-            document
-                .getElementById(
-                    "jobLocation"
-                )
-                .value
-                .trim();
-
-
-        const phone =
-            document
-                .getElementById(
-                    "customerPhone"
-                )
-                .value
-                .trim();
-
-
-        const date =
-            document
-                .getElementById(
-                    "preferredDate"
-                )
-                .value;
-
-
-        const time =
-            document
-                .getElementById(
-                    "preferredTime"
-                )
-                .value
-                .trim();
-
-
-        const budget =
-            Number(
-                document
-                    .getElementById(
-                        "customerBudget"
-                    )
-                    .value
-            );
-
-
-        if(
-            !service ||
-            !description ||
-            !location ||
-            !budget
-        ){
-
-            throw new Error(
-                "Please complete the service, description, location and budget."
-            );
-
-        }
-
-
-        const {
-            data,
-            error
-        } =
-        await supabaseClient
-            .from("service_requests")
-            .insert({
-
-                customer_id:user.id,
-
-                service_type:service,
-
-                description:description,
-
-                location:location,
-
-                phone:phone || null,
-
-                preferred_date:
-                    date || null,
-
-                preferred_time:
-                    time || null,
-
-                budget:budget,
-
-                customer_budget:budget,
-
-                status:"pending"
-
-            })
-            .select()
-            .single();
-
-
-        if(error){
-
-            console.error(
-                "SUPABASE REQUEST ERROR:",
-                error
-            );
-
-            throw new Error(
-                "Supabase error: " +
-                error.message
-            );
-
-        }
-
-
-        console.log(
-            "REQUEST CREATED:",
-            data
-        );
-
-
-        message.innerText =
-            "✅ Request submitted successfully!";
-
-
-        await loadMyRequests();
-
-        await loadProviders(service);
-
-
-        /*
-        Clear form
-        */
-
-        document
-            .getElementById(
-                "jobDescription"
-            )
-            .value = "";
-
-        document
-            .getElementById(
-                "customerBudget"
-            )
-            .value = "";
-
-
-    }catch(error){
-
-        console.error(
-            "REQUEST SUBMISSION FAILED:",
-            error
-        );
-
-
-        message.innerText =
-            "❌ " +
-            error.message;
-
-
-        alert(
-            "Request could not be submitted.\n\n" +
-            error.message
-        );
-
-    }
+throw new Error(
+"Authentication error: " +
+authError.message
+);
 
 }
 
 
-/* =====================================================
-   CHOOSE PROVIDER
-===================================================== */
+if(!user){
 
-async function chooseProvider(
-    providerId
+throw new Error(
+"You are not logged in. Please login again."
+);
+
+}
+
+
+console.log(
+"Logged-in customer ID:",
+user.id
+);
+
+
+/* FORM */
+
+const service =
+document
+.getElementById("serviceType")
+.value;
+
+const description =
+document
+.getElementById("jobDescription")
+.value.trim();
+
+const location =
+document
+.getElementById("jobLocation")
+.value.trim();
+
+const phone =
+document
+.getElementById("jobPhone")
+.value.trim();
+
+const date =
+document
+.getElementById("preferredDate")
+.value;
+
+const time =
+document
+.getElementById("preferredTime")
+.value.trim();
+
+const budget =
+Number(
+document
+.getElementById("customerBudget")
+.value
+);
+
+
+/* VALIDATION */
+
+if(
+!service ||
+!description ||
+!location ||
+!budget
 ){
 
-    try{
-
-        const {
-            data:{
-                user
-            }
-        } =
-        await supabaseClient.auth.getUser();
-
-
-        if(!user){
-
-            alert(
-                "Please login."
-            );
-
-            return;
-
-        }
-
-
-        const request =
-            await getLatestCustomerRequest();
-
-
-        if(!request){
-
-            alert(
-                "Please create a service request first."
-            );
-
-            return;
-
-        }
-
-
-        const {
-            error
-        } =
-        await supabaseClient
-            .from("service_requests")
-            .update({
-
-                provider_id:providerId,
-
-                status:"pending"
-
-            })
-            .eq(
-                "id",
-                request.id
-            )
-            .eq(
-                "customer_id",
-                user.id
-            );
-
-
-        if(error){
-
-            throw error;
-
-        }
-
-
-        alert(
-            "Request sent to the selected workman."
-        );
-
-
-        await loadMyRequests();
-
-
-    }catch(error){
-
-        console.error(
-            "CHOOSE PROVIDER ERROR:",
-            error
-        );
-
-        alert(
-            "Could not select provider: " +
-            error.message
-        );
-
-    }
+throw new Error(
+"Please complete service, description, location and budget."
+);
 
 }
 
 
-/* =====================================================
+/* INSERT */
+
+const {data,error} =
+await supabaseClient
+.from("service_requests")
+.insert({
+
+customer_id:user.id,
+
+service_type:service,
+
+description:description,
+
+location:location,
+
+phone:phone || null,
+
+preferred_date:
+date || null,
+
+preferred_time:
+time || null,
+
+budget:budget,
+
+customer_budget:budget,
+
+status:"pending"
+
+})
+.select()
+.single();
+
+
+if(error){
+
+console.error(
+"SUPABASE REQUEST ERROR:",
+error
+);
+
+throw new Error(
+"Supabase error: " +
+error.message
+);
+
+}
+
+
+console.log(
+"REQUEST CREATED:",
+data
+);
+
+
+message.innerHTML =
+"✅ Request submitted successfully!";
+
+
+/* CLEAR FORM */
+
+document
+.getElementById("jobDescription")
+.value = "";
+
+document
+.getElementById("jobLocation")
+.value = "";
+
+document
+.getElementById("jobPhone")
+.value = "";
+
+document
+.getElementById("preferredDate")
+.value = "";
+
+document
+.getElementById("preferredTime")
+.value = "";
+
+document
+.getElementById("customerBudget")
+.value = "";
+
+
+/* REFRESH */
+
+await loadMyRequests();
+
+await loadProviders(service);
+
+
+}catch(error){
+
+console.error(
+"REQUEST SUBMISSION FAILED:",
+error
+);
+
+message.innerHTML =
+"❌ " + error.message;
+
+alert(
+"Request could not be submitted.\n\n" +
+error.message
+);
+
+}
+
+}
+
+
+/* =========================================================
+   CHOOSE PROVIDER
+========================================================= */
+
+async function chooseProvider(
+providerId
+){
+
+try{
+
+const {
+data:{
+user
+}
+} =
+await supabaseClient.auth.getUser();
+
+
+if(!user){
+
+alert(
+"Please login."
+);
+
+return;
+
+}
+
+
+const request =
+await getLatestCustomerRequest();
+
+
+if(!request){
+
+alert(
+"Please create a service request first."
+);
+
+return;
+
+}
+
+
+const {data,error} =
+await supabaseClient
+.from("service_requests")
+.update({
+
+provider_id:providerId
+
+})
+.eq(
+"id",
+request.id
+)
+.eq(
+"customer_id",
+user.id
+)
+.select()
+.single();
+
+
+if(error){
+
+console.error(
+"CHOOSE PROVIDER ERROR:",
+error
+);
+
+alert(
+"Could not select provider: " +
+error.message
+);
+
+return;
+
+}
+
+
+if(!data){
+
+alert(
+"Request was not updated."
+);
+
+return;
+
+}
+
+
+alert(
+"Request sent to the selected workman."
+);
+
+
+await loadMyRequests();
+
+}catch(error){
+
+console.error(error);
+
+}
+
+}
+
+
+/* =========================================================
    GET LATEST CUSTOMER REQUEST
-===================================================== */
+========================================================= */
 
 async function getLatestCustomerRequest(){
 
-    const {
-        data:{
-            user
-        }
-    } =
-    await supabaseClient.auth.getUser();
+const {
+data:{
+user
+}
+} =
+await supabaseClient.auth.getUser();
 
 
-    if(!user) return null;
+if(!user){
 
-
-    const {
-        data,
-        error
-    } =
-    await supabaseClient
-        .from("service_requests")
-        .select("*")
-        .eq(
-            "customer_id",
-            user.id
-        )
-        .order(
-            "created_at",
-            {
-                ascending:false
-            }
-        )
-        .limit(1)
-        .maybeSingle();
-
-
-    if(error){
-
-        console.error(
-            "LATEST REQUEST ERROR:",
-            error
-        );
-
-        return null;
-
-    }
-
-
-    return data;
+return null;
 
 }
 
 
-/* =====================================================
+const {data,error} =
+await supabaseClient
+.from("service_requests")
+.select("*")
+.eq(
+"customer_id",
+user.id
+)
+.order(
+"created_at",
+{
+ascending:false
+}
+)
+.limit(1);
+
+
+if(error){
+
+console.error(
+"LATEST REQUEST ERROR:",
+error
+);
+
+return null;
+
+}
+
+
+return data && data.length
+? data[0]
+: null;
+
+}
+
+
+/* =========================================================
    CUSTOMER REQUESTS
-===================================================== */
+========================================================= */
 
 async function loadMyRequests(){
 
-    const container =
-        document.getElementById(
-            "myRequests"
-        );
+const {
+data:{
+user
+}
+} =
+await supabaseClient.auth.getUser();
 
 
-    if(!container) return;
+if(!user){
 
-
-    try{
-
-        const {
-            data:{
-                user
-            },
-            error:authError
-        } =
-        await supabaseClient.auth.getUser();
-
-
-        if(authError){
-
-            throw authError;
-
-        }
-
-
-        if(!user){
-
-            container.innerHTML =
-                "<p>Please login to view your requests.</p>";
-
-            return;
-
-        }
-
-
-        const {
-            data,
-            error
-        } =
-        await supabaseClient
-            .from("service_requests")
-            .select(`
-                id,
-                customer_id,
-                service_type,
-                description,
-                location,
-                phone,
-                preferred_date,
-                preferred_time,
-                budget,
-                customer_budget,
-                status,
-                created_at,
-                provider_id,
-                provider_amount,
-                accepted_at,
-                completed_at,
-                providers (
-                    id,
-                    business_name,
-                    service_type,
-                    service_area,
-                    rating
-                )
-            `)
-            .eq(
-                "customer_id",
-                user.id
-            )
-            .order(
-                "created_at",
-                {
-                    ascending:false
-                }
-            );
-
-
-        if(error){
-
-            console.error(
-                "CUSTOMER REQUEST ERROR:",
-                error
-            );
-
-            container.innerHTML =
-                `<p style="color:#ef4444">
-                    Could not load your requests.
-                </p>`;
-
-            return;
-
-        }
-
-
-        if(!data || data.length === 0){
-
-            container.innerHTML =
-                `<p class="empty">
-                    You have no service requests yet.
-                </p>`;
-
-            return;
-
-        }
-
-
-        container.innerHTML =
-            data.map(
-                job => {
-
-                    const provider =
-                        Array.isArray(
-                            job.providers
-                        )
-                        ? job.providers[0]
-                        : job.providers;
-
-
-                    const status =
-                        job.status ||
-                        "pending";
-
-
-                    let statusClass =
-                        "pending";
-
-
-                    let statusIcon =
-                        "⏳";
-
-
-                    if(
-                        status === "accepted"
-                    ){
-
-                        statusClass =
-                            "accepted";
-
-                        statusIcon =
-                            "✅";
-
-                    }
-
-
-                    if(
-                        status === "in_progress"
-                    ){
-
-                        statusClass =
-                            "progress";
-
-                        statusIcon =
-                            "🔧";
-
-                    }
-
-
-                    if(
-                        status === "completed"
-                    ){
-
-                        statusClass =
-                            "completed";
-
-                        statusIcon =
-                            "🎉";
-
-                    }
-
-
-                    if(
-                        status === "cancelled"
-                    ){
-
-                        statusClass =
-                            "cancelled";
-
-                        statusIcon =
-                            "❌";
-
-                    }
-
-
-                    let providerHTML =
-                        "";
-
-
-                    if(provider){
-
-                        providerHTML = `
-
-                            <div class="provider-box">
-
-                                <strong>
-                                    🧑‍🔧 Provider
-                                </strong>
-
-                                <p class="info">
-                                    ${escapeHTML(
-                                        provider.business_name ||
-                                        "Professional"
-                                    )}
-                                </p>
-
-                                <p class="info">
-                                    🔧 ${escapeHTML(
-                                        provider.service_type ||
-                                        "General Services"
-                                    )}
-                                </p>
-
-                                <p class="info">
-                                    📍 ${escapeHTML(
-                                        provider.service_area ||
-                                        "Nigeria"
-                                    )}
-                                </p>
-
-                                ${
-                                    job.provider_amount
-                                    ?
-                                    `
-                                    <p class="price">
-                                        ₦${Number(
-                                            job.provider_amount
-                                        ).toLocaleString()}
-                                    </p>
-                                    `
-                                    :
-                                    ""
-                                }
-
-                            </div>
-
-                        `;
-
-                    }else{
-
-                        providerHTML = `
-
-                            <p class="info">
-
-                                🕐 Waiting for a workman
-                                to accept this job.
-
-                            </p>
-
-                        `;
-
-                    }
-
-
-                    return `
-
-                        <div class="job-card">
-
-                            <h3>
-                                ${escapeHTML(
-                                    job.service_type ||
-                                    "Service Request"
-                                )}
-                            </h3>
-
-                            <p class="info">
-                                📝 ${escapeHTML(
-                                    job.description ||
-                                    ""
-                                )}
-                            </p>
-
-                            <p class="info">
-                                📍 ${escapeHTML(
-                                    job.location ||
-                                    ""
-                                )}
-                            </p>
-
-                            <p class="info">
-                                📅 ${
-                                    job.preferred_date ||
-                                    "Flexible"
-                                }
-                            </p>
-
-                            <p class="info">
-                                ⏰ ${escapeHTML(
-                                    job.preferred_time ||
-                                    "Flexible"
-                                )}
-                            </p>
-
-                            <p class="price">
-                                ₦${Number(
-                                    job.customer_budget ||
-                                    job.budget ||
-                                    0
-                                ).toLocaleString()}
-                            </p>
-
-                            <span class="status ${statusClass}">
-                                ${statusIcon}
-                                ${escapeHTML(
-                                    status.toUpperCase()
-                                )}
-                            </span>
-
-                            ${providerHTML}
-
-                        </div>
-
-                    `;
-
-                }
-            ).join("");
-
-
-    }catch(error){
-
-        console.error(
-            "LOAD REQUESTS FAILED:",
-            error
-        );
-
-        container.innerHTML =
-            `<p style="color:#ef4444">
-                Unable to load requests.
-            </p>`;
-
-    }
+return;
 
 }
 
 
-/* =====================================================
-   CUSTOMER REALTIME SYNC
-===================================================== */
-
-async function startCustomerRequestSync(){
-
-    /*
-    Remove previous channel
-    */
-
-    if(customerRequestChannel){
-
-        await supabaseClient
-            .removeChannel(
-                customerRequestChannel
-            );
-
-        customerRequestChannel =
-            null;
-
-    }
+const container =
+document.getElementById(
+"myRequests"
+);
 
 
-    /*
-    Stop old timer
-    */
-
-    if(customerRefreshTimer){
-
-        clearInterval(
-            customerRefreshTimer
-        );
-
-        customerRefreshTimer =
-            null;
-
-    }
-
-
-    const {
-        data:{
-            user
-        }
-    } =
-    await supabaseClient.auth.getUser();
+const {data,error} =
+await supabaseClient
+.from("service_requests")
+.select("*")
+.eq(
+"customer_id",
+user.id
+)
+.order(
+"created_at",
+{
+ascending:false
+}
+);
 
 
-    if(!user) return;
+if(error){
 
+console.error(
+"MY REQUESTS ERROR:",
+error
+);
 
-    /*
-    REALTIME
-    */
+container.innerHTML =
+"<p>Could not load your requests.</p>";
 
-    customerRequestChannel =
-        supabaseClient
-            .channel(
-                "customer-requests-" +
-                user.id +
-                "-" +
-                Date.now()
-            )
-            .on(
-                "postgres_changes",
-                {
-                    event:"*",
-                    schema:"public",
-                    table:"service_requests",
-                    filter:
-                        "customer_id=eq." +
-                        user.id
-                },
-                async payload => {
-
-                    console.log(
-                        "CUSTOMER REQUEST CHANGED:",
-                        payload
-                    );
-
-                    await loadMyRequests();
-
-                }
-            )
-            .subscribe(
-                status => {
-
-                    console.log(
-                        "Customer realtime:",
-                        status
-                    );
-
-                }
-            );
-
-
-    /*
-    FALLBACK REFRESH
-
-    Every 5 seconds.
-    */
-
-    customerRefreshTimer =
-        setInterval(
-            async () => {
-
-                const {
-                    data:{
-                        user
-                    }
-                } =
-                await supabaseClient
-                    .auth
-                    .getUser();
-
-
-                if(user){
-
-                    await loadMyRequests();
-
-                }
-
-            },
-            5000
-        );
+return;
 
 }
 
 
-/* =====================================================
+if(!data || data.length === 0){
+
+container.innerHTML =
+"<p>You have no service requests yet.</p>";
+
+return;
+
+}
+
+
+/*
+IMPORTANT:
+We do NOT use:
+providers(...)
+here.
+
+We first load requests,
+then separately load providers.
+*/
+
+const providerIds =
+[
+...new Set(
+data
+.map(job => job.provider_id)
+.filter(Boolean)
+)
+];
+
+
+let providersMap = {};
+
+
+if(providerIds.length){
+
+const {data:providers,error:providerError} =
+await supabaseClient
+.from("providers")
+.select(`
+id,
+business_name,
+service_type,
+service_area,
+rating
+`)
+.in(
+"id",
+providerIds
+);
+
+
+if(providerError){
+
+console.error(
+"PROVIDER LOOKUP ERROR:",
+providerError
+);
+
+}else{
+
+providersMap =
+Object.fromEntries(
+(providers || [])
+.map(provider => [
+provider.id,
+provider
+])
+);
+
+}
+
+}
+
+
+/* DISPLAY */
+
+container.innerHTML =
+data.map(job => {
+
+const provider =
+job.provider_id
+? providersMap[job.provider_id]
+: null;
+
+
+let providerHTML = "";
+
+
+if(provider){
+
+providerHTML = `
+
+<p class="info">
+
+🧑‍🔧 Provider:
+
+<strong>
+${escapeHTML(
+provider.business_name ||
+"Professional"
+)}
+</strong>
+
+</p>
+
+<p class="info">
+
+🔧 ${escapeHTML(
+provider.service_type ||
+"Service Provider"
+)}
+
+</p>
+
+<p class="info">
+
+📍 ${escapeHTML(
+provider.service_area ||
+"Nigeria"
+)}
+
+</p>
+
+`;
+
+}else{
+
+providerHTML = `
+
+<p class="info">
+
+🧑‍🔧 Waiting for a workman to accept this job.
+
+</p>
+
+`;
+
+}
+
+
+let actionHTML = "";
+
+
+if(job.status === "accepted"){
+
+actionHTML = `
+
+<div class="success-box">
+
+✅ Your request has been accepted.
+
+<br><br>
+
+<strong>
+Agreed provider amount:
+₦${Number(
+job.provider_amount || 0
+).toLocaleString()}
+</strong>
+
+</div>
+
+`;
+
+}
+
+
+if(job.status === "in_progress"){
+
+actionHTML = `
+
+<div class="warning-box">
+
+🔵 Your workman has started this job.
+
+</div>
+
+`;
+
+}
+
+
+if(job.status === "completed"){
+
+actionHTML = `
+
+<div class="success-box">
+
+✅ This job has been completed.
+
+<br><br>
+
+<strong>
+Final amount:
+₦${Number(
+job.provider_amount || 0
+).toLocaleString()}
+</strong>
+
+</div>
+
+`;
+
+}
+
+
+return `
+
+<div class="job-card">
+
+<h3>
+${escapeHTML(
+job.service_type ||
+"Service"
+)}
+</h3>
+
+<p class="info">
+
+📝 ${escapeHTML(
+job.description ||
+""
+)}
+
+</p>
+
+<p class="info">
+
+📍 ${escapeHTML(
+job.location ||
+""
+)}
+
+</p>
+
+<p class="info">
+
+📞 ${escapeHTML(
+job.phone ||
+"Not provided"
+)}
+
+</p>
+
+<p class="info">
+
+📅 ${escapeHTML(
+job.preferred_date ||
+"Flexible"
+)}
+
+</p>
+
+<p class="info">
+
+⏰ ${escapeHTML(
+job.preferred_time ||
+"Flexible"
+)}
+
+</p>
+
+<p class="price">
+
+Your budget:
+
+₦${Number(
+job.customer_budget ||
+job.budget ||
+0
+).toLocaleString()}
+
+</p>
+
+<span class="status ${escapeHTML(
+job.status ||
+"pending"
+)}">
+
+${escapeHTML(
+(job.status || "pending")
+.toUpperCase()
+)}
+
+</span>
+
+${providerHTML}
+
+${actionHTML}
+
+</div>
+
+`;
+
+}).join("");
+
+}
+
+
+/* =========================================================
    PROVIDER DASHBOARD
-===================================================== */
+========================================================= */
 
 async function loadProviderDashboard(
-    userId
+userId
 ){
 
-    const {
-        data:provider,
-        error
-    } =
-    await supabaseClient
-        .from("providers")
-        .select("*")
-        .eq(
-            "user_id",
-            userId
-        )
-        .single();
+const {data:provider,error} =
+await supabaseClient
+.from("providers")
+.select("*")
+.eq(
+"user_id",
+userId
+)
+.maybeSingle();
 
 
-    if(error){
+if(error){
 
-        console.error(
-            "PROVIDER PROFILE ERROR:",
-            error
-        );
+console.error(
+"PROVIDER PROFILE ERROR:",
+error
+);
 
-        return;
-
-    }
-
-
-    document
-        .getElementById(
-            "providerBusiness"
-        )
-        .innerText =
-        provider.business_name ||
-        "Provider";
-
-
-    updateOnlineUI(
-        provider.is_online
-    );
-
-
-    await loadAvailableJobs();
-
-    await loadProviderJobs();
-
-    await startProviderRequestSync();
+return;
 
 }
 
 
-/* =====================================================
-   PROVIDER REALTIME
-===================================================== */
+if(!provider){
 
-async function startProviderRequestSync(){
+document.getElementById(
+"providerDashboard"
+).innerHTML =
+`
 
-    if(providerRequestChannel){
+<div class="card">
 
-        await supabaseClient
-            .removeChannel(
-                providerRequestChannel
-            );
+<h2>
+Provider profile not found
+</h2>
 
-        providerRequestChannel =
-            null;
+<p>
+Your provider profile has not been created yet.
+</p>
 
-    }
+</div>
 
+`;
 
-    providerRequestChannel =
-        supabaseClient
-            .channel(
-                "provider-jobs-" +
-                Date.now()
-            )
-            .on(
-                "postgres_changes",
-                {
-                    event:"*",
-                    schema:"public",
-                    table:"service_requests"
-                },
-                async payload => {
-
-                    console.log(
-                        "PROVIDER JOB CHANGE:",
-                        payload
-                    );
-
-                    await loadAvailableJobs();
-
-                    await loadProviderJobs();
-
-                }
-            )
-            .subscribe(
-                status => {
-
-                    console.log(
-                        "Provider realtime:",
-                        status
-                    );
-
-                }
-            );
+return;
 
 }
 
 
-/* =====================================================
-   ONLINE STATUS
-===================================================== */
+document.getElementById(
+"providerBusiness"
+).innerText =
+provider.business_name ||
+"Provider";
+
+
+updateOnlineUI(
+provider.is_online
+);
+
+
+await loadAvailableJobs();
+
+await loadProviderJobs();
+
+}
+
+
+/* =========================================================
+   PROVIDER ONLINE
+========================================================= */
 
 async function toggleOnline(){
 
-    const {
-        data:{
-            user
-        }
-    } =
-    await supabaseClient.auth.getUser();
+const {
+data:{
+user
+}
+} =
+await supabaseClient.auth.getUser();
 
 
-    if(!user) return;
+if(!user) return;
 
 
-    const {
-        data:provider,
-        error
-    } =
-    await supabaseClient
-        .from("providers")
-        .select(
-            "is_online"
-        )
-        .eq(
-            "user_id",
-            user.id
-        )
-        .single();
+const {data:provider,error} =
+await supabaseClient
+.from("providers")
+.select("is_online")
+.eq(
+"user_id",
+user.id
+)
+.single();
 
 
-    if(error){
+if(error){
 
-        alert(
-            error.message
-        );
+alert(
+error.message
+);
 
-        return;
+return;
 
-    }
-
-
-    const newStatus =
-        !provider.is_online;
+}
 
 
-    const {
-        error:updateError
-    } =
-    await supabaseClient
-        .from("providers")
-        .update({
-
-            is_online:newStatus,
-
-            is_available:true
-
-        })
-        .eq(
-            "user_id",
-            user.id
-        );
+const newStatus =
+!provider.is_online;
 
 
-    if(updateError){
+const {error:updateError} =
+await supabaseClient
+.from("providers")
+.update({
 
-        alert(
-            updateError.message
-        );
+is_online:newStatus,
 
-        return;
+is_available:true
 
-    }
-
-
-    updateOnlineUI(
-        newStatus
-    );
+})
+.eq(
+"user_id",
+user.id
+);
 
 
-    await loadAvailableJobs();
+if(updateError){
+
+alert(
+updateError.message
+);
+
+return;
+
+}
+
+
+updateOnlineUI(
+newStatus
+);
+
+
+await loadAvailableJobs();
 
 }
 
 
 function updateOnlineUI(
-    online
+online
 ){
 
-    document
-        .getElementById(
-            "onlineButton"
-        )
-        .innerText =
-        online
-        ? "Go Offline"
-        : "Go Online";
+document.getElementById(
+"onlineButton"
+).innerText =
+online
+? "Go Offline"
+: "Go Online";
 
 
-    document
-        .getElementById(
-            "onlineStatus"
-        )
-        .innerText =
-        online
-        ? "🟢 You are online and available."
-        : "⚪ You are offline.";
+document.getElementById(
+"onlineStatus"
+).innerText =
+online
+? "🟢 You are online and available."
+: "⚪ You are offline.";
 
 }
 
 
-/* =====================================================
+/* =========================================================
    AVAILABLE JOBS
-===================================================== */
+========================================================= */
 
 async function loadAvailableJobs(){
 
-    const {
-        data:{
-            user
-        }
-    } =
-    await supabaseClient.auth.getUser();
-
-
-    if(!user) return;
-
-
-    const {
-        data:provider,
-        error:providerError
-    } =
-    await supabaseClient
-        .from("providers")
-        .select(
-            "id,service_type,verification_status,is_online,is_available"
-        )
-        .eq(
-            "user_id",
-            user.id
-        )
-        .single();
-
-
-    if(providerError){
-
-        console.error(
-            "PROVIDER ERROR:",
-            providerError
-        );
-
-        return;
-
-    }
-
-
-    const container =
-        document.getElementById(
-            "availableJobs"
-        );
-
-
-    if(
-        provider.verification_status !==
-        "approved"
-    ){
-
-        container.innerHTML =
-            `<p>
-                Your account must be approved
-                before you can receive jobs.
-            </p>`;
-
-        return;
-
-    }
-
-
-    const {
-        data,
-        error
-    } =
-    await supabaseClient
-        .from("service_requests")
-        .select("*")
-        .is(
-            "provider_id",
-            null
-        )
-        .eq(
-            "status",
-            "pending"
-        )
-        .order(
-            "created_at",
-            {
-                ascending:false
-            }
-        );
-
-
-    if(error){
-
-        console.error(
-            "AVAILABLE JOB ERROR:",
-            error
-        );
-
-        container.innerHTML =
-            "<p>Could not load jobs.</p>";
-
-        return;
-
-    }
-
-
-    if(!data || data.length === 0){
-
-        container.innerHTML =
-            "<p class='empty'>No available jobs right now.</p>";
-
-        return;
-
-    }
-
-
-    container.innerHTML =
-        data.map(
-            job => `
-
-            <div class="job-card">
-
-                <h3>
-                    ${escapeHTML(
-                        job.service_type
-                    )}
-                </h3>
-
-                <p class="info">
-                    📝 ${escapeHTML(
-                        job.description
-                    )}
-                </p>
-
-                <p class="info">
-                    📍 ${escapeHTML(
-                        job.location
-                    )}
-                </p>
-
-                <p class="info">
-                    📅 ${
-                        job.preferred_date ||
-                        "Flexible"
-                    }
-                </p>
-
-                <p class="info">
-                    ⏰ ${escapeHTML(
-                        job.preferred_time ||
-                        "Flexible"
-                    )}
-                </p>
-
-                <p class="price">
-                    ₦${Number(
-                        job.budget || 0
-                    ).toLocaleString()}
-                </p>
-
-                <button
-                    class="btn green"
-                    onclick="acceptJob('${job.id}')">
-
-                    Accept Job
-
-                </button>
-
-            </div>
-
-        `
-        ).join("");
-
+const {
+data:{
+user
 }
-
-
-/* =====================================================
-   ACCEPT JOB
-===================================================== */
-
-async function acceptJob(
-    jobId
-){
-
-    const {
-        data:{
-            user
-        }
-    } =
-    await supabaseClient.auth.getUser();
-
-
-    if(!user){
-
-        alert(
-            "Please login."
-        );
-
-        return;
-
-    }
-
-
-    const {
-        data:provider,
-        error
-    } =
-    await supabaseClient
-        .from("providers")
-        .select(
-            "id,verification_status"
-        )
-        .eq(
-            "user_id",
-            user.id
-        )
-        .single();
-
-
-    if(error){
-
-        alert(
-            error.message
-        );
-
-        return;
-
-    }
-
-
-    if(
-        provider.verification_status !==
-        "approved"
-    ){
-
-        alert(
-            "Your provider account has not been approved yet."
-        );
-
-        return;
-
-    }
-
-
-    const amount =
-        prompt(
-            "Enter the amount you will charge for this job:"
-        );
-
-
-    if(amount === null) return;
-
-
-    const finalAmount =
-        Number(amount);
-
-
-    if(
-        !finalAmount ||
-        finalAmount <= 0
-    ){
-
-        alert(
-            "Enter a valid amount."
-        );
-
-        return;
-
-    }
-
-
-    /*
-    IMPORTANT:
-
-    This condition prevents two providers
-    from accepting the same job.
-    */
-
-    const {
-        data:updatedRows,
-        error:updateError
-    } =
-    await supabaseClient
-        .from("service_requests")
-        .update({
-
-            provider_id:
-                provider.id,
-
-            provider_amount:
-                finalAmount,
-
-            status:
-                "accepted",
-
-            accepted_at:
-                new Date().toISOString()
-
-        })
-        .eq(
-            "id",
-            jobId
-        )
-        .is(
-            "provider_id",
-            null
-        )
-        .eq(
-            "status",
-            "pending"
-        )
-        .select();
-
-
-    if(updateError){
-
-        console.error(
-            "ACCEPT JOB ERROR:",
-            updateError
-        );
-
-        alert(
-            "Could not accept job:\n\n" +
-            updateError.message
-        );
-
-        return;
-
-    }
-
-
-    if(
-        !updatedRows ||
-        updatedRows.length === 0
-    ){
-
-        alert(
-            "This job has already been accepted by another provider."
-        );
-
-        await loadAvailableJobs();
-
-        return;
-
-    }
-
-
-    alert(
-        "Job accepted successfully."
-    );
-
-
-    await loadAvailableJobs();
-
-    await loadProviderJobs();
-
-}
-
-
-/* =====================================================
-   PROVIDER JOBS
-===================================================== */
-
-async function loadProviderJobs(){
-
-    const {
-        data:{
-            user
-        }
-    } =
-    await supabaseClient.auth.getUser();
-
-
-    if(!user) return;
-
-
-    const {
-        data:provider,
-        error:providerError
-    } =
-    await supabaseClient
-        .from("providers")
-        .select("id")
-        .eq(
-            "user_id",
-            user.id
-        )
-        .single();
-
-
-    if(providerError){
-
-        console.error(
-            providerError
-        );
-
-        return;
-
-    }
-
-
-    const {
-        data,
-        error
-    } =
-    await supabaseClient
-        .from("service_requests")
-        .select("*")
-        .eq(
-            "provider_id",
-            provider.id
-        )
-        .order(
-            "created_at",
-            {
-                ascending:false
-            }
-        );
-
-
-    const container =
-        document.getElementById(
-            "providerJobs"
-        );
-
-
-    if(error){
-
-        console.error(
-            "PROVIDER JOBS ERROR:",
-            error
-        );
-
-        container.innerHTML =
-            "<p>Could not load your jobs.</p>";
-
-        return;
-
-    }
-
-
-    if(!data || data.length === 0){
-
-        container.innerHTML =
-            "<p class='empty'>You have no accepted jobs.</p>";
-
-        return;
-
-    }
-
-
-    container.innerHTML =
-        data.map(
-            job => `
-
-            <div class="job-card">
-
-                <h3>
-                    ${escapeHTML(
-                        job.service_type
-                    )}
-                </h3>
-
-                <p class="info">
-                    📝 ${escapeHTML(
-                        job.description
-                    )}
-                </p>
-
-                <p class="info">
-                    📍 ${escapeHTML(
-                        job.location
-                    )}
-                </p>
-
-                <p class="info">
-                    📞 ${escapeHTML(
-                        job.phone ||
-                        "No phone provided"
-                    )}
-                </p>
-
-                <p class="price">
-                    ₦${Number(
-                        job.provider_amount ||
-                        0
-                    ).toLocaleString()}
-                </p>
-
-
-                ${
-                    job.status ===
-                    "accepted"
-
-                    ?
-
-                    `
-                    <span class="status accepted">
-                        ✅ ACCEPTED
-                    </span>
-
-                    <br><br>
-
-                    <button
-                        class="btn blue"
-                        onclick="changeJobStatus(
-                            '${job.id}',
-                            'in_progress'
-                        )">
-
-                        Start Job
-
-                    </button>
-                    `
-
-                    :
-
-                    ""
-                }
-
-
-                ${
-                    job.status ===
-                    "in_progress"
-
-                    ?
-
-                    `
-                    <span class="status progress">
-                        🔧 IN PROGRESS
-                    </span>
-
-                    <br><br>
-
-                    <button
-                        class="btn green"
-                        onclick="changeJobStatus(
-                            '${job.id}',
-                            'completed'
-                        )">
-
-                        Complete Job
-
-                    </button>
-                    `
-
-                    :
-
-                    ""
-                }
-
-
-                ${
-                    job.status ===
-                    "completed"
-
-                    ?
-
-                    `
-                    <span class="status completed">
-                        🎉 COMPLETED
-                    </span>
-                    `
-
-                    :
-
-                    ""
-                }
-
-            </div>
-
-        `
-        ).join("");
-
-}
-
-
-/* =====================================================
-   CHANGE JOB STATUS
-===================================================== */
-
-async function changeJobStatus(
-    jobId,
-    status
-){
-
-    try{
-
-        const {
-            data:{
-                user
-            }
-        } =
-        await supabaseClient.auth.getUser();
-
-
-        if(!user){
-
-            alert(
-                "Please login."
-            );
-
-            return;
-
-        }
-
-
-        const {
-            data:provider,
-            error:providerError
-        } =
-        await supabaseClient
-            .from("providers")
-            .select("id")
-            .eq(
-                "user_id",
-                user.id
-            )
-            .single();
-
-
-        if(providerError){
-
-            throw providerError;
-
-        }
-
-
-        const updates = {
-
-            status:status
-
-        };
-
-
-        if(
-            status ===
-            "completed"
-        ){
-
-            updates.completed_at =
-                new Date().toISOString();
-
-        }
-
-
-        const {
-            error
-        } =
-        await supabaseClient
-            .from("service_requests")
-            .update(
-                updates
-            )
-            .eq(
-                "id",
-                jobId
-            )
-            .eq(
-                "provider_id",
-                provider.id
-            );
-
-
-        if(error){
-
-            throw error;
-
-        }
-
-
-        await loadProviderJobs();
-
-        alert(
-            "Job status updated to " +
-            status
-        );
-
-
-    }catch(error){
-
-        console.error(
-            "STATUS UPDATE ERROR:",
-            error
-        );
-
-        alert(
-            "Could not update job status:\n\n" +
-            error.message
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   SERVICE SELECTION
-===================================================== */
-
-function startService(
-    service
-){
-
-    document
-        .getElementById(
-            "serviceType"
-        )
-        .value = service;
-
-
-    openAuth();
-
-}
-
-
-/* =====================================================
-   LOGOUT
-===================================================== */
-
-async function logout(){
-
-    /*
-    Stop customer realtime
-    */
-
-    if(customerRequestChannel){
-
-        await supabaseClient
-            .removeChannel(
-                customerRequestChannel
-            );
-
-        customerRequestChannel =
-            null;
-
-    }
-
-
-    /*
-    Stop provider realtime
-    */
-
-    if(providerRequestChannel){
-
-        await supabaseClient
-            .removeChannel(
-                providerRequestChannel
-            );
-
-        providerRequestChannel =
-            null;
-
-    }
-
-
-    /*
-    Stop customer fallback timer
-    */
-
-    if(customerRefreshTimer){
-
-        clearInterval(
-            customerRefreshTimer
-        );
-
-        customerRefreshTimer =
-            null;
-
-    }
-
-
-    await supabaseClient.auth.signOut();
-
-
-    currentUser = null;
-
-
-    document
-        .getElementById(
-            "customerDashboard"
-        )
-        .classList.remove(
-            "active"
-        );
-
-
-    document
-        .getElementById(
-            "providerDashboard"
-        )
-        .classList.remove(
-            "active"
-        );
-
-
-    document
-        .getElementById(
-            "home"
-        )
-        .classList.remove(
-            "hidden"
-        );
-
-
-    window.scrollTo(
-        0,
-        0
-    );
-
-}
-
-
-/* =====================================================
-   SESSION
-===================================================== */
-
-async function checkSession(){
-
-    const {
-        data
-    } =
-    await supabaseClient
-        .auth
-        .getSession();
-
-
-    if(
-        data &&
-        data.session
-    ){
-
-        currentUser =
-            data.session.user;
-
-
-        await showDashboard(
-            data.session.user.id
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   HTML SECURITY
-===================================================== */
-
-function escapeHTML(
-    value
-){
-
-    if(
-        value === null ||
-        value === undefined
-    ){
-
-        return "";
-
-    }
-
-
-    return String(value)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-/* =====================================================
-   AUTH STATE LISTENER
-===================================================== */
-
-supabaseClient.auth.onAuthStateChange(
-    async (event, session) => {
-
-        console.log(
-            "AUTH EVENT:",
-            event
-        );
-
-
-        if(
-            event === "SIGNED_OUT"
-        ){
-
-            currentUser = null;
-
-            return;
-
-        }
-
-
-        if(
-            session &&
-            !currentUser
-        ){
-
-            currentUser =
-                session.user;
-
-        }
-
-    }
+} =
+await supabaseClient.auth.getUser();
+
+
+if(!user) return;
+
+
+const {data:provider,error:providerError} =
+await supabaseClient
+.from("providers")
+.select(`
+id,
+service_type,
+verification_status,
+is_online,
+is_available
+`)
+.eq(
+"user_id",
+user.id
+)
+.maybeSingle();
+
+
+const container =
+document.getElementById(
+"availableJobs"
 );
 
 
-/* =====================================================
+if(providerError){
+
+console.error(
+"PROVIDER ERROR:",
+providerError
+);
+
+container.innerHTML =
+"<p>Could not load provider information.</p>";
+
+return;
+
+}
+
+
+if(!provider){
+
+container.innerHTML =
+"<p>Provider profile not found.</p>";
+
+return;
+
+}
+
+
+if(provider.verification_status !== "approved"){
+
+container.innerHTML =
+
+`
+
+<div class="warning-box">
+
+Your account must be approved before you can receive jobs.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+/*
+IMPORTANT:
+
+Available jobs are requests
+with no provider yet.
+*/
+
+const {data,error} =
+await supabaseClient
+.from("service_requests")
+.select("*")
+.is(
+"provider_id",
+null
+)
+.eq(
+"status",
+"pending"
+)
+.order(
+"created_at",
+{
+ascending:false
+}
+);
+
+
+if(error){
+
+console.error(
+"AVAILABLE JOBS ERROR:",
+error
+);
+
+container.innerHTML =
+"<p>Could not load jobs.</p>";
+
+return;
+
+}
+
+
+if(!data || data.length === 0){
+
+container.innerHTML =
+"<p>No available jobs right now.</p>";
+
+return;
+
+}
+
+
+container.innerHTML =
+data.map(job => `
+
+<div class="job-card">
+
+<h3>
+${escapeHTML(
+job.service_type
+)}
+</h3>
+
+<p class="info">
+
+📝 ${escapeHTML(
+job.description
+)}
+
+</p>
+
+<p class="info">
+
+📍 ${escapeHTML(
+job.location
+)}
+
+</p>
+
+<p class="info">
+
+📞 ${escapeHTML(
+job.phone ||
+"Not provided"
+)}
+
+</p>
+
+<p class="info">
+
+📅 ${escapeHTML(
+job.preferred_date ||
+"Flexible"
+)}
+
+</p>
+
+<p class="info">
+
+⏰ ${escapeHTML(
+job.preferred_time ||
+"Flexible"
+)}
+
+</p>
+
+<p class="price">
+
+₦${Number(
+job.customer_budget ||
+job.budget ||
+0
+).toLocaleString()}
+
+</p>
+
+<button
+class="btn green"
+onclick="acceptJob('${job.id}')">
+
+Accept Job
+
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =========================================================
+   ACCEPT JOB
+========================================================= */
+
+async function acceptJob(
+jobId
+){
+
+const {
+data:{
+user
+}
+} =
+await supabaseClient.auth.getUser();
+
+
+if(!user){
+
+alert(
+"Please login."
+);
+
+return;
+
+}
+
+
+const {data:provider,error} =
+await supabaseClient
+.from("providers")
+.select("id,verification_status")
+.eq(
+"user_id",
+user.id
+)
+.single();
+
+
+if(error){
+
+alert(
+error.message
+);
+
+return;
+
+}
+
+
+if(provider.verification_status !== "approved"){
+
+alert(
+"Your provider account is not approved."
+);
+
+return;
+
+}
+
+
+const amount =
+prompt(
+"Enter the amount you will charge for this job:"
+);
+
+
+if(amount === null){
+
+return;
+
+}
+
+
+const finalAmount =
+Number(amount);
+
+
+if(
+!finalAmount ||
+finalAmount <= 0
+){
+
+alert(
+"Enter a valid amount."
+);
+
+return;
+
+}
+
+
+/*
+This condition prevents
+two providers from accepting
+the same job.
+*/
+
+const {data,error:updateError} =
+await supabaseClient
+.from("service_requests")
+.update({
+
+provider_id:provider.id,
+
+provider_amount:finalAmount,
+
+status:"accepted",
+
+accepted_at:
+new Date().toISOString()
+
+})
+.eq(
+"id",
+jobId
+)
+.is(
+"provider_id",
+null
+)
+.eq(
+"status",
+"pending"
+)
+.select()
+.single();
+
+
+if(updateError){
+
+console.error(
+"ACCEPT JOB ERROR:",
+updateError
+);
+
+alert(
+"Could not accept job: " +
+updateError.message
+);
+
+return;
+
+}
+
+
+if(!data){
+
+alert(
+"This job has already been accepted by another provider."
+);
+
+await loadAvailableJobs();
+
+return;
+
+}
+
+
+alert(
+"Job accepted successfully."
+);
+
+
+await loadAvailableJobs();
+
+await loadProviderJobs();
+
+}
+
+
+/* =========================================================
+   PROVIDER ACCEPTED JOBS
+========================================================= */
+
+async function loadProviderJobs(){
+
+const {
+data:{
+user
+}
+} =
+await supabaseClient.auth.getUser();
+
+
+if(!user){
+
+return;
+
+}
+
+
+const {data:provider,error:providerError} =
+await supabaseClient
+.from("providers")
+.select("id")
+.eq(
+"user_id",
+user.id
+)
+.maybeSingle();
+
+
+const container =
+document.getElementById(
+"providerJobs"
+);
+
+
+if(providerError){
+
+console.error(
+providerError
+);
+
+container.innerHTML =
+"<p>Could not load provider profile.</p>";
+
+return;
+
+}
+
+
+if(!provider){
+
+container.innerHTML =
+"<p>Provider profile not found.</p>";
+
+return;
+
+}
+
+
+/*
+IMPORTANT:
+
+Only jobs assigned to THIS provider.
+*/
+
+const {data,error} =
+await supabaseClient
+.from("service_requests")
+.select("*")
+.eq(
+"provider_id",
+provider.id
+)
+.order(
+"created_at",
+{
+ascending:false
+}
+);
+
+
+if(error){
+
+console.error(
+"PROVIDER JOBS ERROR:",
+error
+);
+
+container.innerHTML =
+"<p>Could not load your jobs.</p>";
+
+return;
+
+}
+
+
+if(!data || data.length === 0){
+
+container.innerHTML =
+"<p>You have no accepted jobs.</p>";
+
+return;
+
+}
+
+
+container.innerHTML =
+data.map(job => `
+
+<div class="job-card">
+
+<h3>
+${escapeHTML(
+job.service_type
+)}
+</h3>
+
+<p class="info">
+
+📝 ${escapeHTML(
+job.description
+)}
+
+</p>
+
+<p class="info">
+
+📍 ${escapeHTML(
+job.location
+)}
+
+</p>
+
+<p class="info">
+
+📞 ${escapeHTML(
+job.phone ||
+"Not provided"
+)}
+
+</p>
+
+<p class="price">
+
+₦${Number(
+job.provider_amount ||
+0
+).toLocaleString()}
+
+</p>
+
+<span class="status ${escapeHTML(
+job.status
+)}">
+
+${escapeHTML(
+job.status.toUpperCase()
+)}
+
+</span>
+
+
+${
+job.status === "accepted"
+?
+
+`
+
+<button
+class="btn blue"
+onclick="changeJobStatus(
+'${job.id}',
+'in_progress'
+)">
+
+Start Job
+
+</button>
+
+`
+
+:
+
+""
+
+}
+
+
+${
+job.status === "in_progress"
+?
+
+`
+
+<button
+class="btn green"
+onclick="changeJobStatus(
+'${job.id}',
+'completed'
+)">
+
+Complete Job
+
+</button>
+
+`
+
+:
+
+""
+
+}
+
+
+${
+job.status === "completed"
+?
+
+`
+
+<div class="success-box">
+
+✅ Job completed.
+
+</div>
+
+`
+
+:
+
+""
+
+}
+
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =========================================================
+   CHANGE JOB STATUS
+========================================================= */
+
+async function changeJobStatus(
+jobId,
+status
+){
+
+const {
+data:{
+user
+}
+} =
+await supabaseClient.auth.getUser();
+
+
+if(!user){
+
+alert(
+"Please login."
+);
+
+return;
+
+}
+
+
+/*
+Get provider ID.
+*/
+
+const {data:provider,error:providerError} =
+await supabaseClient
+.from("providers")
+.select("id")
+.eq(
+"user_id",
+user.id
+)
+.single();
+
+
+if(providerError){
+
+alert(
+providerError.message
+);
+
+return;
+
+}
+
+
+const updates = {
+
+status:status
+
+};
+
+
+if(status === "completed"){
+
+updates.completed_at =
+new Date().toISOString();
+
+}
+
+
+const {data,error} =
+await supabaseClient
+.from("service_requests")
+.update(updates)
+.eq(
+"id",
+jobId
+)
+.eq(
+"provider_id",
+provider.id
+)
+.select()
+.single();
+
+
+if(error){
+
+console.error(
+"STATUS UPDATE ERROR:",
+error
+);
+
+alert(
+"Could not update job: " +
+error.message
+);
+
+return;
+
+}
+
+
+if(!data){
+
+alert(
+"Job was not updated."
+);
+
+return;
+
+}
+
+
+alert(
+"Job status updated to " +
+status
+);
+
+
+await loadProviderJobs();
+
+}
+
+
+/* =========================================================
+   SERVICE SELECTION
+========================================================= */
+
+function startService(
+service
+){
+
+document
+.getElementById("serviceType")
+.value =
+service;
+
+openAuth();
+
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+async function logout(){
+
+stopAutoRefresh();
+
+await supabaseClient.auth.signOut();
+
+currentUser = null;
+
+
+document
+.getElementById("customerDashboard")
+.classList.remove("active");
+
+document
+.getElementById("providerDashboard")
+.classList.remove("active");
+
+document
+.getElementById("home")
+.classList.remove("hidden");
+
+
+window.scrollTo(
+0,
+0
+);
+
+}
+
+
+/* =========================================================
+   SESSION
+========================================================= */
+
+async function checkSession(){
+
+const {
+data
+} =
+await supabaseClient.auth.getSession();
+
+
+if(data.session){
+
+currentUser =
+data.session.user;
+
+await showDashboard(
+data.session.user.id
+);
+
+}
+
+}
+
+
+/* =========================================================
+   AUTH STATE LISTENER
+========================================================= */
+
+supabaseClient.auth.onAuthStateChange(
+async (event,session)=>{
+
+console.log(
+"AUTH EVENT:",
+event
+);
+
+if(
+session &&
+!currentUser
+){
+
+currentUser =
+session.user;
+
+await showDashboard(
+session.user.id
+);
+
+}
+
+if(!session){
+
+currentUser =
+null;
+
+stopAutoRefresh();
+
+}
+
+});
+
+
+/* =========================================================
+   HTML SECURITY
+========================================================= */
+
+function escapeHTML(
+value
+){
+
+if(
+value === null ||
+value === undefined
+){
+
+return "";
+
+}
+
+return String(value)
+
+.replace(
+/&/g,
+"&amp;"
+)
+
+.replace(
+/</g,
+"&lt;"
+)
+
+.replace(
+/>/g,
+"&gt;"
+)
+
+.replace(
+/"/g,
+"&quot;"
+)
+
+.replace(
+/'/g,
+"&#039;"
+);
+
+}
+
+
+/* =========================================================
    START APPLICATION
-===================================================== */
+========================================================= */
 
 checkSession();
 
